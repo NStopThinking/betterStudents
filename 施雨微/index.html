@@ -50,11 +50,12 @@
               onMessage: function(){
                   this.socket.emit('chat message', this.contentElem.val());
                   this.contentElem.val('');
+                  this.sendMessage();
                   return false;
               },
 
               sendMessage: function(){
-                  this.socket.on('chat message', $.proxy(this.renderHtml(msg), this));
+                  this.socket.on('chat message', $.proxy(this.renderHtml, this));
               },
 
               renderHtml: function(msg){

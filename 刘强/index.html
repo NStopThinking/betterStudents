@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button id="submit">Send</button>
+    </form>
+    <!--连接服务器-->
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<!--<script>
+		$(function () {
+    		var socket = io();
+    		$('form').submit(function() {
+    			socket.emit('chat message', $('#m').val());//emit跟send和render方法一样，触发事件
+    			$('#m').val('');
+    			return false;
+    		});
+    		
+    		socket.on('chat message', function(msg){
+    			$('#messages').append($('<li>').text(msg));
+    		});
+		});
+	</script>-->
+	
+<script type="text/javascript">
+		function Page() {
+			this.socket = io();
+			this.message = $("#messages");
+			this.m = $("#m");
+			this.form = $("form");
+		}
+		
+		$.extend(Page.prototype, {
+			init:function() {
+				this.submit();
+				this.socketOn();
+			},
+			
+			submit: function() {
+				this.form.submit($.proxy(this.formSubmit, this));
+			},
+			
+			formSubmit: function(){
+				var that = this;
+				this.socket.emit("chat message" ,that.m.val());
+				this.m.val("");
+				return false;
+			},
+			
+			socketOn: function() {
+				this.socket.on("chat message", $.proxy(this.append, this));
+			},
+			
+			append: function(msg) {
+				this.message.append($("<li>").text(msg));
+			}
+				
+		})
+		
+		var page = new Page();
+		page.init();
+	</script>
+  </body>
+</html>
+    

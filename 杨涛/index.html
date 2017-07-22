@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" />
+    	<button>Send</button>
+    </form>
+      
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+	//创建的客户端
+	function Page() {
+		this.socket   = io();
+		this.messages = $('#messages');
+		this.m        = $('#m');
+		this.form	  = $('form');
+		
+	}
+	
+	Object.assign(Page. prototype, {
+		init: function() {
+			this.bindEvents();
+		},
+		bindEvents: function() {
+			this.form.on('submit', $.proxy(this.handleSubmit, this));
+			this.socket.on('brodcast', $.proxy(this.handleGetMessage,this));
+		},
+		handleSubmit: function() {
+			this.socket.emit('message', this.m.val());
+			this.m.val('');
+			return false;
+		},
+		
+		handleGetMessage: function(msg) {
+			this.messages.append($('<li>').text(msg));
+		}
+	});
+	
+	var page = new Page();
+	page.init();
+//	  var socket = io();//创建的客户端
+//	  $(function () {
+//	    var socket = io();
+//	   	 $('form').submit(function(){
+//	      	socket.emit('message', $('#m').val());// 客户端给服务器发送的时间是message socket往外触发chat message事件 传值
+//	     	 $('#m').val('');
+//	     	 return false;
+//	      });
+//	      
+//	       socket.on('brodcast', function(msg){
+//		      $('#messages').append($('<li>').text(msg));
+//		  });
+//	  });
+
+	</script>
+  </body>
+</html>

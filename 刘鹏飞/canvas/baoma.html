@@ -19,7 +19,9 @@
 					this.drawExcircle();
 					this.drawFillet();
 					this.drawSector();
-					this.drawText();
+					this.drawText1();
+					this.drawText2();
+					this.drawText3();
 				},
 				drawExcircle:function(){
 					this.ctx.beginPath();
@@ -59,15 +61,35 @@
 					this.ctx.fill();
 					this.ctx.stroke();
 				},
-				drawText:function(){
+				drawText1:function(){
 					this.ctx.save();
-					this.ctx.translate(0,0);
-					this.ctx.font='30px Arial';
+					this.ctx.translate(200,200);
+					this.ctx.font='40px Arial';
 					this.ctx.fillStyle='#fff';
-					this.ctx.fillText('M',190,135);
-					this.ctx.fillText('B',130,155);
-					this.ctx.fillText('W',245,155);
+					this.ctx.rotate(-60*Math.PI / 180 );
+					this.ctx.fillText('B',-10,-64);
 					this.ctx.restore();
+				},
+				drawText2:function(){
+					this.ctx.save();
+					this.ctx.translate(200,200);
+					this.ctx.font='40px Arial';
+					this.ctx.fillStyle='#fff';
+					this.ctx.fillText('M',-10,-64);
+					this.ctx.restore();
+					
+				},
+				drawText3:function(){
+					this.ctx.save();
+					this.ctx.translate(200,200);
+					this.ctx.font='40px Arial';
+					this.ctx.fillStyle='#fff';
+					this.ctx.rotate(60*Math.PI / 180 );
+					this.ctx.fillText('W',-10,-64);
+					this.ctx.restore();
+					this.ctx.beginPath()
+					this.ctx.rotate(0*Math.PI / 180 );
+					this.ctx.fillText('M',-10,-64);
 				}
 			});
 			var page = new Page();

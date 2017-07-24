@@ -15,8 +15,8 @@ Object.assign(Clock.prototype,{
 		this.drawHours();
 		this.drawHoursNum();
         this.drawHourPoint();
-        this.drawMinPoint();
-       	this.drawSePoint();
+        this.drawMinutesPoint();
+       	this.drawSecondsPoint();
 
 	},
 	setInterval:function(){
@@ -28,8 +28,8 @@ Object.assign(Clock.prototype,{
 
 	},
 	getTime:function(){
-		var date=new Date();
-		this.hours=date.getHours()+(date.getMinutes()/60);
+		var date = new Date();
+		this.hours = date.getHours() + (date.getMinutes()/60);
 		if(this.hours>12){
 			this.hours = this.hours - 12;
 		}
@@ -41,16 +41,16 @@ Object.assign(Clock.prototype,{
 		this.ctx.translate(250,250);
 		this.ctx.beginPath();
 		this.ctx.arc(0,0,100,0,Math.PI*2);
-		this.ctx.strokeStyle='#999';
-		this.ctx.fillStyle='#fcffe5';
+		this.ctx.strokeStyle = '#999';
+		this.ctx.fillStyle = '#fcffe5';
 		this.ctx.fill()
 		this.ctx.stroke();
 		this.ctx.restore();
 	},
 	drawCenterPoint:function(){
 		this.ctx.beginPath();
-		this.ctx.arc(250,250,3,0,Math.PI*2);
-		this.ctx.fillStyle='red';
+		this.ctx.arc(250, 250, 3, 0, Math.PI*2);
+		this.ctx.fillStyle = 'red';
 		this.ctx.fill();
 
 	},
@@ -58,11 +58,11 @@ Object.assign(Clock.prototype,{
 		this.ctx.save();
 		this.ctx.translate(250,250);
 		this.ctx.beginPath();
-		for(var i=0;i<60;i++){
+		for(var i = 0;i < 60;i++){
 			this.ctx.beginPath();
-			this.ctx.moveTo(0,-96);
-			this.ctx.lineTo(0,-93);
-			this.ctx.lineWidth=2;
+			this.ctx.moveTo(0, -96);
+			this.ctx.lineTo(0, -93);
+			this.ctx.lineWidth = 2;
 			this.ctx.stroke();
 			this.ctx.rotate(Math.PI/180*6);
 		}
@@ -111,7 +111,7 @@ Object.assign(Clock.prototype,{
 		this.ctx.restore();
 
 	},
-	drawMinPoint:function(){
+	drawMinutesPoint:function(){
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 		this.ctx.beginPath();
@@ -121,7 +121,7 @@ Object.assign(Clock.prototype,{
 		this.ctx.stroke();
 		this.ctx.restore();
 	},
-	drawSePoint:function(){
+	drawSecondsPoint:function(){
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 		this.ctx.beginPath();

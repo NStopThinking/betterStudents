@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas width="500" height= "500" id="canvas"></canvas>
+	<script type="text/javascript">
+	function Page() {
+		this.canvas = document.getElementById('canvas');
+		this.ctx = this.canvas.getContext("2d");
+		console.log(this.canvas);
+	}
+	Object.assign(Page.prototype, {
+		init: function() {
+			this.drawAcr1();
+			this.drawAcr2();
+			this.drawAcr();
+			this.drawAcr4();
+			this.drawText();
+			
+		},
+
+		drawAcr1: function() {
+				this.ctx.beginPath();
+				this.ctx.fillStyle = "black"
+				this.ctx.strokeStyle = "rgba(255, 255, 255, 1)";
+				this.ctx.arc(200, 200, 100, 0, Math.PI*2);
+				this.ctx.strokeText("BMW", 180, 120,);
+				this.ctx.stroke();
+				this.ctx.fill();
+		},
+
+		drawAcr2: function() {
+				this.ctx.beginPath();
+				this.ctx.fillStyle = "white";
+				this.ctx.strokeStyle = "rgba(34, 34, 34, 1)";
+				this.ctx.arc(200, 200, 55, 0, Math.PI*2);
+				this.ctx.stroke();
+				this.ctx.fill();
+		},
+
+		drawAcr: function(){
+			this.ctx.beginPath();
+
+			this.ctx.moveTo(200, 200);
+			this.ctx.lineTo(200,200);
+			this.ctx.fillStyle = "rgb(1,136,225)";
+			this.ctx.arc(200, 200, 55, 0, Math.PI/2);//圆
+			//this.ctx.lineTo(200, 200)
+			this.ctx.closePath();
+			this.ctx.stroke();
+			this.ctx.fill();
+
+		},
+		
+		drawAcr4: function(){
+			this.ctx.beginPath();
+			this.ctx.moveTo(200, 200);
+			this.ctx.lineTo(200,200);
+			this.ctx.fillStyle = "rgb(1,136,225)";
+			this.ctx.arc(200, 200, 55,  Math.PI, Math.PI*1.5);//圆
+			//this.ctx.lineTo(200, 200)
+			this.ctx.closePath();//同上 自动闭合
+			this.ctx.stroke();
+			this.ctx.fill();
+
+		},
+		drawText: function() {
+			this.ctx.font = "30px Arial";
+			this.ctx.fillStyle = "white";
+			//this.ctx.strokeText("hello world", 100, 100);
+			this.ctx.fillText("B", 130, 165);
+			this.ctx.fillText("M", 190, 135);
+			this.ctx.fillText("W", 250, 165);
+		}
+		
+
+
+	});
+	var page =new Page;
+	page.init();
+	</script>
+</body>
+</html>

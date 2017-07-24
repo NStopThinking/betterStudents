@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+</body>
+<script>
+	function Page() {
+	this.canvas=document.getElementById('canvas');
+	this.context=this.canvas.getContext("2d");
+	}
+	Object.assign(Page.prototype,{
+		init:function() {
+			this.drawArc();
+			this.text();
+		},
+		drawArc:function(){
+			this.context.arc(200,200,100,0,Math.PI*2);
+			this.context.fillStyle="block";
+			this.context.fill();
+			this.context.beginPath();
+			this.context.arc(200,200,60,0,Math.PI*2);
+			this.context.fillStyle="white";
+			this.context.fill();
+			this.context.beginPath();
+			this.context.moveTo(200,200);
+			this.context.lineTo(260,200);
+			// this.context.moveTo(200,200);
+			// this.context.lineTo(200,260);
+			this.context.arc(200,200,60,0,Math.PI/2);
+			this.context.fillStyle="blue";
+			this.context.fill();
+			this.context.stroke();
+			// this.context.closePath();
+			this.context.beginPath();
+			this.context.moveTo(200,200);
+			this.context.lineTo(140,200);
+			this.context.arc(200,200,60,Math.PI,Math.PI*1.5);
+			this.context.fillStyle="blue";
+			this.context.fill();
+			// this.context.closePath();
+			this.context.stroke();
+
+		},
+		text:function(){
+			this.context.beginPath();
+			this.context.strokeStyle="white";
+			this.context.strokeText("B M W",180,120);
+			this.context.stroke();
+		}
+	});
+	var page = new Page();
+	page.init();
+</script>
+</html>

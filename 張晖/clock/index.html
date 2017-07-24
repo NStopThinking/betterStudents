@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Clock</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+	<canvas width="500" height="500" id="canvasTwo"></canvas>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="clock.js"></script>
+<script>
+  
+   function Page() {
+   	 this.canvasElem = document.querySelector("#canvas");
+   	 this.canvasElemTwo = document.querySelector("#canvasTwo");
+   };
+
+   $.extend(Page.prototype, {
+        init : function() {
+        	this.canvas = new Clock(this.canvasElem);
+        	this.canvas.init();
+
+        	this.canvasTwo = new Clock(this.canvasElemTwo);
+        	this.canvasTwo.init();
+        },
+   });
+
+   var page = new Page();
+   page.init();
+</script>

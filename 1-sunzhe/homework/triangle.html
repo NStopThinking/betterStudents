@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        .A-href {
+            background: #f5f5f5;
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            color: #000000;
+            text-decoration: none;
+            margin: 5px 0;
+            position: relative;
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .A-href:after {
+            content: "";
+            display: block;
+            width: 0px;
+            border: 5px solid #000087;
+            border-color: transparent transparent transparent #000087;
+            position: absolute;
+            left: 80px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<a href="#" class="A-href">点我</a>
+</body>
+</html>

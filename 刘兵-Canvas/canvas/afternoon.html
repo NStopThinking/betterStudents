@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas width="500" height="500" id="canvas"></canvas>
+		<script type="text/javascript">
+			function Page() {
+				this.canvas = document.getElementById('canvas');
+				this.ctx = this.canvas.getContext('2d');
+			}
+			
+			Object.assign(Page.prototype,{
+				init: function() {
+					//this.shadow();   //阴影
+					//this.linearGradient();  //渐变
+					//this.radialGradient();   //径向渐变
+					  this.clearCanvas();  //清屏
+					  this.getCanvasInfo(); //转化成base64字符串
+				},
+				
+				shadow: function() {
+					this.ctx.shadowColor = 'red';
+					//this.ctx.showBlur = 10;
+				},
+				
+				linearGradient: function() {
+					var gradient = this.ctx.createLinearGradient(0,0,200,200);
+					gradient.addColorStop(0,'red');  //开始颜色
+					gradient.addColorStop(1,'green'); //结束颜色
+					this.ctx.fillStyle = gradient;  //填充色
+					this.ctx.rect(0,0,200,200);
+					this.ctx.fill();
+				},
+				
+				radialGradient: function() {
+					var gradient = this.ctx.createRedialGredient(100,100,0,100,100,100)
+						
+
+				}
+				
+			})
+			
+			var page = new Page();
+			page.init();
+		</script>
+	</body>
+</html>

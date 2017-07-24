@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BMW</title>
+</head>
+<body>
+	<canvas width="800" height="800" id="canvas"></canvas>
+	<script src="BMW.js"></script>
+	<script>
+		function Page() {
+			this.canvasElm = document.getElementById("canvas");
+		}
+		Object.assign(Page.prototype, {
+			init: function() {
+				this.canvas = new Bmw(this.canvasElm);
+				this.canvas.init()
+			}
+		})
+		var page = new Page();
+		page.init()
+	</script>	
+</body>
+</html>

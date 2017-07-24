@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			function Page(){
+				this.canvas = document.getElementById('canvas');
+				this.ctx    = this.canvas.getContext('2d');
+			};
+			
+			Object.assign(Page.prototype, {
+				init: function() {
+					this.drawBigarc();
+					this.drawSmallarc();
+					this.drawSector();
+					this.drawSectors();
+					this.drawFont();
+				},
+				
+				drawBigarc: function() {
+					this.ctx.beginPath();
+					this.ctx.arc(300, 300, 150, 0, Math.PI * 2);
+					this.ctx.fillStyle = '#43f285';
+					this.ctx.fill();
+					
+					this.ctx.stroke();
+				},
+				drawSmallarc: function() {
+					this.ctx.beginPath();
+					this.ctx.arc(300, 300, 100, 0, Math.PI * 2);
+					this.ctx.fillStyle = 'white';
+					this.ctx.fill();
+					this.ctx.stroke();
+				},
+				drawSector: function() {
+					this.ctx.beginPath();
+					this.ctx.moveTo(300, 300);	
+					this.ctx.lineTo(400, 300);
+					this.ctx.arc(300, 300, 100, 0, Math.PI / 2);					
+					this.ctx.fillStyle = '#77f0e3';				
+					this.ctx.fill();	
+					this.ctx.closePath();
+					this.ctx.stroke();
+				},
+				drawSectors: function() {
+					this.ctx.beginPath();
+					this.ctx.moveTo(300, 300);	
+					this.ctx.lineTo(200, 300);
+					this.ctx.arc(300, 300, 100, Math.PI, Math.PI *3 / 2);					
+					this.ctx.fillStyle = '#77f0e3';				
+					this.ctx.fill();	
+					this.ctx.closePath();
+					this.ctx.stroke();
+				},
+				drawFont: function() {
+					this.ctx.beginPath();
+					this.ctx.font = "40px Arial";
+					this.ctx.fillStyle = "yellow";
+					
+					this.ctx.save();
+					this.ctx.translate(288, 288);
+					this.ctx.rotate(-Math.PI / 3);
+					this.ctx.fillText('B', -5, -90);
+					this.ctx.restore();
+					
+					this.ctx.save();
+					this.ctx.translate(300, 300);
+					this.ctx.textAlign = 'center';
+					this.ctx.fillText('M', 0, -105);
+					this.ctx.restore();
+					
+					this.ctx.save();
+					this.ctx.translate(285, 285);
+					this.ctx.rotate(Math.PI / 3);
+					this.ctx.fillText('W', -15, -110);
+					this.ctx.restore();
+					
+				}
+
+			});
+			
+			var page = new Page();
+			page.init();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas1"></canvas>
+    <canvas id="canvas2"></canvas>
+    <canvas id="canvas3"></canvas>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/clock.js"></script>
+    <script src=""></script>
+    <script>
+        var clock = new Clock("#canvas", {})
+
+        var clock1 = new Clock("#canvas1", {
+            size: 200,
+            bgColor: "#9EB0FF",
+            borderColor: "#41B0CC",
+            centerPointColor: "#E8BD3F",
+            hoursPointColor: "#415ACC",
+            minutesPointColor: "#29397F",
+            secondsPointColor: "#28387F"
+        })
+        var clock2 = new Clock("#canvas2", {
+            size: 100,
+            bgColor: "#CCB5FF",
+            fontColor: "#fff",
+            stepColor: "#fff",
+            borderColor: "#B76EFF",
+            centerPointColor: "#CB62FF",
+            hoursPointColor: "#7A61CC",
+            minutesPointColor: "#4C3C7F",
+            secondsPointColor: "#5E547F"
+        })
+        var clock3 = new Clock("#canvas3", {
+            size: 50,
+            bgColor: "#FFF190",
+            fontColor: "#7F752F",
+            stepColor: "#7F773C",
+            borderColor: "#FFE14D",
+            centerPointColor: "#CB62FF",
+            hoursPointColor: "#7A61CC",
+            minutesPointColor: "#4C3C7F",
+            secondsPointColor: "#5E547F"
+        })
+    </script>
+</body>
+
+</html>

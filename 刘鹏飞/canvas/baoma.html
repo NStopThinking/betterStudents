@@ -8,8 +8,8 @@
 		<canvas width="500" height="500" id="canvas"></canvas>
 		<script type="text/javascript">
 			function Page() {
-				this.canvas=document.getElementById('canvas');
-				this.ctx=this.canvas.getContext('2d');
+				this.canvas = document.getElementById('canvas');
+				this.ctx = this.canvas.getContext('2d');
 			}
 			Object.assign(Page.prototype,{
 				init:function () {
@@ -19,77 +19,74 @@
 					this.drawExcircle();
 					this.drawFillet();
 					this.drawSector();
-					this.drawText1();
-					this.drawText2();
-					this.drawText3();
+					this.drawTextB();
+					this.drawTextM();
+					this.drawTextW();
 				},
 				drawExcircle:function(){
 					this.ctx.beginPath();
-					this.ctx.strokeStyle='#939499';
-					this.ctx.lineWidth=5;
-					this.ctx.arc(200,200,100,0,Math.PI*2);
-					this.ctx.fillStyle='black';
+					this.ctx.strokeStyle = '#939499';
+					this.ctx.lineWidth = 5;
+					this.ctx.arc(200, 200, 100, 0, Math.PI*2);
+					this.ctx.fillStyle = 'black';
 					this.ctx.fill();
 					this.ctx.stroke();
 				},
 				drawFillet:function(){
 					this.ctx.beginPath();
-					this.ctx.strokeStyle='#fff';
-					this.ctx.arc(200,200,60,0,Math.PI*2);
-					this.ctx.fillStyle='#fff';
+					this.ctx.strokeStyle = '#fff';
+					this.ctx.arc(200, 200, 60, 0, Math.PI*2);
+					this.ctx.fillStyle = '#fff';
 					this.ctx.fill();
 					this.ctx.stroke();
 				},
 				drawSector:function(){
 					this.ctx.beginPath();
-					this.ctx.strokeStyle='#fff';
-					this.ctx.lineWidth=1;
+					this.ctx.strokeStyle = '#fff';
+					this.ctx.lineWidth = 1;
 					this.ctx.moveTo(200,200);
 					this.ctx.lineTo(200,200);
 					this.ctx.arc(200,200,57,0,Math.PI/2);
 					this.ctx.lineTo(200,200);
-					this.ctx.fillStyle='#4096d1';
+					this.ctx.fillStyle = '#4096d1';
 					this.ctx.fill();
 					this.ctx.stroke();
 
 					this.ctx.beginPath();
-					this.ctx.strokeStyle='#fff';
-					this.ctx.moveTo(200,200);
-					this.ctx.lineTo(143,200);
-					this.ctx.arc(200,200,57,Math.PI,Math.PI*3/2,false);
-					this.ctx.fillStyle='#4096d1';
+					this.ctx.strokeStyle = '#fff';
+					this.ctx.moveTo(200, 200);
+					this.ctx.lineTo(143, 200);
+					this.ctx.arc(200, 200, 57, Math.PI, Math.PI*3/2, false);
+					this.ctx.fillStyle = '#4096d1';
 					this.ctx.fill();
 					this.ctx.stroke();
 				},
-				drawText1:function(){
+				drawTextB:function(){
 					this.ctx.save();
-					this.ctx.translate(200,200);
-					this.ctx.font='40px Arial';
-					this.ctx.fillStyle='#fff';
+					this.ctx.translate(200, 200);
+					this.ctx.font = '40px Arial';
+					this.ctx.fillStyle = '#fff';
 					this.ctx.rotate(-60*Math.PI / 180 );
-					this.ctx.fillText('B',-10,-64);
+					this.ctx.fillText('B', -10, -64);
 					this.ctx.restore();
 				},
-				drawText2:function(){
+				drawTextM:function(){
 					this.ctx.save();
 					this.ctx.translate(200,200);
-					this.ctx.font='40px Arial';
-					this.ctx.fillStyle='#fff';
-					this.ctx.fillText('M',-10,-64);
+					this.ctx.font = '40px Arial';
+					this.ctx.fillStyle = '#fff';
+					this.ctx.fillText('M', -10, -64);
 					this.ctx.restore();
 					
 				},
-				drawText3:function(){
+				drawTextW:function(){
 					this.ctx.save();
-					this.ctx.translate(200,200);
-					this.ctx.font='40px Arial';
-					this.ctx.fillStyle='#fff';
+					this.ctx.translate(200, 200);
+					this.ctx.font = '40px Arial';
+					this.ctx.fillStyle = '#fff';
 					this.ctx.rotate(60*Math.PI / 180 );
-					this.ctx.fillText('W',-10,-64);
+					this.ctx.fillText('W', -10, -64);
 					this.ctx.restore();
-					this.ctx.beginPath()
-					this.ctx.rotate(0*Math.PI / 180 );
-					this.ctx.fillText('M',-10,-64);
 				}
 			});
 			var page = new Page();

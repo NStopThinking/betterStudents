@@ -4,10 +4,7 @@ function inherit(child, parent) {
 	child.superClass_ = parent.prototype;
 	child.prototype = new tempCtor();
 	child.prototype.constructor = child;
-	console.log(child);
-	console.log(parent);
 }
-
 function Canvas(canvas) {
 	this.canvas = canvas;
 }
@@ -128,20 +125,14 @@ Canvas.prototype = {
 }
 
 
-
-
-
 function newCanvas(canvas) {
 	this.canvas = canvas;
 }
-
-
-inherit(newCanvas, Canvas);
-<<<<<<< HEAD
-// newCanvas.prototype =Canvas.prototype;
-=======
->>>>>>> f9a6c44b474e26e99207b240937b8cf3e868dc33
-
+//inherit(newCanvas, Canvas);
+//newCanvas.prototype =Canvas.prototype;//地址的引用，若改变Canvas方法则newCanvas的方法也会改变，因此两个表的秒针都会呈现出蓝色
+for( var i in Canvas.prototype ){
+	newCanvas.prototype[i] = Canvas.prototype[i];
+}
 newCanvas.prototype.drawSecond = function() {
 	this.ctx.save();
 	this.ctx.beginPath();

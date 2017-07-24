@@ -140,7 +140,11 @@ inherit(newCanvas, Canvas);
 <<<<<<< HEAD
 // newCanvas.prototype =Canvas.prototype;
 =======
+<<<<<<< HEAD
+// newCanvas.prototype =Canvas.prototype;
+=======
 >>>>>>> f9a6c44b474e26e99207b240937b8cf3e868dc33
+>>>>>>> 1b555ae950c191fdc890ade2191f40132a431226
 
 newCanvas.prototype.drawSecond = function() {
 	this.ctx.save();

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>baoma</title>
+</head>
+<body>
+    <canvas width="500" height="500" id="canvas"></canvas>
+ 	<script>
+function Page(){
+      this.canvas=document.getElementById("canvas");
+      this.ctx=this.canvas.getContext("2d");
+}
+Object.assign(Page.prototype,{
+      init:function(){
+       this.draw();
+       this.leftDrawArc();
+       this.rightDrawArc();
+       this.signLetter1();
+       this.signLetter2();
+       this.signLetter3();
+       
+      },
+     
+      draw:function(){
+        this.ctx.arc(200,200,100,0,Math.PI*2);
+        this.ctx.fillStyle="#010101";
+        this.ctx.fill();
+        // this.ctx.stroke();
+
+        this.ctx.beginPath();
+        this.ctx.arc(200,200,80,0,Math.PI*2);
+        this.ctx.fillStyle="#fff";
+        this.ctx.fill();
+
+        this.ctx.beginPath();
+        this.ctx.arc(200,200,78,0,Math.PI*2);
+        this.ctx.fillStyle="#fff";
+        this.ctx.fill();
+         this.ctx.stroke();
+      },
+      leftDrawArc:function(){
+        this.ctx.beginPath();
+        this.ctx.moveTo(200,200);
+        this.ctx.lineTo(200,200);
+        
+        this.ctx.arc(200,200,78,Math.PI/1,Math.PI/(2/3));
+        this.ctx.lineTo(200,200);
+        this.ctx.fillStyle="#328bb7";
+        this.ctx.fill();
+        this.ctx.closePath();
+        this.ctx.stroke();
+      },
+      rightDrawArc:function(){
+        this.ctx.beginPath();
+        this.ctx.moveTo(200,200);
+        this.ctx.lineTo(200,200);
+        
+        this.ctx.arc(200,200,78,0,Math.PI/2);
+        this.ctx.lineTo(200,200);
+        this.ctx.fillStyle="#328bb7";
+        this.ctx.fill();
+        this.ctx.closePath();
+        this.ctx.stroke();
+
+      },
+ 	  signLetter1:function(){
+ 		this.ctx.save();
+ 		this.ctx.beginPath();
+ 		this.ctx.font="25px Arial";
+ 		this.ctx.rotate(-Math.PI/180*20);
+ 		this.ctx.fillStyle='#fff';
+ 		this.ctx.fillText('B',50,200);
+ 		this.ctx.restore();
+ 	},
+ 	signLetter2:function(){
+ 		this.ctx.beginPath();
+ 		this.ctx.font="25px Arial";
+ 		this.ctx.fillStyle='#fff';
+ 		this.ctx.fillText('M',190,120);
+ 		this.ctx.restore();
+ 
+ 	},
+ 	signLetter3:function(){
+ 		this.ctx.save();
+ 		this.ctx.beginPath();
+ 		this.ctx.font="25px Arial";
+ 		this.ctx.fillStyle='#fff';
+ 		this.ctx.rotate(Math.PI/180*45);
+ 		this.ctx.fillText('W',300,-75);
+ 		this.ctx.restore();
+ 	},
+ 						
+});
+var page=new Page();
+page.init();
+</script>
+
+
+</body>
+</html>

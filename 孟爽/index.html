@@ -79,6 +79,15 @@
 
               bindEvents: function() {
                   this.socket.on('brodcast', $.proxy(this.getMsg, this));
+              },
+              handleSubmitClick: function() {
+                  var messagValue = this.content.val();
+                  this.socket.emit('message', messagValue);
+                  this.content.val("");
+                  return false;
+              },
+              getMsg: function(msg) {
+                  this.messagesElem.append($('<li>').text(msg));
               }
           })
           var page = new Page();

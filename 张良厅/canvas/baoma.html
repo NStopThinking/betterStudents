@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宝马图标</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+
+	<script>
+
+		function Page(){
+			this.canvas=document.getElementById('canvas');
+			this.ctx=this.canvas.getContext('2d');
+		}
+
+
+		Object.assign(Page.prototype,{
+			init:function(){
+				this.drawArc();
+				this.drawArc1();
+				this.drawTextB();
+				this.drawTextM();
+				this.drawTextW();
+			},
+
+			drawArc:function(){
+				this.ctx.beginPath();
+				this.ctx.arc(200,200,200,0,Math.PI*2);
+				this.ctx.fillStyle="#000";
+				this.ctx.fill();
+				this.ctx.stroke();
+
+
+				this.ctx.beginPath();
+				this.ctx.arc(200,200,140,0,Math.PI*2);
+				this.ctx.fillStyle="#fff";
+				this.ctx.fill();
+				this.ctx.stroke();
+
+
+				this.ctx.beginPath();
+				this.ctx.moveTo(200,200);
+				this.ctx.lineTo(300,200);
+				this.ctx.arc(200,200,140,0,Math.PI/2);
+				this.ctx.fillStyle="blue";
+				this.ctx.fill();
+				this.ctx.closePath();	
+				this.ctx.stroke();
+
+			},
+
+			drawArc1:function(){
+				var deg=Math.PI/180;
+				this.ctx.beginPath();
+				this.ctx.moveTo(200,200);
+				this.ctx.lineTo(300,200);
+				this.ctx.arc(200,200,140,180*deg,270*deg);
+				this.ctx.fillStyle="blue";
+				this.ctx.fill();
+				this.ctx.closePath();
+				this.ctx.stroke();
+
+			},
+
+			drawTextB:function(){
+				//this.ctx.beginPath();	
+				this.ctx.font="bolder 50px arial";
+				this.ctx.fillStyle="#fff";
+				this.ctx.fillText('B',30,140)
+				//this.ctx.closePath();
+				
+			},
+
+			drawTextM:function(){
+				this.ctx.font="bolder 50px arial";
+				this.ctx.fillStyle="#fff";
+				this.ctx.fillText('M',178,50)
+			},
+
+			drawTextW:function(){
+				this.ctx.font="bolder 50px arial";
+				this.ctx.fillStyle="#fff";
+				this.ctx.fillText('W',326,140)
+			},
+		 
+
+		});
+
+		var page=new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

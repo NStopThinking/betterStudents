@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+	<canvas width="500" height="500" id="canvas1"></canvas>
+	<script src="clock.js"></script>
+	<script>
+		function Page() {
+			this.canvasElem = document.querySelector("#canvas");
+			this.canvasElem1 = document.querySelector("#canvas1");
+		}
+		Object.assign(Page.prototype, {
+			init: function() {
+				this.canvas = new Clock(this.canvasElem);
+				this.canvas1 = new Clock(this.canvasElem1);
+				this.canvas.init();
+				this.canvas1.init();
+			}
+		})
+
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

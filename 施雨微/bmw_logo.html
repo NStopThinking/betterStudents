@@ -46,10 +46,12 @@
 			this.ctx.textBaseline = "middle";
 			this.ctx.font = "bold 45px Arial";
 			var str = "BMW";
+			this.ctx.rotate(-Math.PI / 180 * 90);
 			for(var i = 0;i < 3;i ++){
 				this.ctx.beginPath();
-				var x = Math.sin(Math.PI / 180 * 45 * (i - 1)) * 115;
-				var y = -Math.cos(Math.PI / 180 * 45 * (i - 1)) * 115;
+				this.ctx.rotate(Math.PI / 180 * 45);
+				var x = Math.sin(Math.PI / 180  * (i - 1)) * 115;
+				var y = -Math.cos(Math.PI / 180  * (i - 1)) * 115;
 				this.ctx.fillText(str[i], x, y);
 			}
 			this.ctx.stroke();

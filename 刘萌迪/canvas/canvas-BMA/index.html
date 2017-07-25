@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas width="400" height="400" id="canvas" style="background: #000"></canvas>
+	<script>
+		
+		function Page() {
+			this.canvas = document.getElementById("canvas");
+			this.ctx = this.canvas.getContext("2d");
+		}
+
+		Object.assign(Page.prototype, {
+
+			init: function() {
+				this.drawCircle();
+				this.drawRect1();
+				this.drawRect2();
+				this.drawRect3();
+				this.drawRect4();
+				this.drawTextM();
+				this.drawTextB();
+				this.drawTextW();
+			},
+
+			drawCircle: function() {
+				this.ctx.save();
+				this.ctx.beginPath();
+				this.ctx.arc(200, 200, 100, 0, Math.PI*2);
+				this.ctx.closePath();
+				this.ctx.fillStyle = "#231f20";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#bec7ce";
+				this.ctx.lineWidth = 5;
+				this.ctx.stroke();
+
+				this.ctx.beginPath();
+				this.ctx.arc(200, 200, 60, 0, Math.PI*2);
+				this.ctx.closePath();
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "white";
+				this.ctx.lineWidth = 3;
+				this.ctx.stroke();
+				this.ctx.restore();
+			},
+
+			drawRect1: function() {
+				this.ctx.save();
+				this.ctx.translate(200,200);
+				this.ctx.beginPath();
+				this.ctx.moveTo(0, 57);
+				this.ctx.lineTo(0, 0);
+				this.ctx.arc(0, 0, 57, 0, Math.PI/2);
+				this.ctx.closePath();
+				this.ctx.fillStyle = "#4ba6d5";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#000";
+				this.ctx.stroke();
+				this.ctx.restore();
+			},
+
+			drawRect2: function() {
+				this.ctx.save();
+				this.ctx.translate(200,200);
+				this.ctx.beginPath();
+				this.ctx.moveTo(0, -57);
+				this.ctx.lineTo(0, 0);
+				this.ctx.arc(0, 0, 57, Math.PI, Math.PI*1.5);
+				this.ctx.closePath();
+				this.ctx.fillStyle = "#4ba6d5";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#000";
+				this.ctx.stroke();
+				this.ctx.restore();
+			},
+
+			drawRect3: function() {
+				this.ctx.save();
+				this.ctx.translate(200,200);
+				this.ctx.beginPath();
+				this.ctx.moveTo(-57, 0);
+				this.ctx.lineTo(0, 0);
+				this.ctx.arc(0, 0, 57, Math.PI/2, Math.PI);
+				this.ctx.closePath();
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#000";
+				this.ctx.stroke();
+				this.ctx.restore();
+			},
+
+			drawRect4: function() {
+				this.ctx.save();
+				this.ctx.translate(200,200);
+				this.ctx.beginPath();
+				this.ctx.moveTo(57, 0);
+				this.ctx.lineTo(0, 0);
+				this.ctx.arc(0, 0, 57, Math.PI*1.5, Math.PI*2);
+				this.ctx.closePath();
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#000";
+				this.ctx.stroke();
+				this.ctx.restore();
+			},
+
+			drawTextM: function() {
+				this.ctx.save();
+				this.ctx.translate(200, 200);
+				this.ctx.beginPath();
+				this.ctx.textAlign = "center";
+				this.ctx.textBaseline = "middle";
+				this.ctx.font = "38px Arial";
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fillText("M", 0, -78);
+				this.ctx.restore();
+			},
+
+			drawTextB: function() {
+				this.ctx.save();
+				this.ctx.translate(200, 200);
+				this.ctx.beginPath();
+				this.ctx.textAlign = "center";
+				this.ctx.textBaseline = "middle";
+				this.ctx.font = "38px Arial";
+				this.ctx.fillStyle = "#fff";
+				this.ctx.rotate(-45);
+				this.ctx.fillText("B", 0, -78);
+				this.ctx.restore();
+			},
+
+			drawTextW: function() {
+				this.ctx.save();
+				this.ctx.translate(200, 200);
+				this.ctx.beginPath();
+				this.ctx.textAlign = "center";
+				this.ctx.textBaseline = "middle";
+				this.ctx.font = "38px Arial";
+				this.ctx.fillStyle = "#fff";
+				this.ctx.rotate(45);
+				this.ctx.fillText("W", 0, -78);
+				this.ctx.restore();
+			}
+
+		});
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 function inherit(child, parent) {
 	function tempCtor() {};
 	tempCtor.prototype = parent.prototype;
-	child.superClass_ = parent.prototype;
-	child.prototype = new tempCtor();
+	child.superClass_ = parent.prototype;  //保存父类的方法
+	child.prototype = new tempCtor();      
 	child.prototype.constructor = child;
 	console.log(child);
 	console.log(parent);
@@ -137,7 +137,8 @@ function newCanvas(canvas) {
 
 
 inherit(newCanvas, Canvas);
-newCanvas.prototype =Canvas.prototype;
+
+//newCanvas.prototype =Canvas.prototype;
 
 newCanvas.prototype.drawSecond = function() {
 	this.ctx.save();

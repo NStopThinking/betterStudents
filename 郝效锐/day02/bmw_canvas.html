@@ -1,0 +1,114 @@
+e<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BMW</title>
+		
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<img src="img/u=1210902062,289431570&fm=26&gp=0.jpg"/>
+		<script>
+			function Page(){
+				this.canvas = document.getElementById("canvas");
+				this.ctx = this.canvas.getContext("2d");
+			}
+			
+			Object.assign(Page.prototype, {
+				
+				init: function(){
+					this.drawGray();
+					this.drawArc();
+					this.drawArc2();
+					this.drawRight();				
+					this.drawLeft();	
+					this.drawtext();
+				},
+				
+				drawGray: function(){
+					this.ctx.beginPath();		
+					this.ctx.save();
+					this.ctx.arc(200,200,125,0,Math.PI * 2);
+					this.ctx.fillStyle = "#959ca2";
+					this.ctx.fill();							
+					this.ctx.closePath();
+					this.ctx.restore();
+				},
+				
+				drawArc: function(){
+					this.ctx.beginPath();	
+					this.ctx.save();
+					this.ctx.arc(200,200,120,0,Math.PI * 2);
+					this.ctx.fillStyle = "#353132";
+					this.ctx.fill();							
+					this.ctx.closePath();
+					this.ctx.stroke();	
+					this.ctx.restore();
+				},
+				
+				drawArc2: function(){
+					this.ctx.beginPath();					
+					this.ctx.arc(200,200,80,0,Math.PI * 2);
+					this.ctx.fillStyle = "white";
+					this.ctx.fill();								
+					this.ctx.closePath();
+					this.ctx.stroke();						
+				},
+				
+				drawRight: function(){
+					this.ctx.beginPath();	
+					this.ctx.save();
+					this.ctx.moveTo(200,200);
+					this.ctx.lineTo(200,200);
+					this.ctx.arc(200,200,80,0,Math.PI / 2);
+					this.ctx.fillStyle = "#419fd2";
+					this.ctx.fill();	
+					this.ctx.closePath();
+					this.ctx.stroke();	
+					this.ctx.restore();
+				},
+				
+				drawLeft: function(){
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.moveTo(200,200);
+					this.ctx.lineTo(200,200);
+					this.ctx.arc(200,200,80,Math.PI,Math.PI / 180 * 270);
+					this.ctx.fillStyle = "#419fd2";
+					this.ctx.fill();	
+					this.ctx.closePath();
+					this.ctx.stroke();	
+					this.ctx.restore();
+				},
+				
+				drawtext: function(){
+					this.ctx.font = "44px Arial";
+					this.ctx.textAlign = "center";
+					
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.translate(200,200);
+					this.ctx.rotate(-45 * Math.PI /180);
+					this.ctx.strokeColor = "white";
+					this.ctx.fillText("B" , 0 , -85 );
+					this.ctx.restore();
+					
+					this.ctx.beginPath();
+					this.ctx.fillText("M" , 200 , 115 );
+					
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.translate(200,200);
+					this.ctx.rotate(45 * Math.PI / 180 );
+					this.ctx.fillText("W" , 0 , -85);
+					this.ctx.restore();
+					
+				}
+				
+			})
+			
+			var page = new Page;
+			page.init();
+		</script>
+	</body>
+</html>

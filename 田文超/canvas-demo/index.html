@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BMW</title>
+</head>
+<body>
+   <canvas width="500" height="500" id="canvas"></canvas>
+	<script>
+		function Page() {
+			this.canvas = document.getElementById("canvas");
+			this.ctx = this.canvas.getContext("2d");
+		}
+		Object.assign(Page.prototype, {
+			init: function(){
+				this.drawArc();
+				this.drawInnerArc();
+				this.drawRadin();
+				this.drawText();
+				this.drawText1();
+			},
+			drawArc:function() {	
+				this.ctx.arc(200, 200, 100, 0, 2*Math.PI);
+				this.ctx.fillStyle = "black";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#ccc";
+				this.ctx.stroke();
+			},
+			drawInnerArc: function() {
+				this.ctx.beginPath();
+				this.ctx.arc(200, 200, 70, 0, 2*Math.PI);
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fill();
+			},
+			drawRadin: function() {
+				this.ctx.beginPath();
+				this.ctx.moveTo(200, 200);
+				this.ctx.lineTo(270, 200);
+				this.ctx.arc(200, 200, 70, 0, Math.PI/2);
+				this.ctx.fillStyle = "blue";
+				this.ctx.fill();
+
+				this.ctx.beginPath();
+				this.ctx.moveTo(200, 200);
+				this.ctx.lineTo(270, 200);
+				this.ctx.arc(200, 200, 70, Math.PI, Math.PI*3/2 );
+				this.ctx.fillStyle = "blue";		
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#ccc";
+				this.ctx.stroke();
+			},
+			drawText1: function() {
+				this.ctx.save();
+				this.ctx.beginPath();
+				this.ctx.font="30px Arial";
+				this.ctx.fillStyle = "#fff";
+				this.ctx.rotate(Math.PI/-3800 * 500);
+				this.ctx.fillText("B", 70, 192);
+				this.ctx.restore();					
+			},
+			drawText: function() {
+				this.ctx.save();
+				this.ctx.beginPath();
+				this.ctx.font="30px Arial";
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fillText("M", 187, 128);
+				this.ctx.beginPath();
+				this.ctx.font="30px Arial";
+				this.ctx.fillStyle = "#fff";
+				this.ctx.rotate(Math.PI/3000 * 500);
+				this.ctx.fillText("W", 284, 6);
+				this.ctx.restore();		
+
+			}
+		});
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

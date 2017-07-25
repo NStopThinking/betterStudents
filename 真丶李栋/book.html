@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery.js" ></script>
+		<style>
+			body{
+				background: black;
+			}
+			li{
+				list-style: none;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#book{
+				width: 400px;
+				height: 600px;
+				background:#FFFFFF;
+				margin: 0 auto;
+				margin-top: 50px;
+				padding: 10px;
+				box-sizing: border-box;
+				border-radius: 10px;
+			}
+			.htwo{
+				font-size: 20px;
+				color: #666;
+				margin-bottom: 10px;
+			}
+			#paragraph{
+				width: 100%;
+				height: 450px;
+				font-size: 16px;
+				color: #333;
+				overflow: hidden;
+			}
+			
+			#fontSet{
+				display: flex;
+				flex-direction:row;
+				justify-content:space-around;
+			}
+			#fontSet li{
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				background: #999;
+				margin-top: 15px;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+			#colorSet{
+				display: flex;
+				flex-direction:row;
+				justify-content:space-around;
+			}
+			#colorSet li{
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				background: #999;
+				margin-top: 15px;
+				border: 1px solid #333;
+				cursor: pointer;
+				border-radius: 10px;
+			}
+			#colorSet li:nth-of-type(1){
+				background: yellow;
+			}
+			#colorSet li:nth-of-type(2){
+				background: blue;
+			}
+			#colorSet li:nth-of-type(3){
+				background:#b27a4b;
+			}
+			#colorSet li:nth-of-type(4){
+				background: greenyellow;
+			}
+			#colorSet li:nth-of-type(5){
+				background: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="book">
+			<h2 class="htwo">
+				桃花庵歌
+			</h2>
+			<p id="paragraph">
+				桃花坞里桃花庵，桃花庵下桃花仙。
+				桃花仙人种桃树，又折花枝当酒钱。
+				酒醒只在花前坐，酒醉还须花下眠。
+				花前花后日复日，酒醉酒醒年复年。
+				不愿鞠躬车马前，但愿老死花酒间。
+				车尘马足贵者趣，酒盏花枝贫者缘。
+				若将富贵比贫贱，一在平地一在天。
+				若将贫贱比车马，他得驱驰我得闲。
+				世人笑我忒疯癫，我笑世人看不穿。
+				记得五陵豪杰墓，无酒无花锄作田。
+				桃花坞里桃花庵，桃花庵下桃花仙。
+				桃花仙人种桃树，又摘桃花换酒钱。
+				酒醒只在花前坐，酒醉还来花下眠。
+				半醒半醉日复日，花落花开年复年。
+				但愿老死花酒间，不愿鞠躬车马前。
+				车尘马足富者趣，酒盏花枝贫者缘。
+				若将富贵比贫贱，一在平地一在天。
+				若将贫贱比车马，他得驱驰我得闲。
+				别人笑我太疯癫，我笑他人看不穿。
+				不见五陵豪杰墓，无花无酒锄作田。
+				桃花坞里桃花庵，桃花庵下桃花仙。
+				桃花仙人种桃树，又摘桃花卖酒钱。
+				但愿老死花酒间，不愿鞠躬车马前。
+				车尘马足富者趣，酒盏花枝贫者缘。
+				若将富贵比贫贱，一在平地一在天。
+				若将花酒比车马，他得驱驰我得闲。
+				别人笑我忒疯癫，我笑别人看不穿。
+				不见五陵豪杰墓，无花无酒锄作田。
+				别人笑我忒疯癫，我笑别人看不穿。
+				不见五陵豪杰墓，无花无酒锄作田。
+			</p>
+			<ul id="fontSet">
+				<li class="fontLi" id="fontAdd">A+</li>
+				<li class="fontLi" id="fontNow">16 </li>
+				<li class="fontLi" id="fontInc">A- </li>
+			</ul>
+			<ol id="colorSet"> 
+				<li class="colorLi"></li>
+				<li class="colorLi"></li>
+				<li class="colorLi"></li>
+				<li class="colorLi"></li>
+				<li class="colorLi"></li>
+			</ol>
+		</div>
+	</body>
+</html>
+<script>
+$(function() {
+
+    function Page() {
+    	this.bookColorElem = $("#book");
+        this.paragraphElem = $("#paragraph");
+        this.fontSetElem = $("#fontSet");
+        this.colorSetElem = $("#colorSet");
+        this.fontSizeShow = $("#fontNow");
+        this.step = 2;
+    }
+
+    $.extend(Page.prototype, {
+
+        init: function() {
+            this.bindEvents();
+        },
+
+        bindEvents: function() {
+            this.readyLoad();
+            this.fontSetElem.on("click", $.proxy(this.handleFontSizerSet, this))
+            this.colorSetElem.on("click", $.proxy(this.handleColorSet, this))
+        },
+
+        handleFontSizerSet: function(e) {
+            var fontSize = this.paragraphElem.css("font-size");
+            fontSize = parseInt(fontSize);
+            if ($(e.target).attr("id") == "fontAdd") {
+                fontSize += this.step;
+                if (fontSize > 30) {
+                    fontSize = 30;
+                    alert("字体过大不易阅读！")
+                }
+                this.paragraphElem.css("font-size", fontSize + "px");
+                this.fontSizeShow.text(fontSize)
+            } else if ($(e.target).attr("id") == "fontInc") {
+                fontSize -= this.step;
+                this.paragraphElem.css("font-size", fontSize + "px");
+                this.fontSizeShow.text(fontSize)
+            }
+            try {
+                localStorage.fontsize = fontSize;
+            } catch (error) {}
+        },
+
+        handleColorSet: function(e) {
+            if ($(e.target).attr("class") == "colorLi") {
+                var pColor = $(e.target).css("background-color");
+                this.paragraphElem.css("background", pColor);
+                try {
+                    localStorage.color = pColor;
+                } catch (error) {}
+            }
+        },
+        
+        
+        readyLoad: function() {
+            try {
+                localStorage.color && this.paragraphElem.css("background", localStorage.color);
+                localStorage.fontsize && this.paragraphElem.css("font-size", localStorage.fontsize + "px");
+                localStorage.fontsize && this.fontSizeShow.text(localStorage.fontsize)
+            } catch (error) {}
+        }
+
+    })
+
+    var page = new Page().init();
+})
+</script>

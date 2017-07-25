@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+#bookBox {
+  width: 350px;
+  margin: 50px auto;
+}
+#bookBox #paragraph {
+  width: 350px;
+  height: 400px;
+  font-size: 14px;
+  color: black;
+  background: white;
+  overflow: auto;
+}
+#bookBox #fontSet {
+  background: #333;
+  width: 350px;
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px dashed #666;
+}
+#bookBox #fontSet .fontLi {
+  padding: 8px 15px;
+  color: white;
+  background: grey;
+  border-radius: 5px;
+}
+#bookBox #colorSet {
+  background: #333;
+  width: 350px;
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+#bookBox #colorSet .colorLi {
+  width: 30px;
+  height: 30px;
+  background: lawngreen;
+}
+#bookBox #colorSet li:nth-child(2) {
+  background: navajowhite;
+}
+#bookBox #colorSet li:nth-child(3) {
+  background: aqua;
+}
+#bookBox #colorSet li:nth-child(4) {
+  background: mediumpurple;
+}
+#bookBox #colorSet li:nth-child(5) {
+  background: teal;
+}

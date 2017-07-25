@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: #615A5A;
+			}
+			#canvas{
+				display: block;
+				margin: 0 auto;
+				/*background: mistyrose;*/
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script src="jquery-1.8.3.js"></script>
+		<script src="dial.js"></script>
+		<script type="text/javascript">
+			function Page(){
+				this.canvasElem = document.querySelector("#canvas");
+			}
+			
+			Object.assign(Page.prototype, {
+				init: function() {
+					this.canvas = new Dial(this.canvasElem);
+					this.canvas.init();
+				}
+			});
+			
+			var page = new Page();
+			page.init();
+		</script>
+	</body>
+</html>

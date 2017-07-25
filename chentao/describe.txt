@@ -1,3 +1,5 @@
 更改提交的socket-io
 提交clock时钟
 提交BMW
+book		：电子书
+turnTable	：转盘	（旋转未实现）

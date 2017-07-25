@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<canvas width="500" height="500" id="canvas"></canvas>
+		<script>
+			function Page() {
+			     this.canvas = document.getElementById("canvas");
+			     this.ctx = this.canvas.getContext("2d");
+			}
+			Object.assign(Page.prototype, {
+				init: function() {
+				   
+				  this.lineDrow();
+				  this.drawPannel();
+				  this.drawText()
+				},
+				
+	          
+	           
+				lineDrow:function() {
+	    			this.ctx.beginPath();
+		   			this.ctx.moveTo(250, 250)
+	    			this.ctx.arc(250, 250, 180, 0, Math.PI/3)	    			
+	    			this.ctx.fillStyle = 'blue'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(250, 250)	    			   			
+			        this.ctx.arc(250, 250, 180, Math.PI/3, (Math.PI/3)*2);	  
+	    			this.ctx.fillStyle = 'pink'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(250, 250)	    			   			
+			        this.ctx.arc(250, 250, 180, Math.PI/3*2, Math.PI);	  
+	    			this.ctx.fillStyle = 'green'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(250, 250)	    			   			
+			        this.ctx.arc(250, 250, 180, Math.PI, (Math.PI/3)*4);	  
+	    			this.ctx.fillStyle = 'yellow'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(250, 250)	    			   			
+			        this.ctx.arc(250, 250, 180, (Math.PI/3)*4, Math.PI/3*5);	  
+	    			this.ctx.fillStyle = 'purple'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(250, 250)	    			   			
+			        this.ctx.arc(250, 250, 180, (Math.PI/3)*5, Math.PI*2);	  
+	    			this.ctx.fillStyle = 'red'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    	},
+	    	drawPannel: function() {
+		            
+		             this.ctx.beginPath();
+		            this.ctx.lineTo(250,170);
+		           
+		            this.ctx.arc(250, 250, 50, Math.PI*1.6, Math.PI*1.4);
+		            this.ctx.strokeStyle = '#999';
+		            this.ctx.fillStyle = "#eee";
+		            this.ctx.fill();
+		            this.ctx.stroke();
+		           
+	          },
+	          
+	           drawText: function() {
+				   this.ctx.font = "15px Arial";
+				   this.ctx.fillStyle = "#dd44f7";
+				   this.ctx.fillText("送美人一个", 110, 150);
+				   this.ctx.fillText("iPhone", 185, 115);
+				   this.ctx.fillText("联想", 340, 150);
+				   this.ctx.fillText("华为", 110, 350);
+				   this.ctx.fillText("vivo", 250, 350);
+				   this.ctx.fillText("帅哥一枚", 320, 350);
+			     },
+			})	
+			var page = new Page();
+		        page.init();
+
+		
+		</script>
+	</body>
+</html>

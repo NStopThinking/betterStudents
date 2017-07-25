@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		body,html,p,ul,li,ol,dl,dt,dd,fieldset,legend,h1,h2,h3,h4,h5,h6,figure,article{margin:0;padding:0;}
+		ul,li,ol{list-style:none;}
+		img{border:none;vertical-align:middle;}
+		.clear{width:0;height:0;overflow:hidden;clear:both;}
+		a{text-decoration: none;color:#333;}
+			#box {
+				width: 400px;
+				margin:20px auto;
+			}
+			#article {
+				width: 400px;
+				height: 500px;
+				background: lightyellow;
+				overflow: hidden;
+			}
+			#install {
+				width: 400px;
+				height: 75px;				
+				background: black;
+				color: white;
+				
+			}
+			#install .size {
+				width: 400px;
+				height: 30px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				padding: 5px 0;
+				
+			}
+			.sizes {
+				width:20px;
+				line-height: 20px;
+				float: left;
+				text-align: center;
+				background: white;
+				color: black;
+				border: 1px solid gray;
+				
+			}
+			.color {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				margin: 5px 0;
+			}
+			.color span {
+				float: left;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;				
+			}
+			#pink {
+				background: pink;
+			}
+			#yellow {
+				background: yellow;
+			}
+			#grey {
+				background: grey;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="article">
+				西、南、北三脉修士，加起来六七百人，还有通天岛侍卫数百，此刻大都飞出，直奔石门而去。 
+
+        星空道极宗的众人，也都相互看了看后，一个个深吸口气，飞向石门，张大胖迟疑了一下，向着白小纯点了点头，同样飞出。 
+
+        眼看宋缺，赵天骄，白麟等人都冲入石门里，白小纯也目中露出果断，身体一晃直奔石门，可就在他到了石门外，要踏入时，通天岛的侍卫中的七八人，也同时到来。 
+
+        这七八人里，侯小妹竟也在其中。 
+
+        “小纯哥哥，你要加油哦。”侯小妹笑眯眯的低声开口，与白小纯一起，走入石门内，白小纯一愣，他之前虽也注意到了侯小妹在四周的侍卫里，可却没想到，这一次的试炼之地，侯小妹居然也会进入。 
+
+        实在是侯小妹的修为只是结丹，进入那试炼之地，在白小纯看来很是危险。 
+
+        “你怎么也来了，进去后跟着我，这里面一定很危险。”白小纯有些焦急，赶紧开口。 
+
+        “好啊，有小纯哥哥保护我，那就太好了。”侯小妹眨了眨眼，掩口一笑，这原本只是寻常的话语，可此刻白小纯靠近侯小妹，却隐隐觉得有些不对劲，他感受到侯小妹身上，居然传出一些让他很不舒服甚至阴冷的气息。 
+
+        他还没来得及仔细思索，随着踏入石门，顿时石门内的寒气就立刻大范围的扩散，冲淡了白小纯在侯小妹身上察觉到的阴冷气息，让他一时之间，有些分不清，侯小妹身上的阴寒，是其自身散出，还是这石门造成，可心中却在这一瞬，有了警惕。 
+
+        而八方所见，更是一片模糊，更有一股惊人的传送力，骤然运转，根本就不给众人适应的时间，顿时石门内的传送阵，就直接开启，一时之间，隆隆之声强烈无比，好似雷鸣般，就在白小纯以及他四周的众人耳中，直接爆开。 
+
+        随着巨响撼天动地，更有一股强烈的撕裂感，从这四周虚无内，蓦然传出，如同吸力与斥力的爆，白小纯全身一震，眼前顿时就花了。 
+
+        甚至这传送之力太过强悍，以至于这撕裂的感觉，足足持续了有数十息的时间，才慢慢消散，当完全消失时，白小纯只觉得有一股大力，似冲击在自己身上，刹那间，他就好似被直接推了出去般，天地都在逆转，眼前再次一花…… 
+			</div>
+			<div id="install">
+				<div class="size">
+					<div class="sizes" id="sizeBig">A+</div>
+					<div class="sizes" id="fontSize">12</div>
+					<div class="sizes" id="sizeSmall">A-</div>
+				</div>
+				<div class="color">
+					<span id="pink"></span>	
+					<span id="yellow"></span>	
+					<span id="grey"></span>	
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+	function Page() {
+		this.article 	  = $('#article');
+		this.fontSize	  = $('#fontSize');
+		this.a   		  = this.fontSize.text();
+		this.sizeBig 	  = $('#sizeBig');
+		this.sizeSmall 	  = $('#sizeSmall');
+		this.pink		  = $('#pink');
+		this.grey		  = $('#grey');
+		this.yellow  	  = $('#yellow');
+		this.color;
+	}
+	$.extend(Page.prototype, {
+		init: function() {
+			this.bindEvents();
+	 		
+	 		if(parseInt(window.localStorage.a) !== 12 ){
+	 			this.a =parseInt( window.localStorage.a);
+				this.article.css("fontSize",this.a);
+				this.fontSize.text(this.a);
+	 		}else {
+	 			this.a = 12;
+				this.article.css("fontSize",this.a);
+				this.fontSize.text(this.a);
+	 		};
+	 		
+	 		try{
+				this.article.css({"background":window.localStorage.color});
+			}catch(e){
+
+			};
+		},
+		
+		bindEvents: function() {
+			this.sizeBig.on('click', $.proxy(this.fontBigger, this));
+			this.sizeSmall.on('click', $.proxy(this.fontSamller, this));
+			this.pink.on('click', $.proxy(this.pinkColor, this));
+			this.yellow.on('click', $.proxy(this.yellowColor, this));
+			this.grey.on('click', $.proxy(this.greyColor, this));
+		},
+		fontBigger: function() {
+			this.a++;			
+			this.article.css("fontSize",this.a);
+			this.fontSize.text(this.a);
+			try{
+				window.localStorage.a = this.a;
+			}catch(e){
+				
+			}
+			
+		},
+		fontSamller: function() {
+			this.a--;			
+			this.article.css("fontSize",this.a);
+			this.fontSize.text(this.a);
+			try{
+				window.localStorage.a = this.a;
+			}catch(e){
+				
+			}
+		},
+		pinkColor: function(e) {
+			this.color = $(e.target).css("background");
+			this.article.css({"background":this.color});
+			try{
+				window.localStorage.color = this.color;
+			}catch(e) {
+				
+			};
+		},
+		yellowColor: function(e) {
+			this.color = $(e.target).css("background");
+			this.article.css({"background":this.color});
+			try{
+				window.localStorage.color = this.color;
+			}catch(e) {
+				
+			};
+		},
+		greyColor: function(e) {
+			this.color = $(e.target).css("background");
+			this.article.css({"background":this.color});
+			try{
+				window.localStorage.color = this.color;
+			}catch(e) {
+				
+			};
+		},
+	});
+	var page = new Page();
+	page.init();
+</script>

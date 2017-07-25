@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"></canvas>
+	<script>
+
+		function Page() {
+			this.canvas = document.getElementById("canvas");
+			this.ctx = this.canvas.getContext("2d");
+		}
+
+		Object.assign(Page.prototype, {
+
+			init: function() {
+		
+				this.drawArc1();
+				this.drawArc2();
+				this.drawArc3();
+				this.drawArc4();
+				this.drawArc5();
+				this.drawArc6();
+				this.drawText();
+				this.drawText1();
+				this.drawText2();
+
+			},
+
+			drawArc1: function() {
+
+				this.ctx.beginPath();
+				this.ctx.arc(300, 300, 200, 0, Math.PI * 2);
+				this.ctx.fillStyle = "#000";
+				this.ctx.fill();
+				this.ctx.strokeStyle = "#ccc";
+				this.ctx.lineWidth = 10;
+				this.ctx.stroke();
+				this.ctx.closePath();
+
+			},
+
+			drawArc2: function() {
+
+				this.ctx.beginPath();
+				this.ctx.lineWidth = 3;
+				this.ctx.strokeStyle = "#fff";
+				this.ctx.arc(300, 300, 120, 0, Math.PI * 2);
+				this.ctx.stroke();
+
+			},
+
+			drawArc3: function() {
+
+				this.ctx.beginPath();
+				this.ctx.lineWidth = 3;
+				this.ctx.moveTo(300, 420);
+				this.ctx.lineTo(300, 300)
+				this.ctx.strokeStyle = "#000";
+				this.ctx.arc(300, 300, 118, 0, Math.PI / 2);
+				this.ctx.fillStyle = "#4682B4";
+				this.ctx.fill();
+				this.ctx.stroke();
+				this.ctx.closePath();
+
+			},
+
+			drawArc4: function() {
+
+				var deg = Math.PI/180;
+				this.ctx.beginPath();
+				this.ctx.lineWidth = 3;
+				this.ctx.moveTo(300, 180);
+				this.ctx.lineTo(300, 300)
+				this.ctx.strokeStyle = "#000";
+				this.ctx.arc(300, 300, 118, Math.PI, Math.PI * 1.5);
+				this.ctx.fillStyle = "#4682B4";
+				this.ctx.fill();
+				this.ctx.stroke();
+				this.ctx.closePath();
+
+			},
+
+			drawArc5: function() {
+
+				var deg = Math.PI/180;
+				this.ctx.beginPath();
+				this.ctx.lineWidth = 3;
+				this.ctx.moveTo(180, 300);
+				this.ctx.lineTo(300, 300)
+				this.ctx.strokeStyle = "#000";
+				this.ctx.arc(300, 300, 118, Math.PI / 2, Math.PI);
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fill();
+				this.ctx.stroke();
+				this.ctx.closePath();
+
+			},
+
+			drawArc6: function() {
+
+				var deg = Math.PI/180;
+				this.ctx.beginPath();
+				this.ctx.lineWidth = 3;
+				this.ctx.moveTo(420, 300);
+				this.ctx.lineTo(300, 300)
+				this.ctx.strokeStyle = "#000";
+				this.ctx.arc(300, 300, 118, Math.PI * 1.5, Math.PI * 2);
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fill();
+				this.ctx.stroke();
+				this.ctx.closePath();
+
+			},
+
+			drawText: function() {
+
+				this.ctx.font = "70px Arial"
+				this.ctx.fillStyle = "#ccc";
+				this.ctx.textBaseline = "ideographic";
+				this.ctx.fillText("B", 180, 220);
+				this.ctx.stroke();
+
+			},
+
+			drawText1: function() {
+
+				this.ctx.font = "70px Arial"
+				this.ctx.fillStyle = "#ccc";
+				this.ctx.textBaseline = "ideographic";
+				this.ctx.fillText("M", 275, 180);
+				this.ctx.stroke();
+
+			},
+
+			drawText2: function() {
+
+				this.ctx.font = "65px Arial"
+				this.ctx.fillStyle = "#ccc";
+				this.ctx.textBaseline = "ideographic";
+				this.ctx.fillText("W", 370, 223);
+				this.ctx.stroke();
+
+			}
+
+		});
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,4 +28,35 @@
 
 	</script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+	
+	<script src="clock.js"></script>
+	<script>
+		function Page() {
+			this.canvas1 = document.querySelector("#canvas");
+			
+		}
+
+		Object.assign(Page.prototype, {
+			init: function(){
+				this.canvas = new Clock(this.canvas1);
+				this.canvas.init();
+			;
+			}
+		})
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+>>>>>>> 397cbca8794a1a417f3592690b83d1a39c492b68
 </html>

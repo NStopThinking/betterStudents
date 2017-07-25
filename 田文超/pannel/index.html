@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.mmd{
+			width: 500px;
+			height: 500px;
+			position: relative;
+		}
+		#btn{
+			display: block;
+			line-height: 60px;
+			text-align: center;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background: red;
+			position: absolute;
+			top:170px;
+			left: 170px;
+		}
+		a{
+			color: black;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="mmd">
+		<canvas width="500" height="500" id="canvas"></canvas>
+		<a id="btn" href="javascript:;">抽奖</a>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+
+	<script type="text/javascript" src="pannel.js">
+	</script>
+	<script>
+		function Page() {
+			this.canvasElem = document.querySelector("#canvas");
+		}
+		Object.assign(Page.prototype, {
+			init: function() {
+				this.canvas = new Pannel(this.canvasElem);
+				this.canvas.init();
+			}
+		});
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>
+

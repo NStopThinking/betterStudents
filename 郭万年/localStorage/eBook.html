@@ -79,6 +79,7 @@
 			}
 			.txt{
 				font-size:20px;
+				float: left;
 			}
 			
 		</style>
@@ -89,7 +90,7 @@
 				<div class="titleCon">
 					<p class="title">斗破苍穹</p>
 				</div>
-				<div class="content">
+				<div class="content" id="content">
 					<div >
 						<p id="txt" class="txt">“斗之力，三段！”
 
@@ -136,12 +137,13 @@
 				</div>
 			</div>
 		</div>
-		<script src="https://cdn.bootcss.com/jquery/3.2.0/core.js"></script>
+		<script src="jquery-1.11.3.js"></script>
 		<script>
 			function Page() {
 				this.txt = $("#txt");
 				this.btn = $("button");
 				this.lis = $("li");
+				this.content = $("#content");
 				this.color = "white";
 				this.sizeshow = $("#size")
 				this.size = localStorage.size || 20;
@@ -154,11 +156,11 @@
 				},
 				
 				localStorageset: function() {
-					this.txt.css({
-							fontSize:localStorage.size + 'px',
-							background:localStorage.color
-						})
-					this.sizeshow.html(localStorage.size)
+					try{
+						this.txt.css({fontSize:localStorage.size + 'px'})
+						this.content.css({background:localStorage.color})
+						this.sizeshow.html(localStorage.size)
+					}catch(e){}
 				},
 				
 				bindEvents: function() {
@@ -168,14 +170,17 @@
 				
 				handlelisClick: function(e) {
 					this.color = $(e.target).css("backgroundColor");
-					this.txt.css({background:this.color})
-					localStorage.color = this.color;
+					this.content.css({background:this.color})
+					try{
+						localStorage.color = this.color;
+					}catch(e){}
 				},
 				
 				handleBtnClick: function(e) {
 					var opera = $(e.target).html();
 					if(opera == '-'){
 						this.size --;
+						this.size = this.size < 12 ? 12 : this.size;
 						this.txt.css({fontSize:this.size})
 					}
 					if(opera == '+'){
@@ -184,7 +189,9 @@
 					}
 					
 					this.sizeshow.html(this.size)
-					localStorage.size = this.size;
+					try{
+						localStorage.size = this.size;
+					}catch(e){}
 				}
 			});
 			

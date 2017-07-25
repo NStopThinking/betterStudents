@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印宝马图标</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas" style="border:1px solid #000;"></canvas>
+	<script>
+		function Page() {
+
+			this.canvas = document.getElementById("canvas");
+			this.ctx = this.canvas.getContext("2d");
+
+		}
+
+		Object.assign(Page.prototype, {
+
+			init: function() {
+
+				//this.drawImage();
+				this.drawBigCircle();//大圆
+				this.drawsmallCircle();//小圆
+				this.drawArc();//扇形函数
+				this.drawArc2();//扇形2函数
+				this.textBaseline();//设置文字
+
+			},
+
+			drawImage: function() {
+
+				var image = new Image(),
+				this_ = this;
+				Image.onload = function() {
+					this_.ctx.drawImage(image, 0, 0, 200, 200, 0, 0, 400, 400);
+				}
+				image.src = "1.jpg";
+
+			},
+
+			drawBigCircle: function() {
+
+				this.ctx.beginPath();
+				this.ctx.arc(250, 250, 200, 0, Math.PI*2);
+				this.ctx.fillStyle = "rgba(0, 0, 0, 1)";
+				this.ctx.fill();
+				this.ctx.stroke();
+
+			},
+
+			drawsmallCircle: function() {
+
+				this.ctx.beginPath();
+				this.ctx.arc(250, 250, 120, 0, Math.PI*2);
+				this.ctx.fillStyle = "white";
+				this.ctx.fill();
+				this.ctx.stroke();
+
+			},
+
+			drawArc: function() {
+				this.ctx.beginPath();				
+				this.ctx.moveTo(250,250);
+				this.ctx.lineTo(350,250);
+				this.ctx.arc(250, 250, 100, 0, Math.PI/2);
+				this.ctx.fillStyle = "blue";
+				this.ctx.fill();
+				this.ctx.closePath();
+				this.ctx.stroke();
+			},
+
+			drawArc2: function() {
+				
+				this.ctx.beginPath();
+				this.ctx.moveTo(250,250);
+				this.ctx.lineTo(150,250);
+				this.ctx.arc(250, 250, 100, Math.PI, Math.PI / 180*270);
+				this.ctx.fillStyle = "blue";
+				this.ctx.fill();
+				//this.ctx.lineTo(250,250);
+				this.ctx.closePath();
+				this.ctx.stroke();
+			},
+
+			textBaseline: function() {	
+
+				this.ctx.beginPath();	
+				this.ctx.save();		
+				this.ctx.textBaseline = "";
+				this.ctx.strokeStyle = "white";
+				this.ctx.font = "60px Arial";
+				this.ctx.strokeText("BOM", 190, 120);
+
+			},
+		});
+
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

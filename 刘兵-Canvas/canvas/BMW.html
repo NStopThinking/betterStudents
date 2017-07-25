@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BMW图标</title>
+		<style type="text/css">
+			canvas {
+				background: #ccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas width="600" height="600" id="canvas"></canvas>
+		<script type="text/javascript">
+			function Page() {
+				this.canvas = document.getElementById('canvas');
+				this.ctx = this.canvas.getContext('2d');
+			}
+
+			Object.assign(Page.prototype, {
+				init: function() {
+					this.drawArcBig();
+					this.drawText();
+					this.drawArcMiddle();
+					this.drawArcSmallT();
+					this.drawArcSmallV();
+				},
+
+				drawArcBig: function() {
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.arc(300, 300, 200, 0, Math.PI * 2);
+					this.ctx.fillStyle = '#000';
+					this.ctx.strokeStyle = '#f6f4f7';
+					this.ctx.lineWidth = 5;
+					this.ctx.fill();
+					this.ctx.stroke();
+					this.ctx.closePath();
+					this.ctx.restore();
+				},
+
+				drawText: function() {
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.font = '60px Arial';
+					this.ctx.fillStyle = '#f6f4f7';
+					this.ctx.fill();
+					this.ctx.fillText('BMW', 235, 165);
+					this.ctx.restore(); 
+				},
+
+				drawArcMiddle: function() {
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.arc(300, 300, 130, 0, Math.PI * 2);
+					this.ctx.stroke();
+					this.ctx.fillStyle = '#fff';
+					this.ctx.strokeStyle = '#f6f4f7';
+					this.ctx.lineWidth = 5;
+					this.ctx.fill();
+					this.ctx.closePath();
+					this.ctx.stroke();
+					this.ctx.restore();
+				},
+
+				drawArcSmallT: function() {
+					this.ctx.beginPath();
+					this.ctx.moveTo(300, 300);
+					this.ctx.lineTo(400, 300);
+					this.ctx.arc(300, 300, 130, 0, Math.PI / 2);
+					this.ctx.fillStyle = 'blue';
+					this.ctx.strokeStyle = '#666';
+					this.ctx.fill();
+					this.ctx.stroke();
+					this.ctx.closePath();
+				},
+
+				drawArcSmallV: function() {
+					this.ctx.beginPath();
+					this.ctx.moveTo(300, 300);
+					this.ctx.lineTo(200, 300);
+					this.ctx.arc(300, 300, 130, Math.PI, Math.PI / 180 * 270);
+					this.ctx.fillStyle = 'blue';
+					this.ctx.fill();
+					this.ctx.stroke();
+					this.ctx.closePath();
+
+				},
+
+			});
+
+			var page = new Page();
+			page.init();
+		</script>
+	</body>
+
+</html>

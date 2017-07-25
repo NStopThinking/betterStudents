@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas width="600" height="600" id="canvas"></canvas>
+	</body>
+
+</html>
+<script>
+	function Page() {
+		this.canvas = document.getElementById("canvas");
+		this.ctx = this.canvas.getContext("2d");
+		this.color = ["#D14278", "#953FAE", "#586837", "#C7C76F", "#AF2729", "#3A9C76", "#CCA540", "#5998FE", "#52DB53", "#FEB834"];
+		this.startAngle = 0;
+		this.endAngle = 0;
+		this.info = ["一等奖", "特等奖", "三等奖", "四等奖", "五等奖", "安慰奖", "谢谢参与", "八等奖", "九等奖", "十等奖"];
+	}
+	Object.assign(Page.prototype, {
+		init: function() {
+			this.bindEvents();
+		},
+		bindEvents: function() {
+			this.spot();
+			this.award();
+			this.luck();
+			this.border();
+			this.dian();
+		},
+		spot: function() {
+			for(var i = 0; i < 10; i++) {
+				this.startAngle = Math.PI * (2 / 10) * i;
+				this.endAngle = Math.PI * (2 / 10) * (i + 1);
+				this.ctx.save();
+				this.ctx.beginPath();
+				this.ctx.arc(200, 200, 100, this.startAngle, this.endAngle, false);
+				this.ctx.lineWidth = 160.0;
+				this.ctx.strokeStyle = this.color[i];
+				this.ctx.stroke();
+				this.ctx.restore();
+			}
+
+		},
+		award: function() {
+			this.ctx.font = "Bold 10px Arial";
+			this.ctx.textBaseline = 'middle';
+			this.ctx.fillStyle = "#000";
+			this.step = 2 * Math.PI / 10;
+			for(var i = 0; i < 10; i++) {
+				this.ctx.save();
+				this.ctx.beginPath();
+				this.ctx.translate(200, 200);
+				this.ctx.rotate(i * this.step + this.step / 2);
+				this.ctx.fillText(this.info[i], 125, 0);
+				this.ctx.restore();
+			}
+		},
+		luck: function() {
+			this.ctx.beginPath();
+			this.ctx.arc(200, 200, 70, Math.PI * 1.6, Math.PI * 1.4);
+			this.ctx.moveTo(179, 133);
+			this.ctx.lineTo(200, 90);
+			this.ctx.lineTo(222, 133);
+			this.ctx.fillStyle = "red";
+			this.ctx.fill();
+			this.ctx.closePath();
+
+			this.ctx.beginPath();
+			this.ctx.fillStyle = "yellow";
+			this.ctx.font = "60px Arial";
+			this.ctx.fillText("奖", 170, 200);
+			this.ctx.fill();
+			this.ctx.stroke();
+			this.ctx.closePath()
+		},
+		border: function() {
+			this.ctx.beginPath();
+			this.ctx.arc(200, 200, 195, 0, Math.PI * 2);
+			this.ctx.stroke();
+			this.ctx.closePath()
+		},
+		dian: function() {
+			this.ctx.beginPath();
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			for(var i = 0; i < 10; i++) {
+				this.ctx.beginPath();
+				this.ctx.arc(132, 132, 5, 0, Math.PI * 2);
+				this.ctx.fillStyle = "rgba(255, 255, 80)";
+				this.ctx.fill();
+				this.ctx.rotate(Math.PI / 180 * 35);
+			}
+			this.ctx.restore();
+			this.ctx.closePath();
+		},
+
+	})
+	var page = new Page();
+	page.init();
+</script>

@@ -154,11 +154,13 @@
 				},
 				
 				localStorageset: function() {
-					this.txt.css({
-							fontSize:localStorage.size + 'px',
-							background:localStorage.color
+					try{
+					   this.txt.css({
+						fontSize:localStorage.size + 'px',
+						background:localStorage.color
 						})
-					this.sizeshow.html(localStorage.size)
+					   this.sizeshow.html(localStorage.size)
+					}catch(e){}	
 				},
 				
 				bindEvents: function() {
@@ -169,7 +171,9 @@
 				handlelisClick: function(e) {
 					this.color = $(e.target).css("backgroundColor");
 					this.txt.css({background:this.color})
-					localStorage.color = this.color;
+					try{
+					    localStorage.color = this.color;
+					}catch(e){}
 				},
 				
 				handleBtnClick: function(e) {
@@ -184,7 +188,9 @@
 					}
 					
 					this.sizeshow.html(this.size)
-					localStorage.size = this.size;
+					try{
+					  localStorage.size = this.size;
+					}catch(e){}
 				}
 			});
 			

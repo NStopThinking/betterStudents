@@ -157,10 +157,19 @@
 				
 				localStorageset: function() {
 					try{
+<<<<<<< HEAD
 						this.txt.css({fontSize:localStorage.size + 'px'})
 						this.content.css({background:localStorage.color})
 						this.sizeshow.html(localStorage.size)
 					}catch(e){}
+=======
+					   this.txt.css({
+						fontSize:localStorage.size + 'px',
+						background:localStorage.color
+						})
+					   this.sizeshow.html(localStorage.size)
+					}catch(e){}	
+>>>>>>> de82e61485e76c58faac9b8fcf48dac89a9f3a6b
 				},
 				
 				bindEvents: function() {
@@ -170,9 +179,15 @@
 				
 				handlelisClick: function(e) {
 					this.color = $(e.target).css("backgroundColor");
+<<<<<<< HEAD
 					this.content.css({background:this.color})
 					try{
 						localStorage.color = this.color;
+=======
+					this.txt.css({background:this.color})
+					try{
+					    localStorage.color = this.color;
+>>>>>>> de82e61485e76c58faac9b8fcf48dac89a9f3a6b
 					}catch(e){}
 				},
 				
@@ -190,7 +205,11 @@
 					
 					this.sizeshow.html(this.size)
 					try{
+<<<<<<< HEAD
 						localStorage.size = this.size;
+=======
+					  localStorage.size = this.size;
+>>>>>>> de82e61485e76c58faac9b8fcf48dac89a9f3a6b
 					}catch(e){}
 				}
 			});

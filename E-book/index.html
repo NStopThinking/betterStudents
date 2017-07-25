@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>电子书</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul li{
+		list-style: none;
+	}
+	body{
+		background: #333;
+	}
+	.wrap{
+		width: 400px;
+		height: 600px;
+		margin: 50px auto;
+		box-sizing: border-box;
+		border-radius: 10px;
+		box-shadow: 0 0 8px #ccc;
+	}
+	.content{
+		width: 100%;
+		height: 500px;
+		box-sizing: border-box;
+		color: #333;
+		line-height: 24px;
+		font-family: "微软雅黑";
+		padding: 15px;
+		background: #ebf9f2;
+		overflow: hidden;
+		border-radius: 10px 10px 0 0;
+	}
+	.function{
+		width: 100%;
+		height: 100px;
+		background: #f9f8f4;
+		border-radius:0 0 10px 10px;
+	}
+	.changesize{
+		width: 300px;
+		margin: 0 auto;
+		height: 50px;
+		line-height: 50px;
+	}
+	input{
+		box-sizing: border-box;
+		width: 100px;
+		height: 30px;
+		border: 1px solid #a9a9a9;
+		background: none;
+		font-size: 16px;
+		outline: none;
+		color: #6b6b6b;
+	}
+	#small{
+		border-radius: 5px 0 0 5px;
+		border-right: none;
+		font-size: 14px;	
+	}
+	#big{
+		border-radius: 0 5px 5px 0;
+		border-left: none;
+		font-size: 18px;	
+	}
+	#fontsize{
+		text-align: center;
+	}
+	.color{
+		float: left;
+		margin-top: 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50px;
+		background: #fff;
+		margin-right:40px ;
+	}
+	.changebgcolor li:nth-child(1){
+		margin-left: 40px;
+		background: #ebf9f2;
+	}
+	.changebgcolor li:nth-child(2){
+		background: #f7f1c7;
+	}
+	.changebgcolor li:nth-child(3){
+		background: #ffe4ea;
+	}
+	.changebgcolor li:nth-child(4){
+		background: #c6daff;
+	}
+	.changebgcolor li:nth-child(5){
+		background: #c3c3c3;
+	}
+	.select{
+		box-shadow: 0 0 6px #ccc;
+	}
+</style>
+<body>
+	<div class="wrap">
+		<div class="content">
+		先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。宫中府中，俱为一体；陟罚臧否，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理；不宜偏私，使内外异法也。侍中、侍郎郭攸之、费祎、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗陛下：愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨补阙漏，有所广益。将军向宠，性行淑均，晓畅军事，试用于昔日，先帝称之曰“能”，是以众议举宠为督：愚以为营中之事，悉以咨之，必能使行阵和睦，优劣得所。亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。先帝在时，每与臣论此事，未尝不叹息痛恨于桓、灵也。侍中、尚书、长史、参军，此悉贞良死节之臣，愿陛下亲之、信之，则汉室之隆，可计日而待也。臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻达于诸侯。先帝不以臣卑鄙，猥自枉屈，三顾臣于草庐之中，咨臣以当世之事，由是感激，遂许先帝以驱驰。后值倾覆，受任于败军之际，奉命于危难之间：尔来二十有一年矣。先帝知臣谨慎，故临崩寄臣以大事也。受命以来，夙夜忧叹，恐托付不效，以伤先帝之明；故五月渡泸，深入不毛。今南方已定，兵甲已足，当奖率三军，北定中原，庶竭驽钝，攘除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。至于斟酌损益，进尽忠言，则攸之、祎、允之任也。愿陛下托臣以讨贼兴复之效，不效，则治臣之罪，以告先帝之灵。若无兴德之言，则责攸之、祎、允等之慢，以彰其咎；陛下亦宜自谋，以咨诹善道，察纳雅言，深追先帝遗诏。臣不胜受恩感激。今当远离，临表涕零，不知所言。
+		</div>
+		<div class="function">
+			<div class="changesize">
+				<input type="button" value="A-"  id = "small"/><input type="button" id="fontsize" value="12"/><input type="button" value="A+" id = "big"/>
+			</div>
+			<ul class="changebgcolor">
+				<li class="js-color color select" name="1"><a href="javascript:;"></a></li>
+				<li class="js-color color" name="2"><a href="javascript:;"></a></li>
+				<li class="js-color color" name="3"><a href="javascript:;"></a></li>
+				<li class="js-color color" name="4"><a href="javascript:;"></a></li>
+				<li class="js-color color" name="5"><a href="javascript:;"></a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+	function Page(){
+		this.contentElem = $(".content");
+		this.smallBtnElem = $("#small");
+		this.bigBtnElem = $("#big");
+		this.sizeValueElem = $("#fontsize");
+		this.bgColorElem = $(".js-color");
+		this.changeColor = $(".changebgcolor")
+		this.fontSize = parseInt(this.contentElem.css("font-size"));
+	}
+	
+	$.extend(Page.prototype, {
+		
+		init: function(){
+			this.bindEvents();
+			this.resetForData();
+		},
+		
+		bindEvents: function(){
+			this.smallBtnElem.on("click", $.proxy(this.handleSmallsizeClick,this))
+			this.bigBtnElem.on("click", $.proxy(this.handleBigsizeClick,this))
+			this.changeColor.on("click", $.proxy(this.handlebgColorClick,this))
+		},
+		
+		resetForData: function(){
+			try{
+				if(localStorage.fontSize){
+					this.fontSize = localStorage.fontSize;
+					this.contentElem.css("font-size",this.fontSize + "px");
+					this.sizeValueElem.val(this.fontSize);
+				}
+				if(localStorage.bgcolor){
+					this.contentElem.css("background",localStorage.bgcolor);
+				}
+				index = localStorage.index - 1;
+				$(".changebgcolor>li").removeClass("select");
+				this.bgColorElem.eq(index).addClass("select");
+			}catch(e){}
+		},
+		
+		handleSmallsizeClick: function(){
+			this.fontSize--;
+			this.contentElem.css("font-size",this.fontSize);
+			this.sizeValueElem.val(this.fontSize);
+			try{
+				window.localStorage.fontSize = this.fontSize;
+			} catch(e){}
+		},
+		
+		handleBigsizeClick: function(){
+			this.fontSize++;
+			this.contentElem.css("font-size",this.fontSize);
+			this.sizeValueElem.val(this.fontSize);
+			try{
+				window.localStorage.fontSize = this.fontSize;
+			} catch(e){}
+		},
+		
+		handlebgColorClick: function(e){
+			if($(e.target).attr("class").indexOf("js-color") > -1){
+				$(".changebgcolor>li").removeClass("select");
+				$(e.target).addClass("select");
+				var index = $(e.target).attr("name");
+				
+				var color = $(e.target).css("background");
+				this.contentElem.css("background",color);
+				
+				try{
+					window.localStorage.bgcolor = color;
+					window.localStorage.index = index;
+				} catch(e){}
+			}
+		},
+		
+	});
+	
+	var page = new Page();
+	page.init();
+	
+</script>
+</html>

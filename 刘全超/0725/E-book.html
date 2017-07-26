@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>E-book</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			margin: 0 auto;
+			width: 300px;
+			height: 600px;
+			background: #ccc;
+			font-size: 16px;
+		}
+		#paragraph {
+			padding: 8px;
+			height: 520px;
+			overflow: hidden;
+			font-size: 16px;
+		}
+		#bottom {
+			width: 300px;
+			height: 80px;
+			background: #ddd;
+		}
+		.size {
+			text-align: center;
+			float: left;
+			line-height: 30px;
+			margin: 5px 30px;
+			margin-top: 10px;
+			width: 40px;
+			height: 30px;
+			background: #ccc;
+		}
+		#fontsize {
+			width: 36px;
+			height: 24px;
+		}
+		.bgcolor {
+			float: left;
+			margin: 5px 15px;
+			width: 20px;
+			height: 20px;
+		}
+		.red {
+			background: red;
+		}
+		.green {
+			background: green;
+		}
+		.gray {
+			background: gray;
+		}
+		.white {
+			background: white;
+		}
+		.blue {
+			background: blue;
+		}
+		.yellow {
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="paragraph">
+			当一个人忽略你时，不要伤心，每个人都有自己的生活，谁都不可能一直陪你。不要对一个人太好，因为你终会发现，这样时间久了，那个人是会习惯的，然后把你做的一切看作是理所应当。其实本来是可以蠢到不计代价不顾回报的，但现实总是让人寒了心。其实你明明知道，最卑贱不过感情，最凉不过是人心。
+			在最深的绝望里，遇见最美丽的风景。
+			我遇见了猫在潜水，却没有遇见你。 
+			我遇见了狗在攀岩，却没有遇见你。 
+			我遇见夏天飘雪，却没有遇见你。 
+			我遇见冬天刮台风，却没有遇见你。 
+			甚至我遇见的猪都会结网了，却没有遇见你。 
+			我遇见了所有的不平凡，却没有遇见平凡的你。
+			所有的悲伤，总会留下一丝欢乐的线索；所有的遗憾，总会留下一处完美的角落。我在冰封的深海，寻找希望的缺口；却在午夜惊醒时，瞥见绝美的月光。
+			喜欢你，很久了。等你，也很久了。现在，我要离开，比很久很久还要久……
+			不要在一件别扭的事上纠缠太久。纠缠久了，你会烦，会痛，会厌，会累，会神伤，会心碎。实际上，到最后，你不是跟事过不去，而是跟自己过不去。无论多别扭，你都要学会抽身而退。
+			摘不到的星星，总是最闪亮的。 
+			溜掉的小鱼，总是最美丽的。 
+			错过的电影，总是最好看的。 
+			失去的情人，总是最懂我的。 
+			我始终不明白，这究竟是什么道理。
+		</div>
+		<div id="bottom">
+			<div id="enlarge" class="size">A+</div>
+			<input type="text" id="fontsize" class="size" value="16" readonly="readonly">
+			<div id="narrow" class="size">A-</div>
+			<div class="js-bgcolor bgcolor red"></div>
+			<div class="js-bgcolor bgcolor green"></div>
+			<div class="js-bgcolor bgcolor yellow"></div>
+			<div class="js-bgcolor bgcolor blue"></div>
+			<div class="js-bgcolor bgcolor white"></div>
+			<div class="js-bgcolor bgcolor gray"></div>
+		</div>
+	</div>
+	<script src="jquery.js"></script>
+	<script>
+		function Page() {
+			this.box = $("#box");
+			this.paragraphElem = $("#paragraph");
+			this.enlargeElem = $("#enlarge");
+			this.fontsizeElem = $("#fontsize");
+			this.narrowElem = $("#narrow");
+			this.bgcolorElem = $(".js-bgcolor");
+			this.size = 16;
+		}
+
+		$.extend(Page.prototype, {
+
+			init: function() {
+				this.bindEvents();
+			},
+
+			bindEvents: function() {
+				$(window).on("load", $.proxy(this.setFontSize, this));
+				this.enlargeElem.on("click", $.proxy(this.enlargeElemClick, this));
+				this.narrowElem.on("click", $.proxy(this.narrowElemClick, this));
+				this.bgcolorElem.on("click", $.proxy(this.BgColorElemClick, this));
+			},
+
+			enlargeElemClick: function() {
+				this.size += 2;
+				this.fontsizeElem.val(this.size);
+				this.paragraphElem.css("font-size",this.size);
+				try{
+					window.localStorage.fontsizeElem = this.size;
+				}catch(e) {}
+			},
+
+			narrowElemClick: function() {
+				this.size -= 2;
+				this.fontsizeElem.val(this.size);
+				this.paragraphElem.css("font-size",this.size);
+				if (this.size < 12) {
+					alert("已是最小字体，请注意保护眼睛");
+					this.size = 12;
+					this.fontsizeElem.val(this.size);
+					this.paragraphElem.css("font-size",this.size);
+				}
+				try{
+					window.localStorage.fontsizeElem = this.size;
+				}catch(e) {}
+			},
+
+			BgColorElemClick: function(e) {
+				var bgColor = $(e.target).css("background");
+				this.paragraphElem.css("background", bgColor);
+				try{
+					window.localStorage.paragraphElem = bgColor;
+				}catch(e) {}
+			},
+
+			setFontSize: function() {
+				try {
+					if(localStorage.fontsizeElem) {
+						this.fontsizeElem.val(this.size);
+						this.paragraphElem.css("font-size",this.size);
+					}
+					if(localStorage.paragraphElem) {
+						this.paragraphElem.css("background", bgColor);
+					}
+				}catch(e) {}
+			}
+
+		})
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

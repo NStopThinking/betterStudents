@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        widows: 100%;
+        background: #EAE0D9;
+    }
+
+    section {
+        -webkit-box-shadow: 0px 0px 22px #333;
+        box-shadow: 0px 0px 22px #333;
+        border-radius: 50%;
+        position: relative;
+        margin: 100px auto;
+        width: 450px;
+        height: 450px;
+    }
+
+    #poi,
+    #tur,
+    #mask {
+        position: absolute;
+    }
+
+    #poi {
+        top: 96px;
+        left: 141px;
+        cursor: pointer;
+        transform: rotate(-5deg);
+        -webkit-transform: rotate(-5deg);
+    }
+
+    #mask {
+        display: none;
+        position: relative;
+        width: 450px;
+        height: 450px;
+        background: red;
+        text-align: center;
+        line-height: 450px;
+        background: url(luck.png) 50px center no-repeat;
+    }
+
+    #info {
+        font-size: 39px;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+        text-shadow: 0 0 10px #333;
+        line-height: 666px;
+    }
+    </style>
+</head>
+
+<body>
+    <section id='container'>
+        <img src="turntable.png" id='tur'>
+        <img src="pointer.png" id='poi'>
+        <div id='mask'>
+            <span id='info'></span>
+        </div>
+    </section>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src='Rotate.js'></script>
+<script>
+    var value2 = 10;
+    $('#tur').rotate({ 
+        bind: {
+            click: function(){
+                value2 +=3600;
+                $(this).rotate({
+                    animateTo: value2
+                });
+            }
+        }
+    });
+</script>

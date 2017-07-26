@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dial</title>
+	<style>
+		canvas{
+			position: absolute;
+			background: red;
+			margin-left: 400px;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+
+	<script src="Dial.js"></script>
+	<script>
+		function Page() {
+			this.canvas = document.getElementById("canvas");
+		};
+		Object.assign(Page.prototype, {
+			init: function() {
+				this.dial = new Dial(this.canvas);
+				this.dial.init();
+				this.zhuan()
+			},
+			zhuan: function() {
+				var that = this
+				var i = 0;
+				setInterval(function() {
+					// console.log(1)
+					i++;
+					that.dial.clearRect(i)
+				}, 500)
+			}
+		})
+		var page = new Page();
+		page.init()
+
+	</script>
+</body>
+</html>

@@ -47,8 +47,7 @@
 			this.ctx.moveTo(200, 200);
 			this.ctx.lineTo(200,200);
 			this.ctx.fillStyle = "rgb(1,136,225)";
-			this.ctx.arc(200, 200, 55, 0, Math.PI/2);//圆
-			//this.ctx.lineTo(200, 200)
+			this.ctx.arc(200, 200, 55, 0, Math.PI/2);
 			this.ctx.closePath();
 			this.ctx.stroke();
 			this.ctx.fill();
@@ -60,9 +59,8 @@
 			this.ctx.moveTo(200, 200);
 			this.ctx.lineTo(200,200);
 			this.ctx.fillStyle = "rgb(1,136,225)";
-			this.ctx.arc(200, 200, 55,  Math.PI, Math.PI*1.5);//圆
-			//this.ctx.lineTo(200, 200)
-			this.ctx.closePath();//同上 自动闭合
+			this.ctx.arc(200, 200, 55,  Math.PI, Math.PI*1.5);
+			this.ctx.closePath();
 			this.ctx.stroke();
 			this.ctx.fill();
 
@@ -70,7 +68,6 @@
 		drawText: function() {
 			this.ctx.font = "30px Arial";
 			this.ctx.fillStyle = "white";
-			//this.ctx.strokeText("hello world", 100, 100);
 			this.ctx.fillText("B", 130, 165);
 			this.ctx.fillText("M", 190, 135);
 			this.ctx.fillText("W", 250, 165);

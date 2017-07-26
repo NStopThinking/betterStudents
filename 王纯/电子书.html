@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="video/jquery-1.11.3.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body,html{
+				height: 100%;
+				width: 100%;
+			}
+			.main{
+				margin: 20px auto;
+				width: 24%;
+				height: 450px;
+				overflow: hidden;
+				border:1px solid #000;
+				position: relative;
+				
+			}
+			.content{
+				color: #564B41;
+			}
+			.bottom{
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				background: #564b41;
+				height: 100px;
+			}
+			.bottom p{
+				line-height: 50px;
+			   text-align: center;
+			}
+			.content{
+				padding: 10px;
+				text-indent: 28px;
+			}
+			button{
+				height: 25px;
+				width: 40px;
+				text-align: center;
+				border-radius: 5px;
+				background: #fff;
+				border: none;
+				outline: none;
+			}
+			.font{
+				margin: 0 30px;
+			}
+			
+			.bg span{
+				height: 20px;
+				width: 20px;
+				border: 1px solid #fff;
+				display: inline-block;
+				margin: 0 10px;
+				border-radius: 2px;
+			}
+			span.pink{
+				background: pink;
+			}
+			span.green{
+				background: green;
+			}
+			span.black{
+				background: black;
+			}
+			span.yellow{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<p class="content">
+				每一次流泪，每一次纪录，每一枚印迹，都是成长路上的必经，也是不断的在叠加生命的厚重。多彩的人生不仅是一帆风顺的泰然，更是一路走来，遭遇坎坷挫 折之时自己坚强的微笑，他人援助时留给自己窝心的感动。迎着阳光走路，身上总是感觉暖暖的，带着微笑生活，生命里也不会感觉孤单。用一种平和的心态来对待 生活，用安稳的心来平衡世间的起起落落，安然静坐，在迷乱的社会中找一席清闲之地，来安放奔波已久的心。
+			</p>
+			<div class="bottom">
+				<p class="font">
+					<button class="big">放大</button>
+					<span class="font">14</span>
+					<button class="small">缩小</button>
+				</p>
+				<p class="bg">
+					<span class="pink"></span>
+					<span class="black"></span>
+					<span class="green" ></span>
+					<span class="yellow"></span>
+				</p>
+			</div>
+		</div>
+	</body>
+	<script>
+		function Page(){
+			this.main=$(".main");
+			this.bigBtn=$(".big");
+			this.smallBtn=$(".small");
+			this.bg=$(".bg");
+			this.font=$("p .font");
+			this.content=$(".content");
+			this.fontSize=14;
+			this.bgColor="pink";
+			if(localStorage.fontSize){
+					try{this.fontSize=parseInt(localStorage.fontSize);}
+					catch(e){}
+					}
+			if(localStorage.background){
+					try{this.bgColor=localStorage.background;}
+					catch(e){}
+					}
+			this.showFont();
+			this.showBg();
+		}
+		$.extend(Page.prototype,{
+			init:function(){
+				this.bindEvents();
+			},
+			bindEvents:function(){
+				this.bigBtn.on("click",$.proxy(this.fontChangeBig,this));
+				this.smallBtn.on("click",$.proxy(this.fontChangeSmall,this));
+				this.bg.on("click",$.proxy(this.changeBg,this));
+			},
+			fontChangeBig:function(){
+				this.fontSize++;
+				localStorage.fontSize=this.fontSize;
+				this.showFont();
+				
+			},
+			fontChangeSmall:function(){
+				this.fontSize--;
+				localStorage.fontSize=this.fontSize;
+				this.showFont();
+			},
+			changeBg:function(e){
+				e.preventDefault();
+				var target=$(e.target);
+				if(target.get(0).nodeName==="SPAN"){
+					this.bgColor=target.css("background-color");
+					localStorage.background=this.bgColor;
+					this.showBg();
+				}
+				
+			},
+			showFont:function(){
+				this.content.css("font-size",this.fontSize);
+				this.font.html(this.fontSize);
+			},
+			showBg:function(){
+				this.main.css("background-color",this.bgColor);
+			}
+		})
+		var page=new Page();
+		page.init();
+	</script>
+</html>

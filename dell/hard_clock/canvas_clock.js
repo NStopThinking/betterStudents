@@ -1,8 +1,13 @@
 function inherit(child, parent) {
 	function tempCtor() {};
 	tempCtor.prototype = parent.prototype;
+<<<<<<< HEAD
+	child.superClass_ = parent.prototype;//在把父类的方法覆盖掉之前先保存一遍
+	child.prototype = new tempCtor();
+=======
 	child.superClass_ = parent.prototype;  //保存父类的方法
 	child.prototype = new tempCtor();      
+>>>>>>> c267c901b862b1a9e4c4763ec6e14de64b312519
 	child.prototype.constructor = child;
 	console.log(child);
 	console.log(parent);

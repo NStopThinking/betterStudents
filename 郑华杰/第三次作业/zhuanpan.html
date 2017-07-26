@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,html{
+				height: 100%;
+				width: 100%;
+				text-align: center;
+			}
+			canvas{
+				margin-top: 20px;
+				border: 1px solid #008000;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.11.3.js" ></script>
+	</head>
+	<body>
+		<canvas id="canvas" height="400" width="400"></canvas>
+	</body>
+	<script>
+		function Page(){
+			this.canvas=document.querySelector("#canvas");
+			this.context=this.canvas.getContext("2d");
+		}
+		$.extend(Page.prototype,{
+			init:function(){
+			 this.drawCanvas();
+			 this.setInterval();
+			  
+			},
+			setInterval:function(){
+				
+			},
+			drawCanvas:function(){
+			  this.drawPannel();
+			  this.drawMark();//白点
+			  this.draws();//扇形
+			  this.drawred();//红色中心
+			  this.drawText();//开始抽奖
+			  this.drawjiangText();//奖品
+			  this.drawarrow();
+			},
+			drawPannel:function(){
+				this.context.save();
+				this.context.beginPath();
+				this.context.arc(200,200,180,0,Math.PI*2);
+				this.context.strokeStyle="#ffce0b";
+				this.context.lineWidth=14;
+				this.context.stroke();
+				this.context.restore();
+			},
+			drawMark:function(){
+				this.context.save();
+				this.context.translate(200,200);
+				for(var i=0;i<24;i++){
+					this.context.beginPath();
+					this.context.arc(0,-180,3,0,Math.PI*2);
+					this.context.fillStyle="#fff";
+					this.context.fill();
+					this.context.rotate(Math.PI/180*24);
+				}
+					this.context.restore();
+			},
+			drawred:function(){
+				this.context.save();
+				this.context.translate(200,200);
+				this.context.beginPath();
+				//this.context.arc(0,0,50,(-Math.PI/180*72),-Math.PI/180*108);
+				//this.context.strokeStyle="#ffce0b";
+				//this.context.stroke();
+				//this.context.lineTo(0,-90);
+				//this.context.closePath();
+				this.context.arc(0,0,50,0,Math.PI*2);
+				this.context.lineWidth=4;
+				this.context.strokeStyle="#ffce0b";
+				this.context.fillStyle="#fa001c";
+				this.context.fill();
+				this.context.stroke();
+				this.context.restore();
+			},
+			draws:function(){
+				this.context.save();
+				this.context.translate(200,200);
+			        for(var i=0;i<5;i++){
+			        this.context.beginPath();
+					this.context.arc(0,0,172,0,Math.PI/180*36);
+					this.context.lineTo(0,0);
+					this.context.strokeStyle="#ffffe2";
+					this.context.fillStyle="#ffffe2";
+					this.context.fill();
+					this.context.stroke();
+					this.context.rotate(Math.PI/180*72);
+					 }
+			        for(var i=0;i<5;i++){
+			        this.context.beginPath();
+					this.context.arc(0,0,172,(Math.PI/180*36),Math.PI/180*72);
+					this.context.lineTo(0,0);
+					this.context.strokeStyle="#fff";
+					this.context.fillStyle="#fff";
+					this.context.fill();
+					this.context.stroke();
+					this.context.rotate(Math.PI/180*72);
+					 }
+					this.context.restore();
+			       
+			},
+			drawText:function(){
+				this.context.save();
+				this.context.translate(200,200);
+				this.context.beginPath();
+				this.context.font = "20px Arial";
+				this.context.lineWidth=5;
+				this.context.fillStyle = "#ffca13";
+				this.context.fillText("开始",-20,-12);
+				this.context.fillText("抽奖",-20,12);
+				this.context.restore();
+			},
+			drawjiangText:function(){
+				this.context.save();
+				this.context.translate(200,200);
+				for(var i=1;i<=10;i++){
+				this.context.beginPath();
+				this.context.font = "14px Arial";
+				this.context.fillStyle = "#bd1338";
+				this.context.fillText("你中了",-20,-120);
+				this.context.fillText(i*100+"元",-20,-90);
+				this.context.rotate(Math.PI/180*36);
+				}
+				this.context.restore();
+			},
+			drawarrow:function(){
+				this.context.save();
+				this.context.translate(200,200);
+				this.context.moveTo(-12.6,-46);
+				this.context.lineTo(-1,-90);
+				this.context.lineTo(12.6,-46);
+				this.context.strokeStyle="#fa001c";
+				this.context.fillStyle="#fa001c";
+				this.context.fill();
+				this.context.stroke();
+				this.context.beginPath();
+				this.context.restore();
+			}
+		});
+		var page=new Page();
+		page.init();
+	</script>
+</html>

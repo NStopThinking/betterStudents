@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+    <style>
+        *{margin: 0;padding: 0}
+        #canvas{background: red}
+    </style>
+</head>
+<body>
+    <script src="turntable.js"></script>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+</html>
+<script>
+    function Page(){
+        this.canvas1 = document.querySelector("#canvas")
+    }
+    Object.assign(Page.prototype,{
+        init:function(){
+            this.canvas = new Table(this.canvas1);
+            this.canvas.init()
+        }
+    })
+    var page = new Page();
+    page.init();
+</script>

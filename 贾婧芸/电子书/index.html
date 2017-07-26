@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子书样式</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#book{
+			width:400px;
+			height:600px;
+			border:1px solid #000;
+			border-radius: 8px;
+			margin:20px auto;
+			background:#eee;
+			box-shadow: 0 0 10px #000;
+		}
+		#book #book-content{
+			line-height: 2;
+			height:500px;
+			box-sizing: border-box;
+			font-size: 16px;
+			overflow: hidden;
+		}
+		.content{
+			padding: 20px;
+		}
+		#book #style-btn{
+			border-top:1px solid #000;;
+			height:98px;
+			background:#ccc;
+		}
+		#font-style{
+			margin:10px auto;
+			width:380px;
+			overflow: hidden;
+		}
+		#font-style li{
+			float: left;
+			margin: 0 40px;
+			padding: 8px;
+			background:#fff;
+			border:1px solid #000;
+			border-radius: 6px;
+			cursor:pointer;
+		}
+		#font-style .font{
+			width:20px;
+			height:20px;
+			border:none;
+		}
+		#color-style{
+			margin-left:20px;
+		}
+		#color-style li{
+			float: left;
+			padding: 10px;
+			margin: 5px;
+			cursor:pointer;
+		}
+		#color-style li:nth-child(1){
+			background:#f00;
+		}
+		#color-style li:nth-child(2){
+			background:#fff;
+		}
+		#color-style li:nth-child(3){
+			background:#737373;
+		}
+		#color-style li:nth-child(4){
+			background:#0f0;
+		}
+		#color-style li:nth-child(5){
+			background:#ff0;
+		}
+		#color-style li:nth-child(6){
+			background:#f0f;
+		}
+		#color-style li:nth-child(7){
+			background:#0ff;
+		}
+	</style>
+</head>
+<body>
+<div id="book">
+	<div id="book-content">
+		<p class="content">别站在你的角度看我，你看不懂。这个世界不是所有的人都懂你，被不懂的人误解无须争辩，我们选择沉默;有时被最爱的人误解，我们难过到不想争辩，也只有选择沉默。生命中往往有很多无言以对的时刻。不是所有的是非都能辩明，不是所有的纠葛都能理清，有时沉默就是我们最好的回答和诠释。心事这东西，你捂着嘴，它就会从里眼睛里跑出来。因为简单，才深悟生命之轻，轻若飞花，轻似落霞，轻如雨丝;因为简单，才洞悉心灵之静，静若夜空，静似幽谷，静如小溪。幸福原本很简单，只因我们过于较真，过于渴望得到不属于自己的东西，才让生活中遍地烦恼。选择最淡的心事，诠释坎坷的人生。泰山崩于前而色不变，风波骤起而泰然处之。转危为安往往需要高超的心智，也需要好的心态。多思索少激动，多仁爱少仇恨，人生才变得更加美丽。当你为你的选择适合于你并勇敢地接受生活中随之而来的一切，你就获得了一份属于你自己的自尊自信!经年一梦，沧海一笑，时光，是碎了一地的流年，有很多人，随梦;有很多事，随风。有时候，梦想与现实背道而驰，你没有能力掌控它的方向，不能预知它的未来;这时候，我们不必苦苦挣扎，上下求索，我们需要的是换一个目标，换一个开始，换一种方式，去看待生活的阴晴圆缺! 失去了，才学会珍惜;碰壁了，才学会改变。有些人说错话，不够浪漫，这都是细节性的错误。可以改和容忍。但如果是嫖妓、嗜赌、家庭暴力，就属于原则性错误，是一个人品性和根源的问题。细节错误是能被爱情包容的，原则错误却只能分手。不要把一个人的坏，当做特别。或许，爱，仅仅只差一个转身。爱情确不是人生的唯一，但好的爱人可以是好的朋友、好的知己，爱人同样也是亲人，拥有了自己对的那个人，就等于拥有了很多很多。人生，除了爱情，还有梦想，而我终其一生的梦想就是会有一个人，牵着我的手，陪我到生命的尽头，让我懂得什么是真正的爱情。</p>
+	</div>
+	<div id="style-btn">
+		<ol id="font-style">
+			<li class="add">A+</li>
+			<li><input type="text" value="16" class="font"></li>
+			<li class="reduce">A-</li>
+		</ol>
+		<ul id="color-style">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</div>
+<script src='jquery.1.8.3.js'></script>	
+<script src='index.js'></script>	
+</body>
+</html>

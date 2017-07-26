@@ -1,94 +1,37 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Socket.IO chat</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font: 13px Helvetica, Arial;
-        }
-        
-        form {
-            background: #000;
-            padding: 3px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        
-        form input {
-            border: 0;
-            padding: 10px;
-            width: 90%;
-            margin-right: .5%;
-        }
-        
-        form button {
-            width: 9%;
-            background: rgb(130, 224, 255);
-            border: none;
-            padding: 10px;
-        }
-        
-        #messages {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        #messages li {
-            padding: 5px 10px;
-        }
-        
-        #messages li:nth-child(odd) {
-            background: #eee;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-    <ul id="messages"></ul>
-    <form action="">
-        <input id="m" autocomplete="off" />
-        <button>发送</button>
-    </form>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-        function Page() {
-            this.content = $('#m');
-            this.messagesElem = $('#messages');
-            this.form = $('form');
-            this.socket = io();
-        }
-        $.extend(Page.prototype, {
-            init: function() {
-                this.bindEvents();
-            },
-            bindEvents: function() {
-                this.form.submit($.proxy(this.handleSubmitClick, this));
-                this.socket.on('brodcast', $.proxy(this.getMsg, this));
-            },
-            handleSubmitClick: function() {
-                var msgValue = this.content.val();
-                this.socket.emit('message', msgValue);
-                this.content.val("");
-                return false;
-            },
-            getMsg: function(msg) {
-                this.messagesElem.append($('<li>').text(msg));
-            }
-        })
-        var page = new Page();
-        page.init();
-    </script>
+    <div class="main">
+        <div class="content">
+            我在等待着生命中的那缕微光，尽管如此的渺茫，但却如此的闪亮。或许我与你一样，迷失在这个浅色季节里，没有哀伤，只有彷徨，唯一的期待就是想见到那朵“四叶草”的模样。——题记 微风拂面，虽是春天但却已有秋意的微凉，三月的春风像是晚来的轻抚一样，告别了冬季的迷离，似乎不会让我轻易地察觉到正从远方春天赶来的脚步一样。当我看着铁栏杆外的小树在被吹得微微摇曳时，好像感觉自己就是那棵树，虽然一身清爽，但风将我的心吹得飘忽不定，从渐冷的空气中能感受到那种“开心”是有多么的犹豫不觉。 在离开这里的时候风吹得才有些许暖意，现在我回来了，窗外的小路又见微凉起来了。花开了，你走了，花落了，你该回来了，可梦却又醒了。
+            东风不来，三月的柳絮不飞，你底心，真的如小小的寂寞的城，听不到流年的依恋，却只瞧见了过往充满迷却的装点。一季烟雨迷离，不知埋葬了芳菲几许啊，风吹雨声细细，心底如水淅淅沥沥，荒凉得叫人可怜心。花亦消愁人亦消瘦，乱花妆尽了红颜，在迷恋中凄凄而落。光阴覆梦，似水流年，如今， 他亦是归人，亦是过客，你又是为谁而盛开？
+        </div>
+        <div class="fontBox">
+            <div class="add button">A+</div>
+            <div class="fontSize button">16</div>
+            <div class="subtract button">A-</div>
+        </div>
+        <div class="colorBox">
+            <div class="color" style="background:blueviolet "></div>
+            <div class="color" style="background:chocolate"></div>
+            <div class="color" style="background:#45747F "></div>
+            <div class="color" style="background:#147F1D "></div>
+            <div class="color" style="background:chartreuse"></div>
+            <div class="color" style="background:blue"></div>
+            <div class="color" style="background:brown"></div>
+        </div>
+    </div>
 </body>
 
 </html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/index.js"></script>

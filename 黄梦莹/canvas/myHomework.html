@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宝马</title>
+</head>
+<body>
+	
+	<canvas id="canvas" width="500" height="500" style=""></canvas>
+	<script type="text/javascript">
+
+		function Page(){
+			this.canvas = document.getElementById("canvas");
+			this.context = this.canvas.getContext("2d");
+			
+
+		}
+
+
+		Object.assign(Page.prototype, {
+
+			init: function(){
+				
+				this.drawSquare();
+				this.drawTS();
+				this.drawText();
+			},
+
+			drawSquare: function(){
+
+				//绘画宝马标志
+				this.context.beginPath();
+				this.context.arc(200, 200, 127, 0, Math.PI*2);
+				this.context.fillStyle = "#ccc";
+				this.context.fill();
+
+				this.context.beginPath();
+				this.context.arc(200, 200, 120, 0, Math.PI*2);//画弧形
+				this.context.fillStyle = "#000";
+				this.context.fill();
+
+				this.context.beginPath();
+				this.context.arc(200, 200, 80, 0, Math.PI*2);
+				this.context.fillStyle = "white";
+				this.context.fill();
+
+				this.context.stroke();
+
+			},
+
+			drawTS: function(){
+				
+
+				this.context.beginPath();
+				this.context.moveTo(200, 200);
+				this.context.lineTo(270, 200);
+				this.context.arc(200, 200, 70, 0, Math.PI/2);
+				this.context.moveTo(200, 270);
+				this.context.lineTo(200, 200);
+				this.context.fillStyle = "blue";
+				this.context.strokeStyle = "blue";
+				this.context.fill();
+
+				this.context.beginPath();
+				this.context.moveTo(200, 200);
+				this.context.lineTo(130, 200);
+				this.context.arc(200, 200, 70, Math.PI, -Math.PI/2);
+				this.context.moveTo(200, 130);
+				this.context.lineTo(200, 200);
+				this.context.fillStyle = "blue";
+				this.context.strokeStyle = "blue";
+				this.context.fill();
+
+				this.context.stroke();
+
+			},
+
+			drawText: function(){
+				this.context.fillStyle = "white";
+				this.context.font = "35px Arial";
+
+				this.context.save();
+				this.context.translate(200,200);
+				this.context.rotate(-Math.PI / 3);
+				this.context.fillText("B", -5, -90);
+				this.context.restore();
+
+				this.context.save();
+				this.context.translate(200,200);
+				this.context.textAlign = "center";
+				this.context.fillText("M", 0, -90);
+				this.context.restore();
+
+				this.context.save();
+				this.context.translate(200,200);
+				this.context.rotate(Math.PI / 3);
+				this.context.fillText("W", -15, -90);
+				this.context.restore();
+
+			}
+
+		});
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

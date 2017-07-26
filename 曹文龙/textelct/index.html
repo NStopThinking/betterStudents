@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#cream{
+				width: 350px;
+				height: 900px;
+				background: red;
+				font-size: 15px;
+				border-radius: 15px;
+				
+			}
+			ol,ul{
+				list-style: none;
+				margin-top:80px ;
+				
+			}
+			
+			a{
+				text-decoration:none ;
+				color: white;
+			}
+			ol{
+				margin-top:30px;
+			}
+			ul{
+				margin-top:30px;
+			}
+			
+			ol li{
+				
+				display: inline-block;
+				width:50px;
+				height: 30px;
+				border-radius: 10px;
+				background: goldenrod;
+				margin-left:20px ;
+				text-align: center;
+				line-height: 30px;
+			}
+			
+		ul li{
+				display: inline-block;
+				width:20px;
+				height: 20px;
+				cursor: pointer;
+				margin-left:20px ;
+				border-radius: 5px;
+				
+			}
+			#bground{
+				width: 350px;
+				height: 780px;
+				overflow: hidden;
+				background: grey;
+			}
+			
+			ul li:nth-child(1){
+				background-color:pink ;
+			}
+			ul li:nth-child(2){
+				background-color:blueviolet ;
+			}
+				ul li:nth-child(3){
+				background-color:greenyellow ;
+			}
+				ul li:nth-child(4){
+				background-color:paleturquoise;
+			}
+				ul li:nth-child(5){
+				background-color:chocolate ;
+			}
+		</style>
+	</head>
+	<body>
+			<div id="cream">
+				<div id="bground">
+				Each human being is born as something new, something that never existed before. Each is born with the capacity to win at life. Each person has a unique way of seeing, hearing, touching, tasting and thinking. Eachhas his or her own unique potentials - capabilities and limitations. Each can be a significant, thinking,aware, and creative being - a productive person, a winner.
+
+The word “winner” and “loser” have many meanings. When we refer to a person as a winner, we do not mean one who makes someone else lose. To us, a winner is one who responds authentically by being credible, trustworthy, responsive, and genuine, both as an individual and as a member of a society.
+
+Winners do not dedicate their lives to a concept of what they imagine they should be; rather, they are themselves and as such do not use their energy putting on a performance,
+maintaining pretence, and manipulating others. They are aware that there is a difference between being loving and acting loving, between being stupid and acting stupid, between being knowledgeable and acting knowledgeable. Winners do not need to hide behind a mask.
+
+Winners are not afraid to do their own thinking and to use their own knowledge. They can separate facts from opinion and don’t pretend to have all the answers. They listen to others, evaluate what they say, but come to their own conclusions. Although winners can admire and respect other people, they are not totally defined, demolished, bound, or awed by them.
+	</div>	
+	<ol>
+		<li class="max"><a href="#none">A+</a></li>
+		<li class="text"><a href="#none">15</a></li>
+		<li class="min"><a href="#none">A-</a></li>
+	</ol>
+		
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+
+			</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js">
+	
+</script>
+
+<script type="text/javascript">
+	function Page(){
+		this.ul=$("ul");
+		this.box=$("#bground");		
+		this.ol=$("ol");
+		this.max=$(".max");
+		this.min=$(".min");
+		this.tex=$(".text");
+		this.index=1
+		
+	}
+	$.extend(Page.prototype,{
+		init:function(){
+			this.bindEvents();
+			this.bindEventsol();
+			
+		},
+		bindEvents: function() {
+				this.ul.on("click", $.proxy(this.handleul, this));
+			},
+		handleul: function(e){
+				var color = $(e.target).css("background-color")
+				this.box.css({"backgroundColor":color})
+		},
+		bindEventsol:function(){
+			this.max.on("click", $.proxy(this.handleolmax, this));
+			this.min.on("click", $.proxy(this.handleolmin, this));
+			//this.tex.on("click", $.proxy(this.handleoltex, this));
+		},
+		handleolmax: function(e){
+			console.log(parseInt(this.tex.text())+this.index)
+			var size=(parseInt(this.tex.text())+this.index)
+			
+			this.box.css({fontSize:size+"px"})
+			this.tex.text(size)
+		
+		},
+		handleolmin:function(e){
+			console.log(parseInt(this.tex.text())-this.index)
+			var size=(parseInt(this.tex.text())-this.index)
+			this.box.css({fontSize:size+"px"})
+			this.tex.text(size)
+		
+		},
+	
+	});
+	var page=new Page();
+	page.init();
+</script>

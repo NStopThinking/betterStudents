@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas {
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="300" height="300" ></canvas>
+		<script type="text/javascript">
+			function Page() {
+				this.canvas = document.getElementById('canvas');
+				this.ctx    = this.canvas.getContext('2d');
+			}
+			Object.assign(Page.prototype, {
+				init: function() {
+					this.circle();
+				},
+				
+				circle: function() {
+					 //箭头指针
+			       this.ctx.beginPath();
+			    
+			       this.ctx.moveTo(100,24);
+			       this.ctx.lineTo(90,62);
+			       this.ctx.lineTo(110,62);
+			       this.ctx.lineTo(100,24);
+			       this.ctx.fillStyle = 'yellow';
+			       this.ctx.fill();
+			       this.ctx.closePath();
+			        //中间小圆
+			       this.ctx.beginPath();
+			       
+			       this.ctx.arc(100,100,40,0,Math.PI*2,false);
+			       this.ctx.fillStyle = 'yellow';
+			       this.ctx.fill();
+			       this.ctx.closePath();
+				}
+			});
+			
+			var page = new Page();
+			page.init();
+		</script>
+	</body>
+</html>

@@ -5,28 +5,51 @@
 		<title></title>
 		<style type="text/css">
 			body{
-				background: #615A5A;
+				/*background: #615A5A;*/
 			}
 			#canvas{
 				display: block;
 				margin: 0 auto;
 				/*background: mistyrose;*/
+				position:relative;
+				transition: all 3s;
+			}
+			.btn{
+			    display: block;
+			    width: 88px;
+			    height: 20px;
+			    font-size: 30px;
+			    text-decoration: none;
+			    position: absolute;
+			    top: 368px;
+			    left: 680px;
 			}
 		</style>
 	</head>
 	<body>
 		<canvas id="canvas" width="800" height="800"></canvas>
+		<a href="#" class="btn">点击抽奖</a>
 		<script src="jquery-1.8.3.js"></script>
 		<script src="dial.js"></script>
 		<script type="text/javascript">
 			function Page(){
 				this.canvasElem = document.querySelector("#canvas");
+				this.btnClickElem = $(".btn");
 			}
 			
 			Object.assign(Page.prototype, {
 				init: function() {
+					this.bindEvents();
 					this.canvas = new Dial(this.canvasElem);
 					this.canvas.init();
+				},
+				
+				bindEvents:function (){
+					this.btnClickElem.on("click",$.proxy(this.handelClick,this));
+				},
+				
+				handelClick: function() {
+					
 				}
 			});
 			

@@ -113,11 +113,11 @@
 					<input type="button" id="add" value="A+"class="size-btn"/>	
 				</div>
 				<ul class="bgcolor-box">
-					<li class="js-color-item color-item active"></li>
-					<li class="js-color-item color-item"></li>
-					<li class="js-color-item color-item"></li>
-					<li class="js-color-item color-item"></li>
-					<li class="js-color-item color-item"></li>	
+					<li class="js-color-item color-item active" name="0"></li>
+					<li class="js-color-item color-item" name="1"></li>
+					<li class="js-color-item color-item" name="2"></li>
+					<li class="js-color-item color-item" name="3"></li>
+					<li class="js-color-item color-item" name="4"></li>	
 				</ul>
 			</div>
 		</div>
@@ -174,6 +174,7 @@
 						
 						try{
 							window.localStorage.bgColor = $(e.target).css("background");
+							window.localStorage.index = $(e.target).attr("name");
 						}catch(e){}	
 					}else{
 						alert("请选择合适的颜色")
@@ -184,7 +185,10 @@
 					try{
 						this.conTxtElem.css({"font-size": localStorage.fontSize + 'px'});
 						this.boxElem.css({"background":localStorage.bgColor});
-						this.fontSizeTxt.text(localStorage.fontSize);	
+						this.fontSizeTxt.text(localStorage.fontSize);
+						
+						$(".bgcolor-box>li").removeClass("active").eq(localStorage.index).addClass("active");
+						
 					}catch(e) {}
 				}
 			});

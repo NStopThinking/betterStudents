@@ -6,7 +6,6 @@ function Dial(canvas) {
 Object.assign(Dial.prototype, {
 	init: function() {
 		this.drawCanvas();
-		this.rotateEvent();
 	},
 	
 	drawCanvas: function() {
@@ -14,12 +13,7 @@ Object.assign(Dial.prototype, {
 		this.drawBorderPoint();
 		this.drawArwardArea();
 		this.drawCenterPoint();
-		this.drawCenterTxt();
 		this.drawArwardsTxt();
-	},
-	
-	rotateEvent:function() {
-		
 	},
 	
 	drawPannel:function() {
@@ -106,19 +100,6 @@ Object.assign(Dial.prototype, {
 		this.ctx.fillStyle = "#94D5FF";
 		this.ctx.fill(); 
 
-		this.ctx.restore();
-	},
-	
-	drawCenterTxt: function() {
-		this.ctx.save();  
-		this.ctx.translate(400, 400);
-		this.ctx.beginPath();
-		this.ctx.textAlign = "center";
-		this.ctx.textBaseline = "middle";
-		this.ctx.font = "30px Arial blod";
-		this.ctx.fillStyle = "#0078C8";
-		this.ctx.fillText("点击", 0, -18);
-		this.ctx.fillText("抽奖", 0, 18);
 		this.ctx.restore();
 	},
 	

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		body,html{
+			overflow-x: hidden;
+			overflow-y: hidden;
+		}
+		#canvas{
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin:-250px 0 0 -250px;
+			transition:all .5s;
+		}
+		#canvas1{
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin:-250px 0 0 -250px;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+	<canvas width="500" height="500" id="canvas1"></canvas>
+	<button id="start">开始抽奖</button>
+	<button id="stop">停止抽奖</button>
+	<script type="text/javascript">
+		function LuckyDraw(){
+			this.canvas = document.getElementById('canvas');
+			this.startBtn = document.getElementById('start');
+			this.stopBtn = document.getElementById('stop');
+			this.ctx = this.canvas.getContext('2d');
+			this.deg = 0;
+		}
+
+		function LuckyPointer(){
+			this.canvas = document.getElementById('canvas1');
+			this.ctx = this.canvas.getContext('2d');
+		}
+
+		Object.assign(LuckyDraw.prototype, {
+			init: function() {
+				this.drawPan();
+				this.bindEvent();
+			},
+
+			bindEvent: function() {
+				this.startBtn.onclick = this.zhuan.bind(this);
+				this.stopBtn.onclick = this.stop.bind(this);
+			},
+
+			drawPan: function() {
+				this.ctx.save();
+				this.ctx.beginPath();
+				this.ctx.translate(250,250);
+				this.ctx.arc(0, 0, 200, 0, Math.PI * 2);
+				this.ctx.stroke();
+				this.ctx.strokeStyle = '#333';
+
+				for(var i = 0;i < 6;i ++){					
+					this.ctx.beginPath();
+					this.ctx.moveTo(0, 0);
+					if(i === 0){
+						this.ctx.lineTo(200, 0);
+					}
+					this.ctx.arc(0, 0, 200, Math.PI / 180 * 60 * i, Math.PI / 180 * 60 * (i + 1));
+					this.ctx.closePath();
+					if(i % 2){
+						this.ctx.fillStyle = 'yellow';						
+					}else{
+						this.ctx.fillStyle = 'red';
+					}
+					this.ctx.fill();
+				}
+				this.ctx.restore();
+			},
+
+			zhuan: function() {
+				var that = this;
+				clearInterval(this.timer);
+				this.timer = setInterval(function() {
+					that.deg += 50;
+					this.style.transform = 'rotate(' + that.deg + 'deg)';
+				}.bind(this.canvas),50)				
+			},
+
+			stop: function() {
+				clearInterval(this.timer);
+			}
+
+
+		})
+
+
+		Object.assign(LuckyPointer.prototype, {
+
+			init: function() {
+				// this.drawPan();
+				this.drawStart();
+			},
+
+			drawStart: function() {
+				this.ctx.save();
+				this.ctx.translate(250,250);
+				this.ctx.beginPath();
+				this.ctx.arc(0, 0, 40, Math.PI / 180 * 280, Math.PI / 180 * 260);
+				this.ctx.fillStyle = '#333';
+				this.ctx.lineTo(0, -80);
+				this.ctx.closePath();
+				this.ctx.fill();
+				// this.ctx.stroke();
+				this.ctx.beginPath();
+				this.ctx.fillStyle = '#f0f0f0';
+				this.ctx.arc(0, 0, 30, 0, Math.PI * 2);
+				this.ctx.fill();
+				this.ctx.restore();
+			}
+		})
+
+		var page = new LuckyDraw();
+		page.init();
+
+		var page1 = new LuckyPointer();
+		page1.init();
+	</script>
+</body>
+</html>

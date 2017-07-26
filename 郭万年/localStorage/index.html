@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="form">
+			<label>地址:<input type="text" id="address" /></label>
+			<label>联系人:<input type="text" id="contact" /></label>
+			<input type="submit"  value="提交 " id="submit"/>
+		</form>
+		<script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+			function Page() {
+				this.submitBtn = $("#submit");
+				this.addressElem = $("#address");
+				this.contactElem = $("#contact");
+				this.formElem = $("#form");
+			}
+			
+			$.extend(Page.prototype, {
+				init: function() {
+					this.bindEvents();
+				},
+				
+				bindEvents: function() {
+					this.submitBtn.on("click", $.proxy(this.handleSubmit, this))
+				},
+				
+				handleSubmit: function(e) {
+					e.preventDefault();
+					var address = this.addressElem.val(),
+						contact = this.contactElem.val();
+					if(address && contact) {
+						localStorage.address = address;
+						localStorage.contact = contact;
+					}else{
+						alert("提交有误")
+					}
+				}
+			});
+			
+			var page = new Page();
+			page.init();
+		</script>
+	</body>
+</html>

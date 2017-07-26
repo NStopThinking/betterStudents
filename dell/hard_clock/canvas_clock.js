@@ -1,8 +1,13 @@
 function inherit(child, parent) {
 	function tempCtor() {};
 	tempCtor.prototype = parent.prototype;
+<<<<<<< HEAD
 	child.superClass_ = parent.prototype;//在把父类的方法覆盖掉之前先保存一遍
 	child.prototype = new tempCtor();
+=======
+	child.superClass_ = parent.prototype;  //保存父类的方法
+	child.prototype = new tempCtor();      
+>>>>>>> c267c901b862b1a9e4c4763ec6e14de64b312519
 	child.prototype.constructor = child;
 	console.log(child);
 	console.log(parent);
@@ -138,6 +143,10 @@ function newCanvas(canvas) {
 
 inherit(newCanvas, Canvas);
 <<<<<<< HEAD
+
+//newCanvas.prototype =Canvas.prototype;
+=======
+<<<<<<< HEAD
 // newCanvas.prototype =Canvas.prototype;
 =======
 <<<<<<< HEAD
@@ -145,6 +154,7 @@ inherit(newCanvas, Canvas);
 =======
 >>>>>>> f9a6c44b474e26e99207b240937b8cf3e868dc33
 >>>>>>> 1b555ae950c191fdc890ade2191f40132a431226
+>>>>>>> e6e4533c956776c370b952f72d72b67fb0bc8593
 
 newCanvas.prototype.drawSecond = function() {
 	this.ctx.save();

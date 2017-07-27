@@ -5,134 +5,43 @@
 	<title>幸运大转盘</title>
 </head>
 <body>
-	<canvas id="canvas" width="700" height="700" style="background: #f8ff9d; display: block; margin: 0 auto;"></canvas>
-	
+	<div style="position: relative; width: 700px; height: 700px; margin: 0 auto; background: #f8ff9d; ">
+		<canvas id="panel-canvas" width="700" height="700" style="display: block; margin: 0 auto; transition: all 2s;"></canvas>
+		<canvas id="point-canvas" width="700" height="700" style="position: absolute; left: 0; top: 0; margin: 0 auto;"></canvas>
+		<button id="clickBtn" style="width: 150px; height: 150px; background: none; margin:-75px 0 0 -75px; border: none; outline: none; position: absolute; left: 50%; top: 50%;"></button>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="lucky.js"></script>
 	<script>
 		function Page(){
-			this.canvas = document.getElementById("canvas");
-			this.ctx = this.canvas.getContext("2d");
+			this.panelCanvasElem = document.querySelector("#panel-canvas");
+			this.pointCanvasElem = document.querySelector("#point-canvas");
+			this.ClickBtnElem = $("#clickBtn");
 		}
 		
 		Object.assign(Page.prototype, {
-			
-			init: function(){
-				this.drawDial();
-				this.drawDot();
-				this.drawRewardsarea();
-				this.drawPoint();
-				this.drawPointtext();
-				this.drawRewardText();
+			init: function() {
+				this.panelCanvas = new Lucky(this.panelCanvasElem);
+				this.panelCanvas.init();
+				
+				this.pointCanvas = new Point(this.pointCanvasElem);
+				this.pointCanvas.init();
+				this.bindEvents();
 			},
 			
-			drawDial: function(){
-				this.ctx.save();
-				this.ctx.translate(350, 350);
-				this.ctx.beginPath();
-				this.ctx.arc(0, 0, 300, 0, Math.PI * 2);
-				this.ctx.fillStyle = "#58d251";
-				this.ctx.fill();
-				
-				this.ctx.beginPath();
-				this.ctx.arc(0, 0, 260, 0, Math.PI * 2);
-				this.ctx.fillStyle = "#ff5050";
-				this.ctx.fill();
-				this.ctx.restore();
+			bindEvents: function(){
+				this.ClickBtnElem.on("click", $.proxy(this.handlerotate,this));
 			},
-			
-			drawDot: function(){
-				this.ctx.save();
-				this.ctx.translate(350, 350);
-				for(var i = 0; i < 16; i++){
-					this.ctx.beginPath();
-					this.ctx.arc(0, -280, 9, 0, Math.PI * 2 );
-					this.ctx.fillStyle = "#3c3c3c";
-					this.ctx.fill();
-					this.ctx.rotate(Math.PI / 180 * 22.5);
-				}
-				this.ctx.restore();
-			},
-			
-			drawRewardsarea: function(){
-				this.ctx.save();
-				this.ctx.translate(350, 350);
-				for(var i = 0; i < 4; i++){
-					this.ctx.beginPath();
-					this.ctx.moveTo(0, 0);
-					this.ctx.arc(0, 0, 260, 0, Math.PI / 4 );
-					this.ctx.fillStyle = "#ff9d9d";
-					this.ctx.fill();
-					this.ctx.rotate(Math.PI / 180 * 90);
-				}
-				this.ctx.restore();
-			},
-			
-			drawPoint: function(){
-				this.ctx.save();
-				this.ctx.translate(350, 350);
-				
-				this.ctx.beginPath();
-				this.ctx.moveTo(0, 0);
-				this.ctx.arc(0, 0, 70, 0, Math.PI * 2 );;
-				this.ctx.fillStyle = "#ff5050";
-				this.ctx.fill();
-				
-				this.ctx.beginPath();
-				this.ctx.moveTo(0, 0);
-//				this.ctx.arc(0, 0, 50, -Math.PI * 3 /8 , Math.PI * 11 / 8 );
-				this.ctx.arc(0, 0, 60, 0, Math.PI * 2 );;
-				this.ctx.fillStyle = "red";
-				this.ctx.fill();
-				
-				this.ctx.beginPath();
-				this.ctx.moveTo(-60*Math.sin(Math.PI/8), -60*Math.cos(Math.PI/8));
-				this.ctx.lineTo(0, -100);
-				this.ctx.lineTo(60*Math.cos(Math.PI*-3/8), 60*Math.sin(Math.PI*-3/8) );
-				this.ctx.fillStyle="red";
-				this.ctx.fill();
-				
-				this.ctx.beginPath();
-				this.ctx.moveTo(0, 0);
-				this.ctx.arc(0, 0, 50, 0, Math.PI * 2 );;
-				this.ctx.fillStyle = "#fff";
-				this.ctx.fill();
-				
-				
-				this.ctx.restore();
-				
-			},
-			
-			drawPointtext: function(){
-				this.ctx.save();
-				this.ctx.translate(350, 350);
-				this.ctx.beginPath();
-				this.ctx.font = "30px Arial blod";
-				this.ctx.fillStyle = "red";
-				this.ctx.fillText("点击", -30, -10);
-				this.ctx.fillText("抽奖", -30, 30);
-				this.ctx.restore();
-			},
-			
-			drawRewardText: function(){
-				var arr = ["一斤西瓜", "一斤桃子", "半斤西瓜", "半斤桃子","一斤西瓜", "一斤桃子", "半斤西瓜", "半斤桃子"];
-				this.ctx.save();
-				this.ctx.translate(350, 350);
-				for(var i = 0; i < 8; i++){
-					this.ctx.beginPath();
-					this.ctx.font = "30px Arial blod";
-					this.ctx.fillStyle = "#333";
-					this.ctx.textAlign = "center";
-					this.ctx.tetxBase = "middle";
-					this.ctx.fillText(arr[i], 0, 200);
-					this.ctx.rotate(Math.PI / 180 * 45);
-				}
-				this.ctx.restore();	
+		
+			handlerotate: function(){
+				this.panelCanvasElem.style.transform = "rotate("+ Math.random()*1000 + 1000 +"deg)";
 			}
 			
-			
-		});
+		})
 		
 		var page = new Page();
-		page.init();
+		page.init()
 	</script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-function Dial(canvas) {
-	this.elem = canvas;
-	this.ctx = canvas.getContext("2d");
+function Panel(panelCanvas) {
+	this.elem = panelCanvas;
+	this.ctx = panelCanvas.getContext("2d");
 }
 
-Object.assign(Dial.prototype, {
+Object.assign(Panel.prototype, {
 	init: function() {
 		this.drawCanvas();
 	},
@@ -12,7 +12,7 @@ Object.assign(Dial.prototype, {
 		this.drawPannel();
 		this.drawBorderPoint();
 		this.drawArwardArea();
-		this.drawCenterPoint();
+//		this.drawCenterPoint();
 		this.drawArwardsTxt();
 	},
 	
@@ -70,7 +70,36 @@ Object.assign(Dial.prototype, {
 		this.ctx.restore();
 	},
 	
-	drawCenterPoint:function() {
+	drawArwardsTxt: function() {
+		var arr = ["奖项一","奖项二","奖项三","奖项一","奖项二","奖项三"]
+		this.ctx.save();  
+		this.ctx.translate(400, 400);
+		
+		for (var i = 0; i < 6; i++) {
+			this.ctx.beginPath();
+			this.ctx.font = "30px Arial blod";
+			this.ctx.textAlign = "center";
+			this.ctx.textBaseline = 'middle' 
+			this.ctx.fillStyle = "#FF7707";
+			this.ctx.fillText(arr[i], 0, 150);
+			this.ctx.rotate(Math.PI / 180 * 60);
+		}
+		
+		this.ctx.restore();
+	}	
+});
+
+function Point(pointCanvas) {
+	this.elem = pointCanvas;
+	this.ctx = pointCanvas.getContext("2d");
+}
+
+Object.assign(Point.prototype, {
+	init: function() {
+		this.drawCenterPoint();
+	},
+	
+	drawCenterPoint: function() {
 		this.ctx.save();  
 		this.ctx.translate(400, 400);
 		
@@ -101,25 +130,5 @@ Object.assign(Dial.prototype, {
 		this.ctx.fill(); 
 
 		this.ctx.restore();
-	},
-	
-	drawArwardsTxt: function() {
-		var arr = ["奖项一","奖项二","奖项三","奖项一","奖项二","奖项三"]
-		this.ctx.save();  
-		this.ctx.translate(400, 400);
-		
-		for (var i = 0; i < 6; i++) {
-			this.ctx.beginPath();
-			this.ctx.font = "30px Arial blod";
-			this.ctx.textAlign = "center";
-			this.ctx.textBaseline = 'middle' 
-			this.ctx.fillStyle = "#FF7707";
-			this.ctx.fillText(arr[i], 0, 150);
-			this.ctx.rotate(Math.PI / 180 * 60);
-		}
-		
-		this.ctx.restore();
-	},
-	
-	
+	}
 });

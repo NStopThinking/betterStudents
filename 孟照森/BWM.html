@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas</title>
+		<style type="text/css">
+			canvas {
+				background: #EEEEEE;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas width="500" height="500" id="canvas"></canvas>
+		<script type="text/javascript">
+			function Page() {
+				this.canvas = document.getElementById("canvas");
+				this.ctx = this.canvas.getContext("2d");
+				this.pi=Math.PI;
+			}
+
+			Object.assign(Page.prototype, {
+				init: function() {
+					this.drawbig();
+					this.drawbiga();
+					this.drawyuan();
+					this.drawyuana();
+					this.drawTxt();
+				},
+				
+				drawbig: function() {
+					this.ctx.beginPath();	
+					this.ctx.arc(250, 250, 150, 0, 2*Math.PI);
+					this.ctx.stroke();
+					this.ctx.fillStyle = "#ccc";
+					this.ctx.fill();		
+				},
+				
+				drawbiga: function() {
+					this.ctx.beginPath();	
+					this.ctx.arc(250, 250, 140, 0, 2*Math.PI);
+					this.ctx.stroke();
+					this.ctx.fillStyle = "black";
+					this.ctx.fill();
+				},
+				
+				drawTxt:function() {
+					this.ctx.font = "40px Arial";
+					this.ctx.fillStyle = "white";
+					this.ctx.fillText("B", 145, 200);
+					this.ctx.fillText("M", 233, 150);
+					this.ctx.fillText("W", 325, 200);
+				},
+				
+				drawyuana: function() {
+					this.ctx.beginPath();
+					this.ctx.arc(250, 250, 90, this.pi*3/2, this.pi*2);
+					this.ctx.arc(250 ,250 , 90, this.pi ,this.pi/2, true);
+					this.ctx.fillStyle = "white";
+					this.ctx.fill();
+					this.ctx.stroke();
+					
+				},
+				
+				drawyuan: function() {
+					this.ctx.beginPath();	
+					this.ctx.arc(250, 250, 90, 0, 2*Math.PI);
+					this.ctx.stroke();
+					this.ctx.closePath();
+					this.ctx.beginPath();
+					this.ctx.arc(250, 250, 90, this.pi, this.pi*3/2);
+					this.ctx.fillStyle = "blue";		
+					this.ctx.arc(250 ,250 , 90, this.pi/2, 0, true);
+					this.ctx.fill();
+					this.ctx.stroke();			
+				}
+				
+			});
+
+			var page = new Page();
+			page.init()
+		</script>
+
+	</body>
+
+</html>

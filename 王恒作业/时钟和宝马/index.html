@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<canvas width="500" height="500" id="canvas"></canvas>
+		<script>
+			function Page(){
+			this.canvas=document.getElementById("canvas");
+			this.ctx=this.canvas.getContext("2d")  
+			}
+			Object.assign(Page.prototype,{
+				init:function(){
+					this.ctx.beginPath();
+					this.ctx.arc(200,200,100,0,2*Math.PI);
+					this.ctx.fillStyle ="black";
+					this.ctx.strokeStyle="#ccc";
+					this.ctx.lineWidth="3";
+					this.ctx.fill();
+					this.ctx.stroke();
+					this.ctx.lineWidth="1";
+					this.zi();
+				
+					
+				},
+				zi:function(){
+					
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.translate(200, 200);
+					this.ctx.rotate(-Math.PI / 180 * 60);
+					this.ctx.strokeStyle = "white";
+					
+					this.ctx.textAlign = "center";
+		            this.ctx.textBaseline = "middle";
+					this.ctx.font="30px Arial";
+					this.ctx.fillStyle ="white";
+				
+                 	this.ctx.fillText("B", 0, -82);
+					this.ctx.strokeText("B", 0, -82);
+					
+					this.ctx.stroke();
+					this.ctx.restore();
+					this.zi1();
+					
+				},
+					zi1:function(){
+					
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.rotate(Math.PI / 180 * 2);
+					this.ctx.strokeStyle = "white";
+					this.ctx.textAlign = "center";
+		            this.ctx.textBaseline = "middle";
+					this.ctx.font="30px Arial";
+					this.ctx.fillStyle ="white";
+				
+                 	this.ctx.fillText("M", 203, 110);
+					this.ctx.strokeText("M", 203,110);
+					
+					this.ctx.stroke();
+					this.ctx.restore();
+					this.zi2();
+					
+				},
+				zi2:function(){
+					
+					this.ctx.beginPath();
+					this.ctx.save();
+					this.ctx.translate(200, 200);
+					this.ctx.rotate(Math.PI / 180 * 60);
+					this.ctx.strokeStyle = "white";
+					this.ctx.textAlign = "center";
+		            this.ctx.textBaseline = "middle";
+					this.ctx.font="30px Arial";
+					this.ctx.fillStyle ="white";
+				
+                 	this.ctx.fillText("w", 0, -82);
+					this.ctx.strokeText("w", 0, -82);
+					
+					this.ctx.stroke();
+					this.ctx.restore();
+					this.smallcircles();
+					
+				},
+				smallcircles:function() {
+					this.ctx.beginPath();
+					this.ctx.strokeStyle = "#ccc";
+					this.ctx.arc(200,200,70,0,2*Math.PI);
+					this.ctx.fillStyle ="white";
+					this.ctx.fill();
+					this.ctx.stroke();
+					this.shanxing();
+				},
+				shanxing:function(){
+					this.ctx.beginPath();  
+				    this.ctx.moveTo(200, 200);
+				    this.ctx.lineTo(270,200);
+				    this.ctx.arc(200,200,70 ,0, Math.PI/2);
+				    this.ctx.lineTo(200,200);
+				   
+				
+				    this.ctx.closePath();
+				      this.ctx.fillStyle ="blue";
+					this.ctx.fill();
+					this.ctx.stroke();
+					
+					
+					this.ctx.beginPath();  
+				    this.ctx.moveTo(200, 200);
+				    this.ctx.lineTo(130,200);
+				    this.ctx.arc(200,200,70 ,Math.PI,3 *Math.PI/2);
+				    this.ctx.lineTo(200,200);
+				   
+				
+				    this.ctx.closePath();
+				      this.ctx.fillStyle ="blue";
+					this.ctx.fill();
+					this.ctx.stroke();
+				    
+				}
+				
+			})
+//			Object.assign(Page.prototype,{a
+//				init:function(){
+//					this.lineTo();
+//				}
+//				linTo:function(){
+//					this.ctx.moveTo(100,100);
+//					this.ctx.lineTo(200,200);
+//					this.ctx.strokeStyle="white";
+//					this.ctx.stroke();
+//				      
+//				    this.ctx.beginPath();
+//					
+//				}
+//			})
+			var page=new Page();
+			page.init();
+		</script>
+	</bovasdy>
+</html>

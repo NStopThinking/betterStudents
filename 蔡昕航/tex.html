@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.txt{
+				position: relative;
+				background: black;
+				margin: 100px auto;
+				width: 300px;
+				height:500px;
+				overflow: hidden;
+			}
+			.content{
+				width: 300px;
+				height: 380px;
+				/*background: red;
+				font-size:15px ;*/
+			}
+			.large,.font,.small{
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				border: 1px solid #fff;
+				color:#fff ;
+				text-align: center;
+				line-height: 30px;
+				margin: 10px 32px;
+			}
+			.font{
+				border-radius:50% ;
+			}
+			.color{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 300px;
+				height: 60px;
+			}
+			.color .span{
+				border-radius:50% ;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				margin: 10px 8px;
+			}
+			.red{
+				background: red;
+			}
+			.blue{
+				background: blue;
+			}
+			.green{
+				background: green;
+			}
+			.yellow{
+				background: yellow;
+			}
+			.orange{
+				background: orange;
+			}
+			.pink{
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="txt" class="txt">
+			<p id="content" class="content">
+				<span class="headline">
+					LOL厄运小姐教学
+				<span><br/>
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				按时打卡加上打开链接当惊世界殊的离开就是大路口金三的家属楼阿萨德
+				
+			</p>
+			<span id="large" class="large">A+</span>
+			<span id="font" class="font"></span>
+			<span id="small" class="small">A-</span>
+			<div class="color" id="color">
+				<span class="span red"></span>
+				<span class="span blue"></span>
+				<span class="span yellow"></span>
+				<span class="span green"></span>
+				<span class="span pink"></span>
+				<span class="span orange"></span>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="jquery.1.8.3.js"></script>
+<script>
+	function Page() {
+		this.content = $("#content");
+		this.largeElem = $("#large");
+		this.fontElem = $("#font");
+		this.smallElem = $("#small");
+		this.txtElem = $("#txt");
+		this.size = 15;
+	}
+	$.extend(Page.prototype, {
+		init : function() {
+			this.bindEvents();
+			this.fontSize();
+		},
+		
+		bindEvents :function() {
+			this.largeElem.on("click", $.proxy(this.handleLargeElem, this));
+			this.smallElem.on("click", $.proxy(this.handleSmallElem, this));
+			this.txtElem.on("click", ".color span",  $.proxy(this.handleColorElem, this))
+		},
+		fontSize : function() {
+			try{
+				if(localStorage.size) {
+					this.content.css("font-size", localStorage.size + "px");
+					this.fontElem.html(localStorage.size)
+				}
+				if(localStorage.color) {
+					$("#content").css("background", localStorage.color);
+				}
+			}catch(e) {
+				
+			}
+		},
+		handleLargeElem : function(e) {
+			e.preventDefault();
+			if(this.size > 19){
+				alert("字体太大")
+			}else {
+				this.size +=1;
+				this.content.css("font-size", this.size + "px");
+				this.fontElem.html(this.size)
+			}
+			var size = this.fontElem.html();
+			if(size) {
+				try{
+					localStorage.size = size;
+				}catch(e) {
+					
+				}
+			}else { 
+				alert("cuole")
+			}
+		},
+		handleSmallElem : function() {
+			if(this.size < 7){
+				alert("字体太小")
+			}else {
+				this.size -=1;
+				this.content.css("font-size", this.size + "px");
+				this.fontElem.html(this.size)
+			}
+			var size = this.fontElem.html();
+			if(size) {
+				try{
+					localStorage.size = size;
+				}catch(e) {
+					
+				}
+			}else { 
+				alert("cuole")
+			}
+		},
+		handleColorElem : function(e) {
+			var target = e.target
+			var color = $(target).css("background");
+			this.content.css("background", color);
+			if(color) {
+				try{
+					localStorage.color = color;
+				}catch(e) {
+					
+				}
+			}else { 
+				alert("cuole")
+			}		
+		}
+	});
+	var page = new Page();
+	page.init();
+</script>

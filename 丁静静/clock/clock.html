@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='clock.js'></script>
+	<script>
+	window.onload = function() {
+		function Page() {
+			this.canvas = document.getElementById("canvas");
+		}
+		Object.assign(Page.prototype, {
+			init: function() {
+				this.canvas = new Clock(this.canvas);
+				this.canvas.init();
+			}
+		})
+		var page = new Page();
+		page.init();
+	}
+	</script>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+</body>
+</html>

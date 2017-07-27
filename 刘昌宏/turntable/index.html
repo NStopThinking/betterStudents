@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>turntable</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="turntable"></canvas>
+	<script>
+		function Canvas() {
+			this.canvas = document.getElementById("turntable");
+			this.ctx = this.canvas.getContext("2d");
+		}
+
+		Object.assign(Canvas.prototype, {
+
+			init: function() {
+				this.drawImage();
+				this.setInterval(0);
+			},
+
+			drawImage: function(num) {
+				this.ctx.beginPath();
+				var image = new Image(),
+					this_ = this;
+				image.onload = function() {
+					this_.ctx.drawImage(image, 0, 0, 300, 300, 0, 0, 300, 300);
+					this_.drawPointer(num);
+				}
+				image.src = "turntable.jpg";
+			},
+
+			drawPointer: function(num) {
+				this.ctx.beginPath();
+				this.ctx.save();
+				this.ctx.translate(150, 150);
+				this.ctx.rotate(Math.PI / 180 * num);
+				var x = Math.sin(Math.PI / 180 * 6) * 42,
+					y = -Math.cos(Math.PI / 180 * 6) * 42;
+				this.ctx.moveTo(x, y);
+				this.ctx.lineTo(0, y - 20);
+				this.ctx.closePath();
+				this.ctx.arc(0, 0, 42, Math.PI / 180 * 276, Math.PI / 180 * 264);
+				this.ctx.moveTo(0, y-20);
+				this.ctx.lineTo(-x, y);
+				this.ctx.stroke();
+				this.ctx.restore();
+			},
+
+			setInterval: function(num) {
+				var this_ = this;
+				var numMin = 60;
+				setInterval(function(){
+					num -= numMin--;
+					if(numMin <= 0) {
+						clearInterval();
+					}else {
+						this_.drawImage(num);
+					}
+				},80)
+				
+			}
+		})
+
+		var canvas = new Canvas();
+		canvas.init();
+	</script>
+</body>
+</html>

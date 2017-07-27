@@ -1,0 +1,369 @@
+.swiper-container{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background: #fff;	
+		}
+		.first-page{
+			background: url(images/bg.png);
+			position: relative;
+		}
+		.whiteBg{
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: 15% auto;
+			background: white;
+			width: 94%;
+			height: 80%;
+			border-radius: 20px;
+		}
+		.indexImg{
+			width: 80%;
+			position: absolute;
+			top:30px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+		.page1-2{
+			position: absolute;
+			top:250px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			z-index: 999;
+		}
+		.happy{
+			position: absolute;
+			width: 100%;
+			background: #FBE3E3;
+			height: 130px;
+			top:41%;
+			left: 0;
+			right: 0;
+			margin:0 auto;
+			color: rgb(103, 103, 103);
+			font-size: 34px;
+			text-align: center;
+			line-height: 50px;
+			font-weight: 300;
+		}
+		.happy1{
+			position: absolute;
+			top: 39%;
+			width: 100%;
+			color: #F29191;
+			font-size: 60px;
+			text-align: center;
+			font-weight: 300;
+		}
+		.girl{
+			position: absolute;
+			top: 57%;
+			width: 100%;
+			font-size: 32px;
+			line-height: 60px;
+			text-align: center;
+			font-weight: 700;
+			color: rgb(103, 103, 103);
+			
+		}
+
+		.girlImg{
+			position: absolute;
+			top: 72%;
+			left: 20px;
+		}
+		.girl1{
+			position: absolute;
+			width: 100%;
+			top: 68%;
+			font-size: 34px;
+			text-align: center;
+			font-weight: 300;
+			color: #FFF;
+			
+		}
+
+		.page-foot{
+			position: absolute;
+			top: 300px;
+			left: -30px;
+		}
+		.year{
+			position: absolute;
+			top: 87%;
+			left: 40px;
+			color: pink;
+			font-size: 30px;
+			font-weight: 300;
+		}
+		.grt{
+			position: absolute;
+			top: 87%;
+			left: 186px;
+			color: pink;
+			font-size: 30px;
+			font-weight: 300;
+		}
+		.day{
+			position: absolute;
+			top: 87%;
+			left: 350px;
+			color: pink;
+			font-size: 30px;
+			font-weight: 300;
+		}
+		.index-arrow{
+			position: absolute;
+			top: 96%;
+			left: 50%;
+			bottom: 100px;
+			margin-left: -21px;
+			
+		}
+		.second-page{
+			background: url(images/bg.png);
+			position: relative;
+		}
+		.page2-1{
+			position: absolute;
+			border-radius: 50%;
+			top:60%;
+			left: 20%;
+		}
+		.page2-2{
+			position: absolute;
+			width: 70%;
+			left: 15%;
+			top:10%;
+			
+		}
+		.page2-3{
+			position: absolute;
+			width: 90%;
+			left: 5%;
+			top:2%;
+			
+		}
+		.page2-4{
+			position: absolute;
+			width: 100%;
+			text-align: center;	
+			top:18%;
+			font-size: 26px;
+			color: #fff;			
+		}
+		.page2-5{
+			position: absolute;
+			width: 180px;
+			height: 60px;
+			left: 170px;
+			text-align: center;	
+			top:24%;
+			font-size: 20px;
+			color: #fff;
+			line-height: 40px;			
+		}
+		.page2-6{
+			position: absolute;
+			width: 180px;
+			height: 60px;
+			left: 170px;
+			text-align: center;	
+			top:33%;
+			line-height: 40px;
+			font-size: 20px;
+			color: #fff;			
+		}
+		.three-page{
+			background: url(images/bg.png);
+			position: relative;
+		}
+		.page3-1{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+		.page3-2{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+		.page3-3{
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			right: 0;
+			margin:0 auto;
+		}
+		.page3-4{
+			position: absolute;
+			top: 20px;
+			left: 0;
+			right: 0;
+			margin:0 auto;
+		}
+		.page3-5{
+			position: absolute;
+			top: 110px;
+			left: 20%;
+			width: 80%;
+			
+		}
+		.page3-6{
+			position: absolute;
+			top: 166px;
+			left: 38%;
+			width: 38%;
+			
+		}
+		.page3-7{
+			position: absolute;
+			top: 300px;
+			left: 20px;
+			width: 50%;	
+		}
+		.page3-8{
+			position: absolute;
+			top: 330px;
+			left: 40px;
+			width: 36%;	
+		}
+		.page3-9{
+			position: absolute;
+			top: 490px;
+			right: 30px;
+			width: 46%;	
+		}
+		.page3-10{
+			position: absolute;
+			top: 500px;
+			right: 120px;
+			font-size: 32px;
+			font-weight: 700;
+			color: black;
+		}
+		.page3-11{
+			position: absolute;
+			top: 580px;
+			right: 70px;
+			font-size: 22px;
+			font-weight: 600;
+			color: black;
+		}
+		.four-page{
+			background: url(images/bg.png);
+			position: relative;
+		}
+		.page4-1{
+			position: absolute;
+			top: 20px;
+			left: -6px;
+			right: 0;
+			width: 100%;
+			margin:0 auto;
+		}
+		.page4-2{
+			position: absolute;
+			top: 670px;
+			right:30px;	
+			width: 20%;
+			margin:0 auto;
+		}
+		.page4-3{
+			position: absolute;
+			top: 50px;
+			left: 0;	
+			margin:0 auto;
+		}
+		.page4-4{
+			position: absolute;
+			top: 200px;
+			right: 10px;
+			width: 100%;
+		}
+		.page4-5{
+			position: absolute;
+			top: 280px;
+			left: 0;
+			width: 50%;			
+		}
+		.page4-6{
+			position: absolute;
+			top: 280px;
+			left: 260px;
+			width: 26%;			
+		}
+		.page4-7{
+			position: absolute;
+			top: 490px;
+			left: 10px;
+			width: 80%;			
+		}
+		.page4-8{
+			position: absolute;
+			top: 530px;
+			left: 80px;
+			font-size: 20px;
+			color: black;	
+		}
+		.page4-9{
+			position: absolute;
+			top: 560px;
+			left: 100px;
+			font-size: 20px;
+			color: black;	
+		}
+		.page4-10{
+			position: absolute;
+			top: 588px;
+			left: 100px;
+			font-size: 20px;
+			color: black;	
+		}
+		.five-page{
+			background: url(images/bg.png);
+			position: relative;
+		}
+		.page5-1{
+			position: absolute;
+			top:40px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			width: 70%;
+		}
+		.page5-2{
+			position: absolute;
+			top:148px;
+			width: 100%;
+			text-align: center;
+			font-size: 28px;
+			color: grey;
+		}
+		.page5-3{
+			position: absolute;
+			top:238px;
+			left: -40px;
+			width: 40%;
+		}
+		.page5-4{
+			position: absolute;
+			top:238px;
+			right: 10px;
+			width: 35%;
+		}
+		.page5-5{
+			position: absolute;
+			top:350px;
+			width: 100%;
+			text-align: center;
+			font-size: 22px;
+			color: black;
+			line-height: 30px;
+			font-weight: 300;
+		}

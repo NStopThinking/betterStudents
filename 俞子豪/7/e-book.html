@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			height: 500px;
+			width: 350px;
+			margin: 50px auto;
+			background: #ccc;
+		}
+		.sBox {
+			width: 325px;
+			height: 440px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.text {
+			text-indent: 2em;
+			text-align: justify;
+		}
+		.font{
+			width: 200px;
+			height: 30px;
+			margin-left: 123px;
+			overflow: hidden;
+		}
+		.foat {
+			float: left;
+			margin: 3px 10px;
+		}
+		.color{
+			height: 50px;
+			width: 100%;
+			background: #000;
+		}
+		.item{
+			height: 20px;
+			width: 20px;
+			background: #fff;
+			float: left;
+			margin: 15px 25px;
+		}
+		.item:nth-of-type(2){
+			background: #f10;
+		}
+		.item:nth-of-type(3){
+			background: #1f0;
+		}
+		.item:nth-of-type(4){
+			background: #01f;
+		}
+		.item:nth-of-type(5){
+			background: #ff0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" class="box">
+		<div class="sBox">
+			<p class="text">啊实打实的啊实打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的
+			</p>
+			<p class="text">啊实打实的啊实打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的
+			</p>
+			<p class="text">啊实打实的啊实打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			打实的奥森达到阿萨德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的打实的奥森达到阿萨
+			德阿萨德阿萨德奥森打算打算打算打算打算打算的阿萨德阿萨德奥森的
+			</p>
+		</div>	
+		<div class="font">
+			<input type="button" value="+" class="add foat">
+			<p class="inner foat"></p>
+			<input type="button" value="-" class="subtract foat">
+		</div>
+		<div class="color">
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript">
+		function Page() {
+			this.box = $("#box");
+			this.add = $(".add");
+			this.inner = $(".inner");
+			this.subtract = $(".subtract");
+			this.text = $(".text");
+			this.color = $(".color");
+		}
+		$.extend(Page.prototype, {
+			init: function() {
+				this.resetForData();
+				this.bindEvents();
+			},
+			resetForData: function(e) {
+				try{
+					if(localStorage.a) {
+						this.a = parseInt(localStorage.a, 10);
+						this.inner.text(this.a);
+						this.text.css({
+							fontSize: this.a
+						})}
+				}catch(e) {}
+				try{
+					if(localStorage.b) {
+						this.box.css({
+							background:localStorage.b
+						})
+					}
+				}catch(e) {}
+			},
+			bindEvents: function() {
+				this.add.on("click", $.proxy(this.handleClickAdd, this));
+				this.subtract.on("click", $.proxy(this.handleClickSubtract, this));
+				this.color.on("click", $.proxy(this.handleClickColor, this))
+			},
+			handleClickColor: function(e) {
+				if($(e.target).attr("class").indexOf("item") > -1){
+					var b = $(e.target).css("background");
+					localStorage.b = b
+					this.box.css({
+						background:localStorage.b
+					})
+				}
+				
+			},
+			handleClickAdd: function(e) {
+				if(this.a < 36){
+					this.a += 2;
+				}else {
+					this.a = 36
+				}	
+				var addElem = this.a;
+				try {
+					localStorage.a = addElem;
+					this.inner.text(localStorage.a);
+					this.text.css({
+						fontSize: this.a
+					})
+				}catch(e) {}
+				
+			},
+			handleClickSubtract: function(e) {
+				if(this.a > 12){
+					this.a -= 2;
+				}else {
+					this.a = 12
+				}				
+				var subtractElem = this.a;
+				try {
+					localStorage.a = subtractElem;
+					this.inner.text(localStorage.a);
+					this.text.css({
+						fontSize: this.a
+					})
+				}catch(e) {}
+			}
+		})
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

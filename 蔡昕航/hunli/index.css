@@ -1,0 +1,286 @@
+ *{
+ 	margin: 0;
+ 	padding: 0;
+ }
+ body {
+ 	background: #eee;
+ }
+ .fo80{
+ 	font-size:80px;
+ }
+ .one{
+ 	background: pink;
+ }
+ .fo30{
+ 	font-size: 30px;
+ }
+ .swiper-container {
+ 	position: absolute;
+ 	left: 0;
+ 	right: 0;
+ 	top: 0;
+ 	bottom: 0;
+ 	background: #fff;
+ }
+ 
+ .head-cat {
+ 	width: 100%;
+ }
+ 
+ .head-flower {
+ 	position: absolute;
+ 	left: 80px;
+ 	width: 20%;
+ 	top: 450px
+ }
+ 
+ .head-size {
+ 	position: absolute;
+ 	left: 60px;
+ 	width: 80%;
+ 	top: 500px
+ }
+ 
+ .head-man {
+ 	width: 100%;
+ 	position: absolute;
+ 	color: #CCCCCC;
+ 	top: 600px;
+ 	text-align: center;
+ }
+ 
+ .head-wire {
+ 	width: 70%;
+ 	position: absolute;
+ 	top: 680px;
+ 	left: 80px;
+ }
+ 
+ .head-love {
+ 	width: 50%;
+ 	position: absolute;
+ 	top: 660px;
+ 	left: 130px;
+ }
+ 
+ .head-bear {
+ 	width: 100%;
+ 	position: absolute;
+ 	bottom: 0;
+ }
+ 
+ .head-arrows {
+ 	width: 5%;
+ 	position: absolute;
+ 	bottom: 40px;
+ 	left: 248px;
+ }
+ .two{
+ 	background: deepskyblue;
+ }
+.bj-butterfly1{
+	transform: rotate(360deg);
+	width: 200px;
+	position: absolute;
+	top: 0;
+	left:0;
+}
+.bj-butterfly2{
+	width: 200px;
+	position: absolute;
+	top: 0;
+    right:0;
+    transform: rotate(90deg);
+}
+.bj-butterfly3{
+	width: 200px;
+	position: absolute;
+	bottom: 0;
+    right:0;
+    transform: rotate(180deg);
+}
+.bj-butterfly4{
+	width: 200px;
+	position: absolute;
+	bottom: 0;
+    left:0;
+    transform: rotate(270deg);
+}
+.bj-man{
+	width: 70%;
+	border-radius:50% ;
+	position: absolute;
+	top: 70px;
+	left: 75px;
+}
+.bj-garland{
+	width: 90%;
+	position: absolute;
+	top: 20px;
+	left: 30px;
+}
+.bridegroom{
+	width: 100%;
+ 	position: absolute;
+ 	color: #CCCCCC;
+ 	top: 430px;
+ 	text-align: center;
+}
+.bj-size{
+	width: 70%;
+ 	position: absolute;
+ 	top: 530px;
+ 	left: 100px;
+}
+.bj-bear1{
+	width: 20%;
+ 	position: absolute;
+ 	top: 560px;
+ 	left: 80px;
+}
+.bj-bear2{
+	width: 20%;
+ 	position: absolute;
+ 	top: 560px;
+ 	right: 80px;
+}
+.three{
+	background: hotpink;
+}
+.photo{
+	width: 100%;
+	position: absolute;
+}
+.photo1{
+	border-radius:50% ;
+	width: 52%;
+	height: 30%;
+	position: absolute;
+	bottom: 145px;
+	right: 40px;
+}
+.photo2{
+	border-radius:50% ;
+	width: 40%;
+	position: absolute;
+	top: 25px;
+	right: 40px;
+}
+.phpto3{
+	border-radius:50% ;
+	width: 40%;
+	position: absolute;
+	top: 230px;
+	left: 60px;
+}
+.p-bear{
+	width: 30%;
+	position: absolute;
+	top: 20px;
+	left: 100px;
+}
+.p-size{
+	width: 30%;
+	position: absolute;
+	top: 120px;
+	left: 70px;
+}
+.p-cat{
+	width: 30%;
+	position: absolute;
+	top: 250px;
+	right: 50px;
+}
+.p-cat2{
+	width: 30%;
+	position: absolute;
+	top: 550px;
+	left: 20px;
+}
+.p-siz{
+	color: deeppink;
+	width: 30%;
+	position: absolute;
+	top:800px;
+	left: 30px;
+}
+.five{
+	background: lightpink;
+}
+.last-case{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.last-cat{
+	width: 60%;
+	position: absolute;
+	top: 0;
+	left: 100px;
+}
+.last-bear1{
+	width: 20%;
+	position: absolute;
+	top:230px;
+	left: 100px;
+}
+.last-bear2{
+	width: 20%;
+	position: absolute;
+	top: 230px;
+	right: 100px;
+}
+.last-bear3{
+	width: 20%;
+	position: absolute;
+	top: 380px;
+	left: 100px;
+}
+.last-bear4{
+	width: 20%;
+	position: absolute;
+	top: 380px;
+	right: 100px;
+}
+.last-time{
+	position: absolute;
+	top: 260px;
+	right: 220px;
+}
+.last-time1{
+	position: absolute;
+	top: 330px;
+	right: 150px;
+}
+.last-site{
+	position: absolute;
+	top: 410px;
+	right: 220px;
+}
+.last-site1{
+	position: absolute;
+	top: 470px;
+	right: 150px;
+}
+.last-size{
+	width: 90%;
+	position: absolute;
+	top: 520px;
+	right: 20px;
+}
+.last-boy{
+	position: absolute;
+	top: 560px;
+	left: 120px;
+}
+.last-girl{
+	position: absolute;
+	top: 560px;
+	right: 120px;
+}
+.last-map{
+	position: absolute;
+	top: 650px;
+	right: 110px;
+	height: 20%;
+}

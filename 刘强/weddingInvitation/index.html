@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=640, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="animate.css"/>
+		<link rel="stylesheet" type="text/css" href="swiper.css"/>
+		<style type="text/css">
+			
+			.swiper-container{
+				position: absolute;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				background:#FFFFFF;
+			}
+			.home-page-title{
+				display:block;
+				width:100%;
+				height:40px;
+				position:fixed;
+				top:0;
+				left:0;
+				
+			}
+			.home-page-text{
+				width:100%;
+				height:80px;
+				position:fixed;
+				top:40px;
+				left:0;
+				font-size:24px;
+				text-align: center;
+				line-height:80px;
+				color:white;
+				background:black;
+				margin:0 auto;
+			}
+			.home-page-circle{
+				display:block;
+				width:200px;
+				height:200px;
+				position:absolute;
+				top:50%;
+				left:50%;
+				margin-top:-100px;
+				margin-left:-100px;
+			}
+			.home-page-photo{
+				display:block;
+				width:190px;
+				height:190px;
+				border-radius:50%;
+				position:absolute;
+				top:50%;
+				left:50%;
+				margin-top:-95px;
+				margin-left:-95px;
+			}
+			.index-bg{
+				display:block;
+				width:100%;
+				height:100%;
+			}
+			.index-img-top{
+				display:block;
+				width:487px;
+				height:189px;
+				position:absolute;
+				left:76px;
+				top:0;
+			}
+			.index-img-left{
+				display:block;
+				width:92px;
+				height:757px;
+				position:absolute;
+				left:40px;
+				top:200px;
+			}
+			.index-img-right{
+				display:block;
+				width:92px;
+				height:757px;
+				position:absolute;
+				right:40px;
+				top:200px;
+			}
+			.index-img-m1{
+				display:block;
+				width:348px;
+				height:82px;
+				position:absolute;
+				left:146px;
+				top:260px;
+			}
+			.index-img-m2{
+				display:block;
+				width:354px;
+				height:83px;
+				position:absolute;
+				left:143px;
+				bottom:460px;
+			}
+			.h3-txt{
+				width:100%;
+				height:48px;
+				line-height:48px;
+				text-align:center;
+				font-size:48px;
+				color:#948673;
+				position:absolute;
+				top:300px;
+			}
+			.span-txt{
+				display: block;
+				width:240px;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:24px;
+				color:#948673;
+				white-space:nowrap;
+				position:absolute;
+				top:420px;
+				left:200px;
+			}
+			.p-txt{
+				width:100%;
+				height:36px;
+				line-height:36px;
+				text-align:center;
+				font-size:36px;
+				color:#948673;
+				position:absolute;
+				top:460px;
+			}
+			.p-txt1{
+				width:100%;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:24px;
+				color:#948673;
+				position: absolute;
+				bottom:300px;
+			}
+			.p-txt2{
+				width:100%;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:24px;
+				color:#948673;
+				position: absolute;
+				bottom:250px;
+			}
+			.index-arrow{
+				position:absolute;
+				bottom:100px;
+				left:50%;
+				margin-left:-21px;
+			}
+			.index-img-m3{
+				display:block;
+				width:348px;
+				height:82px;
+				position:absolute;
+				left:146px;
+				top:50px;
+			}
+			.p-txt3, .p-txt4, .p-txt5, .p-txt6{
+				width:100%;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:24px;
+				color:#948673;
+			}
+			.p-txt3{
+				position: absolute;
+				top:120px;
+			}
+			.p-txt4{
+				position: absolute;
+				top:180px;
+			}
+			.p-txt5{
+				position: absolute;
+				top:240px;
+			}
+			.p-txt6{
+				position: absolute;
+				top:300px;
+			}
+			.index-img-m4{
+				display:block;
+				width:340px;
+				height:470px;
+				border-radius:20px;
+				border:5px solid white;
+				position:absolute;
+				bottom:200px;
+				left:150px;
+			}
+			.index-img-m5{
+				display:block;
+				width:406px;
+				height:242px;
+				position:absolute;
+				bottom:70px;
+				left:117px;
+			}
+			.index-img-m6{
+				display:block;
+				width:406px;
+				height:242px;
+				position:absolute;
+				top:50px;
+				left:117px;
+			}
+			.h3-txt1{
+				width:100%;
+				height:48px;
+				line-height:48px;
+				text-align:center;
+				font-size:48px;
+				color:#948673;
+				position:absolute;
+				top:200px;
+			}
+			.span-txt1{
+				display: block;
+				width:240px;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:24px;
+				color:#948673;
+				white-space:nowrap;
+				position:absolute;
+				top:320px;
+				left:200px;
+			}
+			.index-img-m7{
+				display:block;
+				width:540px;
+				height:344px;
+				border:5px solid white;
+				position:absolute;
+				top:360px;
+				left:50px;
+			}
+			.index-img-m8{
+				display:block;
+				width:304px;
+				height:196px;
+				border:5px solid white;
+				position:absolute;
+				bottom:180px;
+				left:50px;
+			}
+			.index-img-m9{
+				display:block;
+				width:304px;
+				height:196px;
+				border:5px solid white;
+				position:absolute;
+				bottom:80px;
+				right:50px;
+			}
+			.index-img-m10{
+				display:block;
+				width:270px;
+				height:103px;
+				position:absolute;
+				top:100px;
+				left:50px;
+			}
+			.p-txt7, .p-txt8{
+				width:140px;
+				height:28px;
+				line-height:28px;
+				text-align:center;
+				font-size:28px;
+				color:#948673;
+			}
+			.p-txt7{
+				position:absolute;
+				top:170px;
+				left:100px;
+			}
+			.p-txt8{
+				position:absolute;
+				top:210px;
+				left:100px;
+			}
+			.index-img-m11{
+				display:block;
+				width:248px;
+				height:164px;
+				border:5px solid white;
+				position:absolute;
+				top:100px;
+				right:50px;
+			}
+			.index-img-m12{
+				display:block;
+				width:556px;
+				height:356px;
+				border:5px solid white;
+				position:absolute;
+				top:300px;
+				left:50px;
+			}
+			.p-txt9, .p-txt10, .p-txt11, .p-txt12{
+				width:100%;
+				height:28px;
+				line-height:28px;
+				text-align:center;
+				font-size:28px;
+				color:#948673;
+			}
+			.p-txt9{
+				position:absolute;
+				bottom:300px;
+			}
+			.p-txt10{
+				position:absolute;
+				bottom:240px;
+			}
+			.p-txt11{
+				position:absolute;
+				bottom:180px;
+			}
+			.p-txt12{
+				position:absolute;
+				bottom:120px;
+			}
+			.index-img-m13{
+				display:block;
+				width:372px;
+				height:372px;
+				border-radius:50%;
+				border:5px solid white;
+				position:absolute;
+				top:100px;
+				left:134px;
+			}
+			.index-img-m14{
+				display:block;
+				width:236px;
+				height:90px;
+				position:absolute;
+				bottom:400px;
+				left:202px;
+			}
+			.p-txt13, .p-txt14, .p-txt15, .p-txt16{
+				width:100%;
+				height:28px;
+				line-height:28px;
+				text-align:center;
+				font-size:28px;
+				color:#948673;
+			}
+			.p-txt13{
+				position:absolute;
+				bottom:300px;
+			}
+			.p-txt14{
+				position:absolute;
+				bottom:240px;
+			}
+			.p-txt15{
+				position:absolute;
+				bottom:180px;
+			}
+			.p-txt16{
+				position:absolute;
+				bottom:120px;
+			}
+			.h3-txt2{
+				width:100%;
+				height:48px;
+				line-height:48px;
+				text-align:center;
+				font-size:48px;
+				color:#948673;
+				position:absolute;
+				top:50px;
+			}
+			.span-txt2{
+				display: block;
+				width:240px;
+				height:24px;
+				line-height:24px;
+				text-align:center;
+				font-size:24px;
+				color:#948673;
+				white-space:nowrap;
+				position:absolute;
+				top:170px;
+				left:200px;
+			}
+			.line-left{
+				width:200px;
+				height:5px;
+				background:#948673;
+				position:absolute;
+				left:50px;
+				top:300px;
+			}
+			.line-right{
+				width:200px;
+				height:3px;
+				background:#948673;
+				position:absolute;
+				right:50px;
+				top:300px;
+			}
+			.index-img-m15{
+				display:block;
+				width:203px;
+				height:121px;
+				position:absolute;
+				top:240px;
+				left:218px;
+			}
+			.h3-txt3{
+				width:100%;
+				height:48px;
+				line-height:48px;
+				text-align:center;
+				font-size:48px;
+				color:#948673;
+				position:absolute;
+				top:340px;
+			}
+			.h3-txt4{
+				width:100%;
+				height:48px;
+				line-height:48px;
+				text-align:center;
+				font-size:48px;
+				color:#948673;
+				position:absolute;
+				top:620px;
+			}
+			.p-txt17, .p-txt18, .p-txt19, .p-txt20, .p-txt21, .p-txt22{
+				width:100%;
+				height:28px;
+				line-height:28px;
+				text-align:center;
+				font-size:28px;
+				color:#948673;
+			}
+			.p-txt17{
+				position:absolute;
+				top:450px;
+			}
+			.p-txt18{
+				position:absolute;
+				top:510px;
+			}
+			.p-txt19{
+				position:absolute;
+				top:570px;
+			}
+			.p-txt20{
+				position:absolute;
+				bottom:320px;
+			}
+			.p-txt21{
+				position:absolute;
+				bottom:260px;
+			}
+			.p-txt22{
+				position:absolute;
+				bottom:200px;
+			}
+			.h3-txt2{
+				width:100%;
+				height:48px;
+				line-height:48px;
+				text-align:center;
+				font-size:48px;
+				color:#948673;
+				position:absolute;
+				top:50px;
+			}
+			.h3-txt5{
+				width:100%;
+				height:48px;
+				line-height:48px;
+				text-align:center;
+				font-size:48px;
+				color:#948673;
+				position:absolute;
+				top:50px;
+			}
+			.line-left1{
+				width:200px;
+				height:5px;
+				background:#948673;
+				position:absolute;
+				left:50px;
+				top:235px;
+			}
+			.line-right1{
+				width:200px;
+				height:3px;
+				background:#948673;
+				position:absolute;
+				right:50px;
+				top:235px;
+			}
+			.index-img-m16{
+				display:block;
+				width:203px;
+				height:121px;
+				position:absolute;
+				top:180px;
+				left:218px;
+			}
+			#container{
+				width:540px;
+				height:540px;
+				border:5px solid white;
+				box-sizing:border-box;
+				position:absolute;
+				top:50%;
+				left:50px;
+				margin-top:-270px;
+			}
+			.p-txt23{
+				width:100%;
+				height:28px;
+				line-height:28px;
+				text-align:center;
+				font-size:28px;
+				color:#948673;
+				position:absolute;
+				bottom:180px;
+			}
+			.btn-left, .btn-right{
+				width:200px;
+				height:60px;
+				background:#F0E1E4;
+				color:#C27C7C;
+				font-size:32px;
+				line-height:60px;
+				text-align:center;
+				white-space: nowrap;
+			}
+			.btn-left{
+				position:absolute;
+				bottom:100px;
+				left:50px;
+			}
+			.btn-right{
+				position:absolute;
+				bottom:100px;
+				right:50px;
+			}
+			.music{
+				width:100px;
+				height:100px;
+				position:absolute;
+				top:150px;
+				right:50px;
+				z-index:10;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		
+			
+			
+			<div class="swiper-wrapper">
+				<div class="swiper-slide home-page">
+					<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+					<img class="home-page-title" src="images/phonetitle1.gif"/>
+					<p class="home-page-text">粉色系婚礼邀请函</p>
+					<img class="ani home-page-circle" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" 
+						swiper-animate-delay="0.3s" src="images/loading.png"/>
+					<img class="ani home-page-photo" src="images/o_1b20v8t741u181obof23t6i1bmg65.png"/>
+					<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+				</div>
+		    	<div class="swiper-slide">
+		    		<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+		    		<img class="ani index-img-top" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="0.6s" src="images/o_1b20ptvul1dlq15cbtfv15lm19l9l.png"/>
+		    		<img class="ani index-img-left" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="0.6s" src="images/o_1b20pvuur2mnv1o1cob4n6d0m11.png"/>
+		    		<img class="ani index-img-right" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s"
+		    			swiper-animate-delay="0.6s" src="images/o_1b20pvuur2mnv1o1cob4n6d0m11.png"/>
+		    		<img class="ani index-img-m1" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.5s" src="images/o_1b20qb9m7froan31480mec11cb28.png"/>
+		    		<h3 class="ani h3-txt" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">婚礼邀请函</h3>
+		    		<span class="ani span-txt" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">-Wedding invitation-</span>
+		    		<p class="ani p-txt" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">舒淇&冯德伦</p>
+		    		<img class="ani index-img-m2" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.5s" src="images/o_1b20qb9m71gmr1q5cq252s1td129.png"/>
+		    		<p class="ani p-txt1" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">·婚礼典礼10月28日·</p>
+		    		<p class="ani p-txt2" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">·天津大酒店·</p>
+		    		<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+		    	</div>
+		    	<div class="swiper-slide second-page">
+		    		<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+		    		<img class="ani index-img-m3" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.5s" src="images/o_1b20qb9m7froan31480mec11cb28.png"/>
+		    		<p class="ani p-txt3" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">定于9月7号   星期六</p>
+		    		<p class="ani p-txt4" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">举行婚礼</p>
+		    		<p class="ani p-txt5" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">新郎：冯德伦   新娘：舒淇</p>
+		    		<p class="ani p-txt6" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">时间：下午3:40</p>
+		    		<img class="ani index-img-m4" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.2s" src="images/o_1b20ri4osdk3hmvv6h1mqcqrcl.png"/>
+		    		<img class="ani index-img-m5" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.2s" src="images/o_1b20sdq5epnda0j1j781j93dem1d.png"/>
+		    		<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+		    	</div>
+		    	<div class="swiper-slide second-page">
+		    		<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+		    		<img class="ani index-img-m6" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.2s" src="images/o_1b20sdq5epnda0j1j781j93dem1d.png"/>
+		    		<h3 class="ani h3-txt1" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">我们结婚啦！</h3>
+		    		<span class="ani span-txt1" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">We’re married！</span>
+		    		<img class="ani index-img-m7" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.5s" src="images/o_1b20slmn813po1r2q163v1i051g4720.png"/>
+		    		<img class="ani index-img-m8" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/o_1b20svc86u0m1osbbph1qt7fpa2j.jpg"/>
+		    		<img class="ani index-img-m9" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/o_1b20slmn813po1r2q163v1i051g4720.png"/>
+		    		<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+		    	</div>
+		    	<div class="swiper-slide second-page">
+		    		<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+		    		<img class="ani index-img-m10" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.2s" src="images/o_1b20sbrnhu5hufp181i18oa1tit11.png"/>
+		    		<p class="ani p-txt7" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">终于等到你</p>
+		    		<p class="ani p-txt8" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">要白头到老</p>
+		    		<img class="ani index-img-m11" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/o_1b20svc86u0m1osbbph1qt7fpa2j.jpg"/>
+		    		<img class="ani index-img-m12" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/o_1b20slmn813po1r2q163v1i051g4720.png"/>
+		    		<p class="ani p-txt9" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">很多时候</p>
+		    		<p class="ani p-txt10" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">我只是想能有个你</p>
+		    		<p class="ani p-txt11" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">紧紧抱着我不放</p>
+		    		<p class="ani p-txt12" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">直到我的情绪真的好起来</p>
+		    		<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+		    	</div>
+		    	<div class="swiper-slide second-page">
+		    		<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+		    		<img class="ani index-img-m13" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/o_1b20slmn813po1r2q163v1i051g4720.png"/>
+		    		<img class="ani index-img-m14" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.2s" src="images/o_1b20sbrnhu5hufp181i18oa1tit11.png"/>
+		    		<p class="ani p-txt13" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">你的笑颜</p>
+		    		<p class="ani p-txt14" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">如一道清泉</p>
+		    		<p class="ani p-txt15" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">流动清澈的情缘</p>
+		    		<p class="ani p-txt16" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">漂洗我心得蜜甜</p>
+		    		<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+		    	</div>
+		    	<div class="swiper-slide second-page">
+		    		<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+		    		<h3 class="ani h3-txt2" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">婚礼流程</h3>
+		    		<span class="ani span-txt2" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">2016年9月7日</span>
+		    		<div class="ani line-left" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s"></div>
+		    		<div class="ani line-right" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s"></div>	
+		    		<img class="ani index-img-m15" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/o_1b20sdq5epnda0j1j781j93dem1d.png"/>	
+		    		<h3 class="ani h3-txt3" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">AM</h3>
+		    		<p class="ani p-txt17" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">8:30-9:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开场</p>
+		    		<p class="ani p-txt18" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">8:30-9:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开场</p>
+		    		<p class="ani p-txt19" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">8:30-9:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开场</p>
+		    		<h3 class="ani h3-txt4" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">PM</h3>
+		    		<p class="ani p-txt20" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">8:30-9:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开场</p>
+		    		<p class="ani p-txt21" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">8:30-9:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开场</p>
+		    		<p class="ani p-txt22" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">8:30-9:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开场</p>	
+		    		<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+		    	</div>
+		    	<div class="swiper-slide second-page">
+		    		<img class="index-bg" src="images/o_1b20ps8rc1trf9r21v1eg878339.png"/>
+		    		<h3 class="ani h3-txt5" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="1.8s">婚礼地址</h3>
+		    		<div class="ani line-left1" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s"></div>
+		    		<div class="ani line-right1" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s"></div>	
+		    		<img class="ani index-img-m16" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/o_1b20sdq5epnda0j1j781j93dem1d.png"/>	
+		    		<div class="ani " swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s"  id="container" tabindex="0"></div>
+		    		<p class="ani p-txt23" swiper-animate-effect="zoomIn" swiper-animate-duration="1s"
+		    			swiper-animate-delay="1.8s">地址：天津市滨海新区天津大酒店</p>	
+		    		<button class="ani btn-left" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" >联系新郎</button>	
+		    		<button class="ani btn-right"swiper-animate-effect="zoomIn" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" >联系新娘</button>	
+		    		<img class="ani index-arrow infinite" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" 
+		    			swiper-animate-delay="2s" src="images/arrow-up-blue.png"/>
+		    	</div>
+		    </div>
+		    
+		    <div class="swiper-pagination"></div>
+		    
+			<img class="music active-music" src="images/music.png"/>
+		   
+		</div>
+		<audio src="music/music.mp3" autoplay loop>
+			<source src="music/music.MP3" type="audio/mpeg"></source>
+			<source src="music/music.ogg" type="audio/ogg"></source>
+			您的浏览器暂不支持audio标签。播放视频
+		</audio>
+	</body>
+</html>
+<script src="swiper.js" type="text/javascript" charset="utf-8"></script>
+<script src="animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=db481e4db8036e29772b61f27272c698"></script>
+<script src="zepto.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var swiper = new Swiper('.swiper-container', {
+		direction:"vertical",
+		onInit: function(swiper){
+			swiperAnimateCache(swiper);
+			swiperAnimate(swiper);
+		},
+		onSlideChangeEnd: function(swiper){
+			swiperAnimate(swiper);
+		}
+    	
+    });
+    
+    var map = new AMap.Map('container',{//第一个参数是id容器        options是配置项
+            resizeEnable: true,//允许放大缩小
+            zoom: 14,
+            center: [117.690637,39.035483]
+        });
+    var marker = new AMap.Marker({
+	    position: [117.690637,39.035483],//marker所在的位置
+	    map:map//创建时直接赋予map属性
+	});
+	//也可以在创建完成后通过setMap方法执行地图对象
+	marker.setMap(map);
+        
+    var isPause = true;
+    $(".music").click(function() {
+    	if(isPause) {
+    		$("audio")[0].pause();
+    		$(this).removeClass("active-music");
+    		isPause = false;
+    	}else{
+    		$("audio")[0].play();
+    		$(this).addClass("active-music");
+    		isPause = true;
+    	}
+    })
+
+</script>

@@ -37,6 +37,7 @@
 			handleDataSucc: function(res) {
 				this.dataList = res.dataList;
 				this.colorList = res.colorList;
+				/*根据json给的  数据个数----自动计算步长值，数据值-----对应y轴值 */
 				//步长值 =  轴长 / (数据个数*2)
 				this.step = 500 /(this.dataList.length * 2)
 				//纵轴显示数据比例 (0-100  0-400)

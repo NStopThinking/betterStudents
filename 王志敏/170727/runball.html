@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>runball</title>
+	<style type="text/css">
+		html,body{
+			height:100%;
+		}
+		body{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+
+	<script type="text/javascript">
+		function Page() {
+			this.canvas = document.getElementById("canvas");
+			this.ctx = this.canvas.getContext("2d");
+			this.canvas.width = document.body.clientWidth;
+			this.canvas.height = document.body.clientHeight;
+			this.balls = [];
+		};
+
+		Object.assign(Page.prototype, {
+			init: function() {
+				this.getBallsData();
+				this.setInterval();
+			},
+
+			getBallsData: function() {
+				for(var i=0; i<100; i++) {
+					var R = Math.floor(Math.random()*255);
+					var G = Math.floor(Math.random()*255);
+					var B = Math.floor(Math.random()*255); 
+					var radius = Math.random()*50 + 20;
+					aBall = {
+						color: "rgb("+R+","+G+","+B+")",
+						radius: radius,
+						x: Math.random()*(this.canvas.width - radius*2) + radius,
+						y: Math.random()*(this.canvas.height - radius*2) + radius,
+						vx: (Math.random()*5+5)*Math.pow(-1, Math.floor(Math.random()*100)),
+						vy: (Math.random()*5+5)*Math.pow(-1, Math.floor(Math.random()*100))
+					};
+					this.balls[i] = aBall;
+				}
+			},
+
+			setInterval: function() {
+				var this_ = this;
+				setInterval(function() {
+					this_.draw();
+					this_.update( this_.canvas.width, this_.canvas.height );
+				}, 50);
+			},
+
+			draw: function() {
+				this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+				for(var i=0; i<this.balls.length; i++){
+					//this.ctx.globalCompositeOperation = "lighter";
+					this.ctx.globalCompositeOperation = "xor";
+					this.ctx.fillStyle = this.balls[i].color;
+					this.ctx.beginPath();
+					this.ctx.arc(this.balls[i].x, this.balls[i].y, this.balls[i].radius, 0, Math.PI*2);
+					this.ctx.closePath();
+					this.ctx.fill();
+				}
+			},
+
+			update: function(canvasWidth, canvasHeight) {
+				for(var i=0; i<this.balls.length; i++){
+					this.balls[i].x += this.balls[i].vx;
+					this.balls[i].y += this.balls[i].vy;
+
+					if(this.balls[i].x - this.balls[i].radius <= 0){
+						this.balls[i].vx = -this.balls[i].vx;
+						this.balls[i].x = this.balls[i].radius;
+					}
+
+					if(this.balls[i].x + this.balls[i].radius >= canvasWidth){
+						this.balls[i].vx = -this.balls[i].vx;
+						this.balls[i].x = canvasWidth - this.balls[i].radius;
+					}
+
+					if(this.balls[i].y - this.balls[i].radius <= 0){
+						this.balls[i].vy = -this.balls[i].vy;
+						this.balls[i].y = this.balls[i].radius;
+					}
+
+					if(this.balls[i].y + this.balls[i].radius >= canvasHeight){
+						this.balls[i].vy = -this.balls[i].vy;
+						this.balls[i].y = canvasHeight - this.balls[i].radius;
+					}
+				}
+			}
+		});
+
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

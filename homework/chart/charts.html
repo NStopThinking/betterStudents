@@ -37,14 +37,8 @@
 			handleDataSucc: function(res) {
 				this.dataList = res.dataList;
 				this.colorList = res.colorList;
-				/*根据json给的  数据个数----自动计算步长值，数据值-----对应y轴值 */
-				//步长值 =  轴长 / (数据个数*2)
-				this.step = 500 /(this.dataList.length * 2)
-				//纵轴显示数据比例 (0-100  0-400)
-				this.rate = 400 / 100
-				
-				console.log(this.step)
-				
+				this.step = 500 /(this.dataList.length * 2);
+				this.rate = 400 / 100;	
 				this.drawAxis();
 				this.drawHorizonLine();
 				this.drawHorizonTxt();
@@ -54,18 +48,27 @@
 			drawDataAreas:function() {
 				this.ctx.save();
 				this.ctx.translate(50, 550); 
-				
+
 				for(var i= 1,j=0; i < this.dataList.length * 2;){
 					this.ctx.beginPath();        
-					this.ctx.moveTo(this.step*(i), 0);       
+					this.ctx.moveTo(this.step*(i), 0);    	
 					this.ctx.lineTo(this.step*(i),-(this.dataList[j] * this.rate));     
 					this.ctx.lineTo(this.step*(i+1),-(this.dataList[j] * this.rate));	  
 					this.ctx.lineTo(this.step*(i+1),0);     
 					this.ctx.lineWidth = 1;
 					this.ctx.strokeStyle = "#000";
 					this.ctx.stroke();
+//					this.ctx.fillRect(this.step * i, 0, this.step, -this.dataList[j]*this.rate); // 画矩形时第一个颜色有bug!!
 					this.ctx.fillStyle = this.colorList[j];
 					this.ctx.fill();
+					
+					this.ctx.beginPath();
+					this.ctx.moveTo(this.step * i, -this.dataList[j]*this.rate);
+					this.ctx.font = "14px arial";
+					this.ctx.fillStyle = this.colorList[j];
+					this.ctx.fillText(this.dataList[j], this.step * i + 4, -this.dataList[j]*this.rate);
+					this.ctx.fill();
+					
 					i = i + 2; 
 					j = j + 1;
 				}

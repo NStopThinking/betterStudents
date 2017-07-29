@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Chart</title>
+</head>
+<body>
+	<canvas id="chart" width="800" height="700" style="margin: 0 auto; display: block;"></canvas>
+	<script src="../jquery-1.11.1.js"></script>
+	<script>
+		function Page(){
+			this.chart = document.getElementById("chart");
+			this.ctx = this.chart.getContext("2d");
+		}
+		
+		Object.assign(Page.prototype, {
+			
+			init: function(){
+				this.ajax();
+			},
+			
+			ajax: function(){
+				$.ajax({
+					url: "data.json",
+					type: "get",
+					success: $.proxy(this.handleSuccess,this)
+				})
+			},
+			
+			handleSuccess: function(res){
+				this.dataList = res.dataList;
+				this.listColor = res.listColor;
+				this.step = 700 / (this.dataList.length *2);
+				this.rate = 600 / 240;
+				console.log(this.step, this.rate)
+				
+				this.drawAxis();
+				this.drawYdot();
+				this.drawYtext();
+				this.drawData();
+			},
+			
+			drawData: function(){
+				this.ctx.save();
+				this.ctx.translate(50, 650);
+				
+				for (var i = 1, j = 0; i < this.dataList.length*2; i+=2) {
+					this.ctx.beginPath();
+					this.ctx.moveTo(this.step * i, 0);
+					this.ctx.fillRect(this.step * i, 0, this.step, -this.dataList[j]*this.rate);
+					this.ctx.fill();
+					
+					this.ctx.beginPath();
+					this.ctx.moveTo(this.step * i, -this.dataList[j]*this.rate);
+					this.ctx.font = "14px arial";
+					this.ctx.fillStyle = this.listColor[j];
+					this.ctx.fillText(this.dataList[j], this.step * i + 4, -this.dataList[j]*this.rate);
+					this.ctx.fill();
+					j += 1;
+					
+				}
+				this.ctx.restore();
+			},
+			
+			drawAxis: function(){
+				this.ctx.save();
+				this.ctx.translate(50, 650);
+				
+				this.ctx.moveTo(0, 0);
+				this.ctx.lineTo(0, -600);
+				this.ctx.lineWidth = 2;
+				this.ctx.stroke();
+				
+				this.ctx.beginPath();
+				this.ctx.moveTo(0, 0);
+				this.ctx.lineTo(700, 0);
+				this.lineWidth = 2;
+				this.ctx.stroke();
+				
+				this.ctx.restore();
+			},
+			
+			drawYdot: function(){
+				this.ctx.save();
+				this.ctx.translate(50, 650);
+				
+				for(var i = 50; i < 600; i += 50){
+					this.ctx.beginPath();
+					this.ctx.moveTo(0, -i);
+					this.ctx.lineTo(700, -i);
+					this.ctx.strokeStyle = "#ccc";
+					this.ctx.stroke();
+					
+				}
+				this.ctx.restore();
+			},
+			
+			drawYtext: function(){
+				this.ctx.save();
+				this.ctx.translate(50, 650);
+				
+				for(var i = 0, j = 0; i < 600; i += 50){
+					this.ctx.beginPath();
+					this.ctx.font = "16px arial blod";
+					this.ctx.textAlign = "right";
+					this.ctx.textBaseline = "middle";
+					this.ctx.fillStyle = "red";
+					this.ctx.fillText(j, 0, -i);
+					this.ctx.fill();
+					j += 20;
+				}
+				this.ctx.restore();
+			}
+			
+		})
+		
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

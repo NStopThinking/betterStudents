@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>柱状图</title>
+	<style>
+		#canvas{margin-left:300px;overflow:visible;}
+	</style>
+</head>
+<body>
+	<canvas id='canvas' width='700' height='500'></canvas>
+</body>
+</html>
+<script type="text/javascript" src='https://code.jquery.com/jquery-1.11.1.js'></script>
+<script type="text/javascript">
+function Page(){
+	this.canvas=$('#canvas');
+	this.canvasElem=this.canvas[0];
+	this.ctx=this.canvasElem.getContext('2d');
+	this.color=['#990','#309','#c00','#f29b76','#b3d465','#a0a0a0','#556fb5','#e4007f','#a6937c'];
+}
+$.extend(Page.prototype,{
+	init:function(){
+		this.ajax();
+		
+	},
+	ajax:function(){
+		$.ajax({
+			url:'index.json',
+			type:'post',
+			success:$.proxy(this.success,this)
+		})
+	},
+	success:function(msg){
+		this.height=msg.height;
+		this.count=this.height.length;
+		this.maxNum=this.height[0];
+		for(var i=0;i<this.height.length;i++){
+			if(this.height[i]>this.maxNum){
+				this.maxNum=this.height[i];
+			}
+		}
+		this.width=this.count*80;
+		this.scale=this.maxNum/5;
+		this.coord();
+		this.line();
+		this.histogram();
+	},
+	coord:function(){
+		this.ctx.save();
+		this.ctx.beginPath();
+		this.ctx.translate(50,80);
+		this.ctx.strokeText(0,-20,400)
+		this.ctx.moveTo(0,0);
+		this.ctx.lineTo(0,400);
+		this.ctx.lineTo(this.width,400);
+		this.ctx.lineWidth=3;
+		this.ctx.stroke();
+		this.ctx.restore();
+	},
+	line:function(){
+		for(var i=1;i<=5;i++){
+			this.ctx.save();
+			this.ctx.translate(50,80*i);
+			this.ctx.beginPath();
+			this.ctx.strokeText(((6-i))*this.scale,-40,10)
+			if(i===1){
+				this.ctx.strokeStyle='red';
+				this.ctx.lineWidth=2;
+			}
+			
+			this.ctx.moveTo(0,0);
+			this.ctx.lineTo(this.width,0);
+			this.ctx.stroke();
+			this.ctx.restore();
+		}
+	},
+	histogram:function(){
+		for(var i=0;i<this.height.length;i++){
+			var x=(i+1)*80-40,
+				y=-(this.height[i]/this.scale)*80;
+			this.ctx.save();
+			this.ctx.beginPath();
+			this.ctx.translate(50,479);
+			this.ctx.strokeStyle='#666';
+			this.ctx.strokeText(this.height[i],x+5,y-5);
+			this.ctx.moveTo(x,0);
+			this.ctx.lineTo(x,y);
+			this.ctx.lineTo(x+40,y);
+			this.ctx.lineTo(x+40,0);
+			this.ctx.fillStyle=this.color[i];
+			this.ctx.fill();
+			this.ctx.restore();
+		}
+		
+	}
+})
+var page=new Page();
+page.init();
+</script>

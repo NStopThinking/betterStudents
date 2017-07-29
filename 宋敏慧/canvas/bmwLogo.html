@@ -15,6 +15,9 @@
 		Object.assign(Page.prototype, {
 			init: function() {
 				this.drawArc1();
+				this.B();
+				// this.M();
+				this.W();
 			},
 
 			drawArc1: function() {
@@ -96,10 +99,24 @@
 				this.ctx.closePath();
 				this.ctx.stroke();
 
-				this.ctx.font = "50px Arial";
-				this.ctx.fillText("B", 110, 125);
+				this.ctx.font = "50px Arial";		
 				this.ctx.fillText("M", 180, 100);
-				this.ctx.fillText("W", 250, 125);
+				
+			},
+
+			B: function() {
+				this.ctx.save();
+				this.ctx.translate(200, 200);
+				this.ctx.rotate(-Math.PI /5);
+				this.ctx.fillText("B", -50, -90);
+				this.ctx.restore();
+			},
+
+			W: function() {
+				this.ctx.save();
+				this.ctx.rotate(Math.PI/5);
+				this.ctx.fillText("W", 280, -50);
+				this.ctx.restore();
 			}
 		})
 

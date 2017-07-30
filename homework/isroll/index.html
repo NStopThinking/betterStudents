@@ -81,6 +81,7 @@ body {
 
 </style>
 </head>
+<body>
 	<div id="wrapper">
 		<div id="scroller">
 			<ul id = "list">
@@ -146,19 +147,23 @@ body {
 	function Page() {
 		this.loadedNoticeElem = $("#loadnotice");
 		this.listItem = $("#list");
+		this.myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true});
+		this.flag = false;  //开关判断是否要刷新
 	}
 
-	$.extend(Page.probetype, {
+	$.extend(Page.prototype, {
 		init: function() {
-			this.flag = false;  //开关判断是否要刷新
-			this.loading = false;
-			this.myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true})
 			this.bindEvents();
 		},
 
 		bindEvents: function() {
+			//优化代码，判断浏览器是不是支持第单个参数是对象，使页面更流畅，优化性能。
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+				capture: false,
+				passive: false
+			} : false);
 			this.myScroll.on('scroll', $.proxy(this.handleScroll, this));
-			this,myScroll.on('scrollEnd', $.proxy(this.handleScrollEnd, this) );
+			this.myScroll.on('scrollEnd', $.proxy(this.handleScrollEnd, this) );
 		},
 
 		handleScroll: function() {
@@ -177,22 +182,21 @@ body {
 			if(this.flag){
 				this.loading = true ; //防止一个没完有去加载，确保每次只加载一组数据
 				this.flag = false ;
-				setTimeiout($.proxy(this.handleGetDate, this), 500)
+				setTimeout($.proxy(this.handleGetData, this), 500)
 			}
 		},
 
-		handleGetDate: function() {
-			this.listItem.append("<li>刷新获得的数据</li>")；
-			this.flag = false ;
+		handleGetData: function() {
+			this.listItem.append("<li>刷新获得的数据</li>");
+			this.loading = false ;
 			this.myScroll.refresh();
-		},
-
+		}
 
 	})
 
 	var page = new Page();
 	page.init();
-	loaded(); 
+	// loaded(); 
 </script>
 </body>
 </html>

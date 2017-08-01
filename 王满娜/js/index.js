@@ -1,6 +1,6 @@
 function Page() {
     this.addElem = $(".add");
-    this.mainElem = $(".main");
+    this.bodyElem = $("body");
     this.subtractElem = $(".subtract");
     this.fontSizeElem = $(".fontSize");
     this.contentElem = $(".content");
@@ -15,7 +15,7 @@ $.extend(Page.prototype, {
     bindEvents: function() {
         this.saveLocalStorage();
         this.contentElem.css("font-size", this.fontSize);
-        this.mainElem.css("background", this.bgColor);
+        this.bodyElem.css("background", this.bgColor);
         this.addElem.on("click", $.proxy(this.addClick, this));
         this.subtractElem.on("click", $.proxy(this.subtractClick, this));
         this.changFontSize();
@@ -35,7 +35,7 @@ $.extend(Page.prototype, {
     changBgColor: function(e) {
         if ($(e.target).attr("class") == "color") {
             this.bgColor = $(e.target).css("backgroundColor");
-            this.mainElem.css("background", this.bgColor);
+            this.bodyElem.css("background", this.bgColor);
             this.saveLocalStorage();
         }
     },

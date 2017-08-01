@@ -1,0 +1,75 @@
+body,html,p,ul,li,ol,dl,dt,dd,fieldset,legend,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+body,html{height:100%;font-size:12px;
+font-family: "微软雅黑";}
+ul,li,ol{list-style:none;}
+img,iframe{border:none;vertical-align:middle;}
+.clear{width:0;height:0;overflow:hidden;clear:both;}
+a{text-decoration: none;color:#333;}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.content {
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: hidden;
+	background: #CCFFFF;
+	font-size: 14px;
+	padding: 20px 10px 0 10px;
+}
+
+.toolBar {
+	flex-grow: 0;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column; 
+	justify-content: space-around;
+	height: 100px;
+	background: #333;
+}
+
+.text-box {
+	display: flex;
+	justify-content: space-around;
+}
+
+.text-size {
+	width: 25px;
+	height: 25px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	line-height: 25px:;
+}
+
+.set-color {
+	display: flex;
+	justify-content: space-around;
+}
+.set-color li {
+	float: left;
+	width: 25px;
+	height: 25px;
+	border-radius: 5px;
+	background: #CCCC99;
+}
+.set-color li:nth-child(2) {
+	background: #FFFFCC;
+}
+.set-color li:nth-child(3) {
+	background: #FFCC99;
+}
+.set-color li:nth-child(4) {
+	background: #CCCCFF;
+}
+.set-color li:nth-child(5) {
+	background: #996699;
+}
+.set-color li:nth-child(6) {
+  background: #666666;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>e-book</title>
+	<style>
+		*{margin:0;padding:0;}
+		ul{list-style:none;}
+		#box{width:240px;margin:30px auto;overflow:hidden;background:#ddd;}
+		#box p{font-size:12px;margin-bottom:20px;padding:10px 10px 0;}
+		#content{font-size:14px;margin:0 10px;height:320px;overflow:hidden;margin-bottom:10px;}
+		#box li{float:left;}
+		#fontList{width:100%;height:40px;display:flex;justify-content:space-around;background:#363b38;}
+		#fontList li{width:25px;height:25px;line-height:25px;border:1px solid #999;border-radius:4px;
+			color:#fff;text-align:center;margin-top:10px;
+		}
+		#colorList{width:100%;height:40px;display:flex;justify-content:space-around;background:#363b38;}
+		#colorList li{width:22px;height:22px;line-height:22px;border:1px solid #999;border-radius:4px;
+			color:#fff;text-align:center;margin-top:10px;}
+	</style>
+</head>
+<script src="https://cdn.bootcss.com/jquery/1.8.1/jquery.js"></script>
+<script>
+(function($){
+$(function(){
+	function Page(){
+		this.box=$('#box');
+		this.content=$('#content');
+		this.fontList=$('#fontList');
+		this.colorList=$('#colorList');
+		this.colorLi=this.colorList.children();
+		this.font=$('#fontList .font');
+		this.fontSize=Number(this.content.css('font-size').split('px')[0]);
+		this.color=['#d8d8d8','#dcc7b6','#ddaf7a','#00c794','#004b6d','#6f4842'];
+		this.box.css('background','#ddd');
+		this.font.text(this.fontSize);
+		this.time=new Date().getTime();
+	}
+	$.extend(Page.prototype,{
+		init:function(){
+			this.bindEvents();
+			this.colorBackground();
+			this.localStorage();
+			this.clearLocalStorage();
+		},
+		bindEvents:function(){
+			this.fontList.on('click',$.proxy(this.hangleFontListClick,this));
+			this.colorList.on('click',$.proxy(this.hangleColorListClick,this));
+		},
+		localStorage:function(){
+			try{
+				if(localStorage.length===0){
+					localStorage.fontSize=this.fontSize;
+					localStorage.backgroundColor=this.box.css('background');
+					localStorage.time=this.time;
+				}
+				this.font.text(localStorage.fontSize);
+				this.fontSize=localStorage.fontSize;
+				this.content.css('font-size',localStorage.fontSize+'px');
+				this.box.css('background',localStorage.backgroundColor);
+				this.colorLi.eq(localStorage.colorLiIndex).css('border-color','#000').siblings('li').css('border-color','#999');
+			}catch(e){};
+		},
+		clearLocalStorage:function(){
+			try{
+				if(this.time-localStorage.time>=3600000){
+					localStorage.clear();
+				}
+			}catch(e){}
+			
+		},
+		colorBackground:function(){
+			for(var i=0;i<this.colorLi.length;i++){
+				this.colorLi.eq(i).css('background',this.color[i])
+			}
+		},
+		hangleFontListClick:function(e){
+			if($(e.target).index()===0){
+				this.fontSize++;
+				if(this.fontSize>=25){
+					this.fontSize=25;
+				}
+			}
+			if($(e.target).index()===2){
+				this.fontSize--;
+				if(this.fontSize<=12){
+					this.fontSize=12;
+				}
+			}
+			try{
+				localStorage.fontSize=this.fontSize;
+				this.font.text(localStorage.fontSize);
+				this.fontSize=localStorage.fontSize;
+				this.content.css('font-size',localStorage.fontSize+'px');
+			}catch(e){}
+		},
+		hangleColorListClick:function(e){
+			if(e.target.className==='color'){
+				var color=$(e.target).css('background');
+			}
+			try{
+				localStorage.backgroundColor=color;
+				this.box.css('background',localStorage.backgroundColor);
+				this.colorLi.eq(localStorage.colorLiIndex).css('border-color','#000').siblings('li').css('border-color','#999');
+			}catch(e){}
+		}
+	})
+	var page=new Page();
+	page.init();
+})
+})(jQuery)
+</script>
+<body>
+	<div id='box'>
+		<p>醉玲珑--怜取苍生千载泪</p>
+		<article id='content'>圣武二十六年春节将至，礼部官员早已拟了仪礼典章上奏天听。往年春节大正宫内外是必有一番大热闹的，今年天帝却将礼部洋洋洒洒的奏章留中，颁下了一道谕旨：赈济司长吏赈灾不力，特革职查办。着清平郡主暂领赈济司，御医令宋德方、御医何儒义、黄文尚辅之，赴平隶灾区，赈灾济民。
+
+    紧接着一道旨意：四皇子夜天凌加京隶观察使衔，着统调兵马，巡查、封禁京隶两地，同赈济司全权处理灾疫事宜，平隶地方官员一律从其调遣。
+
+    两日后黄昏时，便又有了第三道旨意：着七皇子夜天湛加侍御史衔，领礼部筹划新年大礼诸事宜。
+
+    此时卿尘和夜天凌已赴平隶，一出京，玄甲军便驻扎城门，自京郊始设卡封关，在疫区和非疫区拉开了一道严密的防线。
+
+    玄甲军治军之严名副其实，军中将士无一像之前的赈济司，不是惧怕瘟疫先开了小差便是收受贿赂私自放行，人人恪守严令，如铜墙铁壁般迅驻防各处。
+
+    冥衣楼早依卿尘之令将牧原堂扩出几家分堂，施医布药赈济灾民，着实匡助了不少百姓，很快成了京隶一带有名的善堂。卿尘为方便起见，出行便换了男装，京郊百姓也有曾去牧原堂看病的，认出她来，奔走相告，相传来了牧原堂妙手回春的大夫，病疫便有救了。</article>
+		<ul id='fontList'>
+			<li class='fontSizeAdd'>A+</li>
+			<li class='font'>14</li>
+			<li class='fontSizeMinus'>A-</li>
+		</ul>
+		<ul id='colorList'>
+			<li class='color'></li>
+			<li class='color'></li>
+			<li class='color'></li>
+			<li class='color'></li>
+			<li class='color'></li>
+			<li class='color'></li>
+		</ul>
+	</div>
+</body>
+</html>

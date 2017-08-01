@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子书</title>
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style: none;}
+		#phone{ width:320px; height:500px; border:1px solid #000; margin:50px 480px; }
+		#content{width:300px; height:400px; background:#eee;  padding:10px; overflow: hidden;}
+
+		ol{width:100%; height:40px;}
+		ol li{float: left; width:100px; text-align:center; }
+		ol li:first-child span{display: block;  width:20px; height:20px; border:1px solid red; margin-top:10px;line-height: 20px; margin-left:40px; border-radius: 5px;}
+		ol li:nth-child(2) span{display: block;  width:20px; height:20px; border:1px solid red; margin-top:10px;line-height: 20px; margin-left:40px; border-radius: 5px;}
+		ol li:last-child span{display: block;  width:20px; height:20px; border:1px solid red; margin-top:10px;line-height: 20px;  margin-left:40px; border-radius: 5px;}
+
+
+		ul{ width:100%; height:50px;}
+		ul li{width:50px; height:60px; float: left;  margin-top:5px;}
+		ul li:nth-child(1) span{width:20px; height:20px; display: block; background:#b59494; border-radius: 5px; margin-left:20px;}
+		ul li:nth-child(2) span{width:20px; height:20px; display: block; background:#f8b7b7; border-radius: 5px; margin-left:20px;}
+		ul li:nth-child(3) span{width:20px; height:20px; display: block; background:#d385d2; border-radius: 5px; margin-left:20px;}
+		ul li:nth-child(4) span{width:20px; height:20px; display: block; background:#85d3ad; border-radius: 5px; margin-left:20px;}
+		ul li:nth-child(5) span{width:20px; height:20px; display: block; background:#c3d385; border-radius: 5px; margin-left:20px;}
+		ul li:nth-child(6) span{width:20px; height:20px; display: block; background:#d39b85; border-radius: 5px; margin-left:20px;}
+
+	</style>
+</head>
+<body>
+	<div id="phone">
+		<div id="content">
+			蒹葭苍苍， 白露为霜。 所谓伊人， 在水一方。 溯洄从之， 道阻且长。 溯游从之， 宛在水中央。
+蒹葭萋萋， 白露未晞。 所谓伊人， 在水之湄。 溯洄从之， 道阻且跻。 溯游从之， 宛在水中坻。
+蒹葭采采， 白露未已。 所谓伊人， 在水之涘。 溯洄从之， 道阻且右。 溯游从之， 宛在水中沚。蒹葭苍苍， 白露为霜。 所谓伊人， 在水一方。 溯洄从之， 道阻且长。 溯游从之， 宛在水中央。
+蒹葭萋萋， 白露未晞。 所谓伊人， 在水之湄。 溯洄从之， 道阻且跻。 溯游从之， 宛在水中坻。
+蒹葭采采， 白露未已。 所谓伊人， 在水之涘。 溯洄从之， 道阻且右。 溯游从之， 宛在水中沚。蒹葭苍苍， 白露为霜。 所谓伊人， 在水一方。 溯洄从之， 道阻且长。 溯游从之， 宛在水中央。
+蒹葭萋萋， 白露未晞。 所谓伊人， 在水之湄。 溯洄从之， 道阻且跻。 溯游从之， 宛在水中坻。
+蒹葭采采， 白露未已。 所谓伊人， 在水之涘。 溯洄从之， 道阻且右。 溯游从之， 宛在水中沚。
+
+		</div>
+		<div id="menu">
+			<ol>
+				<li id="add"><span>+</span></li>
+				<li ><span 	id="num"></span></li>
+				<li id="col"><span>-</span></li>
+			</ol>
+			<ul>
+				<li class="colorPush"><span></span></li>
+				<li class="colorPush"><span></span></li>
+				<li class="colorPush"><span></span></li>
+				<li class="colorPush"><span></span></li>
+				<li class="colorPush"><span></span></li>
+				<li class="colorPush"><span></span></li>
+			</ul>
+
+		</div>
+	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script>
+		function Page(){
+
+			this.content = $("#content");
+			this.addFontSize = $("#add");
+			this.fontNum = $("#num");
+			this.colFontSize = $("#col");
+			this.num;
+			this.color;
+			this.colorPush = $(".colorPush");
+
+
+
+		}
+
+		$.extend(Page.prototype, {
+			init: function(){
+				this.bindEvents();
+
+				if(parseInt(window.localStorage.num) !== 16){
+					this.num =parseInt( window.localStorage.num);
+					this.content.css({"fontSize":this.num});
+					this.fontNum.text(this.num);
+
+				}else{
+
+					this.num = 16;
+					this.content.css({"fontSize":this.num});
+					this.fontNum.text(this.num);
+				}
+
+
+				try{
+					this.content.css({"background":window.localStorage.color});
+				}catch(e){
+
+				}
+
+			},
+
+			bindEvents: function(){
+				this.addFontSize.on("click", $.proxy(this.addNumEvent,this));
+				this.colFontSize.on("click", $.proxy(this.colNumEvent,this));
+				this.colorPush.on("click", $.proxy(this.colorEvent,this));
+			},
+
+			addNumEvent: function(e){
+
+				if(e.target.nodeName == "SPAN"){
+					this.num += 2;
+					this.content.css({"fontSize":this.num});
+					this.fontNum.text(this.num);
+					try{
+						window.localStorage.num = this.num;
+					}catch(e){
+
+					}
+					
+				}
+
+			},
+
+			colNumEvent: function(e){
+
+				if(e.target.nodeName == "SPAN"){
+					this.num -= 2;
+					this.content.css({"fontSize":this.num});
+					this.fontNum.text(this.num);
+
+					try{
+						window.localStorage.num = this.num;
+					}catch(e){
+
+					}
+					
+				}
+			},
+
+			colorEvent: function(e){
+
+				if(e.target.nodeName == "SPAN"){
+					this.color = $(e.target).css("background");
+					this.content.css({"background":this.color});
+					try{
+						window.localStorage.color = this.color;
+					}catch(e){
+
+					}
+					
+				}
+			},
+
+
+		});
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

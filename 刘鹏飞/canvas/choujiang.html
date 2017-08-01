@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抽奖</title>
+	<style>
+	*{
+		transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
+		-moz-transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
+		-webkit-transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
+		-o-transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
+	}
+		#img{
+			position: absolute;top: 104px;left:145px;
+			animate()
+		}
+		
+	</style>
+</head>
+<body>
+	<canvas width="400" height="400" id="canvas"></canvas>
+	<img src="http://www.5iweb.com.cn/resource/5iweb2015112606/images/turnplate-pointer.png" id="img" />
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+		function Page() {
+			this.canvasElem = $("#canvas");
+			this.canvas= $("#canvas")[0];
+			this.ctx=canvas.getContext('2d');
+			this.img = $("#img");
+			this.vi= this.img[0];
+		}
+
+		$.extend(Page.prototype, {
+			init: function() {
+				this.bindEvents();
+				this.drawCanvas();
+			},
+
+		bindEvents:function(){
+			this.img.on("click", $.proxy(this.handImg, this));
+		},
+
+		handImg:function(){
+			var i=36;
+			var c=0;
+			if(localStorage.deg){
+				c=parseInt(localStorage.deg)
+			}
+			var arr=['30M','20闪币','20M','10M','5闪币','谢谢参与','10闪币','50M','2闪币','100M']
+			var j=Math.ceil(Math.random()*11);
+			var k=parseInt(j*i+720);
+				c+=k;
+			localStorage.deg =c;
+			this.canvas.style.transform='rotate('+c+'deg)';
+			setTimeout(function(){
+				alert(arr[(c/36)%10])
+			},5020);
+		},
+
+		drawCanvas:function(){
+			this.drawCircle();
+			this.drawPoint();
+			this.drawSector();
+			this.drawFillet();
+			this.drawText();
+			localStorage.clear();
+			
+		},
+		
+		drawCircle: function() {
+			this.ctx.save();
+			this.ctx.translate(200,200);
+			this.ctx.beginPath();
+			this.ctx.lineWidth = 10;
+			this.ctx.fillStyle = '#fff';
+			this.ctx.arc(0,0,150,0,Math.PI*2);
+			this.ctx.strokeStyle = '#ffcc00';
+			this.ctx.fill()
+			this.ctx.stroke();
+			this.ctx.restore();
+		},
+		
+		drawPoint:function(){
+			for(var i=0;i<30;i++){
+				this.ctx.save();
+				this.ctx.translate(200,200);
+				this.ctx.beginPath();
+				this.ctx.rotate(12*i*Math.PI / 180 );
+				this.ctx.arc(0,-150,2,0,Math.PI*2);
+				this.ctx.strokeStyle = '#fff';
+				this.ctx.fillStyle = '#fff';
+				this.ctx.fill()
+				this.ctx.stroke();
+				this.ctx.restore();
+			}
+		},
+		drawSector:function(){
+			for(var i=0;i<5;i++){
+				this.ctx.save();
+				this.ctx.translate(200,200);
+				this.ctx.beginPath();
+				this.ctx.rotate(72*i*Math.PI / 180 );
+				this.ctx.moveTo(0,0);
+				this.ctx.lineTo(0,0);
+				this.ctx.arc(0,0,144,0,36*Math.PI / 180);
+				this.ctx.strokeStyle = '#ffffcc';
+				this.ctx.fillStyle = '#ffffcc';
+				this.ctx.fill()
+				this.ctx.stroke();
+				this.ctx.restore();
+			}
+		},
+		drawFillet:function(){
+			this.ctx.save();
+			this.ctx.translate(200,200);
+			this.ctx.beginPath();
+			this.ctx.lineWidth=4;
+			this.ctx.strokeStyle = '#ffcc00';
+			this.ctx.arc(0,0,50,0,Math.PI*2);
+			this.ctx.fillStyle = '#ff0033';
+			this.ctx.fill()
+			this.ctx.stroke();
+			this.ctx.restore();
+		},
+		drawText:function(){
+			this.ctx.font = '20px Arial';
+			this.ctx.fillStyle = '#ff3366';
+			
+			this.ctx.save();
+			this.ctx.translate(200, 200);		
+			this.ctx.fillText('30M', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200,200);
+			this.ctx.rotate(36*Math.PI / 180 );
+			this.ctx.fillText('100M', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.rotate(36*2*Math.PI / 180 );
+			this.ctx.fillText('2闪币', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200,200);
+			this.ctx.rotate(36*3*Math.PI / 180 );
+			this.ctx.fillText('50M', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.rotate(36*4*Math.PI / 180 );
+			this.ctx.fillText('10闪币', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200,200);
+			this.ctx.font = '15px Arial';
+			this.ctx.rotate(36*5*Math.PI / 180 );
+			this.ctx.fillText('谢谢参与', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.rotate(36*6*Math.PI / 180 );
+			this.ctx.fillText('5闪币', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200,200);
+			this.ctx.rotate(36*7*Math.PI / 180 );
+			this.ctx.fillText('10M', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.rotate(36*8*Math.PI / 180 );
+			this.ctx.fillText('20M', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.rotate(36*9*Math.PI / 180 );
+			this.ctx.fillText('20闪币', -26, -120);
+			this.ctx.restore();
+
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.fillStyle = '#fff';
+			this.ctx.fillText('开始抽奖', -26, 0);
+			this.ctx.restore();
+		}
+		
+	})
+
+
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

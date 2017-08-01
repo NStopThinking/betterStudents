@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>e-bool</title>
+	<link rel="stylesheet" type="text/css" href="e-book.css">
+	<style type="text/css">
+	p{
+		display: block;
+		height:480px;
+		font-size:26px;
+		overflow: hidden;
+	}
+	</style>
+</head>
+<body>
+	<div id="box">
+	<p class="txt">
+	海浪无声将夜幕深深淹没漫过天空尽头的角落大鱼在梦境的缝隙里游过凝望你沉睡的轮廓看海天一色 听风起雨落
+执子手吹散苍茫茫烟波大鱼的翅膀已经太辽阔我松开时间的绳索怕你飞远去怕你离我而去更怕你永远停留在这里每一滴泪水 都向你流淌去倒流回最初的相遇海浪无声将夜幕深深淹没漫过天空尽头的角落大鱼在梦境的缝隙里游过凝望你沉睡的轮廓看海天一色听风起雨落执子手吹散苍茫茫烟波大鱼的翅膀已经太辽阔我松开时间的绳索怕你飞远去怕你离我而去更怕你 永远停留在这里每一滴泪水 都向你流淌去倒流回最初的相遇海浪无声将夜幕深深淹没漫过天空尽头的角落大鱼在梦境的缝隙里游过凝望你沉睡的轮廓看海天一色听风起雨落执子手吹散苍茫茫烟波大鱼的翅膀已经太辽阔我松开时间的绳索怕你飞 远去 怕你离我而去更怕你 永远停留在这里每一滴泪水 都向你流淌去倒流回最初的相遇海浪无声将夜幕深深淹没漫过天空尽头的角落大鱼在梦境的缝隙里游过凝望你沉睡的轮廓看海天一色听风起雨落执子手吹散苍茫茫烟波大鱼的翅膀已经太辽阔我松开时间的绳索怕你飞 远去 怕你离我而去更怕你 永远停留在这里每一滴泪水 都向你流淌去倒流回最初的相遇海浪无声将夜幕深深淹没漫过天空尽头的角落大鱼在梦境的缝隙里游过凝望你沉睡的轮廓看海天一色听风起雨落执子手吹散苍茫茫烟波大鱼的翅膀已经太辽阔我松开时间的绳索怕你飞远去怕你离我而去更怕你永远停留在这里每一滴泪水都向你流淌去
+	</p>
+		<div id="bottom">
+			<span class="js-add font">+</span>
+			<span class="js-reduce font">-</span>
+			<span class="num">22</span>
+			<ul class="color">
+				<li class="js-item item"></li>
+				<li class="js-item item"></li>
+				<li class="js-item item"></li>
+				<li class="js-item item"></li>
+				<li class="js-item item"></li>
+			</ul>
+		</div>
+	</div>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+	function Page(){
+		this.box = $("box");
+		this.add = $('.js-add');
+		this.reduce = $(".js-reduce");	
+		this.txt = $(".txt");
+		this.num = $(".num");
+		this.backgroundColor = $(".js-item");
+
+
+	}
+	$.extend(Page.prototype,{
+		init: function() {
+			this.bindEventsAdd();
+			this.bindEventsReduce();
+			this.bindEventsColor();
+			this.resetForData();
+		},
+
+		resetForData: function() {
+			try{
+				this.num.text(parseInt(localStorage.fontsize));
+				this.txt.css("fontSize",parseInt(localStorage.fontsize));
+				this.txt.css("background",localStorage.background);
+			}catch(e) {}
+		},
+		
+
+		bindEventsColor: function(){
+			this.backgroundColor.on('click',$.proxy(this.handleItemChangeClick,this));
+			
+		},
+		handleItemChangeClick :function(e) {
+			var Color = $(e.target).css("background");
+			console.log(Color)
+			this.txt.css("background",Color);
+			localStorage.background=Color
+
+		},
+		bindEventsAdd: function() {
+			this.add.on('click',$.proxy(this.handleItemAddClick,this));
+			
+		},
+		handleItemAddClick: function() {
+			var txtFontsize = parseInt(this.txt.css("fontSize"));
+			txtFontsize = txtFontsize+2;
+			if (txtFontsize>40) {
+				txtFontsize = 40
+			}
+			// this.txt.css("fontSize",this.ChangeSize)
+			console.log(1);
+			this.num.text(txtFontsize);
+			this.txt.css("fontSize",txtFontsize);
+			localStorage.fontsize=txtFontsize
+		},
+		bindEventsReduce: function() {
+			this.reduce.on('click',$.proxy(this.handleItemReduceClick,this));		
+		},
+		handleItemReduceClick: function() {
+			var txtFontsize = parseInt(this.txt.css("fontSize"));
+			if (txtFontsize<18) {
+				txtFontsize = 18
+			}
+			txtFontsize = txtFontsize-2;
+			
+			// this.txt.css("fontSize",this.ChangeSize)
+			
+			this.num.text(txtFontsize);
+			this.txt.css("fontSize",txtFontsize);
+			localStorage.fontsize=txtFontsize
+		}
+		
+
+		
+	})
+	var page = new Page;
+	page.init();
+	</script>
+</body>
+</html>

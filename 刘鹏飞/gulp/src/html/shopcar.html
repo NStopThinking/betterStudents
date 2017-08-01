@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品资料</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="./css/material.css">
+	<script>
+		+function(){
+			var width = document.documentElement.clientWidth;
+			var html = document.getElementsByTagName("html")[0];
+			html.style.fontSize = (width / 6.4) + "px";
+		}();
+	</script>
+</head>
+<body>
+	<div class="header border-top">
+		商品资料
+		<div class="return iconfont">&#xe619;</div>
+		<div class="header-cart iconfont">&#xe61b;</div>
+	</div>
+	
+	<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    
+    <footer>
+    	<div id="top">
+    		<div>
+    			查看商品详情
+    		</div>
+    	</div>
+    	<div id="bottom">
+    		<div>
+    			添加到购物车
+    		</div>
+    	</div>
+    	
+    </footer>
+	<script src="./js/bundle.js"></script>
+	<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop:true
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>E-book</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div class="eBook">
+		<div class="context" id="js-context">
+			<h2 class="context-title">鹿晗</h2>
+			<p class="context-content">鹿晗（LU HAN），1990年4月20日出生于北京海淀区，中国内地影视男演员、歌手。
+2008年赴韩国留学期间在明洞逛街时，被韩国SM娱乐有限公司星探发掘成为旗下练习生。2012年4月以韩国男子组合EXO/EXO-M成员正式出道，组合内担任主唱、领舞、门面担当。
+2014年8月，个人微博单条评论创吉尼斯世界纪录，成为中文社交媒体上的首位吉尼斯世界纪录获得者。10月，申请与SM公司合同无效，于2016年7月19日达成和解。
+2015年1月，主演的首部电影《重返20岁》上映，凭借此片获第22届北京大学生电影节最受欢迎男演员奖。5月，登《福布斯》杂志中文版封面。8月，加盟综艺节目《奔跑吧兄弟第三季》。10月，主演的悬疑电影《我是证人》上映。12月，个人首张专辑《Reloaded（重启）》全球发行。
+2016年6月，参加浙江卫视综艺节目《我去上学啦第二季》。7月，代言卡地亚。8月，主演的电影《盗墓笔记》上映，在片中饰演男主角吴邪。12月，荣登“中国90后10大影响力人物”榜首，并以2.7亿财富居2016“中国90后富豪榜”第五位；同月，主演的由张艺谋执导的好莱坞电影《长城》在全球正式公映，在片中饰演士兵彭勇。
+2017年1月，首次登上央视春节联欢晚会演唱歌曲《爱你一万年》。4月，主演古装玄幻剧《择天记》登陆湖南卫视十点档青春进行时剧场，该剧平均收视率达1.12，全网播放量突破270亿，为周播剧场开创以来非暑期档收视冠军。
+			</p>
+		</div>
+		<div class="btns">
+			<div class="btns-setFont" id="js-fontSize">
+				<span class="item js-add">A+</span>
+				<span class="item js-fontSize">12</span>
+				<span class="item js-cut">A-</span>
+			</div>
+			<div class="btns-setColor" id="js-fontColor">
+				<span class="color"></span>
+				<span class="color"></span>
+				<span class="color"></span>
+				<span class="color"></span>
+				<span class="color"></span>
+			</div>			
+		</div>		
+	</div>
+</body>
+<script src="../../jquery-1.11.3.js"></script>
+<!-- <script src="index.js"></script> -->
+<script>
+	function Page(){
+		this.contextElem = $("#js-context");
+		this.fontSizeElem = $("#js-fontSize");	//字体
+		this.fontColorElem = $("#js-fontColor");	//颜色
+		this.FS = parseInt(this.fontSizeElem.children().eq(1).text());
+		this.fontSize = this.fontSizeElem.children().eq(1);
+	}
+
+	$.extend(Page.prototype, {
+
+		init: function() {
+			this.bindEvents();
+			this.saveStyle();
+		},
+
+		bindEvents: function() {
+			this.fontSizeElem.on("click", $.proxy(this.fontsizeEvent, this));
+			this.fontColorElem.on("click", $.proxy(this.colorChange, this));
+		},
+
+		saveStyle: function() {
+			if(localStorage.fontSize){
+				this.contextElem.css('font-size', parseInt(localStorage.fontSize));
+				this.fontSize.html(parseInt(localStorage.fontSize));
+			}
+			if(localStorage.fontColor){
+				this.contextElem.css('fontSize', localStorage.fontColor);
+			}
+		},
+
+		fontsizeEvent: function(e) {
+			var newFontSize;
+			if(localStorage.fontSize){
+				this.FS = parseInt(localStorage.fontSize);
+			}
+			if($(e.target).text() === 'A+'){// 字体变大	
+				newFontSize = ++this.FS;		
+			}else if($(e.target).text() === 'A-'){//  字体变小
+				newFontSize = --this.FS;					
+			}else{// 其他不变
+				return;
+			}
+			if(newFontSize >= 25){
+				newFontSize = 25;
+			}
+			if(newFontSize <= 9){
+				newFontSize = 9;
+			}
+			localStorage.fontSize = newFontSize;
+			this.contextElem.css('font-size',newFontSize);
+			this.fontSize.html(newFontSize);
+		},
+
+		colorChange: function(e) {
+			if(e.target.nodeName === 'SPAN'){
+				var color = $(e.target).css('backgroundColor');		
+			}else{
+				return;
+			}
+			this.contextElem.css('color',color);
+			localStorage.fontColor = color;
+		}
+
+	})
+
+	var page = new Page();
+	page.init();
+</script>
+</html>

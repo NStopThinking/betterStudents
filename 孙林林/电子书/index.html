@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子书效果</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#box{
+			width:370px;
+			height:600px;
+			background:#f1e0ca;
+			margin:20px auto;
+			padding-top:5px;
+		}
+		#title{
+			width: 360px;
+			font-size:14px;
+			font-weight: 400;
+			margin-left:10px;
+			font-size:#ccc;
+		}
+		#content{
+			font-size:18px;
+			height:440px;
+			overflow: hidden;
+			white-space: normal;
+			text-overflow: ellipsis;
+			width:350px;
+			margin:10px;
+		}
+		li{
+			list-style: none;
+		}
+		#bottom{
+			width:370px;
+			height:121px;
+			background:#373532;
+		}
+		#button{
+			overflow: hidden;
+		}
+		#button li{
+			float: left;
+			width:50px;
+			height:50px;
+			border-radius: 50%;
+			background:#fbd08c;
+			text-align:center;
+			margin:10px 36px 0;
+			line-height: 50px;
+			cursor: pointer;
+		}
+		#background-color{
+			overflow: hidden;
+		}
+		#background-color li{
+			float: left;
+			width:40px;
+			height:40px;
+			line-height: 20px;
+			margin:10px 17px 0;
+			border-radius: 50%;
+		}
+		#background-color li:nth-child(1){
+			background:#f5a956;
+		}
+		#background-color li:nth-child(2){
+			background:#fb9f25;
+		}
+		#background-color li:nth-child(3){
+			background:#f1782e;
+		}
+		#background-color li:nth-child(4){
+
+			background:#fb7a25;
+		}
+		#background-color li:nth-child(5){
+			background:#fb5d16;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<h3 id="title">会议内容</h3>
+		<div id="content">
+			今年以来，面对复杂多变的国内外形势，各地区各部门按照中央经济工作会议部署，坚持稳中求进工作总基调，贯彻落实新发展理念，以推进供给侧结构性改革为主线，有效推进各项工作，保持了经济发展稳中向好态势。上半年经济运行在合理区间，主要指标好于预期，城镇就业平稳增加，财政收入、企业利润和居民收入较快增长，质量效益回升。物价总体稳定。经济结构调整不断深化，消费需求对经济增长的拉动作用保持强劲，产业结构调整加快，过剩产能继续化解，适应消费升级的行业和战略性新兴产业快速发展，各产业内部组织结构改善。区域协同联动效应初步显现，“一带一路”建设、京津冀协同发展、长江经济带发展三大战略深入实施，脱贫攻坚战成效明显，生态保护、环境治理取得新进展。新发展理念和供给侧结构性改革决策部署日益深入人心，政府和企业行为正在发生积极变化，促进供求关系发生变化，推动了市场信心逐步好转。
+		</div>
+		<div id="bottom">
+			<div id="button">
+				<li id="add">A+</li>
+				<li id="word-size">18</li>
+				<li id="minus">A-</li>
+			</div>
+			<div id="background-color">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</div>
+		</div>
+		
+	</div>
+	<script src="jquery.js"></script>
+	<script>
+		function Page() {
+			this.boxElem = $("#box");
+			this.contentElem = $("#content");
+			this.addElem = $("#add");
+			this.wordSizeElem = $("#word-size");
+			this.minusElem = $("#minus");
+			this.backgroundColor = $("#background-color li");
+		}
+
+		$.extend(Page.prototype, {
+			init: function() {
+				try{
+					if(localStorage.size){
+						this.contentElem.css("font-size", Number(localStorage.size));
+						this.wordSizeElem.text(localStorage.size);
+					}
+					if(localStorage.backgroundColor){
+						this.boxElem.css("background", localStorage.backgroundColor);
+					}
+				}catch(e){}
+				this.bindEvents();
+			},
+
+			bindEvents: function() {
+				this.addElem.on("click", $.proxy(this.handleAddClick, this));
+				this.minusElem.on("click", $.proxy(this.handleMinusClick, this));
+				this.backgroundColor.on("click", $.proxy(this.handleColorClick, this));
+
+			},
+
+			handleAddClick: function() {
+				var size = Number(this.wordSizeElem.text());
+				size += 2;
+				this.contentElem.css("font-size", size);
+				this.wordSizeElem.text(size);
+				try{
+					localStorage.size = size;
+				}catch(e){}
+				
+			},
+
+			handleMinusClick: function() {
+				var size = Number(this.wordSizeElem.text());
+				size -= 2;
+				this.contentElem.css("font-size", size);
+				this.wordSizeElem.text(size);
+				try{
+					localStorage.size = size;
+				}catch(e){}
+				
+			},
+
+			handleColorClick: function(e) {
+				var color = $(e.target).css("background");
+				this.boxElem.css("background", color);
+				try{
+					localStorage.backgroundColor = color;
+				}catch(e){}
+				
+			}
+
+
+		});
+
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

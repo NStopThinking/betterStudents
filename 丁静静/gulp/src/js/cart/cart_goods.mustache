@@ -1,0 +1,11 @@
+{{#cartList}}
+	<div class="list-goods border-bottom js-list-goods">
+		<div class="pic border"><img src="{{src}}" alt=""></div>
+		<div class="intro">
+			<p>{{intro}}</p>
+			<div class="pri js-pri">单价 : <span>{{pri}}</span></div>
+			<div class="count">数量 : <span class="js-reduce">-</span><input type="text" class="js-txt" value="{{count}}"></span><span class="js-increase">+</span></div>
+		</div>
+		<div class="js-delete iconfont">&#xe68d;</div>
+	</div> 
+{{/cartList}}

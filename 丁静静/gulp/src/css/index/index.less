@@ -1,0 +1,111 @@
+@import "../common/base.less";
+@import "../common/border.less";
+@import "../iconfont/iconfont.less";
+@import "../common/common.less";
+
+
+
+
+#wrapper {
+	overflow: hidden;
+	background: #9a9fa5;
+}
+#scroller {
+	float: left;
+} 
+.category-list {
+	overflow: hidden;
+	font-size: 0;
+	height: .56rem;
+    line-height: .56rem;
+    white-space:nowrap;
+    padding: 0 .2rem;
+}
+.category-item {
+	display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: .3rem;
+} 
+.category-item-active {
+	position: relative; 
+	color: #fff;
+}
+.category-item-active:before {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	margin-left: -0.07rem;
+	content: "\0020";
+	width: 0;
+	height: 0;
+	border: 0.07rem;
+	border-left: 0.07rem solid transparent;
+	border-right: 0.07rem solid transparent;
+	border-bottom: 0.07rem solid #fff;
+}
+
+
+.detail-list {
+	width: 100%; 
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 1.42rem;;
+	bottom: .98rem;
+	overflow: hidden;
+	padding-top: .42rem;
+	background: #f3f4f6; 
+}
+
+.detail-list ul {
+ 	float: left;
+}
+.detail-list .detail-goods {
+	box-sizing: border-box;
+	width: 50%; 
+	padding-left: .36rem;
+	padding-right: .36rem;
+	float: left; 
+}
+.detail-list .detail-goods .pic {
+	overflow: hidden;
+	width: 100%;
+	height: 0;
+	padding-bottom: 100.81%; /*高和宽的比*/ 
+} 
+.detail-list .detail-goods .pic::before {
+	border-color: #c7c7c9;
+}
+.detail-list .detail-goods .pic img {
+	width: 100%; 
+}
+.detail-list .detail-goods .intro {
+	height: .59rem;
+	width: 100%;
+	text-align: center;
+	font-size: .24rem;
+	color: #000;
+	line-height: .57rem;
+}
+.detail-list .detail-goods .pri {
+	padding-left: .06rem;
+	padding-right: .06rem;
+	font-size: .22rem;
+	color: #d41212;
+}
+.detail-list .detail-goods .pri .original-pri {
+	color: #878787;
+	float: right;
+	font-size: .18rem;
+	position: relative;
+}
+.detail-list .detail-goods .pri .original-pri:before {
+	position: absolute;
+	left: -10%;
+	top: 50%;
+	content: "\0020";
+	width:120%;
+	height: 1px;
+	background: #878787;
+}

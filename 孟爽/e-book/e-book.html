@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>e-book</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="e-book.css">
+</head>
+<body>
+	<div class="e-Book js-Book">
+		<div class="context" id="content">
+			<h2 class="context-title">思念是一种眷恋</h2>
+			<p class="context-content">
+				&nbsp;&nbsp;&nbsp;&nbsp;思念是一种眷恋，也是一份无奈，是最后的相信，是错过的无奈，孤独一个人的世界，藏着太多的悲伤，一个人看海，一个人想起，最后错过的爱情风雨，只是孤独的世界，苍老的年华，一个人一段繁华，藏着人生的梦，藏着最后的孤独，只是人生的错，错过爱情的包围，一个人淡泊。
+			</p>
+			<p class="context-content">
+				&nbsp;&nbsp;&nbsp;&nbsp;一段风华，一段无奈，是人生的思念，是爱情的浪漫，是最后的情缘，只是孤独的世界，藏着人海的梦，藏着最后的再也不见，温柔了一段慈悲，伤感人生的再见，花开花落，只是一种繁华，一种悲伤，人海的梦，藏着属于自己的孤独，藏着最后的朦胧。
+			</p>
+			<p class="context-content">
+				&nbsp;&nbsp;&nbsp;&nbsp;孤独的心情，藏着爱情的无奈，藏着悲伤的世界，在情在梦，只是温柔的读懂，苍老自己的世界，一份再见，一份爱意，朦胧人生的思念，回首人生的系别，只是人生的错，错过唯一的读懂，爱意离别，人生再见，只是一段枉然，一段错过，回首人生的浪漫。
+			</p>
+			<p class="context-content">
+				&nbsp;&nbsp;&nbsp;&nbsp;错过的心，无奈的情，是一份凄凉，是一份再见，还是藏着梦里的孤独，只是人生的错，错过一个人的情，错过一个人的爱，是回首的系别，是无奈的孤独，错过最后的情缘，只是人生的梦，只是人生的错，错过一辈子的繁华，是谁裁剪，是谁落幕，只是繁华无缘。
+			</p>
+			<p class="context-content">
+				&nbsp;&nbsp;&nbsp;&nbsp;孤独的心，藏着人海的等，等一个人的相信，错过最美的年华，爱情无缘，回首系别，只是人生的错，错过一辈子的再见，爱情是一种奢望，人生是一种读懂，只是思念的狼狈，回首的系别，错过缘的深情，错过真的泪珠，只是人生感悟，感悟最后的无奈。
+			</p>
+		</div>
+		<div class="btns">
+			<div class="btns-setFont" id="setFont">
+				<span class="item js-add">A+</span>
+				<span class="item js-fontSize">13</span>
+				<span class="item js-small">A-</span>
+			</div>
+			<div class="btns-setColor" id="setColor">
+				<span class="color"></span>
+				<span class="color"></span>
+				<span class="color"></span>
+				<span class="color"></span>
+				<span class="color"></span>
+			</div>			
+		</div>
+
+	
+		<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+		<script>
+			function Page() {
+				this.bookElem = $(".js-Book");
+				this.contentElem = $("#content");
+				this.fontElem = $("#setFont");
+				this.addElem = $(".js-add");
+				this.fontSizeElem = $(".js-fontSize");
+				this.smallElem = $(".js-small");
+				this.fontSize = localStorage.fontSize ? Number(localStorage.fontSize) : parseInt(this.contentElem.css("font-size"));
+			}
+
+			$.extend(Page.prototype, {
+				init: function() {
+					this.bindEvents();
+				},
+
+				bindEvents: function() {
+					this.saveLocalStorage();
+			        this.contentElem.css("font-size", this.fontSize);
+			      	this.addElem.on("click", $.proxy(this.addClick, this));
+			        this.smallElem.on("click", $.proxy(this.smallClick, this));
+			        this.changFontSize();
+				},
+				saveLocalStorage: function() {
+			        localStorage.fontSize = this.fontSize;
+			    },
+			    changFontSize: function() {
+			        this.fontSizeElem.html(this.fontSize);
+			        this.saveLocalStorage();
+			    },
+				addClick: function(e) {
+					this.fontSize = this.fontSize + 2;
+			        this.contentElem.css("font-size", this.fontSize);
+			        this.changFontSize();
+				},
+
+				smallClick: function(e) {
+					this.fontSize = this.fontSize - 2;
+			        this.contentElem.css("font-size", this.fontSize);
+			        this.changFontSize();
+				}
+			});
+
+			var page = new Page();
+			page.init();
+		</script>		
+	</div>
+</body>
+</html>

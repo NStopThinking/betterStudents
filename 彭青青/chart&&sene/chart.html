@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+		var arrContent=prompt("请传入你要每个显示的柱状图高度");
+		var arr=arrContent.split(",");
+		console.log(arr);
+		function Page(){
+			this.canvas=document.getElementById("canvas");
+			this.ctx=this.canvas.getContext("2d");
+		}
+		Object.assign(Page.prototype,{
+			init:function(){
+				this.drawLiner();
+				this.drawFill();
+			},
+			drawLiner:function(){
+				this.ctx.moveTo(200,100);
+				this.ctx.lineTo(200,600);
+				this.ctx.stroke();
+				this.ctx.beginPath();
+				this.ctx.strokeText("0",190,602);
+				this.ctx.strokeText("102",170,502);
+				this.ctx.strokeText("204",170,402);
+				this.ctx.strokeText("306",170,302);
+				this.ctx.strokeText("408",170,202);
+				this.ctx.strokeText("510",170,102);
+				
+				this.ctx.moveTo(200,600);
+				this.ctx.lineTo(800,600);
+				this.ctx.stroke();
+				
+				this.ctx.moveTo(200,502);
+				this.ctx.lineTo(800,502);
+				this.ctx.stroke();
+				this.ctx.moveTo(200,402);
+				this.ctx.lineTo(800,402);
+				this.ctx.stroke();
+				this.ctx.moveTo(200,302);
+				this.ctx.lineTo(800,302);
+				this.ctx.stroke();
+				this.ctx.moveTo(200,202);
+				this.ctx.lineTo(800,202);
+				this.ctx.stroke();
+				
+				this.ctx.beginPath();
+				this.ctx.moveTo(200,101);
+				this.ctx.lineTo(800,101);
+				this.ctx.strokeStyle="red";
+				this.ctx.stroke();
+				
+			},
+
+			drawFill:function(){
+				var l=arr.length*2;
+				console.log(l);
+				var columnSpacing=600/l;
+				
+				var r = parseInt(Math.random()*256);
+				var g = parseInt(Math.random()*256);
+				var b = parseInt(Math.random()*256);
+				var cnd= "("+r+", "+g+", "+b+")";
+				for(var i=1;i<=l;i++){
+					this.ctx.beginPath();
+					
+					this.ctx.moveTo((i*2)*columnSpacing,600);
+					this.ctx.lineTo((i*2)*columnSpacing,604-arr[i-1]);
+
+					this.ctx.moveTo((i*2)*columnSpacing,604-arr[i-1]);
+					this.ctx.lineTo((i*2+1)*columnSpacing,604-arr[i-1]);
+					
+					this.ctx.moveTo((i*2+1)*columnSpacing,604-arr[i-1]);
+					this.ctx.lineTo((i*2+1)*columnSpacing,600);
+					this.ctx.closePath();
+					this.ctx.strokeText(arr[i-1],(i*2)*columnSpacing+columnSpacing/2,602-arr[i-1]);
+					
+					this.ctx.stroke();
+					this.ctx.fillStyle=cnd;
+					this.ctx.fill();
+				}
+			}	
+		});
+		var page=new Page();
+		page.init();
+		</script>
+	</body>
+</html>

@@ -41,15 +41,15 @@ $.extend(Page.prototype, {
 	handlePlayBtnClick: function() {
 		if(this.flag){
 			this.videoElem.play(); 
-//			this.playBtnElem.css({
-//				"background":"url(../imgs/stop.png)"
-//			});
+			this.playBtnElem.css({
+				"background-image":"url(./imgs/stop.png)"
+			});
 			this.flag = false;
 		}else{
 			this.videoElem.pause();
-//			this.playBtnElem.css({
-//				"background":"url(../imgs/play.png)"
-//			});
+			this.playBtnElem.css({
+				"background-image":"url(./imgs/play.png)"
+			});
 			this.flag = true;
 		}
 	},

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rotary</title>
+</head>
+<body>
+	<canvas width="400" height="400" id="canvas" style="background: #f03001"></canvas>
+	<script src="index.js"></script>
+	<script>
+		function Page() {
+			this.canvasElem = document.querySelector("#canvas");
+		}
+
+		Object.assign(Page.prototype, {
+			init: function(){
+				this.canvas = new Rotary(this.canvasElem);
+				this.canvas.init();
+			}
+		})
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

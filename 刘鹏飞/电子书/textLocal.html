@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>电子书效果</title>
+	<title>电子书</title>
 	<style>
 		*{
 			margin:0;
@@ -31,18 +31,18 @@
 			width:350px;
 			margin:10px;
 		}
-		li{
-			list-style: none;
-		}
+		
 		#bottom{
 			width:370px;
 			height:121px;
 			background:#373532;
+			position: fixed;
+			bottom: 0;
 		}
 		#button{
 			overflow: hidden;
 		}
-		#button li{
+		#button div{
 			float: left;
 			width:50px;
 			height:50px;
@@ -53,10 +53,11 @@
 			line-height: 50px;
 			cursor: pointer;
 		}
-		#background-color{
+		#color{
 			overflow: hidden;
 		}
-		#background-color li{
+		#color div{
+			display:block;
 			float: left;
 			width:40px;
 			height:40px;
@@ -64,28 +65,27 @@
 			margin:10px 17px 0;
 			border-radius: 50%;
 		}
-		#background-color li:nth-child(1){
+		#color div:nth-child(1){
 			background:#fffbe5;
 		}
-		#background-color li:nth-child(2){
+		#color div:nth-child(2){
 			background:#0af5e2;
 		}
-		#background-color li:nth-child(3){
+		#color div:nth-child(3){
 			background:#15a977;
 		}
-		#background-color li:nth-child(4){
+		#color div:nth-child(4){
 
 			background:#efe708;
 		}
-		#background-color li:nth-child(5){
+		#color div:nth-child(5){
 			background:#fff;
 		}
 	</style>
 </head>
 <body>
 	<div id="box">
-		<h3 id="title">大结局</h3>
-		<div id="content">
+		<div id="text">
 			一场旷世之战落幕，然而却是留下了一个满目疮痍的中州，原本的繁华不在，甚至整个中州，都是在此刻被一分为二，一条数万丈庞大的深渊，将两地分割而开，而这条深渊，在日后，也被人称为双帝渊，谁也无法忘记那天的那一场惊天之战…
 
 　　中州因此而损落了繁华，不过所幸，劫难就此而止，伴随着其他地方的人涌进这里，不久的将来，这中州，依然会成为斗气大陆的中心，因为，这里，爆发了决定斗气大陆命运的决战。
@@ -145,89 +145,75 @@
 　　东中州，北离城数十里之外的一座凉亭，三道人影坐于其中，举目间，略微的有些迫不及待。
 		</div>
 		<div id="bottom">
-			<div id="button">
-				<li id="add">A+</li>
-				<li id="word-size">18</li>
-				<li id="minus">A-</li>
+		<div id="button">
+				<div id="add">A+</div>
+				<div id="size">20</div>
+				<div id="jian">A-</div>
 			</div>
-			<div id="background-color">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+			<div id="color">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
 			</div>
-		</div>
-		
+		</div>	
 	</div>
-	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-	<script>
-		function Page() {
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+	function Page(){
 			this.boxElem = $("#box");
-			this.contentElem = $("#content");
+			this.textElem = $("#text");
 			this.addElem = $("#add");
-			this.wordSizeElem = $("#word-size");
-			this.minusElem = $("#minus");
-			this.backgroundColor = $("#background-color li");
+			this.sizeElem = $("#size");
+			this.jianElem = $("#jian");
+			this.backgroundColor = $("#color div");
+	}
+	$.extend(Page.prototype,{
+		init:function(){
+			try{
+				if(localStorage.size){
+					this.textElem.css('font-size',Number(localStorage.size))
+				}
+				if(localStorage.size){
+					this.boxElem.css('background',localStorage.color)
+				}
+			}catch(e){}
+			this.bindEvents();
+		},
+		bindEvents:function(){
+			this.addElem.on('click',$.proxy(this.handleAddClick,this));
+			this.jianElem.on('click',$.proxy(this.handleJianClick,this));
+			this.backgroundColor.on('click',$.proxy(this.handleColorClick,this));
+		},
+		handleAddClick:function(){
+			var size=Number(this.sizeElem.text());
+			size+=2;
+			this.textElem.css('font-size', size);
+			this.sizeElem.text(size);
+			try{
+				localStorage.size = size;
+			}catch(e){}
+		},
+		handleJianClick:function(){
+			var size=Number(this.sizeElem.text());
+			size-=2;
+			this.textElem.css('font-size', size);
+			this.sizeElem.text(size);
+			try{
+				localStorage.size = size;
+			}catch(e){}		
+		},
+		handleColorClick:function(e){
+			var color = $(e.target).css("background");
+			this.boxElem.css("background", color);
+			try{
+				localStorage.color = color;
+			}catch(e){}
 		}
-
-		$.extend(Page.prototype, {
-			init: function() {
-				try{
-					if(localStorage.size){
-						this.contentElem.css("font-size", Number(localStorage.size));
-						this.wordSizeElem.text(localStorage.size);
-					}
-					if(localStorage.backgroundColor){
-						this.boxElem.css("background", localStorage.backgroundColor);
-					}
-				}catch(e){}
-				this.bindEvents();
-			},
-
-			bindEvents: function() {
-				this.addElem.on("click", $.proxy(this.handleAddClick, this));
-				this.minusElem.on("click", $.proxy(this.handleMinusClick, this));
-				this.backgroundColor.on("click", $.proxy(this.handleColorClick, this));
-
-			},
-
-			handleAddClick: function() {
-				var size = Number(this.wordSizeElem.text());
-				size += 2;
-				this.contentElem.css("font-size", size);
-				this.wordSizeElem.text(size);
-				try{
-					localStorage.size = size;
-				}catch(e){}
-				
-			},
-
-			handleMinusClick: function() {
-				var size = Number(this.wordSizeElem.text());
-				size -= 2;
-				this.contentElem.css("font-size", size);
-				this.wordSizeElem.text(size);
-				try{
-					localStorage.size = size;
-				}catch(e){}
-				
-			},
-
-			handleColorClick: function(e) {
-				var color = $(e.target).css("background");
-				this.boxElem.css("background", color);
-				try{
-					localStorage.backgroundColor = color;
-				}catch(e){}
-				
-			}
-
-
-		});
-
-		var page = new Page();
-		page.init();
-	</script>
+	})
+	var page = new Page();
+	page.init();
+</script>
 </body>
 </html>

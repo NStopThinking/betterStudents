@@ -1,0 +1,21 @@
+{
+  "res": true,
+  "data": {
+    "imgs": [
+      {
+        "imgUrl": "./imgs/swiper.jpg"
+      },
+      {
+        "imgUrl": "./imgs/swiper.jpg"
+      },
+      {
+        "imgUrl": "./imgs/swiper.jpg"
+      }
+    ],
+    "datumName": "美特斯邦威 米底红色花朵印花短袖连衣裙",
+    "newPrice": "&yen;85.00",
+    "oldprice": "159.00",
+    "buy-show": "购买人数 :",
+    "buy-num": 210
+  }
+}

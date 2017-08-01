@@ -1,0 +1,58 @@
+{
+  "ret": true,
+  "page_id": 1,
+  "data": {
+    "category": [
+      {
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      },{
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      },{
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      },{
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      },{
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      },{
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      },{
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      },
+      {
+        "item_id": 1,
+        "imgs": "../imgs/1.gif",
+        "name": "T恤白色",
+        "new-price": 49.00,
+        "old-price": 999
+      }
+    ]
+  }
+}

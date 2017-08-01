@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>小说</title>
+	<link rel="stylesheet" type="text/css" href="reader.css">
+</head>
+<body>
+	<div class="read-body">
+		<div class="read-text">
+			<p>桃花坞里桃花庵，桃花庵下桃花仙。桃花仙人种桃树，又摘桃花换酒钱。酒醒只在花前坐，酒醉还来花下眠。半醉半醒日复日，花落花开年复年。但愿老死花酒间，不愿鞠躬车马前。车尘马足显者事，酒盏花枝隐士缘。若将显者比隐士，一在平地一在天。<br/>若将花酒比车马,彼何碌碌我何闲。别人笑我太疯癫，我笑他人看不穿。不见五陵豪杰墓，无花无酒锄作田。
+			桃花坞里桃花庵，桃花庵下桃花仙。桃花仙人种桃树，又摘桃花换酒钱。酒醒只在花前坐，酒醉还来花下眠.半醉半醒日复日，花落花开年复年。但愿老死花酒间，不愿鞠躬车马前。车尘马足显者事，酒盏花枝隐士缘。若将显者比隐士，一在平地一在天。<br/>若将花酒比车马,彼何碌碌我何闲。别人笑我太疯癫，我笑他人看不穿。不见五陵豪杰墓，无花无酒锄作田
+			桃花坞里桃花庵，桃花庵下桃花仙。桃花仙人种桃树，又摘桃花换酒钱。酒醒只在花前坐，酒醉还来花下眠。半醉半醒日复日，花落花开年复年。但愿老死花酒间，不愿鞠躬车马前。车尘马足显者事，酒盏花枝隐士缘。若将显者比隐士，一在平地一在天。若将花酒比车马,彼何碌碌我何闲。别人笑我太疯癫，我笑他人看不穿。不见五陵豪杰墓，无花无酒锄作田。</p>
+		</div>
+		<div class="read-font">
+			<div class="font-add font-select">+</div>
+			<div class="font-num font-select">16</div>
+			<div class="font-reduce font-select">-</div>
+		</div>
+		<div class="read-color">
+			<a href="#" class="js-color color-item"></a>
+			<a href="#" class="js-color color-item"></a>
+			<a href="#" class="js-color color-item"></a>
+			<a href="#" class="js-color color-item"></a>
+			<a href="#" class="js-color color-item"></a>
+			<a href="#" class="js-color color-item"></a>
+		</div>
+	</div>
+	<script src="jquery-1.8.3/jquery.js"></script>
+	<script>
+		function Page() {
+			this.fontAdd = $(".font-add");
+			this.fontNum = $(".font-num");
+			this.fontReduce = $(".font-reduce");
+			this.readText = $(".read-text");
+
+			this.readColor = $(".read-color");
+		}
+		$.extend(Page.prototype, {
+			init: function() {
+				this.resetForData();
+				this.bindEvents();
+			},
+			resetForData: function() {
+				this.fontNum.html(localStorage.newnum);
+				this.readText.css({
+					fontSize : parseInt(localStorage.newnum)
+				});
+				this.readText.css({
+						background : localStorage.newColor
+					});
+			},
+			bindEvents: function() {
+				this.fontAdd.on("click", $.proxy(this.fontAddClick, this));
+				this.fontReduce.on("click", $.proxy(this.fontReduceClick, this));
+				this.readColor.on("click",$.proxy(this.readColorItem, this));
+			},
+			readColorItem: function(e) {
+				if(e.target.nodeName == 'A') {
+					var newColor = $(e.target).css('backgroundColor');
+					localStorage.newColor = newColor;
+					this.readText.css({
+						background : localStorage.newColor
+					});
+				};
+			},
+			fontAddClick: function() {
+				var oldnum = this.fontNum.html();
+				var newnum = parseInt(oldnum)+1;
+				window.localStorage.newnum = newnum;
+				this.fontNum.html(localStorage.newnum);
+				this.readText.css({
+					fontSize : parseInt(localStorage.newnum)
+				});
+			},
+			fontReduceClick: function() {
+				var oldnum = this.fontNum.html();
+				var newnum = parseInt(oldnum)-1;
+				window.localStorage.newnum = newnum;
+				this.fontNum.html(localStorage.newnum);
+				this.readText.css({
+					fontSize : parseInt(localStorage.newnum)
+				});
+			}
+		});
+		var page = new Page();
+		page.init(); 
+	</script>
+</body>
+</html>

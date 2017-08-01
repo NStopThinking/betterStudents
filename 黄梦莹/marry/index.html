@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport"  content="width=640, user-scalable=no">
+    <link rel="stylesheet" href="./swiper.css">
+    <link rel="stylesheet" href="./animate.css">
+    <style type="text/css">
+        body,html{width:100%; height:100%; margin:0; padding:0;}
+       
+        .swiper-container {
+            position:absolute;
+            left: 0;
+            right:0;
+            top:0;
+            bottom: 0;
+            background:white;
+            
+        }
+
+        .page{width:100%; height:100%; position:relative;}
+        .page-top{width:100%;position: absolute;top:0; z-index: 12;}
+        .page-bottom{width:100%; position:absolute; bottom: 0;  z-index: 12;}
+        .page-leaf{position:absolute;left:16%; top:26%; width: 90px; }
+        .page-bird{position:absolute;left:15%; top:24%; width: 60px; }
+        .page-frame{position:absolute;left:25%; top:30%; width: 216px;  z-index: 10;}
+        .page-photo{position:absolute;left:27%; top:31%; width: 200px;  z-index: 10;}
+        .page-leaft{position:absolute;left:66%; top:47%; width: 90px; }
+        .page-name{position:absolute;left:50%; top:60%; font-size:20px; margin-left:-60px; color:rgb(65, 133, 96); }
+        .page-birds{position:absolute;left:62%; top:58%; width: 50px; }
+        .page-Invitation{position:absolute;left:50%; top:66%; font-size:40px; text-align:center;margin-left:-110px; color:rgb(65, 133, 96); }
+        .page-right{width:200%;height:200px; position: absolute; transform: rotate(-90deg); bottom: 30%; left:-20px; }
+        .page-left{width:200%;height:200px; position: absolute; transform: rotate(90deg); bottom: 30%; right:-20px; }
+        .page-left-img{width:50%; float: right;}
+        .page-right-img{width:50%; float: left;}
+        .page-Oath{display: block;position: absolute;font-size: 25px; color:rgb(72, 145, 108);left:50%;}
+        .one{top:30%;margin-left:-50px;}
+        .two{top:35%;margin-left:-93px;}
+        .three{top:40%;margin-left:-50px;}
+        .four{top:45%;margin-left:-93px;}
+
+        .page-q{position: absolute; top:60%; left:50%; margin-left: -75px; width:150px;}
+        .page3-top{width:100%; position: absolute; top:-50px; left:30%; transform: rotate(180deg);}
+        .page-topL{width:100%;}
+        .page3-photo{width: 300px; position: absolute; left: 50%; top:50%; margin-top: -200px;margin-left: -150px; z-index: 5;}
+        .page3-f{transform: rotate(-180deg); position: absolute; bottom:-400px; left:50%; margin-left: -200px; width:400px; height:800px; z-index: 10;}
+        .page3-t{transform: rotate(-20deg); position: absolute; top:16%; left:10%; z-index: 4;}
+        .page4-t{transform: rotate(170deg); position: absolute; top:16%; left:10%; z-index:6;}
+        .pages-l{width:140px;}
+        .pages-b{ position: absolute; top:20%; left:10%; z-index: 11; position: absolute; top:14%; left:4%; z-index: 11; width:100px;}
+        .pages-direc{position: absolute; width: 100px; z-index: 11; right:0; bottom: 30%;}
+        .page-hub{position: absolute; left:50%; margin-left: -110px;font-size:40px; color:rgb(65, 133, 96); z-index: 11; top:75%;}
+        .page-bottomR{width:120%; position: absolute; bottom: -30px; left:-50%; z-index: 11;}
+        .page-bottomL{width:120%; position: absolute; bottom: -30px; right:-50%; z-index: 11;}
+    
+
+        .page4-bottom{transform: rotate(50deg); position:absolute;  bottom:2%; left:4%; z-index: 11;}
+        .page4-bpic{width:150px;}
+        .page4-frame{width:355px; position:absolute; left: 50%;top:50%; margin-left:-175px; margin-top: -270px; z-index: 10;}
+        .page4-photo{width:330px; position: absolute; left: 11%; top:16%; z-index: 9;}
+        .page4-photo2{width: 165px; position: absolute; left:11%; top:50%;z-index: 8;}
+        .page4-photo3{width: 165px; position: absolute; right:11%;  bottom:11%;z-index: 8;}
+        .page4-text{font-size:40px; color:rgb(65, 133, 96);  position: absolute; right:12%; bottom:40%;  text-align: center;}
+        .page4-bird{ position: absolute; right:37%; bottom:33%; z-index: 10; width: 100px;}
+        .page4-birdg{position: absolute;right: 49%; bottom: 39%;z-index: 10; width: 100px;}
+        .page5-top1{width:100%;}
+        .page5-top{transform: rotate(-10deg); position: absolute;top:-17%; left:-70%; z-index: 12; }
+        .page5-bottom{ position:absolute; bottom: -40px; right: -40px;  z-index: 12;}
+
+
+        .page6-text{position: absolute; top:26%; left:50%; margin-left: -80px; font-size: 40px; color:rgb(65, 133, 96);}
+        .page6-text2{position: absolute; top:45%; left:50%; margin-left: -70px; font-size: 35px; color:rgb(65, 133, 96); text-align: center;}
+        .page6-jiao{position: absolute;top:21%; left: 50%; margin-left: -150px; width:300px; }
+        #container{width:300px; height:200px; position: absolute;  top:55%; left: 50%; margin-left: -150px;}
+
+        .info-title{
+            color: white;
+            font-size: 14px;
+            background-color: rgba(0,155,255,0.8);
+            line-height: 26px;
+            width:200px;
+            padding: 0px 0 0 6px;
+            font-weight: lighter;
+            letter-spacing: 1px
+        }
+        .info-content{
+            padding: 4px;
+            color: #666666;
+            line-height: 23px;
+        }
+        .info-content img{
+            float: left;
+            margin: 3px;
+        }
+        .index-arrow{position: absolute; bottom:10px; left:50%; margin-left: -20px;z-index: 13;}
+        #rotateImg{position: absolute; right:6%; top:10%; width:80px; z-index: 13;}
+    </style>
+   
+</head>
+<body onLoad="javascript:rotate();">
+    <script type="text/javascript" src="./swiper.js"></script>
+    <script type="text/javascript" src="./swiper.animate.min.js"></script>
+
+   <div class="swiper-container">
+               
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page">
+                <img src="images/music.png" id="rotateImg">
+               <img class="ani page-top" swiper-animate-effect="slideInDown" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageTop.png" >
+                
+               <img class="ani page-leaf" swiper-animate-effect="slideInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageLeaf.png" >
+               <img class="ani page-bird" swiper-animate-effect="slideInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageBird.png" >
+           
+               <img class="ani page-frame" swiper-animate-effect="bounceIn" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageFrame.png" >
+               <img class="ani page-photo" swiper-animate-effect="bounceIn" swiper-animate-duration="3s" swiper-animate-delay="0.6s" src="images/pagePhoto.png" >
+           
+           
+               <img class="ani page-leaft" swiper-animate-effect="slideInLeft" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageLeaft.png" >
+               
+               <span class="ani page-name" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="1s">明龙&周佳颖</span> 
+               <img class="ani page-birds" swiper-animate-effect="slideInLeft" swiper-animate-duration="3s" swiper-animate-delay="0.4s" src="images/pageBirds.png">
+               <span class="ani page-Invitation" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="1s">邀请函<br>Invitation</span>
+               
+               <img class="ani page-bottom" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageBottom.png" >
+                
+                <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s" src="images/arrow-up-blue.png"/>
+             
+           </div>
+            <div class="swiper-slide second-page">
+           
+               <img class="ani page-top" swiper-animate-effect="slideInDown" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageTop.png" >
+           
+               <div class=" page-right">
+               <img class="ani page-right-img" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+               <img class="ani page-right-img" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+               </div>
+           
+               <div class=" page-left">
+               <img class="ani page-left-img" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+               <img class="ani page-left-img" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+               </div>
+               
+               <span class="ani page-Oath one" swiper-animate-effect="fadeInDown" swiper-animate-duration="3s" swiper-animate-delay="0.5s">感谢缘分</span>
+               <span class="ani page-Oath two" swiper-animate-effect="fadeInDown" swiper-animate-duration="3s" swiper-animate-delay="0.7s">让我们遇到彼此</span>
+               <span class="ani page-Oath three" swiper-animate-effect="fadeInDown" swiper-animate-duration="3s" swiper-animate-delay="0.9s">从此以后</span>
+               <span class="ani page-Oath four" swiper-animate-effect="fadeInDown" swiper-animate-duration="3s" swiper-animate-delay="1.1s">我们将不再孤单</span>
+                   
+           
+               <img class="ani page-q" swiper-animate-effect=" fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1.2s" src="images/pageq.png" >
+           
+           
+               <img class="ani page-bottom" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageBottom.png" >
+
+               <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s" src="images/arrow-up-blue.png"/>
+           </div> 
+
+            
+            <div class="swiper-slide second-page">
+                
+                <div class="page3-top">
+                    <img class="ani page-topL" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+                </div>
+                
+                <div class="page3-context">
+                    <div class="page3-t">
+                         <img class="ani pages-l" swiper-animate-effect="slideInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageLeaft.png" >
+                    </div>
+                    <img class="ani pages-b" swiper-animate-effect="slideInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageBird.png" >
+            
+                    <img class="ani page3-photo" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/photoone.png" >
+                    <div class="page3-f">
+                        <img class="ani " src="images/moude.png" >
+                    </div>
+            
+                    <img class="ani pages-direc" swiper-animate-effect="slideInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/page3f.png" >
+                </div>
+                  
+                <span class="ani page-hub" swiper-animate-effect="bounceInUp" swiper-animate-duration="2s" swiper-animate-delay="0.5s">新郎 &nbsp; XXX</span>
+            
+                <img class="ani page-bottomL" swiper-animate-effect="fadeInLeftslideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+
+                <img class="ani page-bottomR" swiper-animate-effect="fadeInRightslideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+                
+                <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s" src="images/arrow-up-blue.png"/>
+
+            </div>
+             
+
+
+           <div class="swiper-slide second-page">
+              
+              <div class="page3-top">
+                  <img class="ani page-topL" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+              </div>
+              
+              <div class="page3-context">
+                  <div class="page4-t">
+                       <img class="ani pages-l" swiper-animate-effect="slideInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/flower.png" >
+                  </div>
+                 
+           
+                  <img class="ani page3-photo" swiper-animate-effect="slideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/photot.png" >
+                  <div class="page3-f">
+                      <img class="ani " src="images/moude.png" >
+                  </div>
+           
+                  <img class="ani pages-direc" swiper-animate-effect="slideInRight" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pageBirds.png" >
+              </div>
+                
+              <span class="ani page-hub" swiper-animate-effect="bounceInUp" swiper-animate-duration="2s" swiper-animate-delay="0.5s">新娘 &nbsp; XXX</span>
+           
+              <img class="ani page-bottomL" swiper-animate-effect="fadeInLeftslideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+
+              <img class="ani page-bottomR" swiper-animate-effect="fadeInRightslideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/rotate.png" >
+
+              <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s" src="images/arrow-up-blue.png"/>
+             </div> 
+
+
+            <div class="swiper-slide second-page">
+           
+               <img class="ani page-top" src="images/pageTop.png" >
+           
+           
+               <img class="ani page4-frame" swiper-animate-effect="zoomIn" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/page4-frame.png" >
+               <img class="ani page4-photo" swiper-animate-effect="fadeInslideInLeft" swiper-animate-duration="3s" swiper-animate-delay="0.8s" src="images/photo.png" >
+               <img class="ani page4-photo2" swiper-animate-effect="fadeInslideInDown" swiper-animate-duration="3s" swiper-animate-delay="0.8s" src="images/photo2.png" >
+               <img class="ani page4-photo3" swiper-animate-effect="fadeInslideInUp" swiper-animate-duration="3s" swiper-animate-delay="0.8s" src="images/photo3.png" >
+               
+                   
+               <span class="ani page4-text" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1s">我俩的<br>爱情</span>
+               <img class="ani page4-bird" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1s" src="images/pageBirdse.png" >
+               <img class="ani page4-birdg" swiper-animate-effect="fadeInslideInLeft" swiper-animate-duration="3s" swiper-animate-delay="1s" src="images/pageBird.png" >
+           
+           
+               <div class="page4-bottom">
+                   <img class="ani page4-bpic " src="images/page3f.png" >
+               </div>
+
+                <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s" src="images/arrow-up-blue.png"/>
+           </div> 
+
+          <!--   <div class="swiper-slide second-page">
+              <div class="page5-top">
+                  <img class="ani page5-top1" src="images/pageTop.png" >
+              </div>
+              
+              <img class="ani page4-frame" swiper-animate-effect="zoomIn" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/page4-frame.png" >
+              
+              <div class="page5-bottom">
+                 <img class="ani page5-bpic " src="images/page3f.png" >
+              </div>
+              <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s" src="images/arrow-up-blue.png"/>
+          </div>  -->
+
+
+            <div class="swiper-slide second-page">
+               <img class="ani page-top" src="images/pageTop.png" >
+                
+                <img class="ani page4-frame" swiper-animate-effect="zoomIn" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/page4-frame.png" >
+
+                <span class="ani page6-text" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1s">地图导航</span>
+                <img class="ani page6-jiao" swiper-animate-effect="zoomIn" swiper-animate-duration="3s" swiper-animate-delay="0.3s" src="images/pagejiao.png" >
+
+                <span class="ani page6-text2" swiper-animate-effect="fadeInslideInDown" swiper-animate-duration="3s" swiper-animate-delay="1s">时间<br>2017-15</span>
+
+                <div id="container"></div>
+                <script src="http://webapi.amap.com/maps?v=1.3&amp;key=fbd2736f37f40de10b3b920c6d25ad2b&callback=init"></script>
+                <script>
+                   /* function init(){
+                        var map = new AMap.Map('container', {
+                            // center: [117.000923, 36.675807],
+                            city: "合肥",
+                            zoom: 6
+                        });
+                        map.plugin(["AMap.ToolBar"], function() {
+                            map.addControl(new AMap.ToolBar());
+                        });
+
+                        var marker = new AMap.Marker({
+                        //position: [117.000923, 36.675807],marker所在的位置
+                        city: "合肥",
+                        map:map//创建时直接赋予map属性
+                      });
+
+                         var infowindow = new AMap.AdvancedInfoWindow({
+                          content: '<div class="info-title">高德地图</div><div class="info-content">'+
+                                '<img src="http://webapi.amap.com/images/amap.jpg">'+
+                                '高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。<br>'+
+                                '<a target="_blank" href="http://mobile.amap.com/">点击下载高德地图</a></div>',
+                          offset: new AMap.Pixel(0, -30)
+                        });
+                        infowindow.open(map,[116.480983, 39.989628]);
+                    }*/
+
+                    var map = new AMap.Map('container',{
+                          zoom: 10,
+                          center: [117.316933,31.88513]
+                      });
+
+                      
+
+
+                      var marker = new AMap.Marker({
+                        position: [116.464449,39.949168],//marker所在的位置
+                        map:map//创建时直接赋予map属性
+                      });
+
+                      marker.setMap(map);
+                      marker.on('click', function(e){
+                        infowindow.open(map,e.target.getPosition());
+                      })
+
+                      AMap.plugin('AMap.AdvancedInfoWindow',function(){
+                         infowindow = new AMap.AdvancedInfoWindow({
+                          content: '<div class="info-title">高德地图</div><div class="info-content">'+
+                                  '<img src="https://webapi.amap.com/images/amap.jpg">'+
+                                  
+                                  '<a target="_blank" href = "https://mobile.amap.com/">点击下载高德地图</a></div>',
+                          offset: new AMap.Pixel(0, -30)
+                        });
+                        infowindow.open(map,[119.130909,36.719133]);
+                      })
+
+                   
+                </script>
+
+
+                <img class="ani page-bottom"  src="images/pageBottom.png" >
+                <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s" src="images/arrow-up-blue.png"/>
+
+            </div>
+             
+            <audio id="music1" loop autoplay>
+                <source src="music/1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+   <audio>
+    <source src="" type="">
+   </audio>
+    <script>
+       
+
+    var swiper = new Swiper('.swiper-container', {
+        direction:"vertical",
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+        swiperAnimateCache(swiper); //隐藏动画元素 
+        swiperAnimate(swiper); //初始化完成开始动画
+      }, 
+      onSlideChangeEnd: function(swiper){ 
+        swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+      } 
+
+    });
+
+
+    var music= document.getElementById("rotateImg");
+    var music1= document.getElementById("music1");
+    var n=1;
+        function rotate(){
+            var ibool=true;
+            var iTimer = setInterval(function(){
+
+            n = n+2;
+            music.style.transform = "rotate(" + n + "deg)";
+            if (n == 180 || n == 360) {
+            if (n >= 360){ 
+                 n = 0;
+                }
+             }
+            },20);
+            
+            music.onclick = function(){
+                if(ibool){
+                    clearInterval(iTimer);
+                    ibool=false;
+                    music1.pause();
+                }else{
+                    iTimer = setInterval(function(){
+
+                    n = n+2;
+                    music.style.transform = "rotate(" + n + "deg)";
+                    if (n == 180 || n == 360) {
+                    if (n >= 360){ 
+                         n = 0;
+                        }
+                     }
+                    },20);
+                    ibool=true;
+                    music1.play();
+                }
+            };
+        }
+    </script>
+</body>
+</html>

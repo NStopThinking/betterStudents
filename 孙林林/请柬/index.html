@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>卡通版结婚请柬</title>
+	<link rel="stylesheet" href="./swiper.css">
+    <link rel="stylesheet" href="./animate.css">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <style>
+		.swiper-container{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top:0;
+			bottom:0;
+			background:#fff;
+			color:#000;
+			font-size:30px;
+		}
+		.swiper-slide{
+			background:url(./img/bg.png) repeat;
+		}
+		.index-text1{
+			position: absolute;
+			left:50%;
+			bottom:50px;
+			margin-left:-218px;
+		}
+		.index-text2{
+			position: absolute;
+			left:-20px;
+			top:-160px;
+			width:727px;
+		}
+		.index-text3{
+			position: absolute;
+			left:320px;
+			bottom:420px;
+			margin-left:-62px;
+		}
+		.index-text4{
+			position: absolute;
+			left:460px;
+			bottom:140px;
+			transform: rotate(25deg);
+		}
+		.index-text5{
+			position: absolute;
+			width:727px;
+			left:-20px;
+			bottom:470px;
+		}
+
+		.index-text6{
+			position: absolute;
+			width:727px;
+			left:-20px;
+			top:-180px;
+		}
+		.index-text7{
+			position: absolute;
+			width:100px;
+			height:150px;
+			left:100px;
+			top:0px;
+			transform: rotate(15deg);
+		}
+		.index-text8{
+			position: absolute;
+			width:100px;
+			height:100px;
+			left:120px;
+			top:40px;
+		}
+		.index-text9{
+			position: absolute;
+			width:130px;
+			height:200px;
+			left:250px;
+			top:-30px;
+			transform: rotate(-120deg);
+		}
+		.index-text10{
+			position: absolute;
+			width:100px;
+			height:100px;
+			right:30px;
+			top:300px;
+		}
+		.index-text11{
+			position: absolute;
+			width:130px;
+			height:200px;
+			left:500px;
+			top:-100px;
+			transform: rotate(-45deg);
+		}
+		.index-text12{
+			position: absolute;
+			width:80px;
+			height:80px;
+			right:20px;
+			top:80px;
+		}
+		.index-text13{
+			position: absolute;
+			width:100px;
+			height:150px;
+			left:60px;
+			top:140px;
+			transform: rotate(180deg);
+		}
+		.index-text14{
+			position: absolute;
+			width:100px;
+			height:80px;
+			left:50%;
+			top:440px;
+			margin-left:-30px;
+		}
+		.index-text15{
+			position: absolute;
+			width:640px;
+			left:0px;
+			bottom:0;
+		}
+		.title{
+			font-size:80px;
+			font-family: "微软雅黑";
+			color:rgb(206, 50, 107);
+			position: absolute;
+			left: 250px;
+			top:200px;
+		}
+		.title-content1{
+			font-size:40px;
+			font-family: "微软雅黑";
+			color:rgb(203, 14, 67);
+			position: absolute;
+			left: 210px;
+			top:320px;
+		}
+		.title-content2{
+			font-size:40px;
+			font-family: "微软雅黑";
+			color:rgb(203, 14, 67);
+			position: absolute;
+			left: 280px;
+			top:370px;
+		}
+		.slide2-phone{
+			width:400px;
+			height:400px;
+			border-radius: 100%;
+			position: absolute;
+			top:150px;
+			left:50%;
+			margin-left:-200px;
+		}
+		.slide-phoneup{
+			width:550px;
+			height: 550px;
+			position: absolute;
+			top:60px;
+			left:50%;
+			margin-left:-255px; 
+		}
+		.slide2-title{
+			font-family: "微软雅黑";
+			font-size: 56px;
+			color: rgb(203, 14, 67);
+			position: absolute;
+			left: 150px;
+			bottom:420px;
+		}
+		.slide2-content1{
+			font-family: "微软雅黑";
+			font-size: 46px;
+			color: rgb(203, 14, 67);
+			position: absolute;
+			left: 200px;
+			bottom:340px;
+		}
+		.slide-phonebottom{
+			width:350px;
+			height:600px;
+			position:absolute;
+			left:50%;
+			bottom:-100px;
+			margin-left: -180px;
+		}
+		.slide3-content{
+			position: absolute;
+			left: 80px;
+			top:100px;
+			font-size: 26px;
+			font-family: "微软雅黑";
+			line-height:60px;
+		}
+		.slide3-text1{
+			position: absolute;
+			right: 40px;
+			top:20px;
+			width:150px;
+			height: 100px;
+			transform: rotate(30deg);
+		}
+		.slide3-text2{
+			position: absolute;
+			left: 40px;
+			top:50px;
+			width:50px;
+			height: 50px;
+			transform: rotate(-30deg);
+		}
+		.slide3-text3{
+			position: absolute;
+			right: 50px;
+			bottom:400px;
+			width:50px;
+			height: 50px;
+			transform: rotate(-45deg);
+		}
+		.slide3-text4{
+			position: absolute;
+			right: 100px;
+			bottom:500px;
+			width:50px;
+			height: 50px;
+		}
+		.slide3-text5{
+			position: absolute;
+			right: 150px;
+			bottom:360px;
+			width:35px;
+			height: 35px;
+		}
+		.slide3-text6{
+			position: absolute;
+			right: 250px;
+			bottom:260px;
+			width:50px;
+			height: 50px;
+		}
+		.slide3-text7{
+			position: absolute;
+			right: 100px;
+			bottom:460px;
+			width:130px;
+			height: 80px;
+		}
+		.slide3-text8{
+			position: absolute;
+			right: 80px;
+			bottom:50px;
+			width:200px;
+			height: 250px;
+		}
+		.slide3-text9{
+			position: absolute;
+			left: 100px;
+			bottom:250px;
+			width:200px;
+			height: 100px;
+		}
+		.slide3-text10{
+			position: absolute;
+			left: 0px;
+			bottom:-80px;
+			width:640px;
+		}
+		.phone-h{
+			width:520px;
+			height: 380px;
+			background:#f3b2c7;
+			position: absolute;
+			left: 50%;
+			top: 200px;
+			margin-left: -260px;
+		}
+		.swiper-container-h{
+			width:500px;
+			height: 360px;
+			margin-top:10px;
+		}
+		.phone-h .swiper-container img{
+			width:500px;
+			height: 360px;
+		}
+		.slide4-text{
+			position: absolute;
+		}
+		.slide4-text1{
+			position: absolute;
+			width:150px;
+			height:150px;
+			left:-20px;
+			top:140px;
+			z-index:3;
+		}
+		.slide4-text2{
+			position: absolute;
+			width:500px;
+			height:130px;
+			left:70px;
+			top:20px;	
+		}
+		.slide4-content1{
+			position: absolute;
+			width:300px;
+			font-size: 36px;
+			font-family: "微软雅黑";
+			font-weight: 400;
+			left:230px;
+			top:95px;
+			color:#fff;
+		}
+		.slide4-text3{
+			position: absolute;
+			width:100px;
+			height:250px;
+			left:100px;
+			top:80px;
+			transform: rotate(90deg);
+			z-index:2;
+		}
+		.slide4-text4{
+			position: absolute;
+			width:180px;
+			height:250px;
+			left:-50px;
+			top:200px;
+			transform: rotate(-145deg);
+			z-index:2;
+		}
+		.slide4-text5{
+			position: absolute;
+			width:130px;
+			height:100px;
+			right:-620px;
+			top:180px;
+			transform: rotate(100deg);
+			z-index:2;
+		}
+		.slide4-content2{
+			position: absolute;
+			right:35px;
+			bottom:300px;
+			text-align: center;
+			line-height: 50px;
+		}
+		.slide4-text6{
+			position: absolute;
+			width:130px;
+			height:130px;
+			left:50%;
+			bottom:130px;
+			margin-left:-65px;
+		}
+		.slide4-text7{
+			position: absolute;
+			width:640px;
+			left:0px;
+			bottom:0px;
+		}
+		.slide4-text8{
+			position: absolute;
+			width:100px;
+			height:150px;
+			left:10px;
+			top:200px;
+			transform: rotate(180deg);
+			z-index:2;
+		}
+
+		.slide5-photo1{
+			width:400px;
+			height:400px;
+			border-radius: 50px;
+			position: absolute;
+			top: 80PX;
+			left:30PX;
+			border:3px solid #f3b2c7;
+		}
+		.slide5-photo2{
+			width:350px;
+			height:350px;
+			border-radius: 40px;
+			position: absolute;
+			right:50PX;
+			bottom:250px;
+			border:3px solid #f3b2c7;
+		}
+		.slide5-text1{
+			position: absolute;
+			width:150px;
+			height:150px;
+			right:100px;
+			top:10px;
+			z-index:3;
+		}
+		.slide5-text2{
+			position: absolute;
+			width:130px;
+			height:250px;
+			right:50px;
+			top:10px;
+			transform: rotate(120deg);
+			z-index:2;
+		}
+		.slide5-text3{
+			position: absolute;
+			width:200px;
+			height:250px;
+			right:70px;
+			top:70px;
+			transform: rotate(-150deg);
+			z-index:2;
+		}
+		.slide5-text4{
+			position: absolute;
+			width:100px;
+			height:150px;
+			right:80px;
+			top:70px;
+			transform: rotate(160deg);
+			z-index:1;
+		}
+		.slide5-text5{
+			position: absolute;
+			width:150px;
+			height:100px;
+			left:-10px;
+			bottom:-20px;
+			z-index:2;
+		}
+		.slide5-text6{
+			position: absolute;
+			width:100px;
+			height:200px;
+			left:-20px;
+			bottom:30px;
+			transform: rotate(170deg);
+			z-index:1;
+		}
+		.slide5-text7{
+			position: absolute;
+			width:150px;
+			height:150px;
+			left:90px;
+			bottom:-30px;
+			transform: rotate(30deg);
+			z-index:1;
+		}
+		.slide5-text8{
+			position: absolute;
+			width:100px;
+			height:150px;
+			left:50px;
+			bottom:0px;
+			transform: rotate(30deg);
+			z-index:1;
+		}
+		.slide5-text9{
+			position: absolute;
+			width:200px;
+			height:220px;
+			right:-60px;
+			bottom:-80px;
+			transform: rotate(30deg);
+			z-index:2;
+		}
+		.slide5-text10{
+			position: absolute;
+			width:200px;
+			height:220px;
+			right:-40px;
+			bottom:0px;
+			transform: rotate(-60deg);
+			z-index:1;
+		}
+		.slide5-text11{
+			position: absolute;
+			width:150px;
+			height:100px;
+			right:150px;
+			bottom:80px;
+			transform: rotate(30deg);
+		}
+		.slide5-text12{
+			position: absolute;
+			width:300px;
+			height:500px;
+			left:-30px;
+			bottom:150px;
+			transform: rotate(-60deg);
+		}
+		.slide6-text1{
+			position: absolute;
+			width:600px;
+			height:120px;
+			left:50%;
+			top:0px;
+			margin-left:-300px;
+		}
+		.slide6-content1{
+			position: absolute;
+			width:500px;
+			font-size: 56px;
+			font-family: "微软雅黑";
+			font-weight: 400;
+			left:130px;
+			top:20px;
+			color:#fff;
+		}
+		.slide6-text2{
+			position: absolute;
+			width:100px;
+			height:110px;
+			left:20px;
+			top:-20px;
+		}
+		.slide6-text3{
+			position: absolute;
+			width:200px;
+			height:200px;
+			right:20px;
+			top:-50px;
+		}
+		.slide6-text4{
+			position: absolute;
+			width:500px;
+			height:500px;
+			left:50%;
+			top:100px;
+			margin-left: -250px;
+		}
+		.slide6-text5{
+			position: absolute;
+			width:640px;
+			height:500px;
+			left:0px;
+			top:150px;
+			z-index: 2;
+		}
+		.slide6-text6{
+			position: absolute;
+			width:100px;
+			height:100px;
+			right:0px;
+			top:100px;
+		}
+		.slide6-text7{
+			position: absolute;
+			width:100px;
+			height:100px;
+			left:0px;
+			top:100px;
+		}
+		.slide6-content{
+			position: absolute;
+			width: 500px;
+			height: 450px;
+			left: 50%;
+			bottom: 50px;
+			margin-left: -250px;
+			background:#fff;
+			border-radius: 30px;
+		}
+		.slide6-text8{
+			position: absolute;
+			width:120px;
+			height:120px;
+			left:-60px;
+			top:100px;
+		}
+		.slide6-text9{
+			position: absolute;
+			width:200px;
+			height:100px;
+			left:-10px;
+			top:10px;
+			transform: rotate(120deg);
+		}
+		.slide6-text10{
+			position: absolute;
+			width:100px;
+			height:100px;
+			right:-50px;
+			top:100px;
+		}
+		.slide6-text11{
+			position: absolute;
+			width:60px;
+			height:250px;
+			right:0px;
+			top:-50px;
+			transform: rotate(-30deg);
+		}
+		.slide6-content2{
+			position: absolute;
+			left:100px;
+			bottom:50px;
+			text-align: center;
+			line-height: 60px;
+		}
+		.red{
+			color:rgb(255, 121, 162);
+		}
+		.blue{
+			color:rgb(26, 80, 163);
+		}
+		 body,html,#container{
+        height: 100%;
+        margin: 0px;
+        font: 12px Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial;
+      }
+      .info-title{
+        color: white;
+        font-size: 14px;
+        background-color: rgba(0,155,255,0.8);
+        line-height: 26px;
+        padding: 0px 0 0 6px;
+        font-weight: lighter;
+        letter-spacing: 1px
+      }
+      .info-content{
+        padding: 4px;
+        color: #666666;
+        line-height: 23px;
+      }
+      .info-content img{
+        float: left;
+        margin: 3px;
+      }
+
+    </style>
+</head>
+<body>
+	 <!-- Swiper -->
+    <div class="swiper-container swiper-container-v">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            	<img src="./img/text5.png" class="ani index-text5" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="4s" >
+				<img src="./img/bg.png" class="ani index-bg" swiper-animate-effect="zoomOut" swiper-animate-duration="10s" swiper-animate-delay="1.5s" >
+				<img src="./img/text1.png" class="ani index-text1" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0.1s" >
+				<img src="./img/text9.png" class="ani index-text13" swiper-animate-effect="zoomIn" swiper-animate-duration="4s" swiper-animate-delay="4.2s" >
+				<img src="./img/text2.png" class="ani index-text2" swiper-animate-effect="fadeInDown" swiper-animate-duration="2s" swiper-animate-delay="0.2s" >
+				<img src="./img/text3.png" class="ani index-text3" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="2s" swiper-animate-delay="3s" >
+				<img src="./img/text4.png" class="ani index-text4" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="2.5s" >
+				<img src="./img/text6.png" class="ani index-text6" swiper-animate-effect="slideInDown" swiper-animate-duration="2s" swiper-animate-delay="4.2s" >
+				<img src="./img/text7.png" class="ani index-text7" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="4.2s" >
+				<img src="./img/text8.png" class="ani index-text8" swiper-animate-effect="rotateIn" swiper-animate-duration="4s" swiper-animate-delay="5.2s" >
+				<img src="./img/text9.png" class="ani index-text9" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="5.2s" >
+				<img src="./img/text8.png" class="ani index-text10" swiper-animate-effect="rotateIn" swiper-animate-duration="4s" swiper-animate-delay="5.2s" >
+				<img src="./img/text10.png" class="ani index-text11" swiper-animate-effect="zoomIn" swiper-animate-duration="4s" swiper-animate-delay="4.2s" >
+				<img src="./img/text11.png" class="ani index-text12" swiper-animate-effect="fadeInRight" swiper-animate-duration="4s" swiper-animate-delay="4.2s" >
+				<img src="./img/text13.png" class="ani index-text14" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="4.5s" >
+				<span  class="ani title" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="4.2s" >邀请函</span>
+				<span  class="ani title-content1" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="4.2s" >We Are Getting</span>
+				<span  class="ani title-content2" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="4.2s" >Married</span>
+				<img src="./img/text14.png" class="ani index-text15" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="4.5s" >
+				
+            </div>
+            <div class="swiper-slide">
+				<img src="./img/phone1.jpg" class="ani slide2-phone" swiper-animate-effect="zoomIn" swiper-animate-duration="3s" swiper-animate-delay="0.1s" >
+				<img src="./img/phoneup.png" class="ani slide-phoneup" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="0.1s" >
+				<span  class="ani slide2-title" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="2s" >李雷&韩梅梅</span>
+				<span  class="ani slide2-content1" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.6s" >Love Story</span>
+				<img src="./img/phonebottom.png" class="ani slide-phonebottom" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="1.5s" >
+            </div>
+            <div class="swiper-slide">
+            	<div class="ani slide3-content" swiper-animate-effect="fadeInLeft" swiper-animate-duration="3s" swiper-animate-delay="0.3s" >
+					<span>从前，有一只小象和一只小兔子</span></br>
+					<span>他们恋爱了</span></br>
+					<span>小象想把天上的星星送给小兔子</span></br>
+					<span>于是伸长了自己的鼻子</span></br>
+					<span>一个劲儿朝星星够去</span></br>
+					<span>可是够呀够，够呀够，怎么都够不到</span></br>
+					<span>小象有一些失落</span></br>
+					<span>可是小兔子却很开心</span></br>
+					<span>她说，亲爱的，</span></br>
+					<span>其实我想要的</span></br>
+					<span>是你愿意帮我摘星星的一颗心</span>
+            	</div>
+				<img src="./img/text13.png" class="ani slide3-text1" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="2s" swiper-animate-delay="0.1s" >
+				<img src="./img/start.png" class="ani slide3-text2" swiper-animate-effect="flash" swiper-animate-duration="2s" swiper-animate-delay="2s" >
+				<img src="./img/start.png" class="ani slide3-text3" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.1s" >
+				<img src="./img/start.png" class="ani slide3-text4" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.1s" >
+				<img src="./img/start.png" class="ani slide3-text5" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.1s" >
+				<img src="./img/start.png" class="ani slide3-text6" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.1s" >
+				<img src="./img/moon.png" class="ani slide3-text7" swiper-animate-effect="swing" swiper-animate-duration="1s" swiper-animate-delay="0.1s" >
+				<img src="./img/elephone.png" class="ani slide3-text8" swiper-animate-effect="zoomIn" swiper-animate-duration="3s" swiper-animate-delay="0.1s" >
+				<img src="./img/love.png" class="ani slide3-text9" swiper-animate-effect="zoomIn" swiper-animate-duration="3s" swiper-animate-delay="2.5s" >
+				<img src="./img/text5.png" class="ani slide3-text10" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="2.5s" >
+            </div>
+            <div class="swiper-slide">
+            	<div class="phone-h">
+					<div class="swiper-container swiper-container-h">
+				        <div class="swiper-wrapper">
+				            <div class="swiper-slide"><img src="./img/photo1.jpg" alt=""></div>
+				            <div class="swiper-slide"><img src="./img/photo2.jpg" alt=""></div>
+				            <div class="swiper-slide"><img src="./img/photo3.jpg" alt=""></div>
+				            <div class="swiper-slide"><img src="./img/photo4.jpg" alt=""></div>
+				        </div>
+			    	</div>
+            	</div>
+            	<div class="slide4-text">
+            		<img src="./img/o_1aqookvgn1balg1lh3m1g2trpp38.png" class="ani slide4-text3" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+            		<img src="./img/text7.png" class="ani slide4-text8" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="2.5s" >
+            		<img src="./img/o_1aqookvgp1dhq17631nvb1qk7d0a4f.png" class="ani slide4-text4" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+            		<img src="./img/text10.png" class="ani slide4-text5" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1s">
+					<img src="./img/text8.png" class="ani slide4-text1" swiper-animate-effect="rotateIn" swiper-animate-duration="3s" swiper-animate-delay="0s">
+					<img src="./img/top.png" class="ani slide4-text2" swiper-animate-effect="fadeInDown" swiper-animate-duration="2s" swiper-animate-delay="0.3s">
+					<span  class="ani slide4-content1" swiper-animate-effect="fadeInDown" swiper-animate-duration="2s" swiper-animate-delay="0.6s" >Love Story</span>
+            	</div>
+            	<div class="ani slide4-content2" swiper-animate-effect="fadeInRight" swiper-animate-duration="2s" swiper-animate-delay="2.1s" >
+					<span>我们的爱情，没有山盟海誓，没有动魄曲折</span></br>
+					<span>只有平淡中的默然相守</span></br>
+					<span>即使经历千变万幻我们也依然携手</span></br>
+					<span>陪伴，是我们给彼此最好的承诺</span></br>
+            	</div>
+            	<img src="./img/o_1b14v03hl1s2hvd1gqa13m91aae25.png" class="ani slide4-text6" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="2s" swiper-animate-delay="2.5s" >
+            	<img src="./img/text14.png" class="ani slide4-text7" swiper-animate-effect="slideInUp" swiper-animate-duration="2s" swiper-animate-delay="2s" >
+            	
+            	
+            </div>
+            <div class="swiper-slide">
+				<img src="./img/o_1arj3irfcv341u0jcmg1ucv45q2t.jpg" class="ani slide5-photo1" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="0.1s" >
+				<img src="./img/o_1arj3i7bbkh4abk1p6vn9p1orl2g.jpg" class="ani slide5-photo2" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="2s" >
+				<img src="./img/o_1aqookvgn1balg1lh3m1g2trpp38.png" class="ani slide5-text2" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1s">
+				<img src="./img/o_1aqookvgp1dhq17631nvb1qk7d0a4f.png" class="ani slide5-text3" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1s">
+				<img src="./img/text7.png" class="ani slide5-text4" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+				<img src="./img/text8.png" class="ani slide5-text1" swiper-animate-effect="rotateIn" swiper-animate-duration="3s" swiper-animate-delay="0s">
+				<img src="./img/o_1aqookvgo6d9ma41ui638ggdr46.png" class="ani slide5-text5" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1s">
+            	<img src="./img/asfsd.png" class="ani slide5-text6" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1.2s">
+            	<img src="./img/text9.png" class="ani slide5-text7" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1.2s">
+            	<img src="./img/text7.png" class="ani slide5-text8" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+            	<img src="./img/o_1aqookvgp3ltfmi1d5n22o1ls74k.png" class="ani slide5-text9" swiper-animate-effect="fadeInRight" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+            	<img src="./img/text9.png" class="ani slide5-text10" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+            	<img src="./img/o_1b14v03hl48lfbslvq106313c22.png" class="ani slide5-text11" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+            	<img src="./img/o_1b1he92b91ohg1bn872orff17jt9.png" class="ani slide5-text12" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="2s">
+				
+            </div>
+            <div class="swiper-slide">
+            	<img src="./img/o_1aqtm4sda1cbh1c26majh19161g6r.png" class="ani slide6-text3" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1s">
+				<img src="./img/o_1ar0biqnj1hdiancbucnbn1g2886.png" class="ani slide6-text1" swiper-animate-effect="fadeInDown" swiper-animate-duration="2s" swiper-animate-delay="0s">
+				<span  class="ani slide6-content1" swiper-animate-effect="fadeInDown" swiper-animate-duration="2s" swiper-animate-delay="0.2s" >Save  The  Date</span>
+				<img src="./img/o_1aqtm4sda1cbh1c26majh19161g6r.png" class="ani slide6-text2" swiper-animate-effect="rotateIn" swiper-animate-duration="3s" swiper-animate-delay="1s">
+				<img src="./img/o_1b1c4nl1aaf91en01nhkb1e4qk9.gif" class="ani slide6-text4" swiper-animate-effect="fadeInLeft" swiper-animate-duration="4s" swiper-animate-delay="1s">
+				<img src="./img/text5.png" class="ani slide6-text5" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="2.5s">
+				<img src="./img/text11.png" class="ani slide6-text6" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="2s">
+				<img src="./img/text8.png" class="ani slide6-text7" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="2s">
+				<div class="slide6-content">
+					<img src="./img/o_1aqookvgp3ltfmi1d5n22o1ls74k.png" class="slide6-text8">
+					<img src="./img/o_1aqookvgp10e6gh51bcp1hit8164h.png" class="slide6-text9">
+					<img src="./img/o_1aqookvgpqn78gq1o4khr75gb4i.png" class="ani slide6-text11" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="3s">
+					<img src="./img/text8.png" class="ani slide6-text10" swiper-animate-effect="rotateIn" swiper-animate-duration="3s" swiper-animate-delay="0.2s">
+					<div class="ani slide6-content2" swiper-animate-effect="fadeIn" swiper-animate-duration="4s" swiper-animate-delay="3.1s" >
+						<span class="red">我们将于</span></br>
+						<span class="blue">-2018年01月01日-</span></br>
+						<span class="red">设宴</span></br>
+						<span class="red">上海浦东凯宾斯基酒店</span></br>
+						<span class="blue">期待你的到来</span></br>
+						<span class="blue">见证我们的幸福时刻</span>
+            		</div>
+				</div>
+            </div>
+            <div class="swiper-slide">
+				<div id="container" tabindex="0"></div>
+						<div id='panel'></div>
+						<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=394885f16c01690d308291fac4637123"></script>
+						   <script type="text/javascript">
+						    var map = new AMap.Map('container',{
+						            resizeEnable: true,
+						            zoom: 10,
+						            center: [116.480983, 40.0958]
+						    });
+						    var marker = new AMap.Marker({
+						            position: [116.480983, 39.989628]
+						    });
+						    marker.setMap(map);
+						    marker.on('click',function(e){
+						      infowindow.open(map,e.target.getPosition());
+						    })
+						    AMap.plugin('AMap.AdvancedInfoWindow',function(){
+						       infowindow = new AMap.AdvancedInfoWindow({
+						        content: '<div class="info-title">高德地图</div><div class="info-content">'+
+						                '<img src="https://webapi.amap.com/images/amap.jpg">'+
+						                '高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。<br/>'+
+						                '<a target="_blank" href = "https://mobile.amap.com/">点击下载高德地图</a></div>',
+						        offset: new AMap.Pixel(0, -30)
+						      });
+						      infowindow.open(map,[116.480983, 39.989628]);
+						    })
+						    AMap.plugin(['AMap.ToolBar','AMap.Scale'],function(){
+						        var toolBar = new AMap.ToolBar();
+						        var scale = new AMap.Scale();
+						        map.addControl(toolBar);
+						        map.addControl(scale);
+						    })
+						    
+						   </script>
+						    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+            </div>
+           
+        </div>
+    </div>
+
+	<script src="./swiper.js"></script>
+    <script src="./swiper.animate.js"></script>
+    <script>        
+		var swiperV = new Swiper ('.swiper-container-v', {
+			direction:"vertical",
+			onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+			    swiperAnimateCache(swiper); //隐藏动画元素 
+			    swiperAnimate(swiper); //初始化完成开始动画
+			}, 
+			onSlideChangeEnd: function(swiper){ 
+				swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+			} 
+		});
+		var swiperH = new Swiper('.swiper-container-h', {
+			loop:true,
+			autoplay: 2000
+	    }); 
+
+	</script>  
+	
+</body>
+</html>

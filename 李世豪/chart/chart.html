@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas做图表</title>
+</head>
+<body>
+	<canvas id="chart" width="600" height="500"></canvas>
+	<script src="chart.js"></script>
+	<script>
+		function Chart() {
+			this.oChart = document.querySelector('#chart');
+			this.data = [3000,4000,1200];
+		}
+
+		Object.assign(Chart.prototype, {
+			init: function() {
+				this.page = new Page(this.oChart, this.data);
+				this.page.init();
+			}
+		});
+
+		var chart = new Chart();
+		chart.init();
+	</script>
+</body>
+</html>

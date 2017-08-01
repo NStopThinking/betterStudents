@@ -1,0 +1,142 @@
+{
+	"ret":true,
+	"data":{
+		"goods": [{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		},{
+			"id": 1,
+			"imgurl": "./imgs/1.gif",
+			"nowPrice": "49.00",
+			"beforePrice": "499",
+			"content": "T恤白色"
+		}],
+		"category":[{
+			"icon":"&#xe664;",
+			"category_id":1
+		},{
+			"icon":"&#xe665;",
+			"category_id":2
+		},{
+			"icon":"&#xe666;",
+			"category_id":3
+		},{
+			"icon":"&#xe668;",
+			"category_id":4
+		},{
+			"icon":"&#xe66d;",
+			"category_id":5
+		},{
+			"icon":"&#xe666;",
+			"category_id":3
+		},{
+			"icon":"&#xe668;",
+			"category_id":4
+		},{
+			"icon":"&#xe66d;",
+			"category_id":5
+		},{
+			"icon":"&#xe666;",
+			"category_id":3
+		},{
+			"icon":"&#xe668;",
+			"category_id":4
+		},{
+			"icon":"&#xe66d;",
+			"category_id":5
+		},{
+			"icon":"&#xe666;",
+			"category_id":3
+		},{
+			"icon":"&#xe668;",
+			"category_id":4
+		},{
+			"icon":"&#xe66d;",
+			"category_id":5
+		},{
+			"icon":"&#xe666;",
+			"category_id":3
+		},{
+			"icon":"&#xe668;",
+			"category_id":4
+		},{
+			"icon":"&#xe66d;",
+			"category_id":5
+		}]
+	}
+}

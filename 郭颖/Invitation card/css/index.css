@@ -1,6 +1,7 @@
 *{
 	padding: 0;
 	margin: 0;
+	font-family: 微软雅黑;
 }
 .music{
 	position: absolute;
@@ -20,14 +21,28 @@
 	bottom: 0;
 	background: #fff;
 }
+.swiper-border{
+	width: 640px;
+	height: 1136px;
+	
+}
+.swiper-slide{
+	overflow: hidden;
+}
+/*地图*/
+#container{
+	position: absolute;
+	width: 640px;
+	height: 400px;
+	bottom: 0;
+	left: 0;
+	font: 12px Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial;
+}
+/*第一张*/
 .swiper-bg{
 	background: url(../images/bg.jpg) no-repeat;
 	/*background: url(../images/bg.png) no-repeat;*/
 	background-size: 640px 1136px;
-}
-.swiper-border{
-	width: 640px;
-	height: 1136px;
 }
 .welcom{
 	position: absolute;
@@ -78,4 +93,77 @@
 	bottom: 80px;
 	left: 50%;
 	margin-left: -253px;
+}
+/*地图*/
+.background{
+	position: absolute;
+	left: -100%;
+	/*top: -5%;*/
+	width:300%;
+	/*height:120%;*/
+}
+.mask{
+	position: absolute;
+	left: 0;
+	top: -600px;
+	height: 2000px;
+}
+.num7-photo-box{
+	position: relative;
+	top: 80px;
+	left: -20px;
+	width: 240px;
+	height: 240px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 15px solid #fff;
+}
+.num7-photo{
+	position: absolute;
+	left: -150px;
+	width: 240%;
+}
+.num7-crown{
+	position: absolute;
+	left: 300px;
+	top: 90px;
+	width: 40%;
+}
+.num7-border{
+	position: absolute;
+	left: 290px;
+	top: 200px;
+	width: 45%;
+}
+.num7-name{
+	position: absolute;
+	left: 350px;
+	top: 220px;
+	font-size: 35px;
+}
+.num7-clock{
+	position: absolute;
+	left: 30px;
+	bottom: 50%;
+}
+.num7-clock img{
+	vertical-align: middle;
+	margin-right: 20px;
+}
+.num7-clock p{
+	display: inline-block;
+	font-size: 34px;
+}
+.num7-phone{
+	position: absolute;
+	left: 30px;
+	bottom: 42%;
+}
+.num7-phone img{
+	/*vertical-align: middle;*/
+	margin-right: 20px;
+}
+.num7-phone p{
+	display: inline-block;
+	font-size: 34px;
 }

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invitation card</title>
+    <meta name="viewport"
+          content="width=640,user-scalable=no"/>
+    <link rel="stylesheet" href="style/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="style/animate.css">
+    <style>
+        .audio {
+            display: none
+        }
+
+        .player {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            border-radius: 50%;
+            background: #666;
+            cursor: pointer;
+            z-index: 10;
+            animation: rotateName 1s;
+            animation-iteration-count: infinite;
+            /*transform: ;*/
+        }
+
+        .swiper-container {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #fff;
+        }
+
+        .index-bg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .index-arrow {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            margin-left: -21px;
+        }
+
+        .index-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .index-img-tree {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            width: 320px;
+            margin-left: -160px;
+        }
+
+        .index-img-tree-bot {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 320px;
+            margin-left: -160px;
+        }
+
+        .index-div-title {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            text-align: center;
+        }
+
+        .index-img-title {
+            width: 16%;
+            vertical-align: middle;
+        }
+
+        .index-div-border-t {
+            border: 2px solid #F26F66;
+            width: 280px;
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            margin-left: -140px;
+        }
+
+        .index-div-cont {
+            position: absolute;
+            top: 420px;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            text-align: center;
+            color: #F26F66;
+            font-size: 26px;
+        }
+
+        .index-div-border-b {
+            border: 2px solid #F26F66;
+            width: 280px;
+            position: absolute;
+            top: 470px;
+            left: 50%;
+            margin-left: -140px;
+        }
+
+        .index-img-hehe {
+            width: 400px;
+            position: absolute;
+            top: 460px;
+            left: 50%;
+            margin-left: -200px;
+        }
+
+        .index-div-cont2 {
+            position: absolute;
+            text-align: center;
+            top: 870px;
+            left: 0;
+            width: 100%;
+            color: #F26F66;
+            font-size: 26px;
+        }
+
+        .index-img-xin {
+            position: absolute;
+            top: 900px;
+            left: 50%;
+            width: 100px;
+            margin-left: -50px;
+        }
+
+        .second-div-title {
+            top: 400px;
+        }
+
+        .second-img-xin {
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            width: 200px;
+            margin-left: -100px;
+        }
+
+        .index-3page-title {
+            color: rgb(232, 116, 116);
+            font-size: 60px;
+            width: 100%;
+            position: absolute;
+            top: 150px;
+            text-align: center;
+        }
+
+        .index-3page-3img {
+            position: absolute;
+            top: 240px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .love-img {
+            width: 70px;
+            vertical-align: middle;
+        }
+
+        .love-img-center {
+            vertical-align: middle;
+            width: 90px;
+        }
+
+        .lovea-arrow {
+            position: absolute;
+            width: 240px;
+            top: 400px;
+            left: 50%;
+            margin-left: -120px;
+        }
+
+        .love-border {
+            position: absolute;
+            width: 400px;
+            top: 500px;
+            left: 50%;
+            margin-left: -200px;
+        }
+
+        .love-border-img {
+            position: absolute;
+            width: 360px;
+            top: 520px;
+            left: 50%;
+            margin-left: -180px;
+        }
+
+        .index-3page-flover {
+            position: absolute;
+            width: 150px;
+            bottom: -50px;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .four-img-topFlower {
+            position: absolute;
+            width: 300px;
+            top: 0;
+            left: 50%;
+            margin-left: -100px;
+        }
+
+        .four-img-huaban {
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            height: 300px;
+            left: 50px;
+        }
+
+        .four-div-title {
+            position: absolute;
+            top: 200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .four-img-xin {
+            width: 100px;
+            vertical-align: middle;
+        }
+
+        .four-img-xiangshi {
+            width: 200px;
+            vertical-align: middle;
+        }
+
+        .foue-img-contImg {
+            width: 560px;
+            position: absolute;
+            top: 400px;
+            left: 40px;
+        }
+
+        .four-div-cont {
+            width: 400px;
+            position: absolute;
+            font-size: 34px;
+            color: #000;
+            top: 850px;
+            left: 180px;
+        }
+
+        .last-div-top {
+            height: 50%;
+            margin: 0px;
+        }
+
+        #container {
+            height: 50%;
+            margin: 0px;
+        }
+
+        @keyframes rotateName {
+            from {
+                transform: rotate(10deg);
+            }
+            to {
+                transform: rotate(359deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<audio class="audio" src="杨宗纬-一次就好.mp3" autoplay="autoplay" loop="loop">
+    <source src="杨宗纬-一次就好.MP3" type="audio/mpeg">
+    您的浏览器不支持此音乐播放
+</audio>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="img/bg.jpg" class="ani index-bg"
+                 data-slide-in="at 100 from zoomIn use swing during 400"
+            >
+            <img src="img/border.png"
+                 class="ani index-img"
+                 data-slide-in="at 200 from zoomIn use swing during 500"
+            >
+            <!--<img src="img/arrow-up-blue.png"-->
+            <!--class="ani index-arrow infinite"-->
+            <!--data-slide-in="at 300 from fadeInUp use swing during 800"-->
+            <!--data-slide-out="at 1000 to fadeOutUp use swing during 1500 force"-->
+            <!--&gt;-->
+            <img src="img/arrow-up-blue.png"
+                 class="ani index-arrow"
+                 data-slide-in="at 300 from fadeInUp use swing during 800"
+                 data-slide-out="at 1000 to fadeOutUp use swing during 1300 force"
+            >
+            <img src="img/tree.png"
+                 class="ani index-img-tree"
+                 data-slide-in="at 400 from fadeInDown use swing during 1000"
+            >
+            <img src="img/tree-bot.png"
+                 class="ani index-img-tree-bot"
+                 data-slide-in="at 400 from fadeInUp use swing during 1000"
+            >
+            <div class="index-div-title">
+                <img src="img/f-left.png"
+                     class="ani index-img-fLeft index-img-title"
+                     data-slide-in="at 1400 from fadeInRight use swing during 1000"
+                >
+                <img src="img/qing.png"
+                     class="ani index-img-qing index-img-title"
+                     data-slide-in="at 600 from bounceIn use swing during 1000"
+                >
+                <img src="img/shu.png"
+                     class="ani index-img-shu index-img-title"
+                     data-slide-in="at 1000 from bounceIn use swing during 1000"
+                >
+                <img src="img/f_right.png"
+                     class="ani index-img-fRight index-img-title"
+                     data-slide-in="at 1400 from fadeInLeft use swing during 1000"
+                >
+            </div>
+            <div class="ani index-div-border-t"
+                 data-slide-in="at 1800 from bounceInLeft use swing during 700"
+            ></div>
+            <div class="ani index-div-cont"
+                 data-slide-in="at 1800 from flipInX use swing during 300">
+                只想和你在一起
+            </div>
+            <div class="ani index-div-border-b"
+                 data-slide-in="at 1800 from bounceInRight use swing during 700"></div>
+            <img src="img/hehe.jpg" class="ani index-img-hehe"
+                 data-slide-in="at 2200 from zoomIn use swing during 500">
+            <div class="ani index-div-cont2"
+                 data-slide-in="at 2700 from flipInX use swing during 500">
+                我能想到最浪漫的事,就是和你一起慢慢变老
+            </div>
+            <img src="img/xin.png" class="ani  index-img-xin"
+                 data-slide-in="at 3000 from zoomIn use swing during 1000"
+            >
+        </div>
+        <div class="swiper-slide second-page">
+            <img src="img/bg.jpg" class="ani index-bg"
+                 data-slide-in="at 100 from zoomIn use swing during 400"
+            >
+            <img src="img/border.png"
+                 class="ani index-img"
+                 data-slide-in="at 200 from zoomIn use swing during 500"
+            >
+            <img src="img/arrow-up-blue.png"
+                 class="ani index-arrow"
+                 data-slide-in="at 300 from fadeInUp use swing during 800"
+                 data-slide-out="at 1000 to fadeOutUp use swing during 1300 force"
+            >
+            <img src="img/xin.png" class="second-img-xin">
+            <div class="index-div-title second-div-title">
+                <img src="img/qing.png"
+                     class="ani index-img-qing index-img-title"
+                     data-slide-in="at 600 from bounceIn use swing during 1000"
+                >
+                <img src="img/shu.png"
+                     class="ani index-img-shu index-img-title"
+                     data-slide-in="at 1000 from bounceIn use swing during 1000"
+                >
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="img/bg.jpg" class="ani index-bg"
+                 data-slide-in="at 100 from zoomIn use swing during 400"
+            >
+            <img src="img/border.png"
+                 class="ani index-img"
+                 data-slide-in="at 200 from zoomIn use swing during 500"
+            >
+            <img src="img/arrow-up-blue.png"
+                 class="ani index-arrow"
+                 data-slide-in="at 300 from fadeInUp use swing during 800"
+                 data-slide-out="at 1000 to fadeOutUp use swing during 1300 force"
+            >
+            <img src="img/tree.png"
+                 class="ani index-img-tree"
+                 data-slide-in="at 400 from fadeInDown use swing during 1000"
+            >
+            <img src="img/tree-bot.png"
+                 class="ani index-img-tree-bot"
+                 data-slide-in="at 400 from fadeInUp use swing during 1000"
+            >
+            <div class="ani index-3page-title"
+                 data-slide-in="at 1400 from flipInX use swing during 1000">MEMORY
+            </div>
+            <div class="ani index-3page-3img">
+                <img src="img/love.png"
+                     class="ani love-img"
+                     data-slide-in="at 2400 from bounceIn use swing during 700">
+                <img src="img/love.png" class="ani love-img-center"
+                     data-slide-in="at 2800 from bounceIn use swing during 700">
+                <img src="img/love.png" class="ani love-img"
+                     data-slide-in="at 2400 from bounceIn use swing during 700">
+            </div>
+            <img src="img/love-arrow.png" class="ani lovea-arrow"
+                 data-slide-in="at 3100 from bounceInLeft use swing during 700">
+            <img src="img/border2.png" class="ani love-border"
+                 data-slide-in="at 3800 from rotateInUpRight use swing during 700">
+            <img src="img/coffee.jpg" class="ani love-border-img"
+                 data-slide-in="at 4300 from rotateInUpRight use swing during 700">
+            <img src="img/f-left.png" class="ani index-3page-flover"
+                 data-slide-in="at 300 from fadeIn use swing during 700">
+        </div>
+
+        <div class="swiper-slide">
+            <img src="img/bg.jpg" class="ani index-bg"
+                 data-slide-in="at 100 from zoomIn use swing during 400"
+            >
+            <img src="img/border.png"
+                 class="ani index-img"
+                 data-slide-in="at 200 from zoomIn use swing during 500"
+            >
+            <img src="img/arrow-up-blue.png"
+                 class="ani index-arrow"
+                 data-slide-in="at 300 from fadeInUp use swing during 800"
+                 data-slide-out="at 1000 to fadeOutUp use swing during 1300 force"
+            >
+            <img src="img/tree.png"
+                 class="ani index-img-tree"
+                 data-slide-in="at 400 from fadeInDown use swing during 1000"
+            >
+            <img src="img/tree-bot.png"
+                 class="ani index-img-tree-bot"
+                 data-slide-in="at 400 from fadeInUp use swing during 1000"
+            >
+            <img src="img/top-flower.png"
+                 class="ani four-img-topFlower"
+                 data-slide-in="at 100 from fadeInDown use swing during 700">
+            <img src="img/huaban.png"
+                 class="ani four-img-huaban"
+                 data-slide-in="at 400 from zoomIn use swing during 700">
+            <div class="four-div-title">
+                <img src="img/xin.png"
+                     class="ani four-img-xin"
+                     data-slide-in="at 800 from bounceInLeft use swing during 1000">
+                <img src="img/xiangshi.png"
+                     class="ani four-img-xiangshi"
+                     data-slide-in="at 800 from flipInX use swing during 1000">
+                <img src="img/xin.png"
+                     class="ani four-img-xin"
+                     data-slide-in="at 800 from bounceInRight use swing during 1000">
+            </div>
+            <img src="img/four-img.jpg" class="foue-img-contImg">
+
+            <div class="ani four-div-cont"
+                 data-slide-in="at 2400 from flipInX use swing during 700">
+                我喜欢你的直白<br>
+                你看我的眼神里带着微笑
+            </div>
+            <img src="img/f-left.png" class="ani index-3page-flover"
+                 data-slide-in="at 2900 from fadeIn use swing during 700">
+        </div>
+        <div class="swiper-slide">
+            <div class="last-div-top"></div>
+            <div id="container" tabindex="0"></div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="js-player" class="player">ok</div>
+<script src="script/swiper-3.4.2.min.js"></script>
+<script src="script/swiper.animate-twice.min.js"></script>
+<script src="http://zeptojs.com/zepto.min.js"></script>
+<script type="text/javascript"
+        src="http://webapi.amap.com/maps?v=1.3&key=3c47e7d8159dee3b721c184f50b53722&callback=create"></script>
+<script type="text/javascript">
+    function Location() {
+
+    }
+    $.extend(Location.prototype, {
+        init: function () {
+            this.createMap(116.480983, 40.0958);
+            this.bindEvent();
+        },
+        createMap: function (Lng, Lat) {
+            this.map = new AMap.Map('container', {
+                resizeEnable: true,
+                zoom: 14,
+                center: [Lng, Lat]
+            });
+        },
+        bindEvent: function () {
+            this.map.plugin('AMap.Geolocation', $.proxy(this.geoLocation, this));
+        },
+        geoLocation: function () {
+            this.geolocation = new AMap.Geolocation({
+                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                timeout: 60000,          //超过10秒后停止定位，默认：无穷大
+                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+                buttonPosition: 'RB'
+            });
+            this.map.addControl(this.geolocation);
+            this.geolocation.getCurrentPosition();
+            AMap.event.addListener(this.geolocation, 'complete', $.proxy(this.onComplete, this));//返回定位信息
+            AMap.event.addListener(this.geolocation, 'error', $.proxy(this.onError, this));      //返回定位出错信息
+        },
+        onComplete: function (data) {
+            console.log('经度：' + data.position.getLng());
+            console.log('纬度：' + data.position.getLat());
+            alert(data.position.getLng() + "," + data.position.getLat());
+            this.createMap(data.position.getLng(), data.position.getLat());
+            this.addMarker(data.position.getLng(), data.position.getLat());
+        },
+        onError: function (data) {
+            $.each(data, function (key, val) {
+                console.log(key, val);
+            });
+            alert.log("定位失败");
+        },
+        addMarker: function (Lng, Lat, content) {
+            this.marker = new AMap.Marker({
+                position: [Lng, Lat]
+            });
+            this.marker.setMap(this.map);
+        }
+    });
+    function create() {
+        var location = new Location();
+        location.init();
+    }
+</script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: "vertical",
+        onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
+            swiperAnimateCache(swiper); //隐藏动画元素
+            swiperAnimate(swiper); //初始化完成开始动画
+        },
+        onSlideChangeEnd: function (swiper) {
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        }
+    });
+    function Page() {
+        this.audio = $(".audio");
+        this.audioElem = this.audio[0];
+        this.conElem = $("#js-player");
+    }
+    $.extend(Page.prototype, {
+        init: function () {
+            this.conElem.on("touchstart", $.proxy(this.handleTouchStart, this));
+        },
+        handleTouchStart: function (e) {
+            if (this.audioElem.paused) {
+                this.audioElem.play();
+//                this.playerBtn.html("暂停");
+            } else {
+                this.audioElem.pause();
+//                this.playerBtn.html("播放");
+            }
+        }
+    });
+
+    var page = new Page();
+    page.init();
+</script>
+</body>
+</html>

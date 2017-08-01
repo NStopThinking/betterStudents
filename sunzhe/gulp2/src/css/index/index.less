@@ -1,0 +1,161 @@
+@import "../common/base.less";
+@import "../common/border.less";
+@import "../iconfont/iconfont.less";
+
+.header {
+  width: 100%;
+  line-height: .86rem;
+  background: linear-gradient(to bottom, #d2302d, #a21412);
+  font-size: 0.38rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.header::before {
+  border-color: #c92b2a;
+}
+
+#wrapper {
+  overflow: hidden;
+  background: #9a9fa5;
+}
+
+#scroller {
+  float: left;
+}
+
+.category-list {
+  white-space: nowrap;
+  width: 100%;
+  height: 0.56rem;
+  line-height: 0.56rem;
+  font-size: 0;
+}
+
+.category-item {
+  padding: 0 0.2rem;
+  display: inline-block;
+  width: 0.4rem;
+  font-size: 0.3rem;
+  text-align: center;
+}
+
+.category-item-active {
+  color: #fff;
+  position: relative;
+}
+
+.category-item-active::before {
+  content: '\0020';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -0.06rem;
+  border-color: transparent transparent #ffffff transparent;
+  border-width: 0.08rem;
+  border-style: solid;
+}
+
+#content {
+  position: absolute;
+  top: 1.42rem;
+  bottom: 0.98rem;
+  overflow: hidden;
+  width: 100%;
+  background: #f3f4f6;
+}
+
+#content::before {
+  border-color: #282828;
+}
+
+#scroller-content {
+  float: left;
+}
+
+#loadNotice {
+  display: none;
+  text-align: center;
+}
+
+.contentList {
+  height: 100%;
+  overflow: hidden;
+}
+
+.contentList .contentItem {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0.34rem 0.36rem;
+  float: left;
+}
+
+.content-imgwrapper {
+  width: 100%;
+  background: red;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 100.81%;
+}
+
+.contentList .contentItem .li-img {
+  width: 100%;
+}
+
+.li-name {
+  text-align: center;
+  line-height: 0.58rem;
+  font-size: 0.22rem;
+  font-weight: bold;
+}
+
+.li-price {
+  overflow: hidden;
+  padding: 0.05rem 0;
+}
+
+.li-newPrice {
+  float: left;
+  color: #d31111;
+  line-height: 0.2rem;
+}
+
+.li-oldPrice {
+  float: right;
+  text-decoration: line-through;
+  color: #878787;
+  line-height: 0.2rem;
+}
+
+//**************************************bottom
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  background: #484850;
+}
+
+.bottom::before {
+  border-color: #282828;
+}
+
+.nav {
+  overflow: hidden;
+}
+
+.option {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  width: 20%;
+}
+
+.optionIcon {
+  line-height: 0.64rem;
+}
+
+.optionName {
+  line-height: 0.32rem;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频</title>
+</head>
+<body>
+	<video controls loop width='550' height='550' poster="12.gif" id="video">
+		<source src="oceans.mp4" type="video/mp4"></source>
+		<source src="movie.webm" type="video/webm"></source>
+		<source src="movie.ogg" type="video/ogg"></source>
+	</video><br/>
+	<button id="play">播放</button>
+	<button id="pause">暂停</button>
+	<button id="fullScreen">全屏</button>
+	音量：<input type="range" min="0" max="1" step="0.05" value="1" id="volume">
+	进度：<input type="range" min="0" max="1" step="0.05" value="0" id="process"> 
+
+	<script src="jquery.js"></script>
+	<script>
+		function Page() {
+			this.video = $("#video");
+			this.videoElem = this.video[0];
+			this.playBtnElem = $("#play");
+			this.pauseBtnElem = $("#pause");
+			this.volumeElem = $("#volume");
+			this.processElem = $("#process");
+			this.fullScreenElem = $("#fullScreen");
+			this.duration = 0;
+		}
+
+		$.extend(Page.prototype, {
+
+			init: function() {
+				this.bindEvents();
+			},
+
+			bindEvents: function() {
+				this.video.on("canplay", $.proxy(this.handleCanPlay, this));
+				this.video.on("timeupdate", $.proxy(this.handleTimeUpdate, this));
+				this.playBtnElem.on("click", $.proxy(this.handlePlayBtnClick, this));
+				this.fullScreenElem.on("click", $.proxy(this.handleFullScreenBtnClick, this));
+				this.pauseBtnElem.on("click", $.proxy(this.handlePauseBtnClick, this));
+				this.volumeElem.on("change", $.proxy(this.handleVolumeChange, this));
+				this.processElem.on("change", $.proxy(this.handleProcessChange, this));
+			},
+
+			handleTimeUpdate: function(e) {
+				var rate = (e.target.currentTime / this.duration);
+				this.processElem.val(rate);
+			},
+
+			handleCanPlay: function(e) {
+				this.duration = this.videoElem.duration;
+			},
+
+			handlePlayBtnClick: function() {
+				this.videoElem.play();
+			},
+
+			handlePauseBtnClick: function() {
+				this.videoElem.pause();
+			},
+
+			handleVolumeChange: function(e) {
+				var target = $(e.target);
+				this.videoElem.volume = target.val();
+			},
+
+			handleProcessChange: function(e) {
+				var target = $(e.target),
+					nowTime = this.duration * target.val();
+				this.videoElem.currentTime = nowTime;
+			},
+
+			handleFullScreenBtnClick: function() {
+				this.launchFullscreen(this.videoElem);
+			},
+
+			launchFullscreen: function (element){
+			   
+			    if(element.requestFullscreen) {
+			        element.requestFullscreen();
+			    } else if(element.mozRequestFullScreen) {
+			        element.mozRequestFullScreen();
+			    } else if(element.msRequestFullscreen){
+			        element.msRequestFullscreen();
+			    } else if(element.oRequestFullscreen){
+			        element.oRequestFullscreen();
+			    }else if(element.webkitRequestFullscreen){
+			        element.webkitRequestFullScreen();
+			    }else{
+			        var docHtml = document.documentElement;
+			        var docBody = document.body;
+			        var videobox = document.getElementById('videobox');
+			        var cssText = 'width:100%;height:100%;overflow:hidden;';
+			        docHtml.style.cssText = cssText;
+			        docBody.style.cssText = cssText;
+			        videobox.style.cssText = cssText+';'+'margin:0px;padding:0px;';
+			        document.IsFullScreen = true;
+			    }
+			},
+
+			exitFullscreen: function (){
+			    if (document.exitFullscreen) {
+			        document.exitFullscreen();
+			    } else if (document.msExitFullscreen) {
+			        document.msExitFullscreen();
+			    } else if (document.mozCancelFullScreen) {
+			        document.mozCancelFullScreen();
+			    } else if(document.oRequestFullscreen){
+			        document.oCancelFullScreen();
+			    }else if (document.webkitExitFullscreen){
+			        document.webkitExitFullscreen();
+			    }else{
+			        var docHtml = document.documentElement;
+			        var docBody = document.body;
+			        var videobox = document.getElementById('videobox');
+			        docHtml.style.cssText = "";
+			        docBody.style.cssText = "";
+			        videobox.style.cssText = "";
+			        document.IsFullScreen = false;
+			    }
+			}
+
+		});
+
+		var page = new Page();
+		page.init();
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+.swiper-container{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #fff;
+}
+.round-btn{
+	position: absolute;
+	right: 20px;
+	z-index: 99;
+	display: block;
+	width: 71px;
+	height: 71px;
+	margin: 20px 0;
+	text-align: center;
+	background: url(imgs/round01.png) no-repeat;
+	background-size: cover;
+	transform: rotate(360deg);
+	animation: circle 2s infinite linear;
+}
+.map-btn{
+	top: 60px;
+}
+.video-btn{
+	top: 160px;
+}
+.round-btn span{
+	position: absolute;
+	left: 18px;
+	top: 20px;
+	font-size: 20px;
+	color: #333;
+}
+.audio{
+	position: absolute;
+	bottom: 35px;
+	right: 20px;
+	z-index: 99;
+	display: block;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: rgba(4, 4, 4, 0.32) url(imgs/musicIcon2.png) no-repeat;
+	background-size: cover;
+	animation: circle 2s infinite linear;
+}
+@keyframes circle{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+} 
+.first-page{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.page-1-text{
+	color: #333;
+	font-size: 24px;
+	line-height: 50px;
+	letter-spacing: 2px;
+}
+.index-arrow{
+	position: absolute;
+	bottom: 60px;
+	width: 140px;
+	
+}
+.page-2-bg1{
+	width: 1150px;
+	margin-left: -350px;
+}
+.page2-text{
+	width: 500px;
+	position: absolute;
+	bottom: 120px;
+	left: 50px;
+}
+.page2-text p{
+	line-height: 40px;
+	font-size: 22px;
+}
+.third-page, .four-page, .five-page, .six-page{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.page-3-img2{
+	height: 500px;
+}
+.page-3-img4{
+	position: absolute;
+	top: 245px;
+	align-self:baseline;
+}
+.page3-text{
+	position: absolute;
+	top: 320px;
+	right: 35px;
+	align-self:flex-end;
+	opacity: .8;
+}
+.page3-text p{
+	font-size: 22px;
+	color: #fff;
+	line-height: 30px;
+}
+.page3-text p:nth-child(2){
+	text-indent: 50px;
+}
+.page3-text p:nth-child(3){
+	text-indent: 100px;
+}
+.triangle1{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.triangle2{
+	position: absolute;
+	right: 365px;
+	top: 210px;
+	width: 182px;
+}
+.triangle3{
+	position: absolute;
+	right: 140px;
+	top: 350px;
+	width: 182px;
+}
+.triangle-w{
+	position: absolute;
+	width: 60px;
+	right: 304px;
+	top: 340px;
+}
+.page4-text{
+	width: 100%;
+	position: absolute;
+	bottom: 235px;
+	background: rgba(233,233,233,.8);
+	padding-bottom: 20px;
+}
+.page4-text p{
+	font-size: 24px;
+	color: #333333;
+	text-align: center;
+	line-height: 10px;
+	letter-spacing: 2px;
+	font-family: FZZhengHeiS;	
+}
+.page4-bottom{
+	height: 240px;
+	background: #fff;
+	text-align: center;
+	font-size: 44px;
+	font-family: kartika;
+	padding-top: 50px;
+}
+.five-page{
+	background: #FF5B5A;
+}
+.marry{
+	width:500px ;
+	margin-top:80px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.page5-1{
+	width: 500px;
+}
+.arrow-w{
+	position: absolute;
+	bottom: 40px;
+	width: 50px;
+}
+.page5-text{
+	align-self: flex-start;
+	margin:5px 0 0 70px;
+}
+.page6-1{
+	height: 1200px;
+}
+.page6-2{
+	position: absolute;
+	bottom: 0;
+	
+}
+.sev-page, .eight-page{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: url(imgs/page7-bg.jpg) no-repeat;
+	background-size: cover;
+	color: #FFFFFF;
+}
+.page7-text1{
+	font-size: 70px;
+	font-family: -webkit-pictograph;
+	line-height: 32px;
+}
+.page7-text1 span{
+	font-size: 22px;
+}
+.page7-text2{
+	font-size: 80px;
+	font-family: -webkit-pictograph;
+}
+.date{
+	background: #FF99CC;
+	font-size: 24px;
+	padding:4px 30px;
+	margin-top: 30px;
+}
+.sev-page p{
+	font-size: 24px;
+	line-height: 45px;
+	margin: 0;
+	font-family: serif;
+	letter-spacing: 2px;
+}
+.page7-btn{
+	width: 100%;
+	padding-left: 12%;
+}
+.page7-btn li{
+	list-style: none;
+	float: left;
+	width: 28%;
+	padding: 3% 0;
+	padding-left: 14%;
+	background: rgba(0, 0, 0, .3);
+	font-size: 24px;
+	border: 1px solid #fff;
+	margin-right: 26px;
+	margin-top: 26px;
+	position: relative;
+}
+.page7-btn li a{
+	display: inline-block;
+	width: 55px;
+	height: 54px;
+	background: url(imgs/mes.png) no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 16px;
+	top: 10px;
+	
+}
+
+#small-map{
+	width: 540px;
+	height: 350px ;
+}
+.address{
+	font-size: 24px;
+	font-family: serif;
+	margin-top: 70px;
+	margin-bottom: 30px;
+}
+.page8-click{
+	width: 60%;
+	border: 1px solid #fff;
+	font-size: 24px;
+	height: 70px;
+	margin: 30px;
+	position: relative;
+}
+.page8-click a{
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+}
+.page8-click a img{
+	width: 70px;
+	margin-top: 11px;
+}
+.page8-click a:nth-child(1){
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	text-align: center;
+	background: rgba(0, 0, 0, .4);
+	border-radius: 50%;
+	left: 12px;
+	top: -9px;
+}
+.page8-click a:nth-child(2){
+	margin-left: 160px;
+	line-height: 70px;
+}
+#big-map{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 100;
+	display: none;
+}
+.close{
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 99;
+	width: 117px;
+	height: 117px;
+	background: url(imgs/closenew.png) no-repeat;
+	background-size: cover;
+}
+.navigation{
+	position: absolute;
+	right: 10px;
+	bottom: 40px;
+	z-index: 99;
+	width: 117px;
+	height: 117px;
+	background: url(imgs/toplace.png) no-repeat;
+	background-size: cover;
+}
+.info-title{
+    color: white;
+    font-size: 14px;
+    background-color: rgba(0,155,255,0.8);
+    line-height: 26px;
+    padding: 0px 0 0 6px;
+    font-weight: lighter;
+    letter-spacing: 1px
+}
+.info-content{
+    padding: 4px;
+    color: #666666;
+    line-height: 23px;
+}
+.info-content img{
+    float: left;
+    margin: 3px;
+}

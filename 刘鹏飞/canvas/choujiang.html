@@ -5,10 +5,10 @@
 	<title>抽奖</title>
 	<style>
 	*{
-		transition:All 1s cubic-bezier(0.5,0.1,0.5,1);
-		-moz-transition:All 1s cubic-bezier(0.5,0.1,0.5,1);
-		-webkit-transition:All 1s cubic-bezier(0.5,0.1,0.5,1);
-		-o-transition:All 1s cubic-bezier(0.5,0.1,0.5,1);
+		transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
+		-moz-transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
+		-webkit-transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
+		-o-transition:All 5s cubic-bezier(0.3,0.5,0.4,1);
 	}
 		#img{
 			position: absolute;top: 104px;left:145px;
@@ -35,27 +35,35 @@
 				this.bindEvents();
 				this.drawCanvas();
 			},
+
 		bindEvents:function(){
 			this.img.on("click", $.proxy(this.handImg, this));
 		},
+
 		handImg:function(){
 			var i=36;
-			var arr=['30M','100M','2闪币','50M','10闪币','谢谢参与','5闪币','10M','20M','20闪币']
+			var c=0;
+			if(localStorage.deg){
+				c=parseInt(localStorage.deg)
+			}
+			var arr=['30M','20闪币','20M','10M','5闪币','谢谢参与','10闪币','50M','2闪币','100M']
 			var j=Math.ceil(Math.random()*11);
-			console.log(j);
 			var k=parseInt(j*i+720);
-			console.log(k)
-			this.canvas.style.transform='rotate('+k+'deg)';
-			console.log(arr[j-1])
-			//alert(1)
+				c+=k;
+			localStorage.deg =c;
+			this.canvas.style.transform='rotate('+c+'deg)';
+			setTimeout(function(){
+				alert(arr[(c/36)%10])
+			},5020);
 		},
+
 		drawCanvas:function(){
 			this.drawCircle();
 			this.drawPoint();
 			this.drawSector();
 			this.drawFillet();
 			this.drawText();
-			
+			localStorage.clear();
 			
 		},
 		
@@ -71,6 +79,7 @@
 			this.ctx.stroke();
 			this.ctx.restore();
 		},
+		
 		drawPoint:function(){
 			for(var i=0;i<30;i++){
 				this.ctx.save();

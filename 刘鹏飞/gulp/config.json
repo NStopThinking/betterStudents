@@ -1,0 +1,12 @@
+{
+	"css": [
+		"src/css/index/index.less",
+		"src/css/detail/detail.less",
+		"src/css/material/material.less"
+	],
+
+	"js": [
+		"src/js/index/index.js",
+		"src/js/detail/detail.js"
+	]
+}

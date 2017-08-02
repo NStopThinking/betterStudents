@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>婚礼请柬</title>
+		<meta name="viewport" content="width=640, user-scalable=no">
+		<link rel="stylesheet" href="./css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    	<link rel="stylesheet" href="http://cache.amap.com/lbs/static/AMap.DrivingRender1120.css"/>
+	</head>
+
+	<body>
+		
+		<div class="loading" id="load"></div>
+		<span class="mp3 rotate"></span>
+		<!--留言板-->
+		<div class="board">
+			<div class="message">
+				<div class="wrap">
+					<div class="title">
+						<img src="image/raed.png" id="read"/>
+						<span>留言板</span>
+						<img src="image/close.png" id="close"/>
+					</div>
+					<div class="content">
+						<div class="box">
+							<!--<form action="#" method="post">-->
+							<div class="con">
+								<textarea id="cont" for='read' maxlength="140" class="bd1" name="content" placeholder="请留下您想说的话"></textarea>
+								<span class="xianzhi">限140字</span>
+							</div>
+							<div class="bd2">
+								<textarea class="name" placeholder="请输入您的名字" id="name"></textarea>
+							</div>
+							<div class="bd3">
+								<button class="word-send" id="send">发送</button>
+								<img src="image/send.png" class="plane" />
+								<section class="error fail" id="error">
+									说点什么把！
+								</section>
+							</div>
+							<!--</form>-->
+
+							<span class="new">最新留言</span>
+							<div class="Oul" id="wrapper">
+								<ul id="List">
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">刚刚发表</span>
+										</p>
+										<p class="word">
+											美丽的新娘好比玫瑰红酒,新郎就是那酒杯.恭喜你!酒与杯从此形影不离!祝福你!酒与杯恩恩爱爱!!美丽的新娘就好比是一杯玫瑰红酒而新郎就是那红酒杯就这样二者慢慢品?那融合的滋味恭喜你!酒与杯从此形影不离!祝福你!酒与杯恩恩爱爱!!十年修得同船渡，百年修得共枕眠。于茫茫人海中找到她，分明是千年前的一段缘，祝你俩幸福美满，共谐连理。
+										</p>
+									</li>
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">发表于5分钟前</span>
+										</p>
+										<p class="word">
+											愿天下有情人终成眷属，前生注定，喜结良缘。新婚大喜！百年好合！
+										</p>
+									</li>
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">发表于17分钟前</span>
+										</p>
+										<p class="word">
+											愿你俩用爱去缠着对方，彼此互相体谅和关怀，共同分享今后的苦与乐。敬祝百年好合永结同心。
+										</p>
+									</li>
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">发表于42分钟前</span>
+										</p>
+										<p class="word">
+											珍惜这爱情，如珍惜着宝藏，轻轻地走进这情感的圣殿，去感受每一刻美妙时光。
+										</p>
+									</li>
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">发表于1小时前</span>
+										</p>
+										<p class="word">
+											两情相悦的最高境界是相对两无厌，祝福一对新人真心相爱，相约永久恭贺新婚之禧！
+										</p>
+									</li>
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">发表于2小时前</span>
+										</p>
+										<p class="word">
+											你们本就是天生一对，地造一双，而今共偕连理，今后更需彼此宽容、互相照顾，祝福你们！
+										</p>
+									</li>
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">发表于3小时前</span>
+										</p>
+										<p class="word">
+											今天是你们喜结良缘的日子，我代表我家人祝贺你们，祝你俩幸福美满，永寿偕老！
+										</p>
+									</li>
+									<li>
+										<p class="w1">
+											<span class="author">张某某</span>
+											<span class="time">发表于4小时前</span>
+										</p>
+										<p class="word">
+											愿爱洋溢在你甜蜜的生活中，让以后的每一个日子，都象今日这般辉煌喜悦！
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--留言板END-->
+		
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+
+				<div class="swiper-slide item page1 "  >
+					<img src="image/star.png" class="star" />
+					
+					<audio autoplay loop="loop" id="aud">
+						<source src="image/music.mp3"> 您的浏览器不支持 audio 元素。
+					</audio>
+					<div class="bd">
+						<img src="image/shang.png"  class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0.3s"/>
+						<img src="image/text.png"  class="ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="1s" swiper-animate-delay="0.6s"/>
+						<img src="image/xia.png"  class="ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="0.3s"/>
+					</div>
+					<div class="text ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s" >
+						<p>乔迁大喜平安幸福</p>
+						<p>良辰吉日庆新婚</p>
+					</div>
+					<i class="next"></i>
+					<img src="image/bg1-but.png" class="bot" />
+				</div>
+				
+				
+				
+				<div class="swiper-slide item page2">
+					<img src="image/page2-top.png" class="p2-top ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"/>
+					<div class="item1">
+						<img src="image/Garland.png" class="huan"/>
+						<img src="image/text2.png" class="text2 ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1.1s" swiper-animate-delay="0.7s"/>
+						<img src="image/page2-left.png" class="p2-left ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="1s" swiper-animate-delay="0s"/>
+						<img src="image/seal.png" class="yin"/>
+						<img src="image/page2-right.png" class="p2-right ani" swiper-animate-effect="fadeInRightBig" swiper-animate-duration="1s" swiper-animate-delay="0s"/>
+					</div>
+					<div class="item2">
+						<div class="wz-box">
+							<p class="ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="1s" swiper-animate-delay="1.2s">送呈：</p>
+							<p class="ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="1s" swiper-animate-delay="1.2s">择吉于公历2018年8月18日（农历七月初八星期六）举行婚礼庆典，亲朋同贺，略备薄酌，敬请光临！</p>
+							<p class="ani" swiper-animate-effect="fadeInRightBig" swiper-animate-duration="1s" swiper-animate-delay="1.5s">某某夫妇</p>
+							<p class="ani" swiper-animate-effect="fadeInRightBig" swiper-animate-duration="1s" swiper-animate-delay="1.5s">2018年8月1日</p>
+						</div>
+					</div>
+					<i class="next"></i>
+					<img src="image/page2-bot.png" class="p2-bot ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"/>
+				</div>
+
+				<div class="swiper-slide item page2">
+					<img src="image/page2-top.png" class="p2-top ani"  swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="0.5s"/>
+					<div class="box3">
+						
+						<div class="top">
+							<img src="image/text3-bor.png" class="tx3-bor ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s"/>
+							<img src="image/text3.png" class="text3 ani"   swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s"/>
+							
+						</div>
+						<div class="bot">
+							<div class="img-box">
+								<img src="image/home1.png" class="ani" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1s" swiper-animate-delay="0.8s"/>
+								<img src="image/home2.png" class="ani" swiper-animate-effect="rotateInDownRight" swiper-animate-duration="1s" swiper-animate-delay="0.8s"/>
+							</div>
+							<div class="img-box">
+								<img src="image/home3.png" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.9s"/>
+								<img src="image/home4.png" class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0.9s"/>
+							</div>
+							<div class="img-box">
+								<img src="image/home5.png" class="ani" swiper-animate-effect="rotateInUpLeft" swiper-animate-duration="1s" swiper-animate-delay="1s"/>
+								<img src="image/home6.png" class="ani" swiper-animate-effect="rotateInUpRight" swiper-animate-duration="1s" swiper-animate-delay="1s"/>
+							</div>
+							
+							
+							<img src="image/run3.png" class="run ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="1.4s"/>
+							<img src="image/jie3.png" class="jie ani" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="1s" swiper-animate-delay="1s"/>
+						</div>
+					</div>
+					<i class="next"></i>
+					<img src="image/page2-bot.png" class="p2-bot ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s"/>
+				</div>
+
+				<div class="swiper-slide item page4">
+					<div class="box">
+						<div class="top ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+							<div class="map ani" id="container" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="0.8s" style="width: 100%; height: 100%; position: inherit;">
+
+							</div>
+						</div>
+
+						<div class="bot">
+							<p class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1s">地点：北京 朝阳区 建国门外街永安东里8号</p>
+							<p class="ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1.2s">时间：2018年8月1日</p>
+							<p class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1.4s">敬请光临！</p>
+							<a href="javascript:;" class="btn ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1.6s">点击送上祝福</a>
+						</div>
+					</div>
+
+					
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<script src="./js/swiper.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cache.amap.com/lbs/static/DrivingRender1230.js"></script>
+		<script src="js/animate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iscroll-lite.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=7fed0556b7cd4672bc922b5dd51e1e6f&plugin=AMap.Driving"></script>
+    	<script type="text/javascript" src="http://cache.amap.com/lbs/static/DrivingRender1230.js"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		
+	</body>
+
+</html>

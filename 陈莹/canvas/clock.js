@@ -1,21 +1,16 @@
 function Clock(canvas) {
-
 	this.elem = canvas;
 	this.ctx = canvas.getContext("2d");
-	console.log(2);
 }
 
 Object.assign(Clock.prototype, {
 	
 	init: function() {
-
 		this.drawCanvas();
 		this.setInterval();
-
 	},
 
 	drawCanvas: function() {
-
 		this.getTimes();
 		this.drawPannel();
 		this.drawCenterPoint();
@@ -25,21 +20,17 @@ Object.assign(Clock.prototype, {
 		this.drawHourPointer();
 		this.drawMinutesPointer();
 		this.drawSecondsPointer();
-
 	},
 
 	setInterval: function(){
-
 		var this_ = this;
 		setInterval(function() {
 			this_.ctx.clearRect(0, 0, 500, 500);
 			this_.drawCanvas();
 		}, 1000)
-
 	},
 
 	getTimes: function() {
-
 		var date = new Date();
 		this.hours = date.getHours() + (date.getMinutes() / 60);
 		if (this.hours > 12) {
@@ -47,34 +38,28 @@ Object.assign(Clock.prototype, {
 		}
 		this.minutes = date.getMinutes();
 		this.seconds = date.getSeconds();
-
 	},
 
 	drawPannel: function() {
-
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 		this.ctx.beginPath();
-		this.ctx.arc(0, 0, 100, 0, Math.PI * 2);//x轴、y轴、半径、
+		this.ctx.arc(0, 0, 100, 0, Math.PI * 2);
 		this.ctx.strokeStyle = "#999";
-		this.ctx.fillStyle= "#eee";
+		this.ctx.fillStyle= "pink";
 		this.ctx.fill();
 		this.ctx.stroke();
 		this.ctx.restore();
-
 	},
 
 	drawCenterPoint: function() {
-
 		this.ctx.beginPath();
 		this.ctx.arc(250, 250, 3, 0, Math.PI * 2);
-		this.ctx.fillStyle = "pink";
+		this.ctx.fillStyle = "red";
 		this.ctx.fill();
-
 	},
 
 	drawMinutes: function() {
-
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 
@@ -88,11 +73,9 @@ Object.assign(Clock.prototype, {
 		}
 
 		this.ctx.restore();
-
 	},
 
 	drawHours: function() {
-
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 
@@ -106,11 +89,9 @@ Object.assign(Clock.prototype, {
 		}
 
 		this.ctx.restore();
-
 	},
 
 	drawHoursNum: function() {
-
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 		this.ctx.beginPath();
@@ -126,11 +107,9 @@ Object.assign(Clock.prototype, {
 		}
 
 		this.ctx.restore();
-
 	},
 
 	drawHourPointer: function() {
-
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 		this.ctx.beginPath();
@@ -139,11 +118,9 @@ Object.assign(Clock.prototype, {
 		this.ctx.lineTo(0, 10);
 		this.ctx.stroke();
 		this.ctx.restore();
-
 	},
 
 	drawMinutesPointer: function() {
-
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 		this.ctx.beginPath();
@@ -152,21 +129,18 @@ Object.assign(Clock.prototype, {
 		this.ctx.lineTo(0, 10);
 		this.ctx.stroke();
 		this.ctx.restore();
-
 	},
 
 	drawSecondsPointer: function() {
-
 		this.ctx.save();
 		this.ctx.translate(250, 250);
 		this.ctx.beginPath();
-		this.ctx.strokeStyle = "pink";
+		this.ctx.strokeStyle = "red";
 		this.ctx.rotate(Math.PI / 180 * 6 * this.seconds);
 		this.ctx.moveTo(0, -70);
 		this.ctx.lineTo(0, 10);
 		this.ctx.stroke();
 		this.ctx.restore();
-
 	}
 
 });

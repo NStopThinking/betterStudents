@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>Wedding invitations</title>
+    <link rel="stylesheet" href="./swiper.css">
+    <link rel="stylesheet" href="./animate.css">
+    <!-- <link rel="stylesheet" href="./demo.css"> -->
+    <meta name="viewport" content="width=640, user-scalable=no">
+
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: red;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+        .top-text{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+            left: 221px;
+            top: 100px;
+            border: 1px solid green;
+            font-size: 30px;
+            z-index: 10;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+        }
+        .index-bg-top {
+            position: relative;
+            left: -77px;
+            z-index: 9;
+            top: -40px;
+        }
+        .index-bg-buttom {
+            position: absolute;
+            bottom: 0;
+            left: -75px;
+        }
+        .index-bg-buttom-2 {
+            position: absolute;
+            bottom: -50px;
+            left: -75px;
+            opacity: .7;
+        }
+        .index-bg-buttom-bg {
+            position: absolute;
+            bottom: -130px;
+            left: 0;
+        }
+         .index-knot {
+            position: relative;
+            z-index: 9;  
+        }
+        .knot-buttom {
+            left: 117px;
+        }
+        .lines {
+            width: 140px;
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+            margin-left: -70px;
+            margin-top: -50px;
+            z-index: 0;
+        }
+        .lines-left {
+            position: relative;
+            left: 30px;
+            z-index: 2;
+        }
+        .lines-right {
+            position: relative;
+            right: 30px;
+            z-index: 3;
+        }
+        .index-lines-line {
+            float: left;
+            z-index: 0;
+        }
+        .index-bg-buttom-top {
+            position: relative;
+            bottom: -345px;
+            left: -123px;
+            z-index: 4;
+        }
+        .index-bg-buttom-top-bg{
+            width: 110px;
+            position: relative;
+            bottom: -183px;
+            left: -238px;
+            z-index: 5;
+        }
+
+        .index-second-top {
+            position: absolute;
+            left: -390px;
+        }
+        .index-second-buttom{
+            position: absolute;
+            bottom: 0;
+            left: -75px;
+        }
+        .index-second-knot{
+            position: relative;
+            top: 750px;
+        }
+        .index-second-left{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+            top: 700px;
+            left: 100px;
+            overflow: hidden;
+        }
+        .index-second-right{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+            top: 650px;
+            left: 489px;
+            overflow: hidden;
+        }
+        .index-second-head {
+            position: absolute;
+            left: 184px;
+            top: 890px;
+            width: 300px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 36px;
+            color: red;
+        }
+        .index-second-text{
+            font-size: 28px;
+            position: absolute;
+            left: 200px;
+            top: 950px;
+            color: red;
+        }
+        .index-third {
+            width: 100%;
+            height: 100%;
+            background: red;
+        }
+        .index-third-center {
+            font-size: 30px;
+            color: rgb(227, 211, 175);
+            width: 50%;
+            height: 100%;
+            margin: 0 auto;
+            background: #000079;
+        }
+        .index-third-bottom {
+            transform: rotate(180deg);
+            position: absolute;
+            top: 800px;
+            left: -170px;
+        }
+        .index-third-text1 {
+            font-size: 30px;
+            position: relative;
+            top: 130px;
+        }
+        .index-third-text2 {
+            font-size: 24px;
+            text-align: center;
+            position: relative;
+            top: 170px;
+        }
+        .index-third-text3 {
+            font-size: 24px;
+            width: 60%;
+            position: relative;
+            top: 190px;
+            left: 20%;
+        }
+        .index-third-text4 {
+            font-size: 24px;
+            text-align: center;
+            position: relative;
+            top: 222px; 
+        }
+        .index-third-text5 {
+            font-size: 24px;
+            text-align: center;
+            position: relative;
+            top: 252px; 
+        }
+        .index-Fourth {
+            width: 100%;
+            height: 100%;
+            background: red;
+        }
+        .index-Fourth-img {
+            width: 90%;
+            height: 90%;
+            margin: 5%;
+            margin-top: 0;
+            padding-top: 5%;
+            overflow: hidden;
+            background: red;
+        }
+        .index-Fourth-bg {
+            position: absolute;
+            top: 0;
+            left: 50px;
+        }
+        .index-Fourth-bg-img {
+            position: absolute;
+            top: 10px;
+            left: 48px;
+        }
+       .index-Fourth-text {
+        position: absolute; 
+        top: 900px;
+        font-size: 32px;
+        width: 90%;
+        height: 180px;
+        background: #fff;
+        opacity: .5;
+       }
+       .index-Fifth {
+            width: 100%;
+            height: 100%;
+            background: red;
+       }
+       .index-Fifth-big {
+            width: 90%;
+            height: 90%;
+            margin: 5%;
+            margin-top: 0;
+            padding-top: 5%;
+            overflow: hidden;
+       }
+       .index-Fifth-top {
+        position: absolute;
+        left: -70px;
+        top: 0;
+        z-index: 1;
+       }
+       .index-Fifth-bg {
+        position: absolute;
+        top: 325px;
+        left: 275px;
+        z-index: 0;
+       }
+       .index-Fifth-bg-img {
+        position: absolute;
+        top: 340px;
+        left: 272px;
+       }
+       .index-Fifth-text {
+        position: absolute;
+        top: 900px;
+        padding-left: 10%;
+        padding-right: 10%;
+        background: #fff;
+        opacity: .5;
+        width: 80%;
+        height: 200px;
+        line-height: 50px;
+        font-size: 30px;
+       }
+       .index-sixth {
+       	height: 100%;
+       	width: 100%;
+       	background: red;
+       }
+       .index-sixth-top{
+       	position: absolute;
+        left: -70px;
+        top: 0;
+        z-index: 1;
+       }
+       .index-sixth-connect {
+       	height: 100%;
+       	width: 80%;
+       	margin: 0 10%;
+       	background: #000079;;
+       }
+       .index-sixth-img {
+       	position: absolute;
+       	left: 206px;
+       	top: 309px;
+       }
+       .index-sixth-text {
+       	font-size: 26px;
+       	position: absolute;
+       	left: 160px;
+       	top: 500px;
+       	color: rgb(227, 211, 175);;
+       }
+       #container {
+       	position: absolute;
+       	bottom: 0;
+       	width: 100%;
+       	height: 30%;
+       }
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background:red;">
+                <div class="top-text ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="3s">
+                    	胡歌 ❤ 薛之谦
+                </div>
+                <img class="index-bg-top ani" swiper-animate-effect="slideInDown" swiper-animate-duration="1.0s" swiper-animate-delay="0.3s" src="./imgs/1-1.png" width="800">
+                <div class="lines">
+                    <div class="lines-left">
+                        <img class="index-lines-line ani" swiper-animate-effect="slideInDown" swiper-animate-duration="1.0s" swiper-animate-delay="0.3s"  src="./imgs/1-5.png">
+                    </div>
+                    <div  class="lines-right">
+                        <img class="index-lines-line ani" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="./imgs/1-5.png">
+                    </div> 
+                </div>
+                <img class="index-knot ani"  swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0.9s" src="./imgs/1-3.png">
+                <img class="index-knot knot-buttom ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0.9s" src="./imgs/1-3.png">
+                <img class="index-bg-buttom ani" swiper-animate-effect="slideInUp" swiper-animate-duration="2s" swiper-animate-delay="1.8s" src="./imgs/1-2.png" width="800">
+                <img class="index-bg-buttom-2 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="2s" swiper-animate-delay="1.8s" src="./imgs/1-2.png" width="800">
+                <img class="index-bg-buttom-bg ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="2.1s" src="./imgs/1-7.png">
+                <img class="index-bg-buttom-top ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="2.4s" src="./imgs/1-4.png"">
+                <img class="index-bg-buttom-top-bg ani"  swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="2.4s" src="./imgs/1-6.png"">
+            </div>
+
+            <div class="swiper-slide">
+                <img class="index-second-top ani" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="./imgs/2-1.jpg" width="1280">
+                 <img class="index-second-buttom" swiper-animate-effect="slideInUp" swiper-animate-duration="2s" swiper-animate-delay="1.8s" src="./imgs/1-2.png" width="800">
+                 <img class="index-second-knot ani"  swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0.9s" src="./imgs/1-3.png">
+                 <div class="index-second-left ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="1.8s">
+                    <img src="./imgs/2-2.jpg" width="50">
+                 </div>
+                 <div class="index-second-right ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="1.8s">
+                     <img src="./imgs/2-3.jpg" width="50">
+                 </div>
+                 <div class="index-second-head ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="2.4s">
+                    <span><b>我们结婚了！</b></span>
+                 </div>
+                 <div class="index-second-text ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="2s" swiper-animate-delay="2.7s">
+                    <div>
+                        <span>执子之手与子偕老</span>
+                    </div>
+                    <div>
+                        <span>白首不分离</span>
+                    </div>
+                 </div>
+            </div>
+            <div class="swiper-slide index-third">
+                <div class="index-third-center ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="0.4s">
+                    <div class="element-box-contents" style="width: 60%; height: 15%; position: relative; top: 100px; left: 20%;">
+                        <div class="element ani" style="position: absolute; height: 100%; width: 100%;z-index: 1;">
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="6483124458" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 81.798 80.101" enable-background="new 0 0 81.798 80.101" xml:space="preserve" preserveAspectRatio="none" class="element svg-element">
+                            <path fill="#5C1413" d="M68.338,10.147V9.948h-0.2l-2.493-2.483V7.464h-0.002L58.144,0h-0.742H23.652L0,23.546v32.905l23.65,23.649  h34.497l23.65-23.649V23.546L68.338,10.147z M72.329,19.207c1.762,1.754,3.298,3.283,4.361,4.342h-4.361V19.207z M65.645,12.551  c1.435,1.428,2.909,2.895,4.324,4.305h-4.324V12.551z M58.314,5.254c1.161,1.157,2.831,2.819,4.716,4.694h-4.716V5.254z   M58.314,12.007h5.255v4.85h-5.255V12.007z M41.978,3.604c6.773,0,13.272,0,14.508,0v6.344H41.978V3.604z M24.624,4.118  c0.26-0.259,0.444-0.442,0.517-0.514c0.649,0,7.259,0,14.264,0v6.344h-14.78V4.118z M22.797,5.938v4.01h-4.028  C20.308,8.416,21.703,7.026,22.797,5.938z M17.542,12.007h5.255v4.85h-5.255V12.007z M15.466,13.235v3.622h-3.637  C13.02,15.671,14.25,14.445,15.466,13.235z M10.841,18.916h4.625v4.633h-4.625V18.916z M10.841,25.609h4.625v0.012h2.076v-6.705  h5.255v2.01h-1.411v2.623h7.756v1.711h-7.756v2.624h7.756v2.624h-7.756v0.23h-0.004v9.061H10.841V25.609z M36.884,33.13v5.817  H24.006V33.13H36.884z M8.781,60.136c-1.425-1.426-2.668-2.667-3.584-3.584h3.584V60.136z M8.781,54.493H3.604  c0-1.653,0-7.092,0-12.866h5.178V54.493z M8.781,39.798H3.604c0-6.157,0-12.268,0-14.189h5.178V39.798z M8.781,23.549H5.105  c0.924-0.919,2.2-2.19,3.676-3.66V23.549z M15.464,66.818c-1.006-1.004-2.023-2.021-3.018-3.018h3.018V66.818z M15.464,61.742  h-4.623v-5.189h4.623V61.742z M22.797,74.152c-1.031-1.031-2.33-2.33-3.767-3.768h3.767V74.152z M22.797,68.326h-5.253V63.8h5.253  V68.326z M21.386,58.125v1.709h1.411v1.907h-5.253v-7.249h-1.341h-0.739h-4.623V41.626h11.872v-0.055h6.429v2.281h-7.756v2.624  h7.756v2.292h-7.756V49h-0.004v9.125H21.386z M24.006,51.394h12.878v5.817H24.006V51.394z M39.404,76.498c-7.003,0-13.61,0-14.262,0  c-0.073-0.072-0.257-0.257-0.519-0.52v-5.594h14.78V76.498z M56.485,76.498c-1.229,0-7.729,0-14.508,0v-6.113h14.508V76.498z   M56.485,68.326H24.624v-8.491h14.898v-2.623h-0.017v-5.817h0.017v-2.625h-7.758v-2.292h7.758v-2.624h-7.758v-2.281h7.758v-2.624  h-0.017V33.13h0.017v-2.623h-7.758v-2.624h7.758v-2.624h-7.758v-1.711h7.758v-2.623h-7.758v-3.422h-2.623v3.422h-4.518v-8.918  h31.861v8.918h-4.514v-3.422h-2.623v3.422h-7.757v2.623h7.757v1.711h-7.757v2.624h7.757v2.624h-7.757v0.23h-0.003v9.125h0.003v1.709  h7.757v2.281h-7.757v2.624h7.757v2.292h-7.757V49h-0.003v9.125h0.003v1.709h14.894V68.326z M57.089,33.13v5.817H44.213V33.13H57.089  z M57.089,57.211H44.213v-5.817h12.876V57.211z M58.314,74.837v-4.453h4.452C60.99,72.162,59.423,73.729,58.314,74.837z   M63.565,68.326h-5.251V63.8h5.251V68.326z M65.647,67.505V63.8h3.704C68.128,65.024,66.872,66.28,65.647,67.505z M70.27,61.742  h-4.622v-5.189h4.622V61.742z M70.27,54.493h-4.622h-0.74h-1.342v7.249h-5.251v-1.907h1.413v-2.623h-0.015v-5.817h0.015v-2.625  h-7.756v-2.292h7.756v-2.624h-7.756v-2.281h6.559v0.055H70.27V54.493z M70.27,39.798H59.728v-0.851h-0.015V33.13h0.015v-2.623  h-7.756v-2.624h7.756v-2.624h-7.756v-1.711h7.756v-2.623h-1.413v-2.01h5.255v6.705h2.075v-0.012h4.625V39.798z M70.27,23.549h-4.625  v-4.633h4.625V23.549z M72.329,60.824v-4.271h4.271C75.539,57.613,74.04,59.113,72.329,60.824z M78.194,54.493h-5.865V41.626h5.865  C78.194,47.401,78.194,52.839,78.194,54.493z M78.194,39.798h-5.865V25.609h5.865C78.194,27.531,78.194,33.641,78.194,39.798z" style="fill: rgb(227, 211, 175);"></path>
+                        </svg>
+                    </div>
+                    <div class="index-third-text1 ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="0.7s">
+                        <span>谨订</span>
+                    </div>
+                    <div class="index-third-text2 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1.0s">
+                        <span>公历二零一七年十月一日</span></br>
+                        <span>农历  丁酉年  八月十二</span>
+                    </div>
+                    <div class="index-third-text3 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1.0s">
+                        <span>胡歌与薛之谦</span></br>
+                        <span>举行结婚典礼</span></br>
+                        <span>是晚假座</span>
+                    </div>
+                     <div class="index-third-text4 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1.0s">
+                        <span>Hotel M 蔓兰酒店</span></br>
+                        <span>六时恭候 七时入席</span>
+                    </div>
+                     <div class="index-third-text5 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1.0s">
+                        <span>胡歌与薛之谦</span></br>
+                        <span>胡歌与薛之谦</span></br>
+                        <span>敬约</span>
+                    </div>
+                <div>
+
+            </div>
+                </div>
+                <img class="index-third-bottom ani" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="./imgs/1-1.png" width="960">
+            </div>
+            <div class="swiper-slide">
+                <div class="index-Fourth">
+                    <div class="index-Fourth-img"> 
+                        <div class="index-Fourth-big ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
+                            <img src="./imgs/4.jpg" width="640">
+                        </div> 
+                        <div class="index-Fourth-bg ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
+                            <img src="./imgs/1-4.png">
+                        </div>
+                        <div class="index-Fourth-bg-img ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
+                            <img src="./imgs/1-6.png" width="100">
+                        </div>
+                        <div class="index-Fourth-text ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s">
+                            <span>天台之上，星空之下！</span></br>
+                            <span>你我十指相连，缘定一生！</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="swiper-slide">
+                <div class="index-Fifth">
+                    <div class="index-Fifth-big ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
+                        <img src="./imgs/5.jpg" width="640">
+                    </div> 
+                    <div class="index-Fifth-top ani" swiper-animate-effect="slideInDown" swiper-animate-duration="1.0s" swiper-animate-delay="0.6s" >
+                        <img src="./imgs/1-1.png" width="800">
+                    </div>
+                    <div class="index-Fifth-bg ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s">
+                        <img src="./imgs/1-4.png">
+                    </div>
+                    <div class="index-Fifth-bg-img ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s">
+                        <img src="./imgs/1-6.png" width="100">
+                    </div>
+                    <div class="index-Fifth-text ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.2s">
+                        <span>诚邀亲朋好友，亲赴宴席！见证我和他，生命中最重要的一天！！</span></br>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="swiper-slide">
+            	<div class="index-sixth">
+            		<div class="index-sixth-top ani" swiper-animate-effect="slideInDown" swiper-animate-duration="1.0s" swiper-animate-delay="0.3s" >
+                        <img src="./imgs/1-1.png" width="800">
+            		</div>
+            		<div class="index-sixth-connect ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
+            			<img src="imgs/6.png"/ class="index-sixth-img ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s">
+            			<div class="index-sixth-text ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s">
+            				<p>Hotel M 蔓兰酒店</p>
+            				<p>2017年10月1日 18:00</p>
+            				<p>期待您来见证我最幸福的时刻</p>
+            			</div>
+            		</div>
+            		<div id="container" class="ani" tabindex="0" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0.3s"></div>
+            	</div>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./swiper.js"></script>
+    <script src="./swiper.animate.js"></script>
+    <script src="./jquery.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=b2dc1bc1719e1450eb7383d7a1411fda"></script>
+    <script>       
+    	function Page() {
+    		
+    	}
+    	
+    	$.extend(Page.prototype, {
+    		init: function() {
+    			this.swiperInit();
+    			this.mapInit();
+    		},
+    		
+    		swiperInit: function() {
+    			var mySwiper = new Swiper ('.swiper-container', {
+		            direction: "vertical",
+		            onInit: function(swiper){
+		                swiperAnimateCache(swiper); 
+		                swiperAnimate(swiper); 
+		            }, 
+		            onSlideChangeEnd: function(swiper){ 
+		                swiperAnimate(swiper); 
+		            } 
+		       })
+		    },
+		    
+		    mapInit: function() {
+		    	var map = new AMap.Map('container',{
+			        resizeEnable: true,
+			        zoom: 10,
+			        center: [116.438591, 39.950818]
+		    	});
+			    var marker = new AMap.Marker({
+			        position: [116.438591, 39.950818]
+			    });
+			    marker.setMap(map);
+			    marker.on('click',function(e){
+			      infowindow.open(map,e.target.getPosition());
+			    })
+			    AMap.plugin('AMap.AdvancedInfoWindow',function(){
+			       infowindow = new AMap.AdvancedInfoWindow({
+			        content: '<div class="info-title">高德地图</div><div class="info-content">'+
+			                '<img src="https://webapi.amap.com/images/amap.jpg">'+
+			                '高德是中国领先的数字地图内容、导航和位置服务解决方案提供商。<br/>'+
+			                '<a target="_blank" href = "https://mobile.amap.com/">点击下载高德地图</a></div>',
+			        offset: new AMap.Pixel(0, -30)
+			      });
+			      infowindow.open(map,[116.438591, 39.950818]);
+			    })
+			}    
+    	});
+    	
+        var page = new Page();
+		page.init();
+        
+        /*var map = new AMap.Map('container',{
+            resizeEnable: true,
+            zoom: 10,
+            center: [116.438591, 39.950818]
+        });*/
+  </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>aideo</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{	
+			margin: 20px auto;
+			text-align: center;
+		}
+		video{
+			border:1px solid;
+			border-radius: 6px;
+			box-shadow: -10px -10px 10px #666;
+		}
+		div:last-of-type{
+			width: 500px;
+			border: 1px solid;
+			padding: 20px 0;
+			border-radius: 6px;
+			box-shadow: 10px 10px 6px #666;
+		}
+		.hidden-aideo{
+			position: fixed;
+			right: 10px;
+			top: 20px;
+			width: 300px;
+			height: auto;
+			padding: 10px;
+			background: #ccc;
+			display: none;
+		}
+		.music{
+			position: fixed;
+			right: 10px;
+			top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="music" value="音乐" id="music" class="music" />
+	<div class="hidden-aideo">
+		<audio controls="controls" autoplay="autoplay"> 
+			<source src="4.ogg" type='audio/ogg'>
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+	<div>
+		<video id="video" width="500" height="300" poster="http://www.easyvoa.com/templets/images/newlogo.png">
+			<source src="4.mp4" type='video/mp4'>
+			<source src="4.ogg" type='video/ogg'>
+			<source src="4.webm" type='video/webm'>
+			<!-- <source> 标签为媒介元素（比如 <video> 和 <audio>）定义媒介资源。
+			<source> 标签允许您规定可替换的视频/音频文件供浏览器根据它对媒体类型或者编解码器的支持进行选择。 -->
+			您的浏览器暂不支持video标签。请更换浏览器。
+		</video>
+	</div>
+	<div style="display: 0 none;"></div>
+	<div>
+		<button id="play">播放</button>
+		<button id="pause">暂停</button>
+		<button id="fullScreen">全屏</button>
+		音量：<input id="volume" type="range" min="0" max="1" step="0.05" value="1" />
+		进度：<input id="process" type="range" min="0" max="1" step="0.05" value="1" />
+	</div>	
+	
+	<script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+	$('input').attr("readonly",true)//将input元素设置为readonly
+	$('input').attr("readonly",false)//去除input元素的readonly属性
+	$('input').attr("disabled",true)//将input元素设置为disabled
+	$('input').attr("disabled",false)//去除input元素的disabled属性
+
+	</script>
+	<script>
+		function Page() {
+			this.num = 0;//因为是面向对象的方式，所以要实例化对象
+			this.music = $("#music");
+			this.hidden = $(".hidden-aideo");
+			this.video = $("#video");
+			this.videoElem = this.video[0];
+			this.playBtnElem = $("#play");
+			this.pauseBtnElem = $("#pause");
+			this.volumeElem = $("#volume");
+			this.processElem = $("#process");
+			this.fullScreenElem = $("#fullScreen");
+			this.duration = 0;
+		}
+
+		$.extend(Page.prototype, {
+
+			init: function() {
+				this.bindEvents();
+			},
+
+			bindEvents: function() {
+				this.music.on("click",$.proxy(this.musicHidden, this));
+				this.video.on("canplay", $.proxy(this.handleCanPlay, this));
+				this.video.on("timeupdate", $.proxy(this.handleTimeUpdate, this));
+				this.playBtnElem.on("click", $.proxy(this.handlePlayBtnClick, this));
+				this.fullScreenElem.on("click", $.proxy(this.handleFullScreenBtnClick, this));
+				this.pauseBtnElem.on("click", $.proxy(this.handlePauseBtnClick, this));
+				this.volumeElem.on("change", $.proxy(this.handleVolumeChange, this));
+				this.processElem.on("change", $.proxy(this.handleProcessChange, this));
+			},
+
+			musicHidden: function(e) {
+				
+				console.log(this.num);
+				
+				//判断点击次数
+				if (this.num == 0) {
+					this.num ++;
+					//alert('1');
+					this.hidden.css("display","block");	
+					//console.log(1);//没执行,原因命名冲突，将hidden修改成musicHidden
+				}else{
+					this.num --;
+					this.hidden.css("display","none");
+					//alert('2');
+					
+				}
+			},
+
+			handleTimeUpdate: function(e) {
+				var rate = (e.target.currentTime / this.duration);
+				this.processElem.val(rate);
+			},
+
+			handleCanPlay: function(e) {
+				this.duration = this.videoElem.duration;
+			},
+
+			handlePlayBtnClick: function() {
+				this.videoElem.play();
+			},
+
+			handlePauseBtnClick: function() {
+				this.videoElem.pause();
+			},
+
+			handleVolumeChange: function(e) {
+				var target = $(e.target);
+				this.videoElem.volume = target.val();
+			},
+
+			handleProcessChange: function(e) {
+				var target = $(e.target),
+					nowTime = this.duration * target.val();
+				this.videoElem.currentTime = nowTime;
+			},
+
+			handleFullScreenBtnClick: function() {
+				this.launchFullscreen(this.videoElem);
+			},
+
+			launchFullscreen: function (element){
+			    //此方法不可以在异步任务中执行，否则火狐会出问题
+			    if(element.requestFullscreen) {
+			        element.requestFullscreen();
+			    }else if(element.mozRequestFullScreen) {
+			        element.mozRequestFullScreen();
+			    }else if(element.msRequestFullscreen){
+			        element.msRequestFullscreen();
+			    }else if(element.oRequestFullscreen){
+			        element.oRequestFullscreen();
+			    }else if(element.webkitRequestFullscreen){
+			        element.webkitRequestFullScreen();
+			    }else{
+			        var docHtml = document.documentElement;
+			        var docBody = document.body;
+			        var videobox = document.getElementById('videobox');
+			        var cssText = 'width:100%;height:100%;overflow:hidden;';
+			        docHtml.style.cssText = cssText;
+			        docBody.style.cssText = cssText;
+			        videobox.style.cssText = cssText+';'+'margin:0px;padding:0px;';
+			        document.IsFullScreen = true;
+			    }
+			},
+
+			//退出全屏
+			exitFullscreen: function (){
+			    if (document.exitFullscreen) {
+			        document.exitFullscreen();
+			    }else if (document.msExitFullscreen) {
+			        document.msExitFullscreen();
+			    }else if (document.mozCancelFullScreen) {
+			        document.mozCancelFullScreen();
+			    }else if(document.oRequestFullscreen){
+			        document.oCancelFullScreen();
+			    }else if (document.webkitExitFullscreen){
+			        document.webkitExitFullscreen();
+			    }else{
+			        var docHtml = document.documentElement;
+			        var docBody = document.body;
+			        var videobox = document.getElementById('videobox');
+			        docHtml.style.cssText = "";
+			        docBody.style.cssText = "";
+			        videobox.style.cssText = "";
+			        document.IsFullScreen = false;
+			    }
+			}
+
+		});
+
+		var page = new Page();
+		page.init();
+
+
+	</script>
+</body>
+</html>

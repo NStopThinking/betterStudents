@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+	<canvas width="500" height="500" id="canvas1"></canvas>
+	<script src="clock.js"></script>
+	<script>
+	    //表示可以在Page中使用clock
+		function Page() {
+			this.canvasElem = document.querySelector("#canvas");//querySelector() 方法仅仅返回匹配指定选择器的第一个元素。如果你需要返回所有的元素，请使用 querySelectorAll() 方法替代。
+			this.canvasElem1 = document.querySelector("#canvas1");
+		}
+
+		Object.assign(Page.prototype, {
+			init: function(){
+				this.canvas = new Clock(this.canvasElem);
+				this.canvas.init();
+				this.canvas1 = new Clock(this.canvasElem1);
+				this.canvas1.init();
+			}
+		})
+
+		var page = new Page();
+		page.init();
+
+	</script>
+</body>
+</html>

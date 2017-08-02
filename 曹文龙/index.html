@@ -6,76 +6,25 @@
 	</head>
 	<body>
 		<canvas id="canvas" width="500" height="500"></canvas>
-	<script type="text/javascript">
-		function Page(){
-			this.canvas=document.getElementById("canvas");
-			this.ctx=this.canvas.getContext("2d");
-		
-		}
-		Object.assign(Page.prototype,{
-			init:function(){
-				this.drawRect();				
-				this.drawArc();
-				this.drawText();
-				
-			},
-			drawArc:function(){
-				
-				this.ctx.beginPath();	
-				this.ctx.arc(200,200,110,0,Math.PI*2);	
-				this.ctx.lineWidth=50
-				this.ctx.stroke();			
-			},
-			drawRect:function(){
-				this.ctx.beginPath();
-				this.ctx.moveTo(200,200);
-				this.ctx.arc(200,200,100,0,Math.PI/2);
-				this.ctx.closePath();
-				this.ctx.fillStyle="blue";
-				this.ctx.fill();	
-				this.ctx.stroke();
-			
-			
-				this.ctx.beginPath();
-				this.ctx.moveTo(200,200);		
-				this.ctx.arc(200,200,100,Math.PI*0.5,Math.PI);
-				this.ctx.closePath();
-				this.ctx.fillStyle="green";
-				this.ctx.fill();	
-				this.ctx.stroke();
-			
-											
-				this.ctx.beginPath();
-				this.ctx.moveTo(200,200);				
-				this.ctx.arc(200,200,100,Math.PI,Math.PI*1.5);
-				this.ctx.fillStyle="yellow";
-				this.ctx.fill();	
-				this.ctx.stroke();
-				this.ctx.closePath();
-			
-				
-				this.ctx.beginPath();
-				this.ctx.moveTo(200,200);			
-				this.ctx.arc(200,200,100,Math.PI*1.5,Math.PI*2);
-				this.ctx.fillStyle="pink";
-				this.ctx.fill();	
-				this.ctx.stroke();
-				this.ctx.closePath();
-				
-			},
-			drawText:function(){
-				this.ctx.font = "40px Arial";
-//				this.ctx.textAlign = "start"
-				this.ctx.fillStyle = "yellow";
-				this.ctx.fillText("B", 90, 163);
-				this.ctx.fillText("M", 185,108);
-				this.ctx.fillText("W",280,163);
-			}
-			
-		
-		})
-		page=new Page;
-		page.init();
-	</script>
 	</body>
+	<script type="text/javascript" src="js/clock.js"></script>
+		
+		<script type="text/javascript">
+		function Page(){
+			this.canvasElem=document.querySelector("#canvas");
+	
+	}
+		Object.assign(Page.prototype,{
+				init:function(){
+					this.canvas=new Clock(this.canvasElem);
+					this.canvas.init();
+				}
+		})
+
+		var page = new Page();
+		page.init();
+		
+		
+	</script>
+	
 </html>

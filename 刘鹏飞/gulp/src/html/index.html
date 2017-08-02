@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<script>
+		+function(){
+			var width = document.documentElement.clientWidth;
+			var html = document.getElementsByTagName("html")[0];
+			html.style.fontSize = (width / 6.4) + "px";
+		}();
+	</script>
+</head>
+<body>
+
+	<div class="header border-top">
+		新品上市
+		<div class="header-cart iconfont">&#xe61b;</div>
+	</div>
+	<div id="wrapper">
+		<div id="scroller">
+			<ul class="category-list js-category"></ul>
+		</div>
+	</div>
+
+	<article>
+		<div id="wrapper1">
+			<div id="scroller1">
+				<ul class="category-list1 js-category1">
+					<p id="loadNotice">松开加载</p>
+				</ul>
+			</div>
+		</div>
+	</article>
+	
+	<footer>
+		<ul>
+			<li>
+				<span  class="iconfont">&#xe644;</span>
+				<p>首页</p>
+			</li>
+			<li>
+				<span  class="iconfont">&#xe651;</span>
+				<p>分类</p>
+			</li>
+			<li>
+				<span  class="iconfont">&#xe61b;</span>
+				<p>购物车</p>
+			</li>
+			<li>
+				<span  class="iconfont">&#xe646;</span>
+				<p>我的秀</p>
+			</li>
+			<li>
+				<span  class="iconfont">&#xe660;</span>
+				<p>更多</p>
+			</li>
+		</ul>
+	</footer>
+	<script src="./js/bundle.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>

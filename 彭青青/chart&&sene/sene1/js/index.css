@@ -1,0 +1,357 @@
+
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.swiper-container{
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				/*background: green;*/
+				color: #fff;
+			}
+			.index-bg{
+				height: 140%;
+				width: 100%;
+				position: relative;
+				/*top: 50%; */
+				margin-top: -398px;
+			}
+			.ani{
+				position: absolute;
+				z-index: 1;
+			}
+			.index-img1{
+				top: 160px;
+				left:60px;
+				/*background: rgba(255,255,255,.3);*/
+			}
+			.index-img2{
+				top: 750px;
+				/*left:60px;*/
+				background: rgba(255,255,255,.3);
+				padding:50px 500px 50px 20px;
+			}
+			.index-img3{
+				margin-top: 40px;
+				
+			}
+			.right-img3{
+				width: 400px;
+				height: 120px;
+				top: 770px;
+				position: absolute;
+				background: rgba(255,255,255,.3);
+				right:0;
+				z-index: 1;
+			}
+			.love-name{
+				color: #fff;
+				font-size: 50px;
+				position: absolute;
+				top: 550px;
+				z-index: 2;
+			}
+			.love-name  b{
+				margin-left: 130px;
+			}
+			.last{
+				position: absolute;
+				bottom: 14px;
+				font-size: 40px;
+				z-index: 2;
+				left: 36%;
+			}
+			.index-arrow{
+				position: absolute;
+				bottom: 46px;
+				left: 46%;
+			}
+			.index-bg2{
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			.second-one{
+				position: absolute;
+				top: 200px;
+				width: 200px;
+				height: 360px;
+				border-radius:50%;
+				z-index: 1;
+				float: left;
+				
+			}
+			.second-man{
+				position: absolute;
+				top: 400px;
+				right:170px;
+				z-index: 33;
+				color: #7986CB;
+				font-size: 40px;
+			}
+			.second-center1{
+				position: absolute;
+				top: 550px;
+				left: 150px;
+			}
+			.second-center2{
+				position: absolute;
+				top: 600px;
+				left: 150px;
+			}
+			.second-woman{
+				position: absolute;
+				top: 780px;
+				left: 90px;
+				z-index:44;
+				color: #7986CB;
+				font-size:40px;
+			}
+			.second-center3{
+				border-radius: 50%;
+				position: absolute;
+				right: 0;
+				bottom: 170px;
+				width: 220px;
+				height: 360px;
+			}
+			/*three*/
+			.three-index1{
+				width: 600px;
+			}
+			.three-box1{
+				width: 600px;
+				height: 400px;
+				overflow: hidden;
+				position: absolute;
+				top: 100px;
+				left: 20px;
+				border: 4px solid #fff;
+			}
+			.three-index2{
+				width: 380px;
+				height: 480px;
+				top: 420px;
+				left: 260px;
+				border: 4px solid #fff;
+			}
+			.three-arcitle{
+				width: 250px;
+				height: 500px;
+				color: #7986CB;
+				font-size: 30px;
+				position: absolute;
+				bottom: 50px;
+				line-height: 50px;
+				margin-left: 20px;
+				z-index: 33;
+			}
+			.four-index2{
+				position: absolute;
+				top: 540px;
+				left: 20px;
+			}
+			.four-index3{
+				position: absolute;
+				bottom:100px;
+				left: 60px;
+			}
+			.four-index4{
+				position: absolute;
+				bottom:170px;
+				left: 107px;
+			}
+			.four-right{
+				position: absolute;
+				right: 30px;
+				bottom: 250px;
+				color: #7986CB;
+				z-index: 33;
+				font-size: 38px;
+				text-align: right;
+				
+			}
+			.four-index5{
+				position: absolute;
+				bottom:40px;
+				left: 307px;
+				
+			}
+			.five-index2{
+				position: absolute;
+				top: 160px;
+			}
+			.five-index3{
+				position: absolute;
+				top: 800px;
+				/*left: 100px;*/
+				background: rgba(0,0,255,.1);
+				padding: 30px 80px;
+			}
+			.six-last{
+				position: absolute;
+				width: 280px;
+				height: 360px;
+				top:840px;
+				left: 220px;
+				z-index: 33;
+				font-size: 40px;
+				color: #7986CB;
+				line-height: 70px;
+			}
+			.six-index2{
+				width: 94%;
+				height: 800px;
+				border: 20px solid #fff;
+				overflow: hidden;
+				position: relative;
+			}
+			.six-index1{
+				position:absolute;
+				width: 100%;
+				height: 900px;
+			}
+			.seven-index2{
+				position: absolute;
+				bottom: 100px;
+				left: 150px;
+			}
+			.seven-index3{
+				position: absolute;
+				bottom: 164px;
+				left: 168px;
+			}
+			.eight-index1{
+				position: absolute;
+				top: 80px;
+				left: 20px;
+			}
+			.eight-box{
+				width:96%;
+				height: 500px;
+				position: absolute;
+				top: 180px;
+				border-radius: 100px;
+				overflow: hidden;
+				border: 14px solid #fff;
+			}
+			.eight-index2{
+				position: absolute;
+				top: 126px;
+				left: 20px;
+			}
+			.eight-index3{
+				position: absolute;
+				top: 100px;
+				right: 20px;
+			}
+			.eight-index5{
+				position: absolute;
+				bottom: 40px;
+				left: 90px;
+			}
+			.eight-index6{
+				position: absolute;
+				top: 137px;
+				right: 20px;
+				width: 609px;
+			}
+			.eight-p{
+				color: #7986CB;
+				position: absolute;
+				bottom: 130px;
+				left: 100px;
+				font-size: 40px;
+				line-height: 60px;
+			}
+			.ten{
+				width: 80%;
+			}
+			.nine-p1{
+				font-size: 40px;
+				color: #7986CB;
+				top: 200px;
+				left: 120px;
+			}
+			#nine-p2{
+				width: 660px;
+				height: 500px;
+				/*background: #ccc;*/
+				top: 426px;
+				/*left: 0px;*/
+			}
+			.btn1{
+				border: none;
+				background: #3A8CEB;
+				width: 200px;
+				height: 60px;
+				position: absolute;
+				top:954px;
+				margin-left: 100px;
+				left: 264px;
+				font-size: 40px;
+				color: #fff;
+			}
+			.btn2{
+				border: none;
+				background: #3A8CEB;
+				width: 200px;
+				height: 60px;
+				position: absolute;
+				top:954px;
+				/*margin-left: 50px;*/
+				left: 100px;
+				font-size: 40px;
+				color: #fff;
+			}
+			@keyframes name1{
+				0% {transform: rotate(0deg);}
+				100% {transform: rotate(360deg);}
+			}
+			.music{
+				position: absolute;
+				right: 40px;
+				top: 40px;
+				background: rgba(255,255,255,.1);
+				z-index: 888;
+				border-radius: 50%;
+				animation: name1 1s infinite linear;
+			}
+			audio{
+				overflow: hidden;
+				right: 40px;
+				top: 40px;
+				width:60px;
+				height: 60px;
+				position: absolute;
+				z-index: 1;
+			}
+			.ten-content{
+				position: absolute;
+				bottom: 14px;
+				right: 100px;
+				width: 200px;
+				height: 200px;
+				font-size: 27px;
+				color: #7986CB;
+			}
+			.ten-index2{
+				position: absolute;
+				bottom: 30px;
+				right: 37px;
+				text-align: center;
+			}
+			.ten-index2 p{
+				text-align: center;
+			}
+			.ten-index3{
+				position: absolute;
+				bottom: 214px;
+				right: 156px;
+				width:112px;
+				height:67px;
+			}

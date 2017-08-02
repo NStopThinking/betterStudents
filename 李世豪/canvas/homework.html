@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宝马车标</title>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<script>
+	function Page() {
+		this.canvas = document.getElementById("canvas");
+		this.ctx = this.canvas.getContext('2d');
+	}
+
+	Object.assign(Page.prototype, {
+		init: function() {
+			this.largeArc();
+			this.middleArc();
+			this.smallArc();
+			this.innerArc();
+			this.innerTextB();
+			this.innerTextM();
+			this.innerTextW();
+		},
+
+		largeArc: function() {
+			this.ctx.arc(200, 200, 100, 0, Math.PI * 2);
+			this.ctx.stroke();	
+		},
+
+		middleArc: function() {
+			this.ctx.beginPath();
+			this.ctx.arc(200, 200, 96, 0, Math.PI * 2);
+			this.ctx.fillStyle = "black";
+			this.ctx.fill();
+			this.ctx.stroke();
+		},
+
+		smallArc: function() {
+			this.ctx.beginPath();
+			this.ctx.arc(200, 200, 60, 0, Math.PI * 2);
+			this.ctx.fillStyle = "white";
+			this.ctx.fill();
+			this.ctx.stroke();
+		},
+
+		innerArc: function() {
+			this.ctx.beginPath(); 
+			this.ctx.moveTo(200, 200);
+			this.ctx.lineTo(256, 200);
+			this.ctx.arc(200, 200, 56, 0, Math.PI / 2);
+			this.ctx.closePath();
+			this.ctx.fillStyle = "skyblue";
+			this.ctx.fill();
+			this.ctx.strokeStyle = "skyblue";
+			this.ctx.stroke();
+
+			this.ctx.beginPath(); 
+			this.ctx.moveTo(200, 200);
+			this.ctx.lineTo(144, 200);
+			this.ctx.arc(200, 200, 56, Math.PI, Math.PI * 1.5);
+			this.ctx.closePath();
+			this.ctx.fillStyle = "skyblue";
+			this.ctx.fill();
+			this.ctx.strokeStyle = "skyblue";
+			this.ctx.stroke();
+		},
+
+		innerTextB: function() {
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.rotate(-Math.PI / 180 * 45);
+			this.ctx.beginPath();
+			this.ctx.textAlign = "center";
+			this.ctx.textBaseline = "middle";
+			this.ctx.font = "40px Arial";
+			this.ctx.fillStyle = "white";
+			this.ctx.fillText("B", 0, -76);
+			this.ctx.fill();
+			this.ctx.restore();
+		},
+
+		innerTextM: function() {
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.beginPath();
+			this.ctx.textAlign = "center";
+			this.ctx.textBaseline = "middle";
+			this.ctx.font = "40px Arial";
+			this.ctx.fillStyle = "white";
+			this.ctx.fillText("M", 0, -76);
+			this.ctx.fill();
+			this.ctx.restore();
+		},
+
+		innerTextW: function() {
+			this.ctx.save();
+			this.ctx.translate(200, 200);
+			this.ctx.rotate(Math.PI / 180 * 45);
+			this.ctx.beginPath();
+			this.ctx.textAlign = "center";
+			this.ctx.textBaseline = "middle";
+			this.ctx.font = "40px Arial";
+			this.ctx.fillStyle = "white";
+			this.ctx.fillText("W", 0, -76);
+			this.ctx.fill();
+			this.ctx.restore();
+		}
+	});
+
+	var page = new Page();
+	page.init();
+	</script>
+</body>
+</html>

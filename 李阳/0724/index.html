@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+	</head>
+	<body>
+		<canvas width="500" height="500" id="canvas"></canvas>
+	    <script>
+
+	    	function Page() {
+	    		this.canvas = document.getElementById('canvas');
+	    		this.ctx = this.canvas.getContext('2d');
+	    	}
+	    	
+	    	Object.assign(Page.prototype, {
+	    		init: function() {
+	    			this.lineDrow();
+	    			this.drowArc();
+	    			this.drawText()
+	    		},
+	    		
+
+	    		drowArc: function(){
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.arc(200, 200, 100, 0, Math.PI*2);
+	    			this.ctx.lineWidth = 50;	    			
+	    			this.ctx.stroke();	    			
+	    			this.ctx.closePath();
+	    			
+	    		},
+	    		
+	    		lineDrow:function() {
+	    			this.ctx.beginPath();
+		   			this.ctx.moveTo(200, 200)
+	    			this.ctx.arc(200, 200, 100, 0, Math.PI/2)	    			
+	    			this.ctx.fillStyle = 'blue'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(200, 200)	    			   			
+			        this.ctx.arc(200, 200, 100, Math.PI/2, Math.PI);	  
+	    			this.ctx.fillStyle = 'white'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(200, 200)	    			   			
+			        this.ctx.arc(200, 200, 100, Math.PI, Math.PI*1.5);	  
+	    			this.ctx.fillStyle = 'blue'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    			this.ctx.beginPath();
+	    			this.ctx.moveTo(200, 200)	    			   			
+			        this.ctx.arc(200, 200, 100, Math.PI*1.5, Math.PI*2);	  
+	    			this.ctx.fillStyle = 'white'
+	    			this.ctx.fill();	    			
+	    			this.ctx.stroke();
+	    			
+	    			
+	    		},
+	    		
+	    	    drawText: function() {
+				   this.ctx.font = "40px Arial";
+				   this.ctx.fillStyle = "white";
+				   this.ctx.fillText("B", 110, 150);
+				   this.ctx.fillText("M", 185, 115);
+				   this.ctx.fillText("W", 258, 150);
+			     },
+
+	    	})
+	    	
+	    	var page = new Page();
+	    		page.init()
+	    	
+	    </script>
+	</body>
+	
+</html>

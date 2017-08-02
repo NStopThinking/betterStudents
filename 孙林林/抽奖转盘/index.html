@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抽奖转盘</title>
+	<style>
+		#canvas{
+			width:600px;
+			height:600px;
+			margin-top:30px;
+			margin-left:400px;
+			background:#fe0034;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"></canvas>
+	<script src="index.js"></script>
+	<script src="jquery.js"></script>
+	<script>
+		function Page() {
+			this.canvasElem = $("#canvas");
+			
+		}
+		$.extend(Page.prototype, {
+			init: function() {
+				this.canvas = new Turntable(this.canvasElem);
+				this.canvas.init();
+			}
+		});
+
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

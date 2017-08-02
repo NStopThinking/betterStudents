@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas width="500" height="500" id="canvas"></canvas>
+	<script>
+	    function Page() {
+	    	this.canvas = document.getElementById("canvas");
+	    	this.ctx = this.canvas.getContext("2d");
+	    }
+
+	    Object.assign(Page.prototype, {
+	    	init:function() {
+	    		//this.drawParallel();
+	    		//this.drawRect();
+	    		this.drawArc();
+	    		//this.drawQuadraticCurve();
+	    		//this.drawBazierCurve();
+	    		//this.drawLineCap();
+	    		//this.drawText();
+	    		//this.textAlign();
+	    		//this.textBaseline();
+	    		//this.measureText();
+	    		//this.drawImage();      		 		
+	    	},
+
+	    	drawImage: function() {
+	    		var image = new Image(),
+	    		    this_ = this;    		
+	    		image.onload = function() {	  
+	    		    this_.ctx.drawImage(image, 0, 0, 50, 50, 0, 0, 300, 300);  			 
+	    		}
+	    		image.src = "https://www.2345.com/i/search0320/baidu_web.gif";
+	    	},
+
+	    	measureText: function() {
+	    		var text = "hello world";
+	    		this.ctx.font = "40px Arial";
+	    		console.log(this.ctx.measureText(text));
+
+	    	},
+
+	    	textBaseline:function() {
+                this.ctx.moveTo(0, 200);
+	    		this.ctx.lineTo(200, 200);
+	    		this.ctx.stroke();
+	    		this.ctx.textBaseline = "top";
+	    		this.ctx.strokeText("hello world", 100, 200);
+	    	},
+
+	    	textAlign: function() {
+	    		this.ctx.moveTo(200, 0);
+	    		this.ctx.lineTo(200, 200);
+	    		this.ctx.stroke();
+	    		this.ctx.beginPath();
+	    		this.ctx.textAlign = "right";
+	    		this.ctx.strokeText("hello world", 200, 100);
+	    	},
+
+	    	drawText: function() {
+	    		this.ctx.font = "40px Arial";
+	    		this.ctx.fillStyle = "yellow";
+	    		this.ctx.strokeText("hello world", 100, 100);
+	    		this.ctx.fillText("hello world", 200, 200);
+	    	},
+
+	    	drawLineCap: function() {
+	    		this.ctx.moveTo(100, 0);
+	    		this.ctx.lineTo(100, 300);
+	    		this.ctx.moveTo(300, 0);
+	    		this.ctx.lineTo(300, 300);
+	    		this.ctx.stroke();
+
+	    		this.ctx.beginPath();
+	    		this.ctx.moveTo(100, 20);
+	    		this.ctx.lineTo(300, 20);
+                this.ctx.lineCap = "butt";
+                this.ctx.lineWidth = 10;
+	    		this.ctx.stroke();
+	    	},
+
+	    	drawQuadraticCurve: function() {
+	    		this.ctx.moveTo(20, 20);
+	    		this.ctx.quadraticCurveTo(20, 100, 200, 20);
+	    		this.ctx.stroke();
+
+	    	},
+
+	    	drawBazierCurve: function() {
+	    		this.ctx.moveTo(0, 200);
+	    		this.ctx.bezierCurveTo(0, 0, 200, 200, 200, 0);
+	    		this.ctx.lineWidth = 10;
+	    		this.ctx.stroke();
+
+	    	},
+
+	    	drawArc: function() {
+	    		this.ctx.beginPath();
+	    		this.ctx.moveTo(200, 200);
+	    		this.ctx.lineTo(300, 200);
+	    		this.ctx.arc(200, 200, 100, 0, Math.PI / 2);
+	    		//this.ctx.lineTo(200, 200);
+	    		this.ctx.closePath();
+	    		this.ctx.stroke();
+	    	},
+
+	    	drawRect: function() {
+	    		this.ctx.rect(100, 100, 300, 100);
+	    		/*this.ctx.stroke();*/
+	    		this.ctx.fillStyle = "yellow";
+	    		this.ctx.fill();
+	    	},
+
+	    	drawParallel: function() {
+	    		this.ctx.moveTo(100, 100);
+	    		this.ctx.lineTo(200, 200);
+	    		this.ctx.strokeStyle = "red";
+	    		this.ctx.stroke();
+
+                this.ctx.beginPath();
+	    		this.ctx.moveTo(200, 100);
+	    		this.ctx.lineTo(300, 200);
+	    		this.ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+	    		this.ctx.stroke();
+	    	}
+	    });
+	    var page = new Page();
+	    page.init();
+	</script>
+</body>
+
+</html>

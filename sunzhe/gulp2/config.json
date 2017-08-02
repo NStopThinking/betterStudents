@@ -1,0 +1,12 @@
+{
+  "css": [
+    "src/css/index/index.less",
+    "src/css/details/details.less",
+    "src/css/datum/datum.less"
+  ],
+  "js": [
+    "src/js/index/index.js",
+    "src/js/details/details.js",
+    "src/js/datum/datum.js"
+  ]
+}

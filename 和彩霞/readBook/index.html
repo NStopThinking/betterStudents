@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>document</title>
+	<style>
+		#wrap{
+			width: 300px;
+			height: 500px;
+			margin: 0px auto;
+			position: relative;
+		}
+		.textarea{
+			height: 400px;
+			width: 300px;
+			background: #ebebe9;
+			line-height: 24px;
+			text-indent: 2em;
+		/*	overflow-y: scroll;*/
+		}
+		.setup{
+			width: 300px;
+			height: 100px;
+			position: absolute;
+			bottom: 0;
+			background: #2f342e;
+		}
+		.setup .fontsize{
+			width: 300px;
+			height: 40px;
+			margin-top: 10px;
+
+		}
+		.setup .fontsize div{
+			float: left;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			margin-left: 50px;
+			cursor: pointer;
+		}
+		.setup .bgcolor{
+			width: 300px;
+			height: 40px;
+			margin-top: 10px;
+		}
+		.setup .bgcolor div{
+			float: left;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			background: red;
+			margin-left: 15px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="textarea">
+			我们哭了我们笑着我们抬头望天空星星还亮着几颗我们唱着时间的歌才懂得相互拥抱到底是为了什么因为我刚好遇见你留下足迹才美丽风吹花落泪如雨因为不想分离我们哭了我们笑着我们抬头望天空星星还亮着几颗我们唱着时间的歌才懂得相互拥抱到底是为了什么因为我刚好遇见你留下足迹才美丽风吹花落泪如雨因为不想分离我们哭了我们笑着我们抬头望天空星星还亮着几颗我们唱着时间的歌才懂得相互拥抱到底是为了什么因为我刚好遇见你留下足迹才美丽风吹花落泪如雨因为不想
+		</div>
+		<div class="setup">
+			<div class="fontsize">
+				<div class="fontchangebig">A+</div>
+				<div class="show"></div>
+				<div class="fontchangesmall">A-</div>
+			</div>
+			<div class="bgcolor">
+				<div style="background: #ebebe9" class="js-item"></div>
+				<div style="background: #ecdac2" class="js-item"></div>
+				<div style="background: #eebc81" class="js-item"></div>
+				<div style="background: #0dd1a1" class="js-item"></div>
+				<div style="background: #02435f" class="js-item"></div>
+				<div style="background: #6c463b" class="js-item"></div>
+			</div>
+		</div>
+	</div>
+	<script src="jquery.1.3.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>

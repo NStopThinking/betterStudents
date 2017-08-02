@@ -1,0 +1,114 @@
+@import '../index/index';
+
+.goods-total{
+	width:100%;
+    font-size:.3rem;
+    line-height: .9rem;
+    background: #747474;
+    color:#fff;
+    .goods-totalNum{
+    	display: inline-block;
+    	width:32%;
+    	box-sizing: border-box;
+    	text-align: center;
+    }
+    .goods-totalPrices{
+    	display: inline-block;
+    	width:66%;
+    	box-sizing: border-box;
+        text-align: left;
+        .totalPrices{
+        	color:#ae1a1a;
+        }
+    }
+
+}
+
+.goods-item{
+	width:100%;
+	overflow: hidden;
+	border-bottom:.02rem solid #cbcbcb;
+	.item-img{
+		width:36%;
+		padding:.3rem;
+		box-sizing: border-box;
+		float:left;
+		.item-img-img{
+			width:100%;
+	        height:0;
+	        overflow: hidden;
+	        padding-bottom: 100%;
+	        img{
+	        	width:100%;
+	        }
+		}
+	}
+
+	.item-goods{
+		box-sizing: border-box;
+		width:53%;
+		float:left;
+		height:1.6rem;
+		margin:.3rem 0;
+		.goods-del{
+			position: absolute;
+			right:.2rem;
+			color:#000;
+		}
+		.item-name{
+            font-size: .26rem;
+            line-height: .32rem;
+
+		}
+		.item-prices{
+			font-size: .3rem;
+			padding:.14rem 0;
+			.one-prices{
+				color:#ae1a1a;
+			}
+		}
+		.item-num{
+			font-size: .3rem;
+			.num-add, .num-sub{
+				display: inline-block;
+				width:.6rem;
+				height:.44rem;
+				background: linear-gradient(to bottom, #a7a7a7, #585858);
+				color:#fff;
+				line-height: .4rem;
+				font-size: 22px;
+				text-align: center;
+				border-radius: .1rem;
+			}
+			.num{
+				display: inline-block;
+				width:.8rem;
+				height:.44rem;
+				border-radius: .1rem;
+				border:1px solid #999;
+				vertical-align: bottom;
+				margin: 0 .16rem;
+				box-shadow: 0 0 .05rem #999 inset;
+				text-align: center;
+				line-height: .44rem;
+				font-size: .32rem;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

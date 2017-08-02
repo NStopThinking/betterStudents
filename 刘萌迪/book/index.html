@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>book</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#book{
+			height: 500px;
+			width: 300px;
+			margin: 30px auto;
+			border: 1px solid #000;
+			overflow: hidden;
+		}
+		#title{
+			line-height: 30px;
+			font-weight: normal;
+			text-align: center;
+			font-size: 20px;
+			background: #fe6673;
+		}
+		#body{
+			height: 366px;
+			background: #2ae0c8;
+			padding-top: 4px;
+			text-align: center;
+			overflow: auto;
+		}
+		#foot{
+			height: 100px;
+			background: #fe6673;
+		}
+		#foot #font .btn{
+			width: 30px;
+			height: 30px;
+			color: #fff;
+			margin-top: 10px;
+			margin-right: 45px;
+			font-weight: bold;
+			background: #fe6673;
+			border: 1px solid #fff;
+			border-radius: 5px;
+		}
+		#foot #font .btn:first-child{
+			margin-left: 50px;
+		}
+		#foot #color .btn1{
+			width: 30px;
+			height: 30px;
+			color: #fff;
+			margin-top: 20px;
+			margin-right: 10px;
+			background: #fe6673;
+			border: 1px solid #fff;
+			border-radius: 5px;
+		}
+		#foot #color .btn1:nth-child(1){
+			margin-left: 22px;
+			background: #2ae0c8;
+		}
+		#foot #color .btn1:nth-child(2){
+			background: #fbb8ac;
+		}
+		#foot #color .btn1:nth-child(3){
+			background: #acf6ef;
+		}
+		#foot #color .btn1:nth-child(4){
+			background: #e6e2c3;
+		}
+		#foot #color .btn1:nth-child(5){
+			background: #e3c887;
+		}
+		#foot #color .btn1:nth-child(6){
+			background: #a2e1d4;
+		}
+	</style>
+</head>
+<body>
+	<div id="book">
+		<div id="title">
+			<h5>至少还有你</h5>
+		</div>
+		<div id="body">
+			我怕来不及<br>
+			我要抱着你<br>
+			直到感觉你的皱纹<br>
+			有了岁月的痕迹<br>
+			直到肯定你是真的<br>
+			直到失去力气<br>
+			为了你<br>
+			我愿意<br>
+			动也不能动<br>
+			也要看着你<br>
+			直到感觉你的发线<br>
+			有了白雪的痕迹<br>
+			直到视线变得模糊<br>
+			直到不能呼吸<br>
+			让我们<br>
+			形影不离<br>
+			如果全世界我<br>
+			也可以放弃<br>
+			至少还有你<br>
+			值得我去珍惜<br>
+			而你在这里<br>
+			就是生命的奇迹<br>
+			也许<br>
+			全世界我也可以忘记<br>
+			就是不愿意<br>
+			失去你的消息<br>
+			你掌心的痣<br>
+			我总记得在哪里<br>
+		</div>
+		<div id="foot">
+			<div id="font">
+				<button id="btn1" class="btn">A+</button>
+				<button id="btn3" class="btn">30</button>
+				<button id="btn2" class="btn">A-</button>
+			</div>
+			<div id="color">
+				<button id="btn" class="btn1"></button>
+				<button id="btn" class="btn1"></button>
+				<button id="btn" class="btn1"></button>
+				<button id="btn" class="btn1"></button>
+				<button id="btn" class="btn1"></button>
+				<button id="btn" class="btn1"></button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	$(function() {
+		function Page() {
+			this.bodyElem = $("#body");
+			this.btn1     = $("#btn1");
+			this.btn2     = $("#btn2");
+			this.btn3     = $("#btn3");
+			this.font     = $("#font");
+			this.colorElem= $("#color");
+		}
+
+		$.extend(Page.prototype, {
+			init: function() {
+				this.bindlocalData();
+				this.bindEvents();
+			},
+
+			bindlocalData: function() {
+				try {
+					this.btn3.text(localStorage.fontSize);
+					this.bodyElem.css("fontSize", parseInt(localStorage.fontSize));
+					this.bodyElem.css("backgroundColor", localStorage.background)
+				}catch(e){}
+			},
+
+			bindEvents:function() {
+				this.btn1.on("click", $.proxy(this.magnifyFont, this));
+				this.btn2.on("click", $.proxy(this.reduceFont, this));
+				this.colorElem.on("click", $.proxy(this.color, this));
+			},
+
+			magnifyFont: function() {
+				var constfont = parseInt(this.bodyElem.css("fontSize"));
+				constfont  += 2;
+				if(constfont>=20){
+					constfont = 20;
+				}
+				this.bodyElem.css("fontSize", constfont);
+				this.btn3.text(constfont);
+				localStorage.fontSize = constfont;
+			},
+
+			reduceFont: function() {
+				var constfont = parseInt(this.bodyElem.css("fontSize"));
+				constfont -= 2;
+				if (constfont<=12) {
+					constfont = 12;
+				}
+				this.bodyElem.css("fontSize", constfont);
+				this.btn3.text(constfont);
+				localStorage.fontSize = constfont;
+			},
+
+			color: function(e) {
+				var bgColor = $(e.target).css("backgroundColor");
+				this.bodyElem.css("backgroundColor", bgColor);
+				localStorage.background = this.bodyElem.css("backgroundColor");
+			}
+
+		})
+
+		var page = new Page();
+		page.init();
+	})
+		
+	</script>

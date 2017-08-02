@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BMW</title>
+</head>
+<body>
+	
+	<canvas width="500" height="500" id="canvas"></canvas>
+	<script>
+		function Page() {
+
+			this.canvas = document.getElementById("canvas");
+			this.ctx = this.canvas.getContext("2d");
+			//console.log(this.canvas);
+
+		}
+
+		Object.assign(Page.prototype, {
+
+			init: function(){
+				//alert(123)
+				this.drawArc();
+			},
+
+			drawArc: function(){
+				this.ctx.arc(200, 200, 100, 0, Math.PI *2);//PI值为*2画出来圆，PI是半圆
+				this.ctx.stroke();
+				this.ctx.fillStyle = "#000";
+				this.ctx.fill()
+
+				this.ctx.beginPath();
+
+				this.ctx.arc(200, 200, 60, 0, Math.PI *2);//PI值为*2画出来圆，PI是半圆
+				this.ctx.stroke();
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fill();
+
+				this.ctx.beginPath();
+				//扇形
+				
+				this.ctx.lineTo(200, 200);
+				this.ctx.arc(200, 200, 60, 0, Math.PI /2);
+				this.ctx.closePath()//闭合
+				//this.ctx.lineTo(200,200);
+				this.ctx.fillStyle = "blue";
+				this.ctx.fill()
+				this.ctx.stroke();
+
+				//扇形2
+				this.ctx.moveTo(200, 200);
+				this.ctx.lineTo(200, 200);
+
+				this.ctx.arc(200, 200, 60, Math.PI, Math.PI*1.5);
+				this.ctx.closePath()//闭合
+				//this.ctx.lineTo(200,200);
+				this.ctx.fillStyle = "blue";
+				this.ctx.fill()
+				this.ctx.stroke();
+			
+			},
+
+
+
+		})
+
+		var page = new Page();
+		page.init();
+	</script>
+</body>
+</html>

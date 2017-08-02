@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+	
+		#frame{
+			width:470px;
+			height:200px;
+			border:1px solid purple;
+			padding:10px;
+			position:absolute;
+			border-radius: 10px;
+
+		}
+		#video{
+			width:100%;
+			height:100%;
+					
+		}
+		.vedioFrame{
+			width: 80%;
+			height:2px;
+			background: #c382ec;
+			border-radius: 1px;
+			position:absolute;
+			left:35px;
+			bottom:20px;
+		}
+		.vedioSpan{
+			width:5px;
+			height:10px;
+			background:#ccc;
+			position:absolute;
+			top:-4px;
+			left:4px;
+		}
+		.begin{
+			display: block;
+			position:absolute;
+			border:5px solid #ccc;
+			border-color: transparent transparent transparent #ccc;
+			left:20px;
+			bottom:16px;
+			background:none;
+			outline: none;
+			
+		}
+		.audio{ 
+			position: absolute;
+			font-size:20px;
+			color:#ccc;
+			right:50px;
+			bottom:10px;
+			background:none;
+			border:none;
+			outline: none;
+		 }
+
+		 .out{
+		 	position: absolute;
+			font-size:20px;
+			color:#ccc;
+			right:21px;
+			bottom:10px;
+			background:none;
+			border:none;
+			outline: none;
+		 }
+	</style>
+
+</head>
+<body>
+	<div id="frame">
+		<video id="video" >
+
+			<source src = "4.mp4" type = "video/mp4">
+			<source src = "movie.ogg" type = "video/ogg">
+			<source src = "movie.webm" type = "video/webm">
+			
+		</video>
+		
+		<span class="begin"></span>
+		<div class="vedioFrame"><div class="vedioSpan"></div></div>
+		<div class="audioFrame"><div class="audioSpan"></div></div>
+		<span class="audio">+</span>
+		<span class="out">□</span>
+	</div>
+
+
+	<script type="text/javascript" src="jquery-1.8.3.js"></script>
+
+	<script type="text/javascript">
+
+		function Page(){
+			this.video = $("#video");
+			this.videoElem = this.video[0];
+			this.playBtnElem = $(".begin");
+			this.fullScreen = $(".out");
+			this.vedioSpan = $(".vedioSpan");
+			this.vedioTotal = $(".vedioFrame");
+			this.index = 0;
+			this.num = 0;
+			this.duration = 0;
+		} 
+
+		$.extend(Page.prototype, {
+
+			init: function(){
+				this.bindEvents();
+				
+			},
+
+			bindEvents: function(){
+				console.log(this.playBtnElem);
+				this.playBtnElem.on("click" , $.proxy(this.handleVedioPlay, this));
+				this.fullScreen.on("click" , $.proxy(this.vedioFullScreen, this));
+				this.vedioPlay();
+				this.vedioSpan.on("mousedown", $.proxy(this.vedioChange, this));
+
+			},
+
+			vedioPlay: function(){
+				this.duration = this.videoElem.duration;
+			},
+
+			vedioChange: function(){
+				
+			},
+
+			handleVedioPlay: function(){
+				if(this.index == 0){
+					this.videoElem.play();
+					this.playBtnElem.css({"borderColor" : "#ccc #ccc #ccc #ccc"});
+					this.index++;
+				}else{
+
+					this.videoElem.pause();
+					this.playBtnElem.css({"borderColor" : "transparent transparent transparent #ccc"});
+					this.index--;
+				}
+				
+				
+			},
+			vedioFullScreen: function(element){
+				
+				if(this.num == 0){
+					if(element.requestFullscreen) {
+			        element.requestFullscreen();
+			    } else if(element.mozRequestFullScreen) {
+			        element.mozRequestFullScreen();
+			    } else if(element.msRequestFullscreen){
+			        element.msRequestFullscreen();
+			    } else if(element.oRequestFullscreen){
+			        element.oRequestFullscreen();
+			    }else if(element.webkitRequestFullscreen){
+			        element.webkitRequestFullScreen();
+			    }else{
+			        var docHtml = document.documentElement;
+			        var docBody = document.body;
+			        var videobox = document.getElementById('frame');
+			        var cssText = 'width:100%;height:100%;overflow:hidden;';
+			        docHtml.style.cssText = cssText;
+			        docBody.style.cssText = cssText;
+			        videobox.style.cssText = cssText+';'+'margin:0px;padding:0px;';
+			        document.IsFullScreen = true;
+			    }
+			    	this.num++;
+				}else{
+						 if (document.exitFullscreen) {
+				        document.exitFullscreen();
+				    } else if (document.msExitFullscreen) {
+				        document.msExitFullscreen();
+				    } else if (document.mozCancelFullScreen) {
+				        document.mozCancelFullScreen();
+				    } else if(document.oRequestFullscreen){
+				        document.oCancelFullScreen();
+				    }else if (document.webkitExitFullscreen){
+				        document.webkitExitFullscreen();
+				    }else{
+				        var docHtml = document.documentElement;
+				        var docBody = document.body;
+				        var videobox = document.getElementById('frame');
+				        docHtml.style.cssText = "";
+				        docBody.style.cssText = "";
+				        videobox.style.cssText = "";
+				        document.IsFullScreen = false;
+				    }
+				    this.num--;
+				}
+				 
+			},
+				
+		});
+
+		var page = new Page;
+		page.init();
+	</script>
+</body>
+</html>

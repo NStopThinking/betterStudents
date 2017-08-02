@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./swiper.css">
+    <link rel="stylesheet" href="./animate.css">
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <style type="text/css">
+        #container{
+            width: 472px;
+            height: 400px;
+            border-radius: 4px; 
+            margin: 0px;
+            font: 12px Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial;
+            position: absolute;
+            left: 82px;
+            top: 165px;
+          }
+          
+        .swiper-container{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #fff;
+        }
+        .swiper-wrapper:nth-child(1) {
+            background: url(imgs/bg1.png) repeat;
+        }
+        .text{
+            position: absolute;
+            display: block;
+            font-size: 50px;
+            font-weight: bolder;
+            width: 500px;
+            color: #e7a8a8;
+            margin-top: 120px;
+            left: 50%;
+            margin-left: -200px;
+        }
+        .index-border{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .index-img{
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            margin-left: -225px;
+            margin-top: 300px;
+            width: 450px;
+            height: 550px;
+        }
+        .index-arrow{
+            position: absolute;
+            left:50%;
+            margin-left: -22px;
+            bottom: 140px;
+        }
+        .second-page{
+            background: #f7f0e1;
+            position: relative;
+        }
+        .second-bg{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            width: 560px;
+            height: 1100px;
+            margin-left: -280px;
+            margin-top: -500px;
+        }
+        .second-img1{
+            position: absolute;
+            top: 30px;
+            left: 380px;
+            -webkit-animation:second-img1 8s linear infinite;
+        }
+        @-webkit-keyframes second-img1
+        {   
+            from{ -webkit-transform:rotate(0deg);}
+            to{-webkit-transform:rotate(180deg) ;}
+            to{-webkit-transform:rotate(360deg);}
+        }
+        .second-img2{
+            position: absolute;
+            bottom: 30px;
+            left: -100px;
+            -webkit-animation:second-img2 8s linear infinite;
+            }
+            @-webkit-keyframes second-img2
+            {   
+                from{ -webkit-transform:rotate(0deg); }
+                to{ -webkit-transform:rotate(180deg) ;}
+                to{ -webkit-transform:rotate(360deg);}
+            }
+        .second-font{
+            width: 420px;
+            height: 150px;
+            position: absolute;
+            left: -10px;
+            top: 70px;
+        }
+        .second-p1{
+            position: absolute;
+            bottom: 90px;
+            left: 60px;
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 20px;
+        }
+        .second-line{
+            position: absolute;
+            bottom: 10px;
+            left: 60px;
+            width: 400px
+        }
+        .second-p2{
+            position: absolute;
+            bottom: 0px;
+            left: 200px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .swiper-slide:nth-child(3){
+            background: #f3e6e2;
+        }
+        .three-bubble{
+            position: absolute;
+            right: 80px;
+            width: 150px;
+            height: 300px;
+            bottom: 700px;
+        }
+        .three-img{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            left: 50%;
+            margin-left: -250px;
+            bottom: 200px;
+        }
+        .three-img1{
+            width: 250px;
+            height: 400px;
+            position: absolute;
+            left:50px;
+            top: 60px;
+        }
+        .swiper-slide:nth-child(3) span{
+            writing-mode: vertical-lr;
+            display: block;
+            float: left;
+            position: absolute;
+        }
+        .span1{
+            color: #d99085;
+            font-size: 60px;
+            top: 100px;
+            margin-left: 200px; 
+        }
+        .span2{
+            font-size: 30px;
+            margin-left: 80px;
+            top: 25px;
+            color: #a5a09e;
+        }
+        .swiper-slide:nth-child(4){
+            background: #f3e6e2;
+        }
+        .four-span1{
+            position: absolute;
+            top: 100px;
+            font-size: 40px;
+            color: #f2c8c0;
+            letter-spacing: 20px;
+            line-height: 30px;
+            width: 500px;
+            left: 50%;
+            margin-left: -250px;
+        }
+        .four-span2{
+            position: absolute;
+            bottom: 40px;
+            font-size: 40px;
+            color: #f2c8c0;
+            letter-spacing: 15px;
+            line-height: 30px;
+            width: 460px;
+            left: 50%;
+            margin-left: -230px;
+        }
+        .four-img1{
+            width: 540px;
+            position: absolute;
+            height: 450px;
+            left: 50%;
+            margin-left: -270px;
+            margin-top: 150px;
+        }
+        .four-img2{
+            width: 264px;
+            position: absolute;
+            height: 400px;
+            left: 45px;
+            bottom: 120px;
+        }
+        .four-img3{
+            width: 264px;
+            position: absolute;
+            height: 400px;
+            right: 45px;
+            bottom: 120px;
+        }
+        .four-img4{
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            bottom: 450px;
+            width: 200px;
+            height: 200px;
+            border: 25px solid;
+            border-color: rgba(255, 255, 255, .8);
+            border-radius: 50%;     
+        }
+        .five-img1{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 40px;
+        }
+        .five-p{
+            position: absolute;
+            bottom: 400px;
+            color: #c88159;
+            font-size: 50px;
+            letter-spacing: 20px;
+        }
+       .pleft{
+        left: 80px;
+       }
+       .pright{
+        right: 80px;
+       }
+
+        .five-img4{
+            position: absolute;
+            width: 560px;
+            height: 800px;
+            left: 50%;
+            top: 50%;
+            margin-left: -280px;
+            margin-top: -400px;
+        }
+        .five-img5{
+            position: absolute;
+            width: 560px;
+            height: 100px;
+            left: 50%;
+            margin-left: -280px;
+            top: 200px;
+        }
+        .five-p11{
+            position: absolute;
+            width: 400px;
+            line-height: 100px;
+            left: 50%;
+            margin-left: -200px;
+            top: 145px;
+            color: #c77e54;
+            font-size: 35px;
+            letter-spacing: 15px;
+        }
+        .five-p12{
+            position: absolute;
+            width: 400px;
+            left: 50%;
+            margin-left: -200px;
+            bottom: 250px;
+            line-height: 30px;
+            height: 100px;
+            font-size: 14px;
+        }
+        .five-img51{
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 10px 20px;
+        }
+        .five{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            left: 50%;
+            margin-left: -250px;
+            top: 50%;
+            margin-top: -260px;
+        }
+  
+        .ten-img1{
+            position: absolute;
+            left: 10px;
+            top: 70px;
+            z-index: 2;
+            -webkit-animation: animate 2s linear;
+        }
+        @-webkit-keyframes animate
+            {   
+                from{ -webkit-transform:rotate(0deg); }
+                to{ -webkit-transform:rotate(180deg) ;}
+                to{ -webkit-transform:rotate(360deg);}
+            }
+        .map{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+        .hello{
+            position: absolute;
+            right: 60px;
+            bottom: 300px;
+            width: 300px;
+            height: 100px;
+            transform: rotate(-20deg);
+        }
+        .ten-img2{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 10px;
+            right: 20px;
+            transform: rotate(-10deg);
+        }
+        .ten-img3{
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            top: 10px;
+            left: -60px;
+            transform: rotate(10deg);
+        }
+
+        .info {
+            border: solid 1px silver;
+        }
+        div.info-top {
+            position: relative;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-bottom: 1px solid #CCC;
+            border-radius: 5px 5px 0 0;
+        }
+        div.info-top div {
+            display: inline-block;
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 31px;
+            padding: 0 10px;
+        }
+        div.info-top img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition-duration: 0.25s;
+        }
+        div.info-top img:hover {
+            box-shadow: 0px 0px 5px #000;
+        }
+        div.info-middle {
+            font-size: 12px;
+            padding: 6px;
+            line-height: 20px;
+        }
+        div.info-bottom {
+            height: 0px;
+            width: 100%;
+            clear: both;
+            text-align: center;
+        }
+        div.info-bottom img {
+            position: relative;
+            z-index: 104;
+        }
+        span {
+            margin-left: 5px;
+            font-size: 11px;
+        }
+        .info-middle img {
+            float: left;
+            margin-right: 6px;
+        }
+        .audio-play{
+            position: 
+        }
+       /* .play{
+            width: 20px;
+            line-height: 18px;
+            background: prink;
+            position: absolute;
+            right: 40px;
+            top: 20px;
+        }
+        .pause{
+            width: 20px;
+            line-height: 18px;
+            background: prink;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }*/
+    </style>
+</head>
+<body>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            <audio autoplay="autoplay">
+                <source src="happy.mp3" type="audio/mpeg" >
+            </audio>
+           <!--  <button id="play">播放</button>
+            <button id="pause">暂停</button> -->
+               <span class="text">SUN SHINE GIRL</span>
+                <img class="ani index-border" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="imgs/left-border.png">
+
+                <img class="ani index-border" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="imgs/top-border.png">
+
+                <img class="ani index-border" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="imgs/right-border.png">
+
+                <img class="ani index-img" swiper-animate-effect="zoomInRight" swiper-animate-duration="1.5s" swiper-animate-delay="1.1s" src="imgs/shenzui.jpg">
+
+
+                <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="imgs/arrow-up-blue.png">
+            </div>
+            
+            <div class="swiper-slide second-page">
+                <img class="ani second-bg" swiper-animate-effect="zoomInDown" swiper-animate-duration="1.6s" swiper-animate-delay="0.3s" src="imgs/shenzui.jpg">
+
+                <img class="ani second-font" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="imgs/20161109134550225_real.png">
+
+                <img class="ani second-img1" src="imgs/20161109133145459_real.png">
+
+                <img class="ani second-img2" src="imgs/20161109133145445_real.png">
+
+                <p class="ani second-p1" swiper-animate-effect="zoomInDown" swiper-animate-duration="1s" swiper-animate-delay="0.5s">记录宝贝的每一个时刻</p>
+
+                 <img class="ani second-line" swiper-animate-effect="zoomInDown" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="imgs/20161109135045545_real.png">
+
+                <p class="ani second-p2" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2s">2020年04月22日18:00</p>
+
+                <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="imgs/arrow-up-blue.png">
+            </div>
+            <div class="swiper-slide">
+                <img class="ani three-bubble" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0.2s" src="imgs/20161109140053776_real.png">
+                
+                <img class="ani three-img" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1s" swiper-animate-delay="0.6s" src="imgs/180235TrheOVBz.jpg">  
+
+                <img class="ani three-img1" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1s" swiper-animate-delay="0.6s" src="imgs/bg.png">
+
+                <span class="ani span1" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s">李欣妍</span>
+                <span class="ani span2" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1.5s">淡淡的小幸福装在美好的时光里</span>    
+                
+                <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="imgs/arrow-up-blue.png">
+            </div>
+            <div class="swiper-slide">
+                <span class="ani four-span1" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="1.4s">讲给小幸福的故事</span>
+
+                <img class="ani four-img1" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1s" swiper-animate-delay="0.8s" src="imgs/180237xoTjlCGB.jpg"> 
+
+                <img class="ani four-img2" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1s" swiper-animate-delay="0.8s" src="imgs/180236TwPgfbVH.jpg">
+
+                <img class="ani four-img3" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1s" swiper-animate-delay="0.8s" src="imgs/180236YmQUijeh.jpg">
+
+                <img class="ani four-img4" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0.2s" src="imgs/180234LExCsTSo.jpg">
+
+                <span class="ani four-span2" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1.4s">梦里梦到甜蜜微笑</span>
+
+                 <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="imgs/arrow-up-blue.png">
+            </div>
+            <div class="swiper-slide">
+                <img class="ani five-img1" swiper-animate-effect="zoomInDown" swiper-animate-duration="1s" swiper-animate-delay="0.2s" src="imgs/180234JYxLzeRN.jpg">
+
+                <p class="ani five-p pleft" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1s">美梦</p>
+
+                <p class="ani five-p pright" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1s">时刻</p>
+
+                <!-- <div class="ani five-img3"></div> -->
+ 
+                <img class="ani five-img4" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1.5s" src="imgs/20161110140511441_real.jpg">
+
+                <p class="ani five-p11" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1s">记忆中的小时光</p>
+
+                <img class="ani five-img5" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="0.2s" src="imgs/20161110142252754_real.png">
+
+                <div class="five">
+                     <img class="ani five-img51" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="0.2s" src="imgs/180234LExCsTSo.jpg">
+
+                     <img class="ani five-img51" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="0.2s" src="imgs/180235TrheOVBz.jpg">
+
+                     <img class="ani five-img51" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="0.2s" src="imgs/180236TwPgfbVH.jpg">
+
+                     <img class="ani five-img51" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="0.2s" src="imgs/180236YmQUijeh.jpg">
+                </div>
+
+                <p class="ani five-p12" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1s">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ +SOFTWARE.</p>
+
+                 <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="2.2s" src="imgs/arrow-up-blue.png">
+            </div>
+           
+           
+            <div class="swiper-slide">
+                <img class="ani ten-img1" src="imgs/20161116082234167_real.png">
+
+                <img class="ani ten-img2" src="imgs/20161109133145445_real.png">
+
+                <img class="ani ten-img3" src="imgs/20161109133145445_real.png">
+
+                <img class="ani map" src="imgs/20161116082234451_real.png">
+                <div id="container" tabindex="0"></div>
+                <div id='panel'></div>
+
+
+
+                <img class="hello" src="imgs/20161109134550225_real.png">
+
+                 <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="imgs/arrow-up-blue.png">
+            </div>
+        </div>
+       <!--  <div class="swiper-pagination">
+             <img class="ani index-arrow infinite" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="0.5s" src="imgs/arrow-up-blue.png">
+        </div> -->
+    </div>
+
+    <script src="./swiper.js"></script>
+    <script src="./swiper.animate.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=39418e705aba53c4500edeb941869ceb"></script>
+    <script>
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: "vertical",
+            onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素 
+                swiperAnimate(swiper); //初始化完成开始动画
+            }, 
+            onSlideChangeEnd: function(swiper){ 
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            } 
+        }) 
+
+
+    //地图初始化时，在地图上添加一个marker标记,鼠标点击marker可弹出自定义的信息窗体
+    var map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [116.481181, 39.989792],
+        zoom: 16
+    });    
+    addMarker();
+    //添加marker标记
+    function addMarker() {
+        map.clearMap();
+        var marker = new AMap.Marker({
+            map: map,
+            position: [116.481181, 39.989792]
+        });
+        //鼠标点击marker弹出自定义的信息窗体
+        AMap.event.addListener(marker, 'click', function() {
+            infoWindow.open(map, marker.getPosition());
+        });
+    }
+
+    //实例化信息窗体
+    var title = '方恒假日酒店<span style="font-size:11px;color:#F00;">价格:318</span>',
+        content = [];
+    content.push("<img src='https://tpc.googlesyndication.com/simgad/5843493769827749134'>地址：北京市朝阳区阜通东大街6号院3号楼东北8.3公里");
+    content.push("电话：010-64733333");
+    content.push("<a href='https://ditu.amap.com/detail/B000A8URXB?citycode=110105'>详细信息</a>");
+    var infoWindow = new AMap.InfoWindow({
+        isCustom: true,  //使用自定义窗体
+        content: createInfoWindow(title, content.join("<br/>")),
+        offset: new AMap.Pixel(16, -45)
+    });
+
+    //构建自定义信息窗体
+    function createInfoWindow(title, content) {
+        var info = document.createElement("div");
+        info.className = "info";
+
+        //可以通过下面的方式修改自定义窗体的宽高
+        // info.style.width = "400px";
+        // 定义顶部标题
+        var top = document.createElement("div");
+        var titleD = document.createElement("div");
+        var closeX = document.createElement("img");
+        top.className = "info-top";
+        titleD.innerHTML = title;
+        closeX.src = "https://webapi.amap.com/images/close2.gif";
+        closeX.onclick = closeInfoWindow;
+
+        top.appendChild(titleD);
+        top.appendChild(closeX);
+        info.appendChild(top);
+
+        // 定义中部内容
+        var middle = document.createElement("div");
+        middle.className = "info-middle";
+        middle.style.backgroundColor = 'white';
+        middle.innerHTML = content;
+        info.appendChild(middle);
+
+        // 定义底部内容
+        var bottom = document.createElement("div");
+        bottom.className = "info-bottom";
+        bottom.style.position = 'relative';
+        bottom.style.top = '0px';
+        bottom.style.margin = '0 auto';
+        var sharp = document.createElement("img");
+        sharp.src = "https://webapi.amap.com/images/sharp.png";
+        bottom.appendChild(sharp);
+        info.appendChild(bottom);
+        return info;
+    }
+    //关闭信息窗体
+    function closeInfoWindow() {
+        map.clearInfoWindow();
+    }
+    </script>
+
+   <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+</body>
+</html>
